@@ -1,5 +1,7 @@
 """Conservative ticket-derived segment signal; Python standard library only."""
 import csv
+from difflib import SequenceMatcher
+from functools import lru_cache
 import json
 import re
 from collections import Counter, defaultdict
@@ -9,6 +11,24 @@ from pathlib import Path
 
 def normalize(value):
     return re.sub(r'[^a-z0-9]+', ' ', (value or '').lower()).strip()
+
+
+def parse_timestamp(value):
+    # Python 3.9 accepts only three or six fractional digits in fromisoformat.
+    # Pad shorter decimal fractions without changing their meaning.
+    value = re.sub(r"\.(\d{1,6})(?=Z|[+-]\d{2}:\d{2}$|$)",
+                   lambda match: "." + match.group(1).ljust(6, "0"), value)
+    if value.endswith('Z'):
+        value = value[:-1] + '+00:00'
+    return datetime.fromisoformat(value)
+
+
+def critical_tokens(value):
+    """Protect directional words and block identifiers from fuzzy substitution."""
+    text = normalize(value)
+    directions = frozenset(re.findall(r'\b(?:east|west|north|south)\b', text))
+    block = re.search(r'\b([a-z0-9]+)\s+block\b|\bblock\s+([a-z0-9]+)\b', text)
+    return directions, (block.group(1) or block.group(2)) if block else None
 
 
 def rows(path):
@@ -45,15 +65,63 @@ def match_segments(route, start, end, names, patterns):
     return next(iter(candidates)) if len(candidates) == 1 else None
 
 
-def build(tickets, gtfs, start_date, end_date, output):
+
+class StopMatcher:
+    """Route-scoped exact matching with an optional conservative fuzzy fallback."""
+    def __init__(self, names, patterns, fuzzy=False):
+        self.names, self.patterns, self.fuzzy = names, patterns, fuzzy
+        self.route_names = {}
+        for route, variants in patterns.items():
+            self.route_names[route] = sorted({normalize(names[s]) for p in variants for s in p})
+
+    @lru_cache(maxsize=200000)
+    def resolve(self, route, value):
+        candidates = self.route_names.get(route, ())
+        value = normalize(value)
+        if not value or value in ('null', 'none'):
+            return None, 'missing'
+        if value in candidates:
+            return value, 'exact'
+        if not self.fuzzy:
+            return None, 'unmatched'
+        ranked = sorted(((SequenceMatcher(None, value, candidate).ratio(), candidate)
+                         for candidate in candidates), reverse=True)
+        # A high score alone is insufficient when two different stops look alike.
+        if not ranked or ranked[0][0] < 0.90:
+            return None, 'unmatched'
+        if critical_tokens(value) != critical_tokens(ranked[0][1]):
+            return None, 'ambiguous'
+        if len(ranked) > 1 and ranked[0][0] - ranked[1][0] < 0.08:
+            return None, 'ambiguous'
+        return ranked[0][1], 'fuzzy'
+
+    @lru_cache(maxsize=200000)
+    def match(self, route, start, end):
+        route = normalize(route)
+        if route not in self.patterns:
+            return None, 'route_unmatched'
+        start, start_kind = self.resolve(route, start)
+        end, end_kind = self.resolve(route, end)
+        if start is None or end is None:
+            return None, 'stop_unmatched_or_ambiguous'
+        segments = match_segments(route, start, end, self.names, self.patterns)
+        if not segments:
+            return None, 'path_unmatched_or_ambiguous'
+        return segments, 'fuzzy' if 'fuzzy' in (start_kind, end_kind) else 'exact'
+
+def build(tickets, gtfs, start_date, end_date, output, fuzzy=False, segment_timing=False):
     start, end = date.fromisoformat(start_date), date.fromisoformat(end_date)
     if end < start:
         raise ValueError('end date must not precede start date')
     names, patterns = route_patterns(gtfs)
-    counts, quality, cache = Counter(), Counter(), {}
+    counts, quality = Counter(), Counter()
+    matcher = StopMatcher(names, patterns, fuzzy=fuzzy)
+    if segment_timing:
+        from timing import ScheduleOffsets
+        offsets = ScheduleOffsets(gtfs)
     for row in rows(tickets):
         try:
-            timestamp = datetime.fromisoformat(row['created_at'])
+            timestamp = parse_timestamp(row['created_at'])
             if timestamp.utcoffset() is None:
                 raise ValueError('timestamp must include an offset')
             # Ticket timestamps in this dataset are in IST. Normalize offsets before assigning the date.
@@ -69,18 +137,25 @@ def build(tickets, gtfs, start_date, end_date, output):
             continue
         quality['in_period'] += 1
         key = (row.get('route', ''), row.get('start_stop_name', ''), row.get('end_stop_name', ''))
-        if key not in cache:
-            cache[key] = match_segments(*key, names, patterns)
-        segments = cache[key]
+        segments, method = matcher.match(*key)
+        quality[method] += 1
         if not segments:
-            quality['unmatched_or_ambiguous'] += 1
             continue
         quality['matched'] += 1
-        day_type = 'weekend' if timestamp.weekday() >= 5 else 'weekday'
-        for a, b in segments:
-            counts[(normalize(key[0]), a, b, timestamp.date().isoformat(), timestamp.hour, day_type)] += passengers
-    result = {'definition': 'observed ticket-sample passenger journeys crossing a segment, grouped by ticket boarding hour',
-              'training_start': start_date, 'training_end': end_date, 'quality': dict(quality),
+        travel = offsets.offsets(key[0], segments) if segment_timing else (0,) * len(segments)
+        if travel is None:
+            quality['timing_unavailable'] += 1
+            continue
+        for (a, b), seconds in zip(segments, travel):
+            crossing = timestamp + timedelta(seconds=seconds)
+            # Do not leak post-training segment times into a training artifact.
+            if not start <= crossing.date() <= end:
+                quality['segment_outside_period'] += 1
+                continue
+            day_type = 'weekend' if crossing.weekday() >= 5 else 'weekday'
+            counts[(normalize(key[0]), a, b, crossing.date().isoformat(), crossing.hour, day_type)] += passengers
+    result = {'definition': ('ticket-sample passenger journeys by estimated segment crossing hour using median scheduled offset' if segment_timing else 'observed ticket-sample passenger journeys crossing a segment, grouped by ticket boarding hour'),
+              'training_start': start_date, 'training_end': end_date, 'fuzzy_enabled': fuzzy, 'segment_timing': segment_timing, 'quality': dict(quality),
               'records': [{'route': route, 'from_stop_id': a, 'to_stop_id': b, 'date': day,
                            'hour': hour, 'day_type': kind, 'passengers': value}
                           for (route, a, b, day, hour, kind), value in sorted(counts.items())]}
