@@ -1,0 +1,8 @@
+# Local data, generated models, and Python environments
+data/
+models/
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+.DS_Store
