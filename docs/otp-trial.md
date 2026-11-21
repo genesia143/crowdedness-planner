@@ -42,3 +42,9 @@ curl --get 'http://127.0.0.1:8000/journeys/mapped' \
 ```
 
 The API filters transfer walks after OTP returns candidates, then attaches V1 segment signals where the OTP trip and stop sequence match the source GTFS. Walking-only itineraries are excluded. The response includes the number of candidates and rejected bus journeys so filtering is visible. This endpoint is experimental: post-filtering can miss valid alternatives, coverage depends on the graph, and scanning stop times per request needs performance work. Arrival and departure walking are not capped by the transfer limit. The current small graph is a feasibility test, not full-city routing.
+
+## Full timetable experiment and timing
+
+A separate graph built successfully with the complete original GTFS feed and the same limited New Delhi OSM extract using a 5 GB Java heap. OTP reported 6,812 stops and 2,554 patterns, but also reported 926 stops not linked for transfers and 915 isolated stops; these counts are different issue categories and may overlap. This demonstrates that the full timetable can fit with the small map, not that all stops or journeys are routable. The earlier failure with the larger map therefore points to map size or its interaction with graph construction as a bottleneck; it does not isolate the exact cause. A full-timetable cross-city request returned 16 bus options in one experiment. Coverage and broader journey tests remain outstanding.
+
+The mapped endpoint returns each leg's scheduled duration and a timing summary for walking, bus riding, and waiting, including the gap from the requested departure. Waiting is calculated from gaps between scheduled leg end and start times. If times are missing or inconsistent, the aggregate is unavailable rather than guessed. These times are scheduled estimates and depend on map quality, walking speed, and service actually running.

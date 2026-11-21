@@ -7,7 +7,49 @@ from otp_adapter import annotate_v1, transfer_walks_within_limit
 
 QUERY = '''query($lat1:CoordinateValue!,$lon1:CoordinateValue!,$lat2:CoordinateValue!,$lon2:CoordinateValue!,$when:OffsetDateTime!) {
  planConnection(origin:{location:{coordinate:{latitude:$lat1,longitude:$lon1}}}, destination:{location:{coordinate:{latitude:$lat2,longitude:$lon2}}}, dateTime:{earliestDeparture:$when}, modes:{direct:[WALK],transit:{transit:[{mode:BUS}]}}) {
- edges { node { start end walkDistance numberOfTransfers legs { mode distance serviceDate start { scheduledTime } trip { gtfsId } intermediateStops { gtfsId } from { name lat lon stop { gtfsId } } to { name lat lon stop { gtfsId } } route { shortName gtfsId } } } } } }'''
+ edges { node { start end walkDistance numberOfTransfers legs { mode distance serviceDate start { scheduledTime } end { scheduledTime } trip { gtfsId } intermediateStops { gtfsId } from { name lat lon stop { gtfsId } } to { name lat lon stop { gtfsId } } route { shortName gtfsId } } } } } }'''
+
+
+
+def timing_breakdown(itinerary, requested):
+    """Report scheduled leg durations and gaps; preserve unknown timing as null."""
+    def parse(value):
+        try:
+            result = datetime.fromisoformat(value.replace('Z', '+00:00'))
+            return result if result.utcoffset() is not None else None
+        except (AttributeError, TypeError, ValueError):
+            return None
+    legs = itinerary.get('legs', [])
+    prior = requested
+    waits = []
+    walking = 0.0
+    riding = 0.0
+    valid = True
+    for leg in legs:
+        start = parse((leg.get('start') or {}).get('scheduledTime'))
+        end = parse((leg.get('end') or {}).get('scheduledTime'))
+        if start is None or end is None or end < start or prior is None or start < prior:
+            valid = False
+            prior = end
+            leg['duration_minutes'] = None
+            continue
+        gap = (start - prior).total_seconds() / 60
+        if gap:
+            waits.append({'before_mode': leg.get('mode'), 'minutes': gap})
+        duration = (end - start).total_seconds() / 60
+        leg['duration_minutes'] = duration
+        if leg.get('mode') == 'WALK': walking += duration
+        elif leg.get('mode') == 'BUS': riding += duration
+        else: valid = False
+        prior = end
+    itinerary['timing_summary'] = {
+        'walking_minutes': walking if valid else None,
+        'bus_minutes': riding if valid else None,
+        'waiting_minutes': sum(x['minutes'] for x in waits) if valid else None,
+        'waiting_periods': waits,
+        'status': 'available' if valid else 'incomplete or inconsistent leg times',
+        'basis': 'Scheduled times, including waiting from requested departure; not live predictions.'
+    }
 
 
 def plan(endpoint, gtfs, database, lat1, lon1, lat2, lon2, departure, max_transfer_walk=1000):
@@ -30,6 +72,8 @@ def plan(endpoint, gtfs, database, lat1, lon1, lat2, lon2, departure, max_transf
     candidates = [edge['node'] for edge in data['data']['planConnection']['edges']]
     bus = [item for item in candidates if any(leg.get('mode') == 'BUS' for leg in item.get('legs', []))]
     accepted = [item for item in bus if transfer_walks_within_limit(item['legs'], limit)]
+    for item in accepted:
+        timing_breakdown(item, when)
     if accepted:
         # Scan the GTFS stop-times file once for all returned itineraries.
         annotate_v1({'legs': [leg for item in accepted for leg in item['legs']]}, gtfs, database)

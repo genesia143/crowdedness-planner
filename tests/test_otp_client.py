@@ -5,7 +5,8 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
-from otp_client import plan
+from otp_client import plan, timing_breakdown
+from datetime import datetime
 
 class OtpClientTests(unittest.TestCase):
     @patch('otp_client.annotate_v1')
@@ -19,6 +20,17 @@ class OtpClientTests(unittest.TestCase):
         self.assertEqual(len(result['journeys']),1)
         self.assertEqual(result['excluded_bus_candidates'],1)
         annotate.assert_called_once()
+
+    def test_walking_and_waiting_breakdown(self):
+        def leg(mode, start, end):
+            return {'mode':mode, 'start':{'scheduledTime':'2026-10-22T'+start+'+05:30'}, 'end':{'scheduledTime':'2026-10-22T'+end+'+05:30'}}
+        journey = {'legs':[leg('BUS','08:05:00','08:20:00'), leg('WALK','08:20:00','08:27:00'), leg('BUS','08:35:00','08:50:00')]}
+        timing_breakdown(journey, datetime.fromisoformat('2026-10-22T08:00:00+05:30'))
+        summary=journey['timing_summary']
+        self.assertEqual(summary['walking_minutes'],7)
+        self.assertEqual(summary['bus_minutes'],30)
+        self.assertEqual(summary['waiting_minutes'],13)
+        self.assertEqual(summary['status'],'available')
 
     def test_rejects_invalid_inputs(self):
         with self.assertRaises(ValueError):
