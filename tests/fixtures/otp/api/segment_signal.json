@@ -1,0 +1,68 @@
+{
+  "status": 200,
+  "body": {
+    "status": "available",
+    "scheduled_service_proxy": {
+      "sample_passengers_per_scheduled_crossing": 0.375,
+      "matched_days": 10,
+      "sample_passengers": 15,
+      "scheduled_crossings": 40,
+      "days_without_matching_schedule": 0,
+      "limitation": "Only days with matched ticket observations and scheduled crossings. Timing depends on the training method; scheduled service may differ from actual service."
+    },
+    "all_scheduled_days_proxy": {
+      "sample_passengers_per_scheduled_crossing": 0.25,
+      "sample_passengers": 15,
+      "scheduled_days": 15,
+      "scheduled_crossings": 60,
+      "observed_days_with_schedule": 10,
+      "days_without_matching_schedule": 0,
+      "assumption": "Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value."
+    },
+    "relative_crowding": {
+      "label": "typical",
+      "provisional": true,
+      "comparison": "same route, directed segment and day type across hours",
+      "relative_percentile": 0.5,
+      "reference_hours": 3,
+      "limitation": "Ticket-sample pressure per scheduled crossing; not actual crowding, occupancy, or a cross-route comparison. Thresholds are not yet validated; Saturday and Sunday use at most three training days, and Sunday has no tuning evidence."
+    },
+    "schedule_alignment": {
+      "matched_sample_passenger_segments": 15,
+      "included_with_same_hour_service": 15,
+      "excluded_without_same_hour_service": 0,
+      "excluded_sample_fraction": 0.0,
+      "days_with_unmatched_service": 0,
+      "interpretation": "Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders."
+    },
+    "sample_passengers_per_observed_day": 1.5,
+    "observed_days": 10,
+    "definition": "Mean ticket-sample passenger crossings on days with at least one matched ticket. Not occupancy or per-bus load. Timing: observed ticket-sample passenger journeys crossing a segment, grouped by ticket boarding hour",
+    "day_type": "weekday",
+    "hour_ist": 8,
+    "training": {
+      "training_start": "2026-10-01",
+      "training_end": "2026-10-21",
+      "definition": "observed ticket-sample passenger journeys crossing a segment, grouped by ticket boarding hour",
+      "quality": {
+        "in_period": 1672406,
+        "exact": 835495,
+        "matched": 916872,
+        "stop_unmatched_or_ambiguous": 739998,
+        "reviewed": 81377,
+        "path_unmatched_or_ambiguous": 15312,
+        "route_unmatched": 224
+      },
+      "day_type_scheme": "weekday_saturday_sunday_v1"
+    }
+  },
+  "request": {
+    "path": "/segments/signal",
+    "params": {
+      "route": "213DOWN",
+      "from_stop_id": "936",
+      "to_stop_id": "4821",
+      "departure": "2026-10-22T08:30:00+05:30"
+    }
+  }
+}

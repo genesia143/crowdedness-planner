@@ -1,0 +1,16 @@
+{
+  "status": 400,
+  "body": {
+    "error": "departure must include a timezone offset"
+  },
+  "request": {
+    "path": "/journeys/mapped",
+    "params": {
+      "from_lat": 28.6,
+      "from_lon": 77.2,
+      "to_lat": 28.5,
+      "to_lon": 77.2,
+      "departure": "2026-10-22T09:00:00"
+    }
+  }
+}

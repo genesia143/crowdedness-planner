@@ -1,0 +1,208 @@
+{
+  "data": {
+    "planConnection": {
+      "edges": [
+        {
+          "node": {
+            "start": "2026-10-22T03:55:29+05:30",
+            "end": "2026-10-22T05:03:26+05:30",
+            "walkDistance": 339.39,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 339.39,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T03:55:29+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T04:00:00+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.668198,
+                  "lon": 77.229219,
+                  "stop": null
+                },
+                "to": {
+                  "name": "ISBT Kashmere Gate Terminal",
+                  "lat": 28.66696,
+                  "lon": 77.227456,
+                  "stop": {
+                    "gtfsId": "1:4109"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 14196.3,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T04:00:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T04:43:29+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1914_04_00"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:872"
+                  },
+                  {
+                    "gtfsId": "1:7596"
+                  },
+                  {
+                    "gtfsId": "1:333"
+                  },
+                  {
+                    "gtfsId": "1:334"
+                  },
+                  {
+                    "gtfsId": "1:1826"
+                  },
+                  {
+                    "gtfsId": "1:4824"
+                  },
+                  {
+                    "gtfsId": "1:336"
+                  },
+                  {
+                    "gtfsId": "1:4879"
+                  },
+                  {
+                    "gtfsId": "1:338"
+                  },
+                  {
+                    "gtfsId": "1:6036"
+                  },
+                  {
+                    "gtfsId": "1:4266"
+                  },
+                  {
+                    "gtfsId": "1:1368"
+                  },
+                  {
+                    "gtfsId": "1:1361"
+                  },
+                  {
+                    "gtfsId": "1:2139"
+                  },
+                  {
+                    "gtfsId": "1:2620"
+                  },
+                  {
+                    "gtfsId": "1:4922"
+                  },
+                  {
+                    "gtfsId": "1:7767"
+                  },
+                  {
+                    "gtfsId": "1:1373"
+                  },
+                  {
+                    "gtfsId": "1:2140"
+                  },
+                  {
+                    "gtfsId": "1:2757"
+                  },
+                  {
+                    "gtfsId": "1:2791"
+                  },
+                  {
+                    "gtfsId": "1:2759"
+                  },
+                  {
+                    "gtfsId": "1:7952"
+                  }
+                ],
+                "from": {
+                  "name": "ISBT Kashmere Gate Terminal",
+                  "lat": 28.66696,
+                  "lon": 77.227456,
+                  "stop": {
+                    "gtfsId": "1:4109"
+                  }
+                },
+                "to": {
+                  "name": "Central School (MCKR)",
+                  "lat": 28.562727,
+                  "lon": 77.232815,
+                  "stop": {
+                    "gtfsId": "1:7937"
+                  }
+                },
+                "route": {
+                  "shortName": "419UP",
+                  "gtfsId": "1:1914"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 3492.69,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T04:52:57+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T05:03:26+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2796_04_41"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:8354"
+                  },
+                  {
+                    "gtfsId": "1:7938"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  },
+                  {
+                    "gtfsId": "1:2559"
+                  },
+                  {
+                    "gtfsId": "1:6054"
+                  }
+                ],
+                "from": {
+                  "name": "Central School (MCKR)",
+                  "lat": 28.562727,
+                  "lon": 77.232815,
+                  "stop": {
+                    "gtfsId": "1:7937"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place Terminal",
+                  "lat": 28.5487002,
+                  "lon": 77.2569812,
+                  "stop": {
+                    "gtfsId": "1:2560"
+                  }
+                },
+                "route": {
+                  "shortName": "D-056STLUP",
+                  "gtfsId": "1:2796"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

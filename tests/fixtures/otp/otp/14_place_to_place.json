@@ -1,0 +1,6148 @@
+{
+  "data": {
+    "planConnection": {
+      "edges": [
+        {
+          "node": {
+            "start": "2026-10-22T10:02:37+05:30",
+            "end": "2026-10-22T10:57:32+05:30",
+            "walkDistance": 771.76,
+            "numberOfTransfers": 2,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 497.04,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:02:37+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:09:02+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Baroda House",
+                  "lat": 28.615873,
+                  "lon": 77.230165,
+                  "stop": {
+                    "gtfsId": "1:1340"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 4840.45,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:09:02+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:23:27+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1962_09_45"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:1341"
+                  },
+                  {
+                    "gtfsId": "1:1342"
+                  },
+                  {
+                    "gtfsId": "1:1588"
+                  },
+                  {
+                    "gtfsId": "1:4931"
+                  },
+                  {
+                    "gtfsId": "1:1589"
+                  },
+                  {
+                    "gtfsId": "1:1590"
+                  },
+                  {
+                    "gtfsId": "1:1592"
+                  },
+                  {
+                    "gtfsId": "1:1593"
+                  },
+                  {
+                    "gtfsId": "1:1594"
+                  }
+                ],
+                "from": {
+                  "name": "Baroda House",
+                  "lat": 28.615873,
+                  "lon": 77.230165,
+                  "stop": {
+                    "gtfsId": "1:1340"
+                  }
+                },
+                "to": {
+                  "name": "J L Nehru Stadium",
+                  "lat": 28.5841,
+                  "lon": 77.2301,
+                  "stop": {
+                    "gtfsId": "1:2551"
+                  }
+                },
+                "route": {
+                  "shortName": "450UP",
+                  "gtfsId": "1:1962"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 5956.25,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:25:50+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:43:52+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2031_09_28"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2552"
+                  },
+                  {
+                    "gtfsId": "1:2553"
+                  },
+                  {
+                    "gtfsId": "1:2554"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:7954"
+                  },
+                  {
+                    "gtfsId": "1:7955"
+                  }
+                ],
+                "from": {
+                  "name": "J L Nehru Stadium",
+                  "lat": 28.5841,
+                  "lon": 77.2301,
+                  "stop": {
+                    "gtfsId": "1:2551"
+                  }
+                },
+                "to": {
+                  "name": "Chirag Delhi",
+                  "lat": 28.538981,
+                  "lon": 77.232304,
+                  "stop": {
+                    "gtfsId": "1:7957"
+                  }
+                },
+                "route": {
+                  "shortName": "522DOWN",
+                  "gtfsId": "1:2031"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 2079.45,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:47:11+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:53:59+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2045_09_40"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7958"
+                  },
+                  {
+                    "gtfsId": "1:3169"
+                  },
+                  {
+                    "gtfsId": "1:2900"
+                  },
+                  {
+                    "gtfsId": "1:2901"
+                  }
+                ],
+                "from": {
+                  "name": "Chirag Delhi",
+                  "lat": 28.538981,
+                  "lon": 77.232304,
+                  "stop": {
+                    "gtfsId": "1:7957"
+                  }
+                },
+                "to": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "route": {
+                  "shortName": "534AUP",
+                  "gtfsId": "1:2045"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 274.72,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:53:59+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:57:32+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:01:43+05:30",
+            "end": "2026-10-22T11:05:42+05:30",
+            "walkDistance": 1548.5500000000002,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 708.87,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:01:43+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:10:49+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 9705.03,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:10:49+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:39:42+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1835_09_35"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4931"
+                  },
+                  {
+                    "gtfsId": "1:1589"
+                  },
+                  {
+                    "gtfsId": "1:1590"
+                  },
+                  {
+                    "gtfsId": "1:1592"
+                  },
+                  {
+                    "gtfsId": "1:1593"
+                  },
+                  {
+                    "gtfsId": "1:2429"
+                  },
+                  {
+                    "gtfsId": "1:2396"
+                  },
+                  {
+                    "gtfsId": "1:2397"
+                  },
+                  {
+                    "gtfsId": "1:6157"
+                  },
+                  {
+                    "gtfsId": "1:2398"
+                  },
+                  {
+                    "gtfsId": "1:2399"
+                  },
+                  {
+                    "gtfsId": "1:3004"
+                  },
+                  {
+                    "gtfsId": "1:3005"
+                  },
+                  {
+                    "gtfsId": "1:3006"
+                  },
+                  {
+                    "gtfsId": "1:3007"
+                  },
+                  {
+                    "gtfsId": "1:3008"
+                  }
+                ],
+                "from": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "to": {
+                  "name": "Hauz Khas Terminal",
+                  "lat": 28.543389,
+                  "lon": 77.20754,
+                  "stop": {
+                    "gtfsId": "1:2378"
+                  }
+                },
+                "route": {
+                  "shortName": "344DOWN",
+                  "gtfsId": "1:1835"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 225.31,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:39:42+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:42:34+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Hauz Khas Terminal",
+                  "lat": 28.543389,
+                  "lon": 77.20754,
+                  "stop": {
+                    "gtfsId": "1:2378"
+                  }
+                },
+                "to": {
+                  "name": "Bhavishya Nidhi Enclave",
+                  "lat": 28.5428,
+                  "lon": 77.209567,
+                  "stop": {
+                    "gtfsId": "1:2726"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 4253.92,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:45:02+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:57:45+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2869_09_50"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2727"
+                  },
+                  {
+                    "gtfsId": "1:2728"
+                  },
+                  {
+                    "gtfsId": "1:2729"
+                  },
+                  {
+                    "gtfsId": "1:2730"
+                  },
+                  {
+                    "gtfsId": "1:2956"
+                  },
+                  {
+                    "gtfsId": "1:2957"
+                  },
+                  {
+                    "gtfsId": "1:2958"
+                  },
+                  {
+                    "gtfsId": "1:2959"
+                  },
+                  {
+                    "gtfsId": "1:2960"
+                  }
+                ],
+                "from": {
+                  "name": "Bhavishya Nidhi Enclave",
+                  "lat": 28.5428,
+                  "lon": 77.209567,
+                  "stop": {
+                    "gtfsId": "1:2726"
+                  }
+                },
+                "to": {
+                  "name": "Khirki Village",
+                  "lat": 28.530183,
+                  "lon": 77.21835,
+                  "stop": {
+                    "gtfsId": "1:2961"
+                  }
+                },
+                "route": {
+                  "shortName": "CBD CIRCULATOR-3 (-) DOWN",
+                  "gtfsId": "1:2869"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 614.37,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:57:45+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:05:42+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Khirki Village",
+                  "lat": 28.530183,
+                  "lon": 77.21835,
+                  "stop": {
+                    "gtfsId": "1:2961"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:08:59+05:30",
+            "end": "2026-10-22T11:05:53+05:30",
+            "walkDistance": 1289.6599999999999,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 708.87,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:08:59+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:18:05+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 8999.14,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:18:05+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:47:45+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1996_09_50"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4931"
+                  },
+                  {
+                    "gtfsId": "1:3001"
+                  },
+                  {
+                    "gtfsId": "1:3002"
+                  },
+                  {
+                    "gtfsId": "1:3003"
+                  },
+                  {
+                    "gtfsId": "1:2396"
+                  },
+                  {
+                    "gtfsId": "1:2397"
+                  },
+                  {
+                    "gtfsId": "1:2398"
+                  },
+                  {
+                    "gtfsId": "1:2399"
+                  },
+                  {
+                    "gtfsId": "1:3004"
+                  },
+                  {
+                    "gtfsId": "1:3005"
+                  },
+                  {
+                    "gtfsId": "1:3006"
+                  },
+                  {
+                    "gtfsId": "1:3007"
+                  },
+                  {
+                    "gtfsId": "1:3008"
+                  },
+                  {
+                    "gtfsId": "1:3009"
+                  },
+                  {
+                    "gtfsId": "1:2381"
+                  },
+                  {
+                    "gtfsId": "1:3075"
+                  }
+                ],
+                "from": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "to": {
+                  "name": "MMTC / Adhchini Village",
+                  "lat": 28.534567,
+                  "lon": 77.196836,
+                  "stop": {
+                    "gtfsId": "1:2383"
+                  }
+                },
+                "route": {
+                  "shortName": "502UP",
+                  "gtfsId": "1:1996"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 2478.39,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:50:53+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:58:27+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:585_09_39"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4935"
+                  },
+                  {
+                    "gtfsId": "1:2718"
+                  },
+                  {
+                    "gtfsId": "1:2956"
+                  },
+                  {
+                    "gtfsId": "1:2957"
+                  },
+                  {
+                    "gtfsId": "1:2958"
+                  },
+                  {
+                    "gtfsId": "1:2959"
+                  }
+                ],
+                "from": {
+                  "name": "MMTC / Adhchini Village",
+                  "lat": 28.534567,
+                  "lon": 77.196836,
+                  "stop": {
+                    "gtfsId": "1:2383"
+                  }
+                },
+                "to": {
+                  "name": "Saket M Block",
+                  "lat": 28.528662,
+                  "lon": 77.215094,
+                  "stop": {
+                    "gtfsId": "1:8034"
+                  }
+                },
+                "route": {
+                  "shortName": "546UP",
+                  "gtfsId": "1:585"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 580.79,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:58:27+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:05:53+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Saket M Block",
+                  "lat": 28.528662,
+                  "lon": 77.215094,
+                  "stop": {
+                    "gtfsId": "1:8034"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:16:05+05:30",
+            "end": "2026-10-22T11:09:09+05:30",
+            "walkDistance": 983.59,
+            "numberOfTransfers": 2,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 708.87,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:16:05+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:25:11+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 3176.14,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:25:11+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:34:42+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2141_09_40"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4931"
+                  },
+                  {
+                    "gtfsId": "1:1589"
+                  },
+                  {
+                    "gtfsId": "1:1590"
+                  },
+                  {
+                    "gtfsId": "1:1592"
+                  },
+                  {
+                    "gtfsId": "1:1593"
+                  },
+                  {
+                    "gtfsId": "1:1594"
+                  }
+                ],
+                "from": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "to": {
+                  "name": "J L Nehru Stadium",
+                  "lat": 28.5841,
+                  "lon": 77.2301,
+                  "stop": {
+                    "gtfsId": "1:2551"
+                  }
+                },
+                "route": {
+                  "shortName": "623UP",
+                  "gtfsId": "1:2141"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 5956.25,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:37:50+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:55:52+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2031_09_40"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2552"
+                  },
+                  {
+                    "gtfsId": "1:2553"
+                  },
+                  {
+                    "gtfsId": "1:2554"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:7954"
+                  },
+                  {
+                    "gtfsId": "1:7955"
+                  }
+                ],
+                "from": {
+                  "name": "J L Nehru Stadium",
+                  "lat": 28.5841,
+                  "lon": 77.2301,
+                  "stop": {
+                    "gtfsId": "1:2551"
+                  }
+                },
+                "to": {
+                  "name": "Chirag Delhi",
+                  "lat": 28.538981,
+                  "lon": 77.232304,
+                  "stop": {
+                    "gtfsId": "1:7957"
+                  }
+                },
+                "route": {
+                  "shortName": "522DOWN",
+                  "gtfsId": "1:2031"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 2079.45,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:58:49+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:05:36+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1918_10_50"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7958"
+                  },
+                  {
+                    "gtfsId": "1:3169"
+                  },
+                  {
+                    "gtfsId": "1:2900"
+                  },
+                  {
+                    "gtfsId": "1:2901"
+                  }
+                ],
+                "from": {
+                  "name": "Chirag Delhi",
+                  "lat": 28.538981,
+                  "lon": 77.232304,
+                  "stop": {
+                    "gtfsId": "1:7957"
+                  }
+                },
+                "to": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "route": {
+                  "shortName": "424UP",
+                  "gtfsId": "1:1918"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 274.72,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:05:36+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:09:09+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:14:18+05:30",
+            "end": "2026-10-22T11:11:29+05:30",
+            "walkDistance": 1289.6599999999999,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 708.87,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:14:18+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:23:24+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 8999.14,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:23:24+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:53:03+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1475_10_00"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4931"
+                  },
+                  {
+                    "gtfsId": "1:3001"
+                  },
+                  {
+                    "gtfsId": "1:3002"
+                  },
+                  {
+                    "gtfsId": "1:3003"
+                  },
+                  {
+                    "gtfsId": "1:2396"
+                  },
+                  {
+                    "gtfsId": "1:2397"
+                  },
+                  {
+                    "gtfsId": "1:2398"
+                  },
+                  {
+                    "gtfsId": "1:2399"
+                  },
+                  {
+                    "gtfsId": "1:3004"
+                  },
+                  {
+                    "gtfsId": "1:3005"
+                  },
+                  {
+                    "gtfsId": "1:3006"
+                  },
+                  {
+                    "gtfsId": "1:3007"
+                  },
+                  {
+                    "gtfsId": "1:3008"
+                  },
+                  {
+                    "gtfsId": "1:3009"
+                  },
+                  {
+                    "gtfsId": "1:2381"
+                  },
+                  {
+                    "gtfsId": "1:3075"
+                  }
+                ],
+                "from": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "to": {
+                  "name": "MMTC / Adhchini Village",
+                  "lat": 28.534567,
+                  "lon": 77.196836,
+                  "stop": {
+                    "gtfsId": "1:2383"
+                  }
+                },
+                "route": {
+                  "shortName": "0502(NS)UP",
+                  "gtfsId": "1:1475"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 2478.4,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:55:49+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:04:03+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2717_07_22"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4935"
+                  },
+                  {
+                    "gtfsId": "1:2956"
+                  },
+                  {
+                    "gtfsId": "1:2957"
+                  },
+                  {
+                    "gtfsId": "1:2958"
+                  },
+                  {
+                    "gtfsId": "1:2959"
+                  },
+                  {
+                    "gtfsId": "1:2960"
+                  }
+                ],
+                "from": {
+                  "name": "MMTC / Adhchini Village",
+                  "lat": 28.534567,
+                  "lon": 77.196836,
+                  "stop": {
+                    "gtfsId": "1:2383"
+                  }
+                },
+                "to": {
+                  "name": "Saket M Block",
+                  "lat": 28.528662,
+                  "lon": 77.215094,
+                  "stop": {
+                    "gtfsId": "1:8034"
+                  }
+                },
+                "route": {
+                  "shortName": "OMS(-)DOWN",
+                  "gtfsId": "1:2717"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 580.79,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:04:03+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:11:29+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Saket M Block",
+                  "lat": 28.528662,
+                  "lon": 77.215094,
+                  "stop": {
+                    "gtfsId": "1:8034"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:15:52+05:30",
+            "end": "2026-10-22T11:13:02+05:30",
+            "walkDistance": 907.78,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 497.04,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:15:52+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:22:17+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Baroda House",
+                  "lat": 28.615873,
+                  "lon": 77.230165,
+                  "stop": {
+                    "gtfsId": "1:1340"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 14646.97,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:22:17+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:07:39+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:515_10_02"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:1341"
+                  },
+                  {
+                    "gtfsId": "1:1342"
+                  },
+                  {
+                    "gtfsId": "1:1588"
+                  },
+                  {
+                    "gtfsId": "1:4931"
+                  },
+                  {
+                    "gtfsId": "1:1589"
+                  },
+                  {
+                    "gtfsId": "1:1590"
+                  },
+                  {
+                    "gtfsId": "1:1591"
+                  },
+                  {
+                    "gtfsId": "1:1592"
+                  },
+                  {
+                    "gtfsId": "1:1593"
+                  },
+                  {
+                    "gtfsId": "1:1594"
+                  },
+                  {
+                    "gtfsId": "1:2551"
+                  },
+                  {
+                    "gtfsId": "1:2552"
+                  },
+                  {
+                    "gtfsId": "1:6403"
+                  },
+                  {
+                    "gtfsId": "1:2553"
+                  },
+                  {
+                    "gtfsId": "1:2554"
+                  },
+                  {
+                    "gtfsId": "1:2370"
+                  },
+                  {
+                    "gtfsId": "1:2371"
+                  },
+                  {
+                    "gtfsId": "1:2372"
+                  },
+                  {
+                    "gtfsId": "1:2373"
+                  },
+                  {
+                    "gtfsId": "1:2374"
+                  },
+                  {
+                    "gtfsId": "1:2375"
+                  },
+                  {
+                    "gtfsId": "1:2376"
+                  },
+                  {
+                    "gtfsId": "1:2377"
+                  },
+                  {
+                    "gtfsId": "1:2726"
+                  },
+                  {
+                    "gtfsId": "1:2727"
+                  },
+                  {
+                    "gtfsId": "1:2728"
+                  },
+                  {
+                    "gtfsId": "1:2729"
+                  },
+                  {
+                    "gtfsId": "1:2730"
+                  },
+                  {
+                    "gtfsId": "1:2956"
+                  },
+                  {
+                    "gtfsId": "1:2957"
+                  },
+                  {
+                    "gtfsId": "1:2958"
+                  },
+                  {
+                    "gtfsId": "1:2959"
+                  },
+                  {
+                    "gtfsId": "1:2960"
+                  },
+                  {
+                    "gtfsId": "1:2961"
+                  }
+                ],
+                "from": {
+                  "name": "Baroda House",
+                  "lat": 28.615873,
+                  "lon": 77.230165,
+                  "stop": {
+                    "gtfsId": "1:1340"
+                  }
+                },
+                "to": {
+                  "name": "SAKET COURT",
+                  "lat": 28.5307698,
+                  "lon": 77.2208673,
+                  "stop": {
+                    "gtfsId": "1:10197"
+                  }
+                },
+                "route": {
+                  "shortName": "456UP",
+                  "gtfsId": "1:515"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 410.74,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:07:39+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:13:02+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "SAKET COURT",
+                  "lat": 28.5307698,
+                  "lon": 77.2208673,
+                  "stop": {
+                    "gtfsId": "1:10197"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:26:05+05:30",
+            "end": "2026-10-22T11:18:40+05:30",
+            "walkDistance": 983.59,
+            "numberOfTransfers": 2,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 708.87,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:26:05+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:35:11+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 3176.14,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:35:11+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:44:42+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2141_09_50"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4931"
+                  },
+                  {
+                    "gtfsId": "1:1589"
+                  },
+                  {
+                    "gtfsId": "1:1590"
+                  },
+                  {
+                    "gtfsId": "1:1592"
+                  },
+                  {
+                    "gtfsId": "1:1593"
+                  },
+                  {
+                    "gtfsId": "1:1594"
+                  }
+                ],
+                "from": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "to": {
+                  "name": "J L Nehru Stadium",
+                  "lat": 28.5841,
+                  "lon": 77.2301,
+                  "stop": {
+                    "gtfsId": "1:2551"
+                  }
+                },
+                "route": {
+                  "shortName": "623UP",
+                  "gtfsId": "1:2141"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 5956.25,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:47:50+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:05:52+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2031_09_50"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2552"
+                  },
+                  {
+                    "gtfsId": "1:2553"
+                  },
+                  {
+                    "gtfsId": "1:2554"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:7954"
+                  },
+                  {
+                    "gtfsId": "1:7955"
+                  }
+                ],
+                "from": {
+                  "name": "J L Nehru Stadium",
+                  "lat": 28.5841,
+                  "lon": 77.2301,
+                  "stop": {
+                    "gtfsId": "1:2551"
+                  }
+                },
+                "to": {
+                  "name": "Chirag Delhi",
+                  "lat": 28.538981,
+                  "lon": 77.232304,
+                  "stop": {
+                    "gtfsId": "1:7957"
+                  }
+                },
+                "route": {
+                  "shortName": "522DOWN",
+                  "gtfsId": "1:2031"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 2079.45,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:08:19+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:15:07+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1926_11_00"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7958"
+                  },
+                  {
+                    "gtfsId": "1:3169"
+                  },
+                  {
+                    "gtfsId": "1:2900"
+                  },
+                  {
+                    "gtfsId": "1:2901"
+                  }
+                ],
+                "from": {
+                  "name": "Chirag Delhi",
+                  "lat": 28.538981,
+                  "lon": 77.232304,
+                  "stop": {
+                    "gtfsId": "1:7957"
+                  }
+                },
+                "to": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "route": {
+                  "shortName": "428UP",
+                  "gtfsId": "1:1926"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 274.72,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:15:07+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:18:40+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:24:37+05:30",
+            "end": "2026-10-22T11:21:31+05:30",
+            "walkDistance": 1447.58,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 923.12,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:24:37+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:36:40+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "National Gallery Of Modern Art",
+                  "lat": 28.610409,
+                  "lon": 77.23348,
+                  "stop": {
+                    "gtfsId": "1:1342"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 12788.24,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:36:40+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:14:44+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:3464_10_35"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:1361"
+                  },
+                  {
+                    "gtfsId": "1:2139"
+                  },
+                  {
+                    "gtfsId": "1:2620"
+                  },
+                  {
+                    "gtfsId": "1:4922"
+                  },
+                  {
+                    "gtfsId": "1:7767"
+                  },
+                  {
+                    "gtfsId": "1:1373"
+                  },
+                  {
+                    "gtfsId": "1:2140"
+                  },
+                  {
+                    "gtfsId": "1:6021"
+                  },
+                  {
+                    "gtfsId": "1:2757"
+                  },
+                  {
+                    "gtfsId": "1:2791"
+                  },
+                  {
+                    "gtfsId": "1:2759"
+                  },
+                  {
+                    "gtfsId": "1:7952"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:7953"
+                  },
+                  {
+                    "gtfsId": "1:7954"
+                  },
+                  {
+                    "gtfsId": "1:7955"
+                  },
+                  {
+                    "gtfsId": "1:7956"
+                  },
+                  {
+                    "gtfsId": "1:7957"
+                  },
+                  {
+                    "gtfsId": "1:7958"
+                  },
+                  {
+                    "gtfsId": "1:2900"
+                  },
+                  {
+                    "gtfsId": "1:2901"
+                  }
+                ],
+                "from": {
+                  "name": "National Gallery Of Modern Art",
+                  "lat": 28.610409,
+                  "lon": 77.23348,
+                  "stop": {
+                    "gtfsId": "1:1342"
+                  }
+                },
+                "to": {
+                  "name": "Saket Court",
+                  "lat": 28.5293913,
+                  "lon": 77.2211458,
+                  "stop": {
+                    "gtfsId": "1:9907"
+                  }
+                },
+                "route": {
+                  "shortName": "501AUP",
+                  "gtfsId": "1:3464"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 524.46,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:14:44+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:21:31+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Saket Court",
+                  "lat": 28.5293913,
+                  "lon": 77.2211458,
+                  "stop": {
+                    "gtfsId": "1:9907"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:28:59+05:30",
+            "end": "2026-10-22T11:27:29+05:30",
+            "walkDistance": 1289.6599999999999,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 708.87,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:28:59+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:38:05+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 8999.14,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:38:05+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:07:45+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1996_10_10"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4931"
+                  },
+                  {
+                    "gtfsId": "1:3001"
+                  },
+                  {
+                    "gtfsId": "1:3002"
+                  },
+                  {
+                    "gtfsId": "1:3003"
+                  },
+                  {
+                    "gtfsId": "1:2396"
+                  },
+                  {
+                    "gtfsId": "1:2397"
+                  },
+                  {
+                    "gtfsId": "1:2398"
+                  },
+                  {
+                    "gtfsId": "1:2399"
+                  },
+                  {
+                    "gtfsId": "1:3004"
+                  },
+                  {
+                    "gtfsId": "1:3005"
+                  },
+                  {
+                    "gtfsId": "1:3006"
+                  },
+                  {
+                    "gtfsId": "1:3007"
+                  },
+                  {
+                    "gtfsId": "1:3008"
+                  },
+                  {
+                    "gtfsId": "1:3009"
+                  },
+                  {
+                    "gtfsId": "1:2381"
+                  },
+                  {
+                    "gtfsId": "1:3075"
+                  }
+                ],
+                "from": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "to": {
+                  "name": "MMTC / Adhchini Village",
+                  "lat": 28.534567,
+                  "lon": 77.196836,
+                  "stop": {
+                    "gtfsId": "1:2383"
+                  }
+                },
+                "route": {
+                  "shortName": "502UP",
+                  "gtfsId": "1:1996"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 2478.4,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:11:49+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:20:03+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2717_07_38"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4935"
+                  },
+                  {
+                    "gtfsId": "1:2956"
+                  },
+                  {
+                    "gtfsId": "1:2957"
+                  },
+                  {
+                    "gtfsId": "1:2958"
+                  },
+                  {
+                    "gtfsId": "1:2959"
+                  },
+                  {
+                    "gtfsId": "1:2960"
+                  }
+                ],
+                "from": {
+                  "name": "MMTC / Adhchini Village",
+                  "lat": 28.534567,
+                  "lon": 77.196836,
+                  "stop": {
+                    "gtfsId": "1:2383"
+                  }
+                },
+                "to": {
+                  "name": "Saket M Block",
+                  "lat": 28.528662,
+                  "lon": 77.215094,
+                  "stop": {
+                    "gtfsId": "1:8034"
+                  }
+                },
+                "route": {
+                  "shortName": "OMS(-)DOWN",
+                  "gtfsId": "1:2717"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 580.79,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:20:03+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:27:29+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Saket M Block",
+                  "lat": 28.528662,
+                  "lon": 77.215094,
+                  "stop": {
+                    "gtfsId": "1:8034"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:35:50+05:30",
+            "end": "2026-10-22T11:33:40+05:30",
+            "walkDistance": 771.76,
+            "numberOfTransfers": 2,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 497.04,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:35:50+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:42:15+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Baroda House",
+                  "lat": 28.615873,
+                  "lon": 77.230165,
+                  "stop": {
+                    "gtfsId": "1:1340"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 3201.87,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:42:15+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:46:39+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2510_09_32"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:1341"
+                  },
+                  {
+                    "gtfsId": "1:4356"
+                  }
+                ],
+                "from": {
+                  "name": "Baroda House",
+                  "lat": 28.615873,
+                  "lon": 77.230165,
+                  "stop": {
+                    "gtfsId": "1:1340"
+                  }
+                },
+                "to": {
+                  "name": "Zoo",
+                  "lat": 28.608422,
+                  "lon": 77.240216,
+                  "stop": {
+                    "gtfsId": "1:2620"
+                  }
+                },
+                "route": {
+                  "shortName": "966BDOWN",
+                  "gtfsId": "1:2510"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 8099.02,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:50:17+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:16:53+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1472_10_30"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4922"
+                  },
+                  {
+                    "gtfsId": "1:7767"
+                  },
+                  {
+                    "gtfsId": "1:1373"
+                  },
+                  {
+                    "gtfsId": "1:2140"
+                  },
+                  {
+                    "gtfsId": "1:2757"
+                  },
+                  {
+                    "gtfsId": "1:2791"
+                  },
+                  {
+                    "gtfsId": "1:2759"
+                  },
+                  {
+                    "gtfsId": "1:7952"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:7953"
+                  },
+                  {
+                    "gtfsId": "1:7954"
+                  },
+                  {
+                    "gtfsId": "1:7955"
+                  },
+                  {
+                    "gtfsId": "1:7956"
+                  }
+                ],
+                "from": {
+                  "name": "Zoo",
+                  "lat": 28.608422,
+                  "lon": 77.240216,
+                  "stop": {
+                    "gtfsId": "1:2620"
+                  }
+                },
+                "to": {
+                  "name": "Chirag Delhi",
+                  "lat": 28.538981,
+                  "lon": 77.232304,
+                  "stop": {
+                    "gtfsId": "1:7957"
+                  }
+                },
+                "route": {
+                  "shortName": "0419(NS)UP",
+                  "gtfsId": "1:1472"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 2079.45,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:23:19+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:30:07+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1926_11_15"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7958"
+                  },
+                  {
+                    "gtfsId": "1:3169"
+                  },
+                  {
+                    "gtfsId": "1:2900"
+                  },
+                  {
+                    "gtfsId": "1:2901"
+                  }
+                ],
+                "from": {
+                  "name": "Chirag Delhi",
+                  "lat": 28.538981,
+                  "lon": 77.232304,
+                  "stop": {
+                    "gtfsId": "1:7957"
+                  }
+                },
+                "to": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "route": {
+                  "shortName": "428UP",
+                  "gtfsId": "1:1926"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 274.72,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:30:07+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:33:40+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:33:35+05:30",
+            "end": "2026-10-22T11:34:15+05:30",
+            "walkDistance": 1329.77,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 708.87,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:33:35+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:42:41+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 9712.91,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:42:41+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:14:42+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:530_10_30"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:3001"
+                  },
+                  {
+                    "gtfsId": "1:3002"
+                  },
+                  {
+                    "gtfsId": "1:3003"
+                  },
+                  {
+                    "gtfsId": "1:2396"
+                  },
+                  {
+                    "gtfsId": "1:2397"
+                  },
+                  {
+                    "gtfsId": "1:2398"
+                  },
+                  {
+                    "gtfsId": "1:2399"
+                  },
+                  {
+                    "gtfsId": "1:3004"
+                  },
+                  {
+                    "gtfsId": "1:3005"
+                  },
+                  {
+                    "gtfsId": "1:3006"
+                  },
+                  {
+                    "gtfsId": "1:3007"
+                  },
+                  {
+                    "gtfsId": "1:3008"
+                  },
+                  {
+                    "gtfsId": "1:3009"
+                  },
+                  {
+                    "gtfsId": "1:2381"
+                  },
+                  {
+                    "gtfsId": "1:3075"
+                  },
+                  {
+                    "gtfsId": "1:2383"
+                  },
+                  {
+                    "gtfsId": "1:4935"
+                  }
+                ],
+                "from": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "to": {
+                  "name": "DDA Flats Lado Sarai",
+                  "lat": 28.529833,
+                  "lon": 77.192117,
+                  "stop": {
+                    "gtfsId": "1:2717"
+                  }
+                },
+                "route": {
+                  "shortName": "502AUP",
+                  "gtfsId": "1:530"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 6.53,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:14:42+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:14:47+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "DDA Flats Lado Sarai",
+                  "lat": 28.529833,
+                  "lon": 77.192117,
+                  "stop": {
+                    "gtfsId": "1:2717"
+                  }
+                },
+                "to": {
+                  "name": "DDA Flats Lado Sarai",
+                  "lat": 28.529983,
+                  "lon": 77.192133,
+                  "stop": {
+                    "gtfsId": "1:2347"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 2769.95,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:17:18+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:26:18+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1925_10_45"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2718"
+                  },
+                  {
+                    "gtfsId": "1:2956"
+                  },
+                  {
+                    "gtfsId": "1:2957"
+                  },
+                  {
+                    "gtfsId": "1:2958"
+                  },
+                  {
+                    "gtfsId": "1:2959"
+                  },
+                  {
+                    "gtfsId": "1:2960"
+                  }
+                ],
+                "from": {
+                  "name": "DDA Flats Lado Sarai",
+                  "lat": 28.529983,
+                  "lon": 77.192133,
+                  "stop": {
+                    "gtfsId": "1:2347"
+                  }
+                },
+                "to": {
+                  "name": "Khirki Village",
+                  "lat": 28.530183,
+                  "lon": 77.21835,
+                  "stop": {
+                    "gtfsId": "1:2961"
+                  }
+                },
+                "route": {
+                  "shortName": "428DOWN",
+                  "gtfsId": "1:1925"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 614.37,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:26:18+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:34:15+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Khirki Village",
+                  "lat": 28.530183,
+                  "lon": 77.21835,
+                  "stop": {
+                    "gtfsId": "1:2961"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:36:31+05:30",
+            "end": "2026-10-22T11:34:30+05:30",
+            "walkDistance": 771.76,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 497.04,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:36:31+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:42:56+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Baroda House",
+                  "lat": 28.615873,
+                  "lon": 77.230165,
+                  "stop": {
+                    "gtfsId": "1:1340"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 5800.93,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:42:56+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:01:38+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1906_09_50"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:1341"
+                  },
+                  {
+                    "gtfsId": "1:1342"
+                  },
+                  {
+                    "gtfsId": "1:1343"
+                  },
+                  {
+                    "gtfsId": "1:1344"
+                  },
+                  {
+                    "gtfsId": "1:10061"
+                  },
+                  {
+                    "gtfsId": "1:1345"
+                  },
+                  {
+                    "gtfsId": "1:7096"
+                  },
+                  {
+                    "gtfsId": "1:1347"
+                  },
+                  {
+                    "gtfsId": "1:1348"
+                  },
+                  {
+                    "gtfsId": "1:1349"
+                  }
+                ],
+                "from": {
+                  "name": "Baroda House",
+                  "lat": 28.615873,
+                  "lon": 77.230165,
+                  "stop": {
+                    "gtfsId": "1:1340"
+                  }
+                },
+                "to": {
+                  "name": "Ashram (Hari Nagar)",
+                  "lat": 28.5737635,
+                  "lon": 77.2574647,
+                  "stop": {
+                    "gtfsId": "1:2167"
+                  }
+                },
+                "route": {
+                  "shortName": "410UP",
+                  "gtfsId": "1:1906"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 8122.77,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:05:05+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:30:57+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1344_11_00"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2280"
+                  },
+                  {
+                    "gtfsId": "1:2281"
+                  },
+                  {
+                    "gtfsId": "1:2365"
+                  },
+                  {
+                    "gtfsId": "1:2366"
+                  },
+                  {
+                    "gtfsId": "1:2368"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:7953"
+                  },
+                  {
+                    "gtfsId": "1:7954"
+                  },
+                  {
+                    "gtfsId": "1:7955"
+                  },
+                  {
+                    "gtfsId": "1:7956"
+                  },
+                  {
+                    "gtfsId": "1:7957"
+                  },
+                  {
+                    "gtfsId": "1:7958"
+                  },
+                  {
+                    "gtfsId": "1:3169"
+                  },
+                  {
+                    "gtfsId": "1:2900"
+                  },
+                  {
+                    "gtfsId": "1:2901"
+                  }
+                ],
+                "from": {
+                  "name": "Ashram (Hari Nagar)",
+                  "lat": 28.5737635,
+                  "lon": 77.2574647,
+                  "stop": {
+                    "gtfsId": "1:2167"
+                  }
+                },
+                "to": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "route": {
+                  "shortName": "D-036UP",
+                  "gtfsId": "1:1344"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 274.72,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:30:57+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:34:30+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:37:04+05:30",
+            "end": "2026-10-22T11:34:30+05:30",
+            "walkDistance": 983.59,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 708.87,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:37:04+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:46:10+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 7165.43,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:46:10+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:06:55+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1938_10_30"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4931"
+                  },
+                  {
+                    "gtfsId": "1:1589"
+                  },
+                  {
+                    "gtfsId": "1:1590"
+                  },
+                  {
+                    "gtfsId": "1:9433"
+                  },
+                  {
+                    "gtfsId": "1:2986"
+                  },
+                  {
+                    "gtfsId": "1:2987"
+                  },
+                  {
+                    "gtfsId": "1:2988"
+                  },
+                  {
+                    "gtfsId": "1:3137"
+                  },
+                  {
+                    "gtfsId": "1:2990"
+                  },
+                  {
+                    "gtfsId": "1:2551"
+                  },
+                  {
+                    "gtfsId": "1:2552"
+                  },
+                  {
+                    "gtfsId": "1:2553"
+                  },
+                  {
+                    "gtfsId": "1:2554"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  }
+                ],
+                "from": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "to": {
+                  "name": "Central School (MCKR)",
+                  "lat": 28.562727,
+                  "lon": 77.232815,
+                  "stop": {
+                    "gtfsId": "1:7937"
+                  }
+                },
+                "route": {
+                  "shortName": "440UP",
+                  "gtfsId": "1:1938"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 4888.06,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:14:53+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:30:57+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1344_11_00"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7953"
+                  },
+                  {
+                    "gtfsId": "1:7954"
+                  },
+                  {
+                    "gtfsId": "1:7955"
+                  },
+                  {
+                    "gtfsId": "1:7956"
+                  },
+                  {
+                    "gtfsId": "1:7957"
+                  },
+                  {
+                    "gtfsId": "1:7958"
+                  },
+                  {
+                    "gtfsId": "1:3169"
+                  },
+                  {
+                    "gtfsId": "1:2900"
+                  },
+                  {
+                    "gtfsId": "1:2901"
+                  }
+                ],
+                "from": {
+                  "name": "Central School (MCKR)",
+                  "lat": 28.562727,
+                  "lon": 77.232815,
+                  "stop": {
+                    "gtfsId": "1:7937"
+                  }
+                },
+                "to": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "route": {
+                  "shortName": "D-036UP",
+                  "gtfsId": "1:1344"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 274.72,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:30:57+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:34:30+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:39:51+05:30",
+            "end": "2026-10-22T11:34:30+05:30",
+            "walkDistance": 771.76,
+            "numberOfTransfers": 2,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 497.04,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:39:51+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:46:16+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Baroda House",
+                  "lat": 28.615873,
+                  "lon": 77.230165,
+                  "stop": {
+                    "gtfsId": "1:1340"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 7266.31,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:46:16+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:08:03+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1936_10_35"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:1341"
+                  },
+                  {
+                    "gtfsId": "1:1342"
+                  },
+                  {
+                    "gtfsId": "1:1588"
+                  },
+                  {
+                    "gtfsId": "1:4931"
+                  },
+                  {
+                    "gtfsId": "1:1589"
+                  },
+                  {
+                    "gtfsId": "1:1590"
+                  },
+                  {
+                    "gtfsId": "1:1592"
+                  },
+                  {
+                    "gtfsId": "1:1593"
+                  },
+                  {
+                    "gtfsId": "1:1594"
+                  },
+                  {
+                    "gtfsId": "1:2551"
+                  },
+                  {
+                    "gtfsId": "1:2552"
+                  },
+                  {
+                    "gtfsId": "1:2553"
+                  },
+                  {
+                    "gtfsId": "1:2554"
+                  }
+                ],
+                "from": {
+                  "name": "Baroda House",
+                  "lat": 28.615873,
+                  "lon": 77.230165,
+                  "stop": {
+                    "gtfsId": "1:1340"
+                  }
+                },
+                "to": {
+                  "name": "Andrews Ganj",
+                  "lat": 28.565987,
+                  "lon": 77.230567,
+                  "stop": {
+                    "gtfsId": "1:2361"
+                  }
+                },
+                "route": {
+                  "shortName": "440AUP",
+                  "gtfsId": "1:1936"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 722.9,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:11:12+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:12:37+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2868_10_00"
+                },
+                "intermediateStops": [],
+                "from": {
+                  "name": "Andrews Ganj",
+                  "lat": 28.565987,
+                  "lon": 77.230567,
+                  "stop": {
+                    "gtfsId": "1:2361"
+                  }
+                },
+                "to": {
+                  "name": "Central School (MCKR)",
+                  "lat": 28.562727,
+                  "lon": 77.232815,
+                  "stop": {
+                    "gtfsId": "1:7937"
+                  }
+                },
+                "route": {
+                  "shortName": "CBD CIRCULATOR-3 (+) UP",
+                  "gtfsId": "1:2868"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 4888.06,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:14:53+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:30:57+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1344_11_00"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7953"
+                  },
+                  {
+                    "gtfsId": "1:7954"
+                  },
+                  {
+                    "gtfsId": "1:7955"
+                  },
+                  {
+                    "gtfsId": "1:7956"
+                  },
+                  {
+                    "gtfsId": "1:7957"
+                  },
+                  {
+                    "gtfsId": "1:7958"
+                  },
+                  {
+                    "gtfsId": "1:3169"
+                  },
+                  {
+                    "gtfsId": "1:2900"
+                  },
+                  {
+                    "gtfsId": "1:2901"
+                  }
+                ],
+                "from": {
+                  "name": "Central School (MCKR)",
+                  "lat": 28.562727,
+                  "lon": 77.232815,
+                  "stop": {
+                    "gtfsId": "1:7937"
+                  }
+                },
+                "to": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "route": {
+                  "shortName": "D-036UP",
+                  "gtfsId": "1:1344"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 274.72,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:30:57+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:34:30+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:38:59+05:30",
+            "end": "2026-10-22T11:36:35+05:30",
+            "walkDistance": 1289.6599999999999,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 708.87,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:38:59+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:48:05+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 8999.14,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:48:05+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:17:45+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1996_10_20"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4931"
+                  },
+                  {
+                    "gtfsId": "1:3001"
+                  },
+                  {
+                    "gtfsId": "1:3002"
+                  },
+                  {
+                    "gtfsId": "1:3003"
+                  },
+                  {
+                    "gtfsId": "1:2396"
+                  },
+                  {
+                    "gtfsId": "1:2397"
+                  },
+                  {
+                    "gtfsId": "1:2398"
+                  },
+                  {
+                    "gtfsId": "1:2399"
+                  },
+                  {
+                    "gtfsId": "1:3004"
+                  },
+                  {
+                    "gtfsId": "1:3005"
+                  },
+                  {
+                    "gtfsId": "1:3006"
+                  },
+                  {
+                    "gtfsId": "1:3007"
+                  },
+                  {
+                    "gtfsId": "1:3008"
+                  },
+                  {
+                    "gtfsId": "1:3009"
+                  },
+                  {
+                    "gtfsId": "1:2381"
+                  },
+                  {
+                    "gtfsId": "1:3075"
+                  }
+                ],
+                "from": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "to": {
+                  "name": "MMTC / Adhchini Village",
+                  "lat": 28.534567,
+                  "lon": 77.196836,
+                  "stop": {
+                    "gtfsId": "1:2383"
+                  }
+                },
+                "route": {
+                  "shortName": "502UP",
+                  "gtfsId": "1:1996"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 2822.6,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:21:40+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:29:09+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2151_10_30"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4935"
+                  },
+                  {
+                    "gtfsId": "1:2730"
+                  },
+                  {
+                    "gtfsId": "1:2956"
+                  },
+                  {
+                    "gtfsId": "1:2957"
+                  },
+                  {
+                    "gtfsId": "1:2958"
+                  },
+                  {
+                    "gtfsId": "1:2959"
+                  }
+                ],
+                "from": {
+                  "name": "MMTC / Adhchini Village",
+                  "lat": 28.534567,
+                  "lon": 77.196836,
+                  "stop": {
+                    "gtfsId": "1:2383"
+                  }
+                },
+                "to": {
+                  "name": "Saket M Block",
+                  "lat": 28.528662,
+                  "lon": 77.215094,
+                  "stop": {
+                    "gtfsId": "1:8034"
+                  }
+                },
+                "route": {
+                  "shortName": "680UP",
+                  "gtfsId": "1:2151"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 580.79,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:29:09+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:36:35+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Saket M Block",
+                  "lat": 28.528662,
+                  "lon": 77.215094,
+                  "stop": {
+                    "gtfsId": "1:8034"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:44:17+05:30",
+            "end": "2026-10-22T11:40:40+05:30",
+            "walkDistance": 983.59,
+            "numberOfTransfers": 2,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 708.87,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:44:17+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:53:23+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 3926.26,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:53:23+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:04:16+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1654_09_40"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4931"
+                  },
+                  {
+                    "gtfsId": "1:1589"
+                  },
+                  {
+                    "gtfsId": "1:1591"
+                  },
+                  {
+                    "gtfsId": "1:1592"
+                  },
+                  {
+                    "gtfsId": "1:1593"
+                  },
+                  {
+                    "gtfsId": "1:8351"
+                  },
+                  {
+                    "gtfsId": "1:2988"
+                  },
+                  {
+                    "gtfsId": "1:2989"
+                  }
+                ],
+                "from": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "to": {
+                  "name": "Central School Lodhi Road",
+                  "lat": 28.584967,
+                  "lon": 77.228233,
+                  "stop": {
+                    "gtfsId": "1:2990"
+                  }
+                },
+                "route": {
+                  "shortName": "181ADOWN",
+                  "gtfsId": "1:1654"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 6230.35,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:07:02+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:25:46+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2024_10_15"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2551"
+                  },
+                  {
+                    "gtfsId": "1:2552"
+                  },
+                  {
+                    "gtfsId": "1:2553"
+                  },
+                  {
+                    "gtfsId": "1:2554"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:7953"
+                  },
+                  {
+                    "gtfsId": "1:7954"
+                  },
+                  {
+                    "gtfsId": "1:7955"
+                  },
+                  {
+                    "gtfsId": "1:7956"
+                  }
+                ],
+                "from": {
+                  "name": "Central School Lodhi Road",
+                  "lat": 28.584967,
+                  "lon": 77.228233,
+                  "stop": {
+                    "gtfsId": "1:2990"
+                  }
+                },
+                "to": {
+                  "name": "Chirag Delhi",
+                  "lat": 28.538981,
+                  "lon": 77.232304,
+                  "stop": {
+                    "gtfsId": "1:7957"
+                  }
+                },
+                "route": {
+                  "shortName": "521UP",
+                  "gtfsId": "1:2024"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 2079.45,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:30:19+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:37:07+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2050_10_23"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7958"
+                  },
+                  {
+                    "gtfsId": "1:3169"
+                  },
+                  {
+                    "gtfsId": "1:2900"
+                  },
+                  {
+                    "gtfsId": "1:2901"
+                  }
+                ],
+                "from": {
+                  "name": "Chirag Delhi",
+                  "lat": 28.538981,
+                  "lon": 77.232304,
+                  "stop": {
+                    "gtfsId": "1:7957"
+                  }
+                },
+                "to": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "route": {
+                  "shortName": "534UP",
+                  "gtfsId": "1:2050"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 274.72,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:37:07+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:40:40+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:28:59+05:30",
+            "end": "2026-10-22T11:42:11+05:30",
+            "walkDistance": 3349.0499999999997,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 708.87,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:28:59+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:38:05+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 9208.9,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:38:05+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:08:27+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1996_10_10"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4931"
+                  },
+                  {
+                    "gtfsId": "1:3001"
+                  },
+                  {
+                    "gtfsId": "1:3002"
+                  },
+                  {
+                    "gtfsId": "1:3003"
+                  },
+                  {
+                    "gtfsId": "1:2396"
+                  },
+                  {
+                    "gtfsId": "1:2397"
+                  },
+                  {
+                    "gtfsId": "1:2398"
+                  },
+                  {
+                    "gtfsId": "1:2399"
+                  },
+                  {
+                    "gtfsId": "1:3004"
+                  },
+                  {
+                    "gtfsId": "1:3005"
+                  },
+                  {
+                    "gtfsId": "1:3006"
+                  },
+                  {
+                    "gtfsId": "1:3007"
+                  },
+                  {
+                    "gtfsId": "1:3008"
+                  },
+                  {
+                    "gtfsId": "1:3009"
+                  },
+                  {
+                    "gtfsId": "1:2381"
+                  },
+                  {
+                    "gtfsId": "1:3075"
+                  },
+                  {
+                    "gtfsId": "1:2383"
+                  }
+                ],
+                "from": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "to": {
+                  "name": "PTS",
+                  "lat": 28.532862,
+                  "lon": 77.195908,
+                  "stop": {
+                    "gtfsId": "1:4935"
+                  }
+                },
+                "route": {
+                  "shortName": "502UP",
+                  "gtfsId": "1:1996"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 2640.18,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:08:27+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:42:11+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "PTS",
+                  "lat": 28.532862,
+                  "lon": 77.195908,
+                  "stop": {
+                    "gtfsId": "1:4935"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:44:18+05:30",
+            "end": "2026-10-22T11:43:13+05:30",
+            "walkDistance": 1289.6599999999999,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 708.87,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:44:18+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:53:24+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 8999.14,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:53:24+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:23:03+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1475_10_30"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4931"
+                  },
+                  {
+                    "gtfsId": "1:3001"
+                  },
+                  {
+                    "gtfsId": "1:3002"
+                  },
+                  {
+                    "gtfsId": "1:3003"
+                  },
+                  {
+                    "gtfsId": "1:2396"
+                  },
+                  {
+                    "gtfsId": "1:2397"
+                  },
+                  {
+                    "gtfsId": "1:2398"
+                  },
+                  {
+                    "gtfsId": "1:2399"
+                  },
+                  {
+                    "gtfsId": "1:3004"
+                  },
+                  {
+                    "gtfsId": "1:3005"
+                  },
+                  {
+                    "gtfsId": "1:3006"
+                  },
+                  {
+                    "gtfsId": "1:3007"
+                  },
+                  {
+                    "gtfsId": "1:3008"
+                  },
+                  {
+                    "gtfsId": "1:3009"
+                  },
+                  {
+                    "gtfsId": "1:2381"
+                  },
+                  {
+                    "gtfsId": "1:3075"
+                  }
+                ],
+                "from": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "to": {
+                  "name": "MMTC / Adhchini Village",
+                  "lat": 28.534567,
+                  "lon": 77.196836,
+                  "stop": {
+                    "gtfsId": "1:2383"
+                  }
+                },
+                "route": {
+                  "shortName": "0502(NS)UP",
+                  "gtfsId": "1:1475"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 2478.39,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:28:14+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:35:47+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2817_09_00"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4935"
+                  },
+                  {
+                    "gtfsId": "1:2718"
+                  },
+                  {
+                    "gtfsId": "1:2956"
+                  },
+                  {
+                    "gtfsId": "1:2957"
+                  },
+                  {
+                    "gtfsId": "1:2958"
+                  },
+                  {
+                    "gtfsId": "1:2959"
+                  }
+                ],
+                "from": {
+                  "name": "MMTC / Adhchini Village",
+                  "lat": 28.534567,
+                  "lon": 77.196836,
+                  "stop": {
+                    "gtfsId": "1:2383"
+                  }
+                },
+                "to": {
+                  "name": "Saket M Block",
+                  "lat": 28.528662,
+                  "lon": 77.215094,
+                  "stop": {
+                    "gtfsId": "1:8034"
+                  }
+                },
+                "route": {
+                  "shortName": "OMSEV(-)BH",
+                  "gtfsId": "1:2817"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 580.79,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:35:47+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:43:13+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Saket M Block",
+                  "lat": 28.528662,
+                  "lon": 77.215094,
+                  "stop": {
+                    "gtfsId": "1:8034"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:29:36+05:30",
+            "end": "2026-10-22T11:45:18+05:30",
+            "walkDistance": 2719.25,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 2104.88,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:29:36+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:56:36+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Udyog Bhawan",
+                  "lat": 28.6126148,
+                  "lon": 77.2121293,
+                  "stop": {
+                    "gtfsId": "1:3279"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 13054.25,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:56:36+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:37:21+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:3674_10_45"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7968"
+                  },
+                  {
+                    "gtfsId": "1:2836"
+                  },
+                  {
+                    "gtfsId": "1:3280"
+                  },
+                  {
+                    "gtfsId": "1:2838"
+                  },
+                  {
+                    "gtfsId": "1:6929"
+                  },
+                  {
+                    "gtfsId": "1:2397"
+                  },
+                  {
+                    "gtfsId": "1:6157"
+                  },
+                  {
+                    "gtfsId": "1:2398"
+                  },
+                  {
+                    "gtfsId": "1:3004"
+                  },
+                  {
+                    "gtfsId": "1:3005"
+                  },
+                  {
+                    "gtfsId": "1:3006"
+                  },
+                  {
+                    "gtfsId": "1:3007"
+                  },
+                  {
+                    "gtfsId": "1:3008"
+                  },
+                  {
+                    "gtfsId": "1:3009"
+                  },
+                  {
+                    "gtfsId": "1:2353"
+                  },
+                  {
+                    "gtfsId": "1:2726"
+                  },
+                  {
+                    "gtfsId": "1:2727"
+                  },
+                  {
+                    "gtfsId": "1:2728"
+                  },
+                  {
+                    "gtfsId": "1:2729"
+                  },
+                  {
+                    "gtfsId": "1:2730"
+                  },
+                  {
+                    "gtfsId": "1:2956"
+                  },
+                  {
+                    "gtfsId": "1:2957"
+                  },
+                  {
+                    "gtfsId": "1:2958"
+                  },
+                  {
+                    "gtfsId": "1:2959"
+                  },
+                  {
+                    "gtfsId": "1:2960"
+                  }
+                ],
+                "from": {
+                  "name": "Udyog Bhawan",
+                  "lat": 28.6126148,
+                  "lon": 77.2121293,
+                  "stop": {
+                    "gtfsId": "1:3279"
+                  }
+                },
+                "to": {
+                  "name": "Khirki Village",
+                  "lat": 28.530183,
+                  "lon": 77.21835,
+                  "stop": {
+                    "gtfsId": "1:2961"
+                  }
+                },
+                "route": {
+                  "shortName": "548UP",
+                  "gtfsId": "1:3674"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 614.37,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:37:21+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:45:18+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Khirki Village",
+                  "lat": 28.530183,
+                  "lon": 77.21835,
+                  "stop": {
+                    "gtfsId": "1:2961"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:42:12+05:30",
+            "end": "2026-10-22T11:45:32+05:30",
+            "walkDistance": 771.76,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 497.04,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:42:12+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:48:37+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Baroda House",
+                  "lat": 28.615873,
+                  "lon": 77.230165,
+                  "stop": {
+                    "gtfsId": "1:1340"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 9521.58,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:48:37+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:12:44+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2386_10_10"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:1341"
+                  },
+                  {
+                    "gtfsId": "1:4356"
+                  },
+                  {
+                    "gtfsId": "1:2620"
+                  },
+                  {
+                    "gtfsId": "1:4922"
+                  },
+                  {
+                    "gtfsId": "1:1373"
+                  },
+                  {
+                    "gtfsId": "1:7096"
+                  },
+                  {
+                    "gtfsId": "1:1347"
+                  },
+                  {
+                    "gtfsId": "1:1348"
+                  },
+                  {
+                    "gtfsId": "1:2167"
+                  },
+                  {
+                    "gtfsId": "1:2168"
+                  },
+                  {
+                    "gtfsId": "1:2169"
+                  }
+                ],
+                "from": {
+                  "name": "Baroda House",
+                  "lat": 28.615873,
+                  "lon": 77.230165,
+                  "stop": {
+                    "gtfsId": "1:1340"
+                  }
+                },
+                "to": {
+                  "name": "Bharat Nagar",
+                  "lat": 28.566738,
+                  "lon": 77.269676,
+                  "stop": {
+                    "gtfsId": "1:2170"
+                  }
+                },
+                "route": {
+                  "shortName": "894DOWN",
+                  "gtfsId": "1:2386"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 8022.77,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:16:35+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:41:59+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2045_10_28"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2171"
+                  },
+                  {
+                    "gtfsId": "1:2784"
+                  },
+                  {
+                    "gtfsId": "1:2785"
+                  },
+                  {
+                    "gtfsId": "1:5704"
+                  },
+                  {
+                    "gtfsId": "1:2288"
+                  },
+                  {
+                    "gtfsId": "1:2289"
+                  },
+                  {
+                    "gtfsId": "1:9729"
+                  },
+                  {
+                    "gtfsId": "1:5971"
+                  },
+                  {
+                    "gtfsId": "1:2805"
+                  },
+                  {
+                    "gtfsId": "1:2806"
+                  },
+                  {
+                    "gtfsId": "1:7957"
+                  },
+                  {
+                    "gtfsId": "1:7958"
+                  },
+                  {
+                    "gtfsId": "1:3169"
+                  },
+                  {
+                    "gtfsId": "1:2900"
+                  },
+                  {
+                    "gtfsId": "1:2901"
+                  }
+                ],
+                "from": {
+                  "name": "Bharat Nagar",
+                  "lat": 28.566738,
+                  "lon": 77.269676,
+                  "stop": {
+                    "gtfsId": "1:2170"
+                  }
+                },
+                "to": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "route": {
+                  "shortName": "534AUP",
+                  "gtfsId": "1:2045"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 274.72,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:41:59+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:45:32+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:51:05+05:30",
+            "end": "2026-10-22T11:45:32+05:30",
+            "walkDistance": 983.59,
+            "numberOfTransfers": 2,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 708.87,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:51:05+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:00:11+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 3176.14,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:00:11+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:09:42+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2141_10_15"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4931"
+                  },
+                  {
+                    "gtfsId": "1:1589"
+                  },
+                  {
+                    "gtfsId": "1:1590"
+                  },
+                  {
+                    "gtfsId": "1:1592"
+                  },
+                  {
+                    "gtfsId": "1:1593"
+                  },
+                  {
+                    "gtfsId": "1:1594"
+                  }
+                ],
+                "from": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "to": {
+                  "name": "J L Nehru Stadium",
+                  "lat": 28.5841,
+                  "lon": 77.2301,
+                  "stop": {
+                    "gtfsId": "1:2551"
+                  }
+                },
+                "route": {
+                  "shortName": "623UP",
+                  "gtfsId": "1:2141"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 5956.25,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:12:50+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:30:52+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2031_10_15"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2552"
+                  },
+                  {
+                    "gtfsId": "1:2553"
+                  },
+                  {
+                    "gtfsId": "1:2554"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:7954"
+                  },
+                  {
+                    "gtfsId": "1:7955"
+                  }
+                ],
+                "from": {
+                  "name": "J L Nehru Stadium",
+                  "lat": 28.5841,
+                  "lon": 77.2301,
+                  "stop": {
+                    "gtfsId": "1:2551"
+                  }
+                },
+                "to": {
+                  "name": "Chirag Delhi",
+                  "lat": 28.538981,
+                  "lon": 77.232304,
+                  "stop": {
+                    "gtfsId": "1:7957"
+                  }
+                },
+                "route": {
+                  "shortName": "522DOWN",
+                  "gtfsId": "1:2031"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 2079.45,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:35:11+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:41:59+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2045_10_28"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7958"
+                  },
+                  {
+                    "gtfsId": "1:3169"
+                  },
+                  {
+                    "gtfsId": "1:2900"
+                  },
+                  {
+                    "gtfsId": "1:2901"
+                  }
+                ],
+                "from": {
+                  "name": "Chirag Delhi",
+                  "lat": 28.538981,
+                  "lon": 77.232304,
+                  "stop": {
+                    "gtfsId": "1:7957"
+                  }
+                },
+                "to": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "route": {
+                  "shortName": "534AUP",
+                  "gtfsId": "1:2045"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 274.72,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:41:59+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:45:32+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:33:35+05:30",
+            "end": "2026-10-22T11:46:46+05:30",
+            "walkDistance": 3349.0499999999997,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 708.87,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:33:35+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:42:41+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 9208.9,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:42:41+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:13:02+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:530_10_30"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:3001"
+                  },
+                  {
+                    "gtfsId": "1:3002"
+                  },
+                  {
+                    "gtfsId": "1:3003"
+                  },
+                  {
+                    "gtfsId": "1:2396"
+                  },
+                  {
+                    "gtfsId": "1:2397"
+                  },
+                  {
+                    "gtfsId": "1:2398"
+                  },
+                  {
+                    "gtfsId": "1:2399"
+                  },
+                  {
+                    "gtfsId": "1:3004"
+                  },
+                  {
+                    "gtfsId": "1:3005"
+                  },
+                  {
+                    "gtfsId": "1:3006"
+                  },
+                  {
+                    "gtfsId": "1:3007"
+                  },
+                  {
+                    "gtfsId": "1:3008"
+                  },
+                  {
+                    "gtfsId": "1:3009"
+                  },
+                  {
+                    "gtfsId": "1:2381"
+                  },
+                  {
+                    "gtfsId": "1:3075"
+                  },
+                  {
+                    "gtfsId": "1:2383"
+                  }
+                ],
+                "from": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "to": {
+                  "name": "PTS",
+                  "lat": 28.532862,
+                  "lon": 77.195908,
+                  "stop": {
+                    "gtfsId": "1:4935"
+                  }
+                },
+                "route": {
+                  "shortName": "502AUP",
+                  "gtfsId": "1:530"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 2640.18,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:13:02+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:46:46+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "PTS",
+                  "lat": 28.532862,
+                  "lon": 77.195908,
+                  "stop": {
+                    "gtfsId": "1:4935"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:34:18+05:30",
+            "end": "2026-10-22T11:47:29+05:30",
+            "walkDistance": 3349.0499999999997,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 708.87,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:34:18+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:43:24+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 9208.9,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:43:24+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:13:45+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1475_10_20"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4931"
+                  },
+                  {
+                    "gtfsId": "1:3001"
+                  },
+                  {
+                    "gtfsId": "1:3002"
+                  },
+                  {
+                    "gtfsId": "1:3003"
+                  },
+                  {
+                    "gtfsId": "1:2396"
+                  },
+                  {
+                    "gtfsId": "1:2397"
+                  },
+                  {
+                    "gtfsId": "1:2398"
+                  },
+                  {
+                    "gtfsId": "1:2399"
+                  },
+                  {
+                    "gtfsId": "1:3004"
+                  },
+                  {
+                    "gtfsId": "1:3005"
+                  },
+                  {
+                    "gtfsId": "1:3006"
+                  },
+                  {
+                    "gtfsId": "1:3007"
+                  },
+                  {
+                    "gtfsId": "1:3008"
+                  },
+                  {
+                    "gtfsId": "1:3009"
+                  },
+                  {
+                    "gtfsId": "1:2381"
+                  },
+                  {
+                    "gtfsId": "1:3075"
+                  },
+                  {
+                    "gtfsId": "1:2383"
+                  }
+                ],
+                "from": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "to": {
+                  "name": "PTS",
+                  "lat": 28.532862,
+                  "lon": 77.195908,
+                  "stop": {
+                    "gtfsId": "1:4935"
+                  }
+                },
+                "route": {
+                  "shortName": "0502(NS)UP",
+                  "gtfsId": "1:1475"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 2640.18,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:13:45+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:47:29+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "PTS",
+                  "lat": 28.532862,
+                  "lon": 77.195908,
+                  "stop": {
+                    "gtfsId": "1:4935"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:48:59+05:30",
+            "end": "2026-10-22T11:49:29+05:30",
+            "walkDistance": 1289.6599999999999,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 708.87,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:48:59+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:58:05+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 8999.14,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:58:05+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:27:45+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1996_10_30"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4931"
+                  },
+                  {
+                    "gtfsId": "1:3001"
+                  },
+                  {
+                    "gtfsId": "1:3002"
+                  },
+                  {
+                    "gtfsId": "1:3003"
+                  },
+                  {
+                    "gtfsId": "1:2396"
+                  },
+                  {
+                    "gtfsId": "1:2397"
+                  },
+                  {
+                    "gtfsId": "1:2398"
+                  },
+                  {
+                    "gtfsId": "1:2399"
+                  },
+                  {
+                    "gtfsId": "1:3004"
+                  },
+                  {
+                    "gtfsId": "1:3005"
+                  },
+                  {
+                    "gtfsId": "1:3006"
+                  },
+                  {
+                    "gtfsId": "1:3007"
+                  },
+                  {
+                    "gtfsId": "1:3008"
+                  },
+                  {
+                    "gtfsId": "1:3009"
+                  },
+                  {
+                    "gtfsId": "1:2381"
+                  },
+                  {
+                    "gtfsId": "1:3075"
+                  }
+                ],
+                "from": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "to": {
+                  "name": "MMTC / Adhchini Village",
+                  "lat": 28.534567,
+                  "lon": 77.196836,
+                  "stop": {
+                    "gtfsId": "1:2383"
+                  }
+                },
+                "route": {
+                  "shortName": "502UP",
+                  "gtfsId": "1:1996"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 2478.4,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:33:49+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:42:03+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2717_08_00"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4935"
+                  },
+                  {
+                    "gtfsId": "1:2956"
+                  },
+                  {
+                    "gtfsId": "1:2957"
+                  },
+                  {
+                    "gtfsId": "1:2958"
+                  },
+                  {
+                    "gtfsId": "1:2959"
+                  },
+                  {
+                    "gtfsId": "1:2960"
+                  }
+                ],
+                "from": {
+                  "name": "MMTC / Adhchini Village",
+                  "lat": 28.534567,
+                  "lon": 77.196836,
+                  "stop": {
+                    "gtfsId": "1:2383"
+                  }
+                },
+                "to": {
+                  "name": "Saket M Block",
+                  "lat": 28.528662,
+                  "lon": 77.215094,
+                  "stop": {
+                    "gtfsId": "1:8034"
+                  }
+                },
+                "route": {
+                  "shortName": "OMS(-)DOWN",
+                  "gtfsId": "1:2717"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 580.79,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:42:03+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:49:29+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Saket M Block",
+                  "lat": 28.528662,
+                  "lon": 77.215094,
+                  "stop": {
+                    "gtfsId": "1:8034"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:53:52+05:30",
+            "end": "2026-10-22T11:51:02+05:30",
+            "walkDistance": 907.78,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 497.04,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:53:52+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:00:17+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Baroda House",
+                  "lat": 28.615873,
+                  "lon": 77.230165,
+                  "stop": {
+                    "gtfsId": "1:1340"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 14646.97,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:00:17+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:45:39+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:515_10_40"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:1341"
+                  },
+                  {
+                    "gtfsId": "1:1342"
+                  },
+                  {
+                    "gtfsId": "1:1588"
+                  },
+                  {
+                    "gtfsId": "1:4931"
+                  },
+                  {
+                    "gtfsId": "1:1589"
+                  },
+                  {
+                    "gtfsId": "1:1590"
+                  },
+                  {
+                    "gtfsId": "1:1591"
+                  },
+                  {
+                    "gtfsId": "1:1592"
+                  },
+                  {
+                    "gtfsId": "1:1593"
+                  },
+                  {
+                    "gtfsId": "1:1594"
+                  },
+                  {
+                    "gtfsId": "1:2551"
+                  },
+                  {
+                    "gtfsId": "1:2552"
+                  },
+                  {
+                    "gtfsId": "1:6403"
+                  },
+                  {
+                    "gtfsId": "1:2553"
+                  },
+                  {
+                    "gtfsId": "1:2554"
+                  },
+                  {
+                    "gtfsId": "1:2370"
+                  },
+                  {
+                    "gtfsId": "1:2371"
+                  },
+                  {
+                    "gtfsId": "1:2372"
+                  },
+                  {
+                    "gtfsId": "1:2373"
+                  },
+                  {
+                    "gtfsId": "1:2374"
+                  },
+                  {
+                    "gtfsId": "1:2375"
+                  },
+                  {
+                    "gtfsId": "1:2376"
+                  },
+                  {
+                    "gtfsId": "1:2377"
+                  },
+                  {
+                    "gtfsId": "1:2726"
+                  },
+                  {
+                    "gtfsId": "1:2727"
+                  },
+                  {
+                    "gtfsId": "1:2728"
+                  },
+                  {
+                    "gtfsId": "1:2729"
+                  },
+                  {
+                    "gtfsId": "1:2730"
+                  },
+                  {
+                    "gtfsId": "1:2956"
+                  },
+                  {
+                    "gtfsId": "1:2957"
+                  },
+                  {
+                    "gtfsId": "1:2958"
+                  },
+                  {
+                    "gtfsId": "1:2959"
+                  },
+                  {
+                    "gtfsId": "1:2960"
+                  },
+                  {
+                    "gtfsId": "1:2961"
+                  }
+                ],
+                "from": {
+                  "name": "Baroda House",
+                  "lat": 28.615873,
+                  "lon": 77.230165,
+                  "stop": {
+                    "gtfsId": "1:1340"
+                  }
+                },
+                "to": {
+                  "name": "SAKET COURT",
+                  "lat": 28.5307698,
+                  "lon": 77.2208673,
+                  "stop": {
+                    "gtfsId": "1:10197"
+                  }
+                },
+                "route": {
+                  "shortName": "456UP",
+                  "gtfsId": "1:515"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 410.74,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:45:39+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:51:02+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "SAKET COURT",
+                  "lat": 28.5307698,
+                  "lon": 77.2208673,
+                  "stop": {
+                    "gtfsId": "1:10197"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:57:20+05:30",
+            "end": "2026-10-22T11:57:32+05:30",
+            "walkDistance": 983.59,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 708.87,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:57:20+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:06:26+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 11985.85,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:06:26+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:38:04+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2100_10_45"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:1589"
+                  },
+                  {
+                    "gtfsId": "1:9433"
+                  },
+                  {
+                    "gtfsId": "1:6400"
+                  },
+                  {
+                    "gtfsId": "1:2988"
+                  },
+                  {
+                    "gtfsId": "1:3137"
+                  },
+                  {
+                    "gtfsId": "1:2989"
+                  },
+                  {
+                    "gtfsId": "1:2990"
+                  },
+                  {
+                    "gtfsId": "1:2551"
+                  },
+                  {
+                    "gtfsId": "1:6403"
+                  },
+                  {
+                    "gtfsId": "1:2553"
+                  },
+                  {
+                    "gtfsId": "1:2370"
+                  },
+                  {
+                    "gtfsId": "1:2371"
+                  },
+                  {
+                    "gtfsId": "1:2372"
+                  },
+                  {
+                    "gtfsId": "1:6265"
+                  },
+                  {
+                    "gtfsId": "1:6367"
+                  },
+                  {
+                    "gtfsId": "1:4928"
+                  },
+                  {
+                    "gtfsId": "1:7954"
+                  },
+                  {
+                    "gtfsId": "1:7955"
+                  },
+                  {
+                    "gtfsId": "1:7956"
+                  }
+                ],
+                "from": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "to": {
+                  "name": "Chirag Delhi",
+                  "lat": 28.538981,
+                  "lon": 77.232304,
+                  "stop": {
+                    "gtfsId": "1:7957"
+                  }
+                },
+                "route": {
+                  "shortName": "580UP",
+                  "gtfsId": "1:2100"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 2079.45,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:47:11+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:53:59+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2045_10_40"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7958"
+                  },
+                  {
+                    "gtfsId": "1:3169"
+                  },
+                  {
+                    "gtfsId": "1:2900"
+                  },
+                  {
+                    "gtfsId": "1:2901"
+                  }
+                ],
+                "from": {
+                  "name": "Chirag Delhi",
+                  "lat": 28.538981,
+                  "lon": 77.232304,
+                  "stop": {
+                    "gtfsId": "1:7957"
+                  }
+                },
+                "to": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "route": {
+                  "shortName": "534AUP",
+                  "gtfsId": "1:2045"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 274.72,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:53:59+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:57:32+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:58:59+05:30",
+            "end": "2026-10-22T11:59:29+05:30",
+            "walkDistance": 1289.6599999999999,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 708.87,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:58:59+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:08:05+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 8999.14,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:08:05+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:37:45+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1996_10_40"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4931"
+                  },
+                  {
+                    "gtfsId": "1:3001"
+                  },
+                  {
+                    "gtfsId": "1:3002"
+                  },
+                  {
+                    "gtfsId": "1:3003"
+                  },
+                  {
+                    "gtfsId": "1:2396"
+                  },
+                  {
+                    "gtfsId": "1:2397"
+                  },
+                  {
+                    "gtfsId": "1:2398"
+                  },
+                  {
+                    "gtfsId": "1:2399"
+                  },
+                  {
+                    "gtfsId": "1:3004"
+                  },
+                  {
+                    "gtfsId": "1:3005"
+                  },
+                  {
+                    "gtfsId": "1:3006"
+                  },
+                  {
+                    "gtfsId": "1:3007"
+                  },
+                  {
+                    "gtfsId": "1:3008"
+                  },
+                  {
+                    "gtfsId": "1:3009"
+                  },
+                  {
+                    "gtfsId": "1:2381"
+                  },
+                  {
+                    "gtfsId": "1:3075"
+                  }
+                ],
+                "from": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "to": {
+                  "name": "MMTC / Adhchini Village",
+                  "lat": 28.534567,
+                  "lon": 77.196836,
+                  "stop": {
+                    "gtfsId": "1:2383"
+                  }
+                },
+                "route": {
+                  "shortName": "502UP",
+                  "gtfsId": "1:1996"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 2478.4,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:43:49+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:52:03+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2717_08_10"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4935"
+                  },
+                  {
+                    "gtfsId": "1:2956"
+                  },
+                  {
+                    "gtfsId": "1:2957"
+                  },
+                  {
+                    "gtfsId": "1:2958"
+                  },
+                  {
+                    "gtfsId": "1:2959"
+                  },
+                  {
+                    "gtfsId": "1:2960"
+                  }
+                ],
+                "from": {
+                  "name": "MMTC / Adhchini Village",
+                  "lat": 28.534567,
+                  "lon": 77.196836,
+                  "stop": {
+                    "gtfsId": "1:2383"
+                  }
+                },
+                "to": {
+                  "name": "Saket M Block",
+                  "lat": 28.528662,
+                  "lon": 77.215094,
+                  "stop": {
+                    "gtfsId": "1:8034"
+                  }
+                },
+                "route": {
+                  "shortName": "OMS(-)DOWN",
+                  "gtfsId": "1:2717"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 580.79,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:52:03+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:59:29+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Saket M Block",
+                  "lat": 28.528662,
+                  "lon": 77.215094,
+                  "stop": {
+                    "gtfsId": "1:8034"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:57:20+05:30",
+            "end": "2026-10-22T12:05:28+05:30",
+            "walkDistance": 2550.26,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 708.87,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:57:20+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:06:26+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 13150.06,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:06:26+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:41:56+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2100_10_45"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:1589"
+                  },
+                  {
+                    "gtfsId": "1:9433"
+                  },
+                  {
+                    "gtfsId": "1:6400"
+                  },
+                  {
+                    "gtfsId": "1:2988"
+                  },
+                  {
+                    "gtfsId": "1:3137"
+                  },
+                  {
+                    "gtfsId": "1:2989"
+                  },
+                  {
+                    "gtfsId": "1:2990"
+                  },
+                  {
+                    "gtfsId": "1:2551"
+                  },
+                  {
+                    "gtfsId": "1:6403"
+                  },
+                  {
+                    "gtfsId": "1:2553"
+                  },
+                  {
+                    "gtfsId": "1:2370"
+                  },
+                  {
+                    "gtfsId": "1:2371"
+                  },
+                  {
+                    "gtfsId": "1:2372"
+                  },
+                  {
+                    "gtfsId": "1:6265"
+                  },
+                  {
+                    "gtfsId": "1:6367"
+                  },
+                  {
+                    "gtfsId": "1:4928"
+                  },
+                  {
+                    "gtfsId": "1:7954"
+                  },
+                  {
+                    "gtfsId": "1:7955"
+                  },
+                  {
+                    "gtfsId": "1:7956"
+                  },
+                  {
+                    "gtfsId": "1:7957"
+                  },
+                  {
+                    "gtfsId": "1:7958"
+                  }
+                ],
+                "from": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "to": {
+                  "name": "PS Mandagiri / Pushpa Bhawan",
+                  "lat": 28.5285349,
+                  "lon": 77.2317846,
+                  "stop": {
+                    "gtfsId": "1:7959"
+                  }
+                },
+                "route": {
+                  "shortName": "580UP",
+                  "gtfsId": "1:2100"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 1841.39,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:41:56+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T12:05:28+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "PS Mandagiri / Pushpa Bhawan",
+                  "lat": 28.5285349,
+                  "lon": 77.2317846,
+                  "stop": {
+                    "gtfsId": "1:7959"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:59:51+05:30",
+            "end": "2026-10-22T12:07:35+05:30",
+            "walkDistance": 940.96,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 497.04,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:59:51+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:06:16+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Baroda House",
+                  "lat": 28.615873,
+                  "lon": 77.230165,
+                  "stop": {
+                    "gtfsId": "1:1340"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 8468.6,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:06:16+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:30:32+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1936_10_55"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:1341"
+                  },
+                  {
+                    "gtfsId": "1:1342"
+                  },
+                  {
+                    "gtfsId": "1:1588"
+                  },
+                  {
+                    "gtfsId": "1:4931"
+                  },
+                  {
+                    "gtfsId": "1:1589"
+                  },
+                  {
+                    "gtfsId": "1:1590"
+                  },
+                  {
+                    "gtfsId": "1:1592"
+                  },
+                  {
+                    "gtfsId": "1:1593"
+                  },
+                  {
+                    "gtfsId": "1:1594"
+                  },
+                  {
+                    "gtfsId": "1:2551"
+                  },
+                  {
+                    "gtfsId": "1:2552"
+                  },
+                  {
+                    "gtfsId": "1:2553"
+                  },
+                  {
+                    "gtfsId": "1:2554"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  }
+                ],
+                "from": {
+                  "name": "Baroda House",
+                  "lat": 28.615873,
+                  "lon": 77.230165,
+                  "stop": {
+                    "gtfsId": "1:1340"
+                  }
+                },
+                "to": {
+                  "name": "Central School (KV)",
+                  "lat": 28.5598,
+                  "lon": 77.2336,
+                  "stop": {
+                    "gtfsId": "1:2792"
+                  }
+                },
+                "route": {
+                  "shortName": "440AUP",
+                  "gtfsId": "1:1936"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 169.2,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:30:32+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:32:46+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Central School (KV)",
+                  "lat": 28.5598,
+                  "lon": 77.2336,
+                  "stop": {
+                    "gtfsId": "1:2792"
+                  }
+                },
+                "to": {
+                  "name": "Central School (KV)",
+                  "lat": 28.5597,
+                  "lon": 77.2335,
+                  "stop": {
+                    "gtfsId": "1:2567"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 7988.31,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:43:42+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T12:04:02+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2913_11_40"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7953"
+                  },
+                  {
+                    "gtfsId": "1:7111"
+                  },
+                  {
+                    "gtfsId": "1:7081"
+                  },
+                  {
+                    "gtfsId": "1:9329"
+                  },
+                  {
+                    "gtfsId": "1:7078"
+                  },
+                  {
+                    "gtfsId": "1:2805"
+                  },
+                  {
+                    "gtfsId": "1:2806"
+                  },
+                  {
+                    "gtfsId": "1:7957"
+                  },
+                  {
+                    "gtfsId": "1:7958"
+                  },
+                  {
+                    "gtfsId": "1:3169"
+                  },
+                  {
+                    "gtfsId": "1:2900"
+                  },
+                  {
+                    "gtfsId": "1:2901"
+                  }
+                ],
+                "from": {
+                  "name": "Central School (KV)",
+                  "lat": 28.5597,
+                  "lon": 77.2335,
+                  "stop": {
+                    "gtfsId": "1:2567"
+                  }
+                },
+                "to": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "route": {
+                  "shortName": "MS-3UP",
+                  "gtfsId": "1:2913"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 274.72,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T12:04:02+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T12:07:35+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Khirki Village",
+                  "lat": 28.52995,
+                  "lon": 77.21805,
+                  "stop": {
+                    "gtfsId": "1:2902"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:58:59+05:30",
+            "end": "2026-10-22T12:12:11+05:30",
+            "walkDistance": 3349.0499999999997,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 708.87,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:58:59+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:08:05+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6129,
+                  "lon": 77.2295,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 9208.9,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T11:08:05+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:38:27+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1996_10_40"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4931"
+                  },
+                  {
+                    "gtfsId": "1:3001"
+                  },
+                  {
+                    "gtfsId": "1:3002"
+                  },
+                  {
+                    "gtfsId": "1:3003"
+                  },
+                  {
+                    "gtfsId": "1:2396"
+                  },
+                  {
+                    "gtfsId": "1:2397"
+                  },
+                  {
+                    "gtfsId": "1:2398"
+                  },
+                  {
+                    "gtfsId": "1:2399"
+                  },
+                  {
+                    "gtfsId": "1:3004"
+                  },
+                  {
+                    "gtfsId": "1:3005"
+                  },
+                  {
+                    "gtfsId": "1:3006"
+                  },
+                  {
+                    "gtfsId": "1:3007"
+                  },
+                  {
+                    "gtfsId": "1:3008"
+                  },
+                  {
+                    "gtfsId": "1:3009"
+                  },
+                  {
+                    "gtfsId": "1:2381"
+                  },
+                  {
+                    "gtfsId": "1:3075"
+                  },
+                  {
+                    "gtfsId": "1:2383"
+                  }
+                ],
+                "from": {
+                  "name": "Shajahan Road UPSC",
+                  "lat": 28.6083662,
+                  "lon": 77.2279477,
+                  "stop": {
+                    "gtfsId": "1:1588"
+                  }
+                },
+                "to": {
+                  "name": "PTS",
+                  "lat": 28.532862,
+                  "lon": 77.195908,
+                  "stop": {
+                    "gtfsId": "1:4935"
+                  }
+                },
+                "route": {
+                  "shortName": "502UP",
+                  "gtfsId": "1:1996"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 2640.18,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T11:38:27+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T12:12:11+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "PTS",
+                  "lat": 28.532862,
+                  "lon": 77.195908,
+                  "stop": {
+                    "gtfsId": "1:4935"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5286,
+                  "lon": 77.219,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

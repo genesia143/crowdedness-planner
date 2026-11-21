@@ -1,0 +1,1027 @@
+{
+  "status": 200,
+  "body": {
+    "journeys": [
+      {
+        "start": "2026-10-22T08:20:00+05:30",
+        "end": "2026-10-22T10:10:28+05:30",
+        "walkDistance": 0.0,
+        "numberOfTransfers": 0,
+        "legs": [
+          {
+            "mode": "BUS",
+            "distance": 35493.74,
+            "serviceDate": "2026-10-22",
+            "start": {
+              "scheduledTime": "2026-10-22T08:20:00+05:30"
+            },
+            "end": {
+              "scheduledTime": "2026-10-22T10:10:28+05:30"
+            },
+            "trip": {
+              "gtfsId": "1:3231_08_20"
+            },
+            "intermediateStops": [
+              {
+                "gtfsId": "1:9786"
+              },
+              {
+                "gtfsId": "1:9787"
+              },
+              {
+                "gtfsId": "1:9788"
+              },
+              {
+                "gtfsId": "1:9789"
+              },
+              {
+                "gtfsId": "1:9790"
+              },
+              {
+                "gtfsId": "1:9791"
+              }
+            ],
+            "from": {
+              "name": "Baraut",
+              "lat": 29.0989494,
+              "lon": 77.2565573,
+              "stop": {
+                "gtfsId": "1:9785"
+              }
+            },
+            "to": {
+              "name": "Mandola",
+              "lat": 28.8122737,
+              "lon": 77.2736217,
+              "stop": {
+                "gtfsId": "1:9792"
+              }
+            },
+            "route": {
+              "shortName": "Baraut To Maharana Pratap ISBT DOWN",
+              "gtfsId": "1:3231"
+            },
+            "duration_minutes": 110.46666666666667,
+            "v1_signals": [
+              {
+                "from_stop_id": "9785",
+                "to_stop_id": "9786",
+                "scheduled_time": "2026-10-22T08:20:00+05:30",
+                "model_lookup_time": "2026-10-22T08:20:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 30,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9786",
+                "to_stop_id": "9787",
+                "scheduled_time": "2026-10-22T08:37:39+05:30",
+                "model_lookup_time": "2026-10-22T08:20:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9787",
+                "to_stop_id": "9788",
+                "scheduled_time": "2026-10-22T08:46:16+05:30",
+                "model_lookup_time": "2026-10-22T08:20:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9788",
+                "to_stop_id": "9789",
+                "scheduled_time": "2026-10-22T09:03:42+05:30",
+                "model_lookup_time": "2026-10-22T08:20:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": null,
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9789",
+                "to_stop_id": "9790",
+                "scheduled_time": "2026-10-22T09:18:41+05:30",
+                "model_lookup_time": "2026-10-22T08:20:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": null,
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9790",
+                "to_stop_id": "9791",
+                "scheduled_time": "2026-10-22T09:36:34+05:30",
+                "model_lookup_time": "2026-10-22T08:20:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": null,
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9791",
+                "to_stop_id": "9792",
+                "scheduled_time": "2026-10-22T09:50:08+05:30",
+                "model_lookup_time": "2026-10-22T08:20:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": null,
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              }
+            ],
+            "v1_signal_status": "attached; availability varies by segment"
+          }
+        ],
+        "timing_summary": {
+          "walking_minutes": 0.0,
+          "bus_minutes": 110.46666666666667,
+          "waiting_minutes": 20.0,
+          "waiting_periods": [
+            {
+              "before_mode": "BUS",
+              "minutes": 20.0
+            }
+          ],
+          "status": "available",
+          "basis": "Scheduled times, including waiting from requested departure; not live predictions."
+        },
+        "signal_coverage": {
+          "segments_with_observations_and_service": 0,
+          "segments_without_observations_or_service": 7,
+          "bus_legs_without_segment_details": 0,
+          "basis": "Ticket-sample signal coverage; not an occupancy or crowding estimate."
+        },
+        "crowding_summary": {
+          "status": "insufficient evidence",
+          "labelled_segments": 0,
+          "segments_without_label": 7,
+          "bus_legs_without_segment_details": 0,
+          "bus_legs": [
+            {
+              "leg_index": 0,
+              "route": "Baraut To Maharana Pratap ISBT DOWN",
+              "labelled_segments": 0,
+              "segments_without_label": 7,
+              "segment_details_available": true,
+              "segment_label_counts": {
+                "likely quieter": 0,
+                "typical": 0,
+                "likely busier": 0
+              }
+            }
+          ],
+          "provisional": true,
+          "interpretation": "Labels compare each route segment with its own hours on the same day type. Counts are not a journey-level crowding score and cannot compare different routes or segments. Missing details are not quiet segments; the labels are not measured occupancy."
+        }
+      },
+      {
+        "start": "2026-10-22T08:50:00+05:30",
+        "end": "2026-10-22T10:40:28+05:30",
+        "walkDistance": 0.0,
+        "numberOfTransfers": 0,
+        "legs": [
+          {
+            "mode": "BUS",
+            "distance": 35493.74,
+            "serviceDate": "2026-10-22",
+            "start": {
+              "scheduledTime": "2026-10-22T08:50:00+05:30"
+            },
+            "end": {
+              "scheduledTime": "2026-10-22T10:40:28+05:30"
+            },
+            "trip": {
+              "gtfsId": "1:3231_08_50"
+            },
+            "intermediateStops": [
+              {
+                "gtfsId": "1:9786"
+              },
+              {
+                "gtfsId": "1:9787"
+              },
+              {
+                "gtfsId": "1:9788"
+              },
+              {
+                "gtfsId": "1:9789"
+              },
+              {
+                "gtfsId": "1:9790"
+              },
+              {
+                "gtfsId": "1:9791"
+              }
+            ],
+            "from": {
+              "name": "Baraut",
+              "lat": 29.0989494,
+              "lon": 77.2565573,
+              "stop": {
+                "gtfsId": "1:9785"
+              }
+            },
+            "to": {
+              "name": "Mandola",
+              "lat": 28.8122737,
+              "lon": 77.2736217,
+              "stop": {
+                "gtfsId": "1:9792"
+              }
+            },
+            "route": {
+              "shortName": "Baraut To Maharana Pratap ISBT DOWN",
+              "gtfsId": "1:3231"
+            },
+            "duration_minutes": 110.46666666666667,
+            "v1_signals": [
+              {
+                "from_stop_id": "9785",
+                "to_stop_id": "9786",
+                "scheduled_time": "2026-10-22T08:50:00+05:30",
+                "model_lookup_time": "2026-10-22T08:50:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 30,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9786",
+                "to_stop_id": "9787",
+                "scheduled_time": "2026-10-22T09:07:39+05:30",
+                "model_lookup_time": "2026-10-22T08:50:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9787",
+                "to_stop_id": "9788",
+                "scheduled_time": "2026-10-22T09:16:16+05:30",
+                "model_lookup_time": "2026-10-22T08:50:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9788",
+                "to_stop_id": "9789",
+                "scheduled_time": "2026-10-22T09:33:42+05:30",
+                "model_lookup_time": "2026-10-22T08:50:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": null,
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9789",
+                "to_stop_id": "9790",
+                "scheduled_time": "2026-10-22T09:48:41+05:30",
+                "model_lookup_time": "2026-10-22T08:50:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": null,
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9790",
+                "to_stop_id": "9791",
+                "scheduled_time": "2026-10-22T10:06:34+05:30",
+                "model_lookup_time": "2026-10-22T08:50:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": null,
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9791",
+                "to_stop_id": "9792",
+                "scheduled_time": "2026-10-22T10:20:08+05:30",
+                "model_lookup_time": "2026-10-22T08:50:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": null,
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              }
+            ],
+            "v1_signal_status": "attached; availability varies by segment"
+          }
+        ],
+        "timing_summary": {
+          "walking_minutes": 0.0,
+          "bus_minutes": 110.46666666666667,
+          "waiting_minutes": 50.0,
+          "waiting_periods": [
+            {
+              "before_mode": "BUS",
+              "minutes": 50.0
+            }
+          ],
+          "status": "available",
+          "basis": "Scheduled times, including waiting from requested departure; not live predictions."
+        },
+        "signal_coverage": {
+          "segments_with_observations_and_service": 0,
+          "segments_without_observations_or_service": 7,
+          "bus_legs_without_segment_details": 0,
+          "basis": "Ticket-sample signal coverage; not an occupancy or crowding estimate."
+        },
+        "crowding_summary": {
+          "status": "insufficient evidence",
+          "labelled_segments": 0,
+          "segments_without_label": 7,
+          "bus_legs_without_segment_details": 0,
+          "bus_legs": [
+            {
+              "leg_index": 0,
+              "route": "Baraut To Maharana Pratap ISBT DOWN",
+              "labelled_segments": 0,
+              "segments_without_label": 7,
+              "segment_details_available": true,
+              "segment_label_counts": {
+                "likely quieter": 0,
+                "typical": 0,
+                "likely busier": 0
+              }
+            }
+          ],
+          "provisional": true,
+          "interpretation": "Labels compare each route segment with its own hours on the same day type. Counts are not a journey-level crowding score and cannot compare different routes or segments. Missing details are not quiet segments; the labels are not measured occupancy."
+        }
+      },
+      {
+        "start": "2026-10-22T09:00:00+05:30",
+        "end": "2026-10-22T10:50:28+05:30",
+        "walkDistance": 0.0,
+        "numberOfTransfers": 0,
+        "legs": [
+          {
+            "mode": "BUS",
+            "distance": 35493.74,
+            "serviceDate": "2026-10-22",
+            "start": {
+              "scheduledTime": "2026-10-22T09:00:00+05:30"
+            },
+            "end": {
+              "scheduledTime": "2026-10-22T10:50:28+05:30"
+            },
+            "trip": {
+              "gtfsId": "1:3231_09_00"
+            },
+            "intermediateStops": [
+              {
+                "gtfsId": "1:9786"
+              },
+              {
+                "gtfsId": "1:9787"
+              },
+              {
+                "gtfsId": "1:9788"
+              },
+              {
+                "gtfsId": "1:9789"
+              },
+              {
+                "gtfsId": "1:9790"
+              },
+              {
+                "gtfsId": "1:9791"
+              }
+            ],
+            "from": {
+              "name": "Baraut",
+              "lat": 29.0989494,
+              "lon": 77.2565573,
+              "stop": {
+                "gtfsId": "1:9785"
+              }
+            },
+            "to": {
+              "name": "Mandola",
+              "lat": 28.8122737,
+              "lon": 77.2736217,
+              "stop": {
+                "gtfsId": "1:9792"
+              }
+            },
+            "route": {
+              "shortName": "Baraut To Maharana Pratap ISBT DOWN",
+              "gtfsId": "1:3231"
+            },
+            "duration_minutes": 110.46666666666667,
+            "v1_signals": [
+              {
+                "from_stop_id": "9785",
+                "to_stop_id": "9786",
+                "scheduled_time": "2026-10-22T09:00:00+05:30",
+                "model_lookup_time": "2026-10-22T09:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 45,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9786",
+                "to_stop_id": "9787",
+                "scheduled_time": "2026-10-22T09:17:39+05:30",
+                "model_lookup_time": "2026-10-22T09:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 45,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9787",
+                "to_stop_id": "9788",
+                "scheduled_time": "2026-10-22T09:26:16+05:30",
+                "model_lookup_time": "2026-10-22T09:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 45,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9788",
+                "to_stop_id": "9789",
+                "scheduled_time": "2026-10-22T09:43:42+05:30",
+                "model_lookup_time": "2026-10-22T09:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 45,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9789",
+                "to_stop_id": "9790",
+                "scheduled_time": "2026-10-22T09:58:41+05:30",
+                "model_lookup_time": "2026-10-22T09:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 45,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9790",
+                "to_stop_id": "9791",
+                "scheduled_time": "2026-10-22T10:16:34+05:30",
+                "model_lookup_time": "2026-10-22T09:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9791",
+                "to_stop_id": "9792",
+                "scheduled_time": "2026-10-22T10:30:08+05:30",
+                "model_lookup_time": "2026-10-22T09:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              }
+            ],
+            "v1_signal_status": "attached; availability varies by segment"
+          }
+        ],
+        "timing_summary": {
+          "walking_minutes": 0.0,
+          "bus_minutes": 110.46666666666667,
+          "waiting_minutes": 60.0,
+          "waiting_periods": [
+            {
+              "before_mode": "BUS",
+              "minutes": 60.0
+            }
+          ],
+          "status": "available",
+          "basis": "Scheduled times, including waiting from requested departure; not live predictions."
+        },
+        "signal_coverage": {
+          "segments_with_observations_and_service": 0,
+          "segments_without_observations_or_service": 7,
+          "bus_legs_without_segment_details": 0,
+          "basis": "Ticket-sample signal coverage; not an occupancy or crowding estimate."
+        },
+        "crowding_summary": {
+          "status": "insufficient evidence",
+          "labelled_segments": 0,
+          "segments_without_label": 7,
+          "bus_legs_without_segment_details": 0,
+          "bus_legs": [
+            {
+              "leg_index": 0,
+              "route": "Baraut To Maharana Pratap ISBT DOWN",
+              "labelled_segments": 0,
+              "segments_without_label": 7,
+              "segment_details_available": true,
+              "segment_label_counts": {
+                "likely quieter": 0,
+                "typical": 0,
+                "likely busier": 0
+              }
+            }
+          ],
+          "provisional": true,
+          "interpretation": "Labels compare each route segment with its own hours on the same day type. Counts are not a journey-level crowding score and cannot compare different routes or segments. Missing details are not quiet segments; the labels are not measured occupancy."
+        }
+      },
+      {
+        "start": "2026-10-22T09:25:00+05:30",
+        "end": "2026-10-22T11:15:28+05:30",
+        "walkDistance": 0.0,
+        "numberOfTransfers": 0,
+        "legs": [
+          {
+            "mode": "BUS",
+            "distance": 35493.74,
+            "serviceDate": "2026-10-22",
+            "start": {
+              "scheduledTime": "2026-10-22T09:25:00+05:30"
+            },
+            "end": {
+              "scheduledTime": "2026-10-22T11:15:28+05:30"
+            },
+            "trip": {
+              "gtfsId": "1:3231_09_25"
+            },
+            "intermediateStops": [
+              {
+                "gtfsId": "1:9786"
+              },
+              {
+                "gtfsId": "1:9787"
+              },
+              {
+                "gtfsId": "1:9788"
+              },
+              {
+                "gtfsId": "1:9789"
+              },
+              {
+                "gtfsId": "1:9790"
+              },
+              {
+                "gtfsId": "1:9791"
+              }
+            ],
+            "from": {
+              "name": "Baraut",
+              "lat": 29.0989494,
+              "lon": 77.2565573,
+              "stop": {
+                "gtfsId": "1:9785"
+              }
+            },
+            "to": {
+              "name": "Mandola",
+              "lat": 28.8122737,
+              "lon": 77.2736217,
+              "stop": {
+                "gtfsId": "1:9792"
+              }
+            },
+            "route": {
+              "shortName": "Baraut To Maharana Pratap ISBT DOWN",
+              "gtfsId": "1:3231"
+            },
+            "duration_minutes": 110.46666666666667,
+            "v1_signals": [
+              {
+                "from_stop_id": "9785",
+                "to_stop_id": "9786",
+                "scheduled_time": "2026-10-22T09:25:00+05:30",
+                "model_lookup_time": "2026-10-22T09:25:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 45,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9786",
+                "to_stop_id": "9787",
+                "scheduled_time": "2026-10-22T09:42:39+05:30",
+                "model_lookup_time": "2026-10-22T09:25:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 45,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9787",
+                "to_stop_id": "9788",
+                "scheduled_time": "2026-10-22T09:51:16+05:30",
+                "model_lookup_time": "2026-10-22T09:25:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 45,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9788",
+                "to_stop_id": "9789",
+                "scheduled_time": "2026-10-22T10:08:42+05:30",
+                "model_lookup_time": "2026-10-22T09:25:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 45,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9789",
+                "to_stop_id": "9790",
+                "scheduled_time": "2026-10-22T10:23:41+05:30",
+                "model_lookup_time": "2026-10-22T09:25:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 45,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9790",
+                "to_stop_id": "9791",
+                "scheduled_time": "2026-10-22T10:41:34+05:30",
+                "model_lookup_time": "2026-10-22T09:25:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "9791",
+                "to_stop_id": "9792",
+                "scheduled_time": "2026-10-22T10:55:08+05:30",
+                "model_lookup_time": "2026-10-22T09:25:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              }
+            ],
+            "v1_signal_status": "attached; availability varies by segment"
+          }
+        ],
+        "timing_summary": {
+          "walking_minutes": 0.0,
+          "bus_minutes": 110.46666666666667,
+          "waiting_minutes": 85.0,
+          "waiting_periods": [
+            {
+              "before_mode": "BUS",
+              "minutes": 85.0
+            }
+          ],
+          "status": "available",
+          "basis": "Scheduled times, including waiting from requested departure; not live predictions."
+        },
+        "signal_coverage": {
+          "segments_with_observations_and_service": 0,
+          "segments_without_observations_or_service": 7,
+          "bus_legs_without_segment_details": 0,
+          "basis": "Ticket-sample signal coverage; not an occupancy or crowding estimate."
+        },
+        "crowding_summary": {
+          "status": "insufficient evidence",
+          "labelled_segments": 0,
+          "segments_without_label": 7,
+          "bus_legs_without_segment_details": 0,
+          "bus_legs": [
+            {
+              "leg_index": 0,
+              "route": "Baraut To Maharana Pratap ISBT DOWN",
+              "labelled_segments": 0,
+              "segments_without_label": 7,
+              "segment_details_available": true,
+              "segment_label_counts": {
+                "likely quieter": 0,
+                "typical": 0,
+                "likely busier": 0
+              }
+            }
+          ],
+          "provisional": true,
+          "interpretation": "Labels compare each route segment with its own hours on the same day type. Counts are not a journey-level crowding score and cannot compare different routes or segments. Missing details are not quiet segments; the labels are not measured occupancy."
+        }
+      }
+    ],
+    "max_transfer_walk_metres": 1000.0,
+    "returned_candidates": 4,
+    "excluded_bus_candidates": 0,
+    "limitations": "Transfer walking limit is applied after routing, so suitable alternatives may be omitted. Walking uses OpenStreetMap and depends on graph coverage. Ticket signals are not occupancy."
+  }
+}

@@ -1,0 +1,2832 @@
+{
+  "data": {
+    "planConnection": {
+      "edges": [
+        {
+          "node": {
+            "start": "2026-10-22T09:06:16+05:30",
+            "end": "2026-10-22T10:16:38+05:30",
+            "walkDistance": 619.51,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 619.51,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:06:16+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:14:06+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.648433,
+                  "lon": 77.120783,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Rajouri Garden Ring Road",
+                  "lat": 28.6515786,
+                  "lon": 77.1246619,
+                  "stop": {
+                    "gtfsId": "1:3342"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 19478.9,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:14:06+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:16:38+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1942_08_45"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:6134"
+                  },
+                  {
+                    "gtfsId": "1:1883"
+                  },
+                  {
+                    "gtfsId": "1:2939"
+                  },
+                  {
+                    "gtfsId": "1:2940"
+                  },
+                  {
+                    "gtfsId": "1:2941"
+                  },
+                  {
+                    "gtfsId": "1:3345"
+                  },
+                  {
+                    "gtfsId": "1:2943"
+                  },
+                  {
+                    "gtfsId": "1:2944"
+                  },
+                  {
+                    "gtfsId": "1:4937"
+                  },
+                  {
+                    "gtfsId": "1:7827"
+                  },
+                  {
+                    "gtfsId": "1:1804"
+                  },
+                  {
+                    "gtfsId": "1:6286"
+                  },
+                  {
+                    "gtfsId": "1:3104"
+                  },
+                  {
+                    "gtfsId": "1:3105"
+                  },
+                  {
+                    "gtfsId": "1:2424"
+                  },
+                  {
+                    "gtfsId": "1:2425"
+                  },
+                  {
+                    "gtfsId": "1:2839"
+                  },
+                  {
+                    "gtfsId": "1:2840"
+                  },
+                  {
+                    "gtfsId": "1:2841"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:2557"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  }
+                ],
+                "from": {
+                  "name": "Rajouri Garden Ring Road",
+                  "lat": 28.6515786,
+                  "lon": 77.1246619,
+                  "stop": {
+                    "gtfsId": "1:3342"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place",
+                  "lat": 28.5485761,
+                  "lon": 77.2491332,
+                  "stop": {
+                    "gtfsId": "1:2559"
+                  }
+                },
+                "route": {
+                  "shortName": "442UP",
+                  "gtfsId": "1:1942"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:07:39+05:30",
+            "end": "2026-10-22T10:24:24+05:30",
+            "walkDistance": 619.51,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 619.51,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:07:39+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:15:29+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.648433,
+                  "lon": 77.120783,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Rajouri Garden Ring Road",
+                  "lat": 28.6515786,
+                  "lon": 77.1246619,
+                  "stop": {
+                    "gtfsId": "1:3342"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 9426.93,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:15:29+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:46:38+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1958_09_05"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:6134"
+                  },
+                  {
+                    "gtfsId": "1:1883"
+                  },
+                  {
+                    "gtfsId": "1:2939"
+                  },
+                  {
+                    "gtfsId": "1:2940"
+                  },
+                  {
+                    "gtfsId": "1:2941"
+                  },
+                  {
+                    "gtfsId": "1:3345"
+                  },
+                  {
+                    "gtfsId": "1:2943"
+                  },
+                  {
+                    "gtfsId": "1:2944"
+                  },
+                  {
+                    "gtfsId": "1:4937"
+                  }
+                ],
+                "from": {
+                  "name": "Rajouri Garden Ring Road",
+                  "lat": 28.6515786,
+                  "lon": 77.1246619,
+                  "stop": {
+                    "gtfsId": "1:3342"
+                  }
+                },
+                "to": {
+                  "name": "NANAK PURA GURUDWARA MOTI BAGH",
+                  "lat": 28.585103,
+                  "lon": 77.172442,
+                  "stop": {
+                    "gtfsId": "1:7827"
+                  }
+                },
+                "route": {
+                  "shortName": "448UP",
+                  "gtfsId": "1:1958"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 10051.97,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:53:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:24:24+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1011_09_10"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:1804"
+                  },
+                  {
+                    "gtfsId": "1:6285"
+                  },
+                  {
+                    "gtfsId": "1:3104"
+                  },
+                  {
+                    "gtfsId": "1:3105"
+                  },
+                  {
+                    "gtfsId": "1:2424"
+                  },
+                  {
+                    "gtfsId": "1:2425"
+                  },
+                  {
+                    "gtfsId": "1:2839"
+                  },
+                  {
+                    "gtfsId": "1:2840"
+                  },
+                  {
+                    "gtfsId": "1:2841"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:7938"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  }
+                ],
+                "from": {
+                  "name": "NANAK PURA GURUDWARA MOTI BAGH",
+                  "lat": 28.585103,
+                  "lon": 77.172442,
+                  "stop": {
+                    "gtfsId": "1:7827"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place",
+                  "lat": 28.5485761,
+                  "lon": 77.2491332,
+                  "stop": {
+                    "gtfsId": "1:2559"
+                  }
+                },
+                "route": {
+                  "shortName": "874EUP",
+                  "gtfsId": "1:1011"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:09:27+05:30",
+            "end": "2026-10-22T10:24:24+05:30",
+            "walkDistance": 864.74,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 864.74,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:09:27+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:21:44+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.648433,
+                  "lon": 77.120783,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Rajouri Garden Market",
+                  "lat": 28.645609,
+                  "lon": 77.127065,
+                  "stop": {
+                    "gtfsId": "1:2937"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 8722.36,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:21:44+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:50:33+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2085_08_39"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2938"
+                  },
+                  {
+                    "gtfsId": "1:3344"
+                  },
+                  {
+                    "gtfsId": "1:2939"
+                  },
+                  {
+                    "gtfsId": "1:2940"
+                  },
+                  {
+                    "gtfsId": "1:2941"
+                  },
+                  {
+                    "gtfsId": "1:3345"
+                  },
+                  {
+                    "gtfsId": "1:2943"
+                  },
+                  {
+                    "gtfsId": "1:2944"
+                  },
+                  {
+                    "gtfsId": "1:3031"
+                  }
+                ],
+                "from": {
+                  "name": "Rajouri Garden Market",
+                  "lat": 28.645609,
+                  "lon": 77.127065,
+                  "stop": {
+                    "gtfsId": "1:2937"
+                  }
+                },
+                "to": {
+                  "name": "NANAK PURA GURUDWARA MOTI BAGH",
+                  "lat": 28.585103,
+                  "lon": 77.172442,
+                  "stop": {
+                    "gtfsId": "1:7827"
+                  }
+                },
+                "route": {
+                  "shortName": "567DOWN",
+                  "gtfsId": "1:2085"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 10051.97,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:53:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:24:24+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1011_09_10"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:1804"
+                  },
+                  {
+                    "gtfsId": "1:6285"
+                  },
+                  {
+                    "gtfsId": "1:3104"
+                  },
+                  {
+                    "gtfsId": "1:3105"
+                  },
+                  {
+                    "gtfsId": "1:2424"
+                  },
+                  {
+                    "gtfsId": "1:2425"
+                  },
+                  {
+                    "gtfsId": "1:2839"
+                  },
+                  {
+                    "gtfsId": "1:2840"
+                  },
+                  {
+                    "gtfsId": "1:2841"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:7938"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  }
+                ],
+                "from": {
+                  "name": "NANAK PURA GURUDWARA MOTI BAGH",
+                  "lat": 28.585103,
+                  "lon": 77.172442,
+                  "stop": {
+                    "gtfsId": "1:7827"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place",
+                  "lat": 28.5485761,
+                  "lon": 77.2491332,
+                  "stop": {
+                    "gtfsId": "1:2559"
+                  }
+                },
+                "route": {
+                  "shortName": "874EUP",
+                  "gtfsId": "1:1011"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:10:17+05:30",
+            "end": "2026-10-22T10:25:08+05:30",
+            "walkDistance": 864.74,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 864.74,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:10:17+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:22:34+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.648433,
+                  "lon": 77.120783,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Rajouri Garden Market",
+                  "lat": 28.645609,
+                  "lon": 77.127065,
+                  "stop": {
+                    "gtfsId": "1:2937"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 13699.58,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:22:34+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:07:31+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1980_09_10"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:6134"
+                  },
+                  {
+                    "gtfsId": "1:1883"
+                  },
+                  {
+                    "gtfsId": "1:2939"
+                  },
+                  {
+                    "gtfsId": "1:2940"
+                  },
+                  {
+                    "gtfsId": "1:2941"
+                  },
+                  {
+                    "gtfsId": "1:3345"
+                  },
+                  {
+                    "gtfsId": "1:2943"
+                  },
+                  {
+                    "gtfsId": "1:2944"
+                  },
+                  {
+                    "gtfsId": "1:4937"
+                  },
+                  {
+                    "gtfsId": "1:5985"
+                  },
+                  {
+                    "gtfsId": "1:6285"
+                  },
+                  {
+                    "gtfsId": "1:3104"
+                  },
+                  {
+                    "gtfsId": "1:3105"
+                  },
+                  {
+                    "gtfsId": "1:2424"
+                  },
+                  {
+                    "gtfsId": "1:2425"
+                  }
+                ],
+                "from": {
+                  "name": "Rajouri Garden Market",
+                  "lat": 28.645609,
+                  "lon": 77.127065,
+                  "stop": {
+                    "gtfsId": "1:2937"
+                  }
+                },
+                "to": {
+                  "name": "AIIMS Ring Road",
+                  "lat": 28.569185,
+                  "lon": 77.21269,
+                  "stop": {
+                    "gtfsId": "1:2839"
+                  }
+                },
+                "route": {
+                  "shortName": "479UP",
+                  "gtfsId": "1:1980"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 5072.8,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:09:52+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:25:08+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1328_10_05"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2840"
+                  },
+                  {
+                    "gtfsId": "1:2841"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:7938"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  }
+                ],
+                "from": {
+                  "name": "AIIMS Ring Road",
+                  "lat": 28.569185,
+                  "lon": 77.21269,
+                  "stop": {
+                    "gtfsId": "1:2839"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place",
+                  "lat": 28.5485761,
+                  "lon": 77.2491332,
+                  "stop": {
+                    "gtfsId": "1:2559"
+                  }
+                },
+                "route": {
+                  "shortName": "D-022UP",
+                  "gtfsId": "1:1328"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:16:16+05:30",
+            "end": "2026-10-22T10:26:38+05:30",
+            "walkDistance": 619.51,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 619.51,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:16:16+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:24:06+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.648433,
+                  "lon": 77.120783,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Rajouri Garden Ring Road",
+                  "lat": 28.6515786,
+                  "lon": 77.1246619,
+                  "stop": {
+                    "gtfsId": "1:3342"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 19478.9,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:24:06+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:26:38+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1942_08_55"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:6134"
+                  },
+                  {
+                    "gtfsId": "1:1883"
+                  },
+                  {
+                    "gtfsId": "1:2939"
+                  },
+                  {
+                    "gtfsId": "1:2940"
+                  },
+                  {
+                    "gtfsId": "1:2941"
+                  },
+                  {
+                    "gtfsId": "1:3345"
+                  },
+                  {
+                    "gtfsId": "1:2943"
+                  },
+                  {
+                    "gtfsId": "1:2944"
+                  },
+                  {
+                    "gtfsId": "1:4937"
+                  },
+                  {
+                    "gtfsId": "1:7827"
+                  },
+                  {
+                    "gtfsId": "1:1804"
+                  },
+                  {
+                    "gtfsId": "1:6286"
+                  },
+                  {
+                    "gtfsId": "1:3104"
+                  },
+                  {
+                    "gtfsId": "1:3105"
+                  },
+                  {
+                    "gtfsId": "1:2424"
+                  },
+                  {
+                    "gtfsId": "1:2425"
+                  },
+                  {
+                    "gtfsId": "1:2839"
+                  },
+                  {
+                    "gtfsId": "1:2840"
+                  },
+                  {
+                    "gtfsId": "1:2841"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:2557"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  }
+                ],
+                "from": {
+                  "name": "Rajouri Garden Ring Road",
+                  "lat": 28.6515786,
+                  "lon": 77.1246619,
+                  "stop": {
+                    "gtfsId": "1:3342"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place",
+                  "lat": 28.5485761,
+                  "lon": 77.2491332,
+                  "stop": {
+                    "gtfsId": "1:2559"
+                  }
+                },
+                "route": {
+                  "shortName": "442UP",
+                  "gtfsId": "1:1942"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:18:06+05:30",
+            "end": "2026-10-22T10:34:39+05:30",
+            "walkDistance": 619.51,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 619.51,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:18:06+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:25:56+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.648433,
+                  "lon": 77.120783,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Rajouri Garden Ring Road",
+                  "lat": 28.6515786,
+                  "lon": 77.1246619,
+                  "stop": {
+                    "gtfsId": "1:3342"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 11654.77,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:25:56+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:04:19+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2735_08_00"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2938"
+                  },
+                  {
+                    "gtfsId": "1:1883"
+                  },
+                  {
+                    "gtfsId": "1:2939"
+                  },
+                  {
+                    "gtfsId": "1:2940"
+                  },
+                  {
+                    "gtfsId": "1:2941"
+                  },
+                  {
+                    "gtfsId": "1:3345"
+                  },
+                  {
+                    "gtfsId": "1:2943"
+                  },
+                  {
+                    "gtfsId": "1:2944"
+                  },
+                  {
+                    "gtfsId": "1:3031"
+                  },
+                  {
+                    "gtfsId": "1:4937"
+                  },
+                  {
+                    "gtfsId": "1:5985"
+                  },
+                  {
+                    "gtfsId": "1:6285"
+                  },
+                  {
+                    "gtfsId": "1:6286"
+                  }
+                ],
+                "from": {
+                  "name": "Rajouri Garden Ring Road",
+                  "lat": 28.6515786,
+                  "lon": 77.1246619,
+                  "stop": {
+                    "gtfsId": "1:3342"
+                  }
+                },
+                "to": {
+                  "name": "Hyatt Hotel",
+                  "lat": 28.5700361,
+                  "lon": 77.1857353,
+                  "stop": {
+                    "gtfsId": "1:3105"
+                  }
+                },
+                "route": {
+                  "shortName": "TMS(-)DOWN",
+                  "gtfsId": "1:2735"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 7826.06,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:10:37+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:34:39+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2195_09_20"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2424"
+                  },
+                  {
+                    "gtfsId": "1:2425"
+                  },
+                  {
+                    "gtfsId": "1:2839"
+                  },
+                  {
+                    "gtfsId": "1:2840"
+                  },
+                  {
+                    "gtfsId": "1:2841"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:2557"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  }
+                ],
+                "from": {
+                  "name": "Hyatt Hotel",
+                  "lat": 28.5700361,
+                  "lon": 77.1857353,
+                  "stop": {
+                    "gtfsId": "1:3105"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place",
+                  "lat": 28.5485761,
+                  "lon": 77.2491332,
+                  "stop": {
+                    "gtfsId": "1:2559"
+                  }
+                },
+                "route": {
+                  "shortName": "724UP",
+                  "gtfsId": "1:2195"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:20:27+05:30",
+            "end": "2026-10-22T10:35:08+05:30",
+            "walkDistance": 864.74,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 864.74,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:20:27+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:32:44+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.648433,
+                  "lon": 77.120783,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Rajouri Garden Market",
+                  "lat": 28.645609,
+                  "lon": 77.127065,
+                  "stop": {
+                    "gtfsId": "1:2937"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 13701.55,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:32:44+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:17:42+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2085_08_50"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2938"
+                  },
+                  {
+                    "gtfsId": "1:3344"
+                  },
+                  {
+                    "gtfsId": "1:2939"
+                  },
+                  {
+                    "gtfsId": "1:2940"
+                  },
+                  {
+                    "gtfsId": "1:2941"
+                  },
+                  {
+                    "gtfsId": "1:3345"
+                  },
+                  {
+                    "gtfsId": "1:2943"
+                  },
+                  {
+                    "gtfsId": "1:2944"
+                  },
+                  {
+                    "gtfsId": "1:3031"
+                  },
+                  {
+                    "gtfsId": "1:7827"
+                  },
+                  {
+                    "gtfsId": "1:1804"
+                  },
+                  {
+                    "gtfsId": "1:6286"
+                  },
+                  {
+                    "gtfsId": "1:3104"
+                  },
+                  {
+                    "gtfsId": "1:3105"
+                  },
+                  {
+                    "gtfsId": "1:2424"
+                  },
+                  {
+                    "gtfsId": "1:2425"
+                  }
+                ],
+                "from": {
+                  "name": "Rajouri Garden Market",
+                  "lat": 28.645609,
+                  "lon": 77.127065,
+                  "stop": {
+                    "gtfsId": "1:2937"
+                  }
+                },
+                "to": {
+                  "name": "AIIMS Ring Road",
+                  "lat": 28.569185,
+                  "lon": 77.21269,
+                  "stop": {
+                    "gtfsId": "1:2839"
+                  }
+                },
+                "route": {
+                  "shortName": "567DOWN",
+                  "gtfsId": "1:2085"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 5072.8,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:19:52+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:35:08+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1328_10_15"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2840"
+                  },
+                  {
+                    "gtfsId": "1:2841"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:7938"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  }
+                ],
+                "from": {
+                  "name": "AIIMS Ring Road",
+                  "lat": 28.569185,
+                  "lon": 77.21269,
+                  "stop": {
+                    "gtfsId": "1:2839"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place",
+                  "lat": 28.5485761,
+                  "lon": 77.2491332,
+                  "stop": {
+                    "gtfsId": "1:2559"
+                  }
+                },
+                "route": {
+                  "shortName": "D-022UP",
+                  "gtfsId": "1:1328"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:26:16+05:30",
+            "end": "2026-10-22T10:36:38+05:30",
+            "walkDistance": 619.51,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 619.51,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:26:16+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:34:06+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.648433,
+                  "lon": 77.120783,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Rajouri Garden Ring Road",
+                  "lat": 28.6515786,
+                  "lon": 77.1246619,
+                  "stop": {
+                    "gtfsId": "1:3342"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 19478.9,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:34:06+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:36:38+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1942_09_05"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:6134"
+                  },
+                  {
+                    "gtfsId": "1:1883"
+                  },
+                  {
+                    "gtfsId": "1:2939"
+                  },
+                  {
+                    "gtfsId": "1:2940"
+                  },
+                  {
+                    "gtfsId": "1:2941"
+                  },
+                  {
+                    "gtfsId": "1:3345"
+                  },
+                  {
+                    "gtfsId": "1:2943"
+                  },
+                  {
+                    "gtfsId": "1:2944"
+                  },
+                  {
+                    "gtfsId": "1:4937"
+                  },
+                  {
+                    "gtfsId": "1:7827"
+                  },
+                  {
+                    "gtfsId": "1:1804"
+                  },
+                  {
+                    "gtfsId": "1:6286"
+                  },
+                  {
+                    "gtfsId": "1:3104"
+                  },
+                  {
+                    "gtfsId": "1:3105"
+                  },
+                  {
+                    "gtfsId": "1:2424"
+                  },
+                  {
+                    "gtfsId": "1:2425"
+                  },
+                  {
+                    "gtfsId": "1:2839"
+                  },
+                  {
+                    "gtfsId": "1:2840"
+                  },
+                  {
+                    "gtfsId": "1:2841"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:2557"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  }
+                ],
+                "from": {
+                  "name": "Rajouri Garden Ring Road",
+                  "lat": 28.6515786,
+                  "lon": 77.1246619,
+                  "stop": {
+                    "gtfsId": "1:3342"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place",
+                  "lat": 28.5485761,
+                  "lon": 77.2491332,
+                  "stop": {
+                    "gtfsId": "1:2559"
+                  }
+                },
+                "route": {
+                  "shortName": "442UP",
+                  "gtfsId": "1:1942"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:27:39+05:30",
+            "end": "2026-10-22T10:44:24+05:30",
+            "walkDistance": 619.51,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 619.51,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:27:39+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:35:29+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.648433,
+                  "lon": 77.120783,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Rajouri Garden Ring Road",
+                  "lat": 28.6515786,
+                  "lon": 77.1246619,
+                  "stop": {
+                    "gtfsId": "1:3342"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 9426.93,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:35:29+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:06:38+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1958_09_25"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:6134"
+                  },
+                  {
+                    "gtfsId": "1:1883"
+                  },
+                  {
+                    "gtfsId": "1:2939"
+                  },
+                  {
+                    "gtfsId": "1:2940"
+                  },
+                  {
+                    "gtfsId": "1:2941"
+                  },
+                  {
+                    "gtfsId": "1:3345"
+                  },
+                  {
+                    "gtfsId": "1:2943"
+                  },
+                  {
+                    "gtfsId": "1:2944"
+                  },
+                  {
+                    "gtfsId": "1:4937"
+                  }
+                ],
+                "from": {
+                  "name": "Rajouri Garden Ring Road",
+                  "lat": 28.6515786,
+                  "lon": 77.1246619,
+                  "stop": {
+                    "gtfsId": "1:3342"
+                  }
+                },
+                "to": {
+                  "name": "NANAK PURA GURUDWARA MOTI BAGH",
+                  "lat": 28.585103,
+                  "lon": 77.172442,
+                  "stop": {
+                    "gtfsId": "1:7827"
+                  }
+                },
+                "route": {
+                  "shortName": "448UP",
+                  "gtfsId": "1:1958"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 10051.97,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:13:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:44:24+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1011_09_30"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:1804"
+                  },
+                  {
+                    "gtfsId": "1:6285"
+                  },
+                  {
+                    "gtfsId": "1:3104"
+                  },
+                  {
+                    "gtfsId": "1:3105"
+                  },
+                  {
+                    "gtfsId": "1:2424"
+                  },
+                  {
+                    "gtfsId": "1:2425"
+                  },
+                  {
+                    "gtfsId": "1:2839"
+                  },
+                  {
+                    "gtfsId": "1:2840"
+                  },
+                  {
+                    "gtfsId": "1:2841"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:7938"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  }
+                ],
+                "from": {
+                  "name": "NANAK PURA GURUDWARA MOTI BAGH",
+                  "lat": 28.585103,
+                  "lon": 77.172442,
+                  "stop": {
+                    "gtfsId": "1:7827"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place",
+                  "lat": 28.5485761,
+                  "lon": 77.2491332,
+                  "stop": {
+                    "gtfsId": "1:2559"
+                  }
+                },
+                "route": {
+                  "shortName": "874EUP",
+                  "gtfsId": "1:1011"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:36:16+05:30",
+            "end": "2026-10-22T10:46:38+05:30",
+            "walkDistance": 619.51,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 619.51,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:36:16+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:44:06+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.648433,
+                  "lon": 77.120783,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Rajouri Garden Ring Road",
+                  "lat": 28.6515786,
+                  "lon": 77.1246619,
+                  "stop": {
+                    "gtfsId": "1:3342"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 19478.9,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:44:06+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:46:38+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1942_09_15"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:6134"
+                  },
+                  {
+                    "gtfsId": "1:1883"
+                  },
+                  {
+                    "gtfsId": "1:2939"
+                  },
+                  {
+                    "gtfsId": "1:2940"
+                  },
+                  {
+                    "gtfsId": "1:2941"
+                  },
+                  {
+                    "gtfsId": "1:3345"
+                  },
+                  {
+                    "gtfsId": "1:2943"
+                  },
+                  {
+                    "gtfsId": "1:2944"
+                  },
+                  {
+                    "gtfsId": "1:4937"
+                  },
+                  {
+                    "gtfsId": "1:7827"
+                  },
+                  {
+                    "gtfsId": "1:1804"
+                  },
+                  {
+                    "gtfsId": "1:6286"
+                  },
+                  {
+                    "gtfsId": "1:3104"
+                  },
+                  {
+                    "gtfsId": "1:3105"
+                  },
+                  {
+                    "gtfsId": "1:2424"
+                  },
+                  {
+                    "gtfsId": "1:2425"
+                  },
+                  {
+                    "gtfsId": "1:2839"
+                  },
+                  {
+                    "gtfsId": "1:2840"
+                  },
+                  {
+                    "gtfsId": "1:2841"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:2557"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  }
+                ],
+                "from": {
+                  "name": "Rajouri Garden Ring Road",
+                  "lat": 28.6515786,
+                  "lon": 77.1246619,
+                  "stop": {
+                    "gtfsId": "1:3342"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place",
+                  "lat": 28.5485761,
+                  "lon": 77.2491332,
+                  "stop": {
+                    "gtfsId": "1:2559"
+                  }
+                },
+                "route": {
+                  "shortName": "442UP",
+                  "gtfsId": "1:1942"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:41:39+05:30",
+            "end": "2026-10-22T10:54:39+05:30",
+            "walkDistance": 619.51,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 619.51,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:41:39+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:49:29+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.648433,
+                  "lon": 77.120783,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Rajouri Garden Ring Road",
+                  "lat": 28.6515786,
+                  "lon": 77.1246619,
+                  "stop": {
+                    "gtfsId": "1:3342"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 8948.05,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:49:29+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:19:02+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1958_09_39"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:6134"
+                  },
+                  {
+                    "gtfsId": "1:1883"
+                  },
+                  {
+                    "gtfsId": "1:2939"
+                  },
+                  {
+                    "gtfsId": "1:2940"
+                  },
+                  {
+                    "gtfsId": "1:2941"
+                  },
+                  {
+                    "gtfsId": "1:3345"
+                  },
+                  {
+                    "gtfsId": "1:2943"
+                  },
+                  {
+                    "gtfsId": "1:2944"
+                  }
+                ],
+                "from": {
+                  "name": "Rajouri Garden Ring Road",
+                  "lat": 28.6515786,
+                  "lon": 77.1246619,
+                  "stop": {
+                    "gtfsId": "1:3342"
+                  }
+                },
+                "to": {
+                  "name": "Satya Niketan",
+                  "lat": 28.5888396,
+                  "lon": 77.1700028,
+                  "stop": {
+                    "gtfsId": "1:4937"
+                  }
+                },
+                "route": {
+                  "shortName": "448UP",
+                  "gtfsId": "1:1958"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 10530.85,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:21:41+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:54:39+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2195_09_40"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7827"
+                  },
+                  {
+                    "gtfsId": "1:1804"
+                  },
+                  {
+                    "gtfsId": "1:6286"
+                  },
+                  {
+                    "gtfsId": "1:3104"
+                  },
+                  {
+                    "gtfsId": "1:3105"
+                  },
+                  {
+                    "gtfsId": "1:2424"
+                  },
+                  {
+                    "gtfsId": "1:2425"
+                  },
+                  {
+                    "gtfsId": "1:2839"
+                  },
+                  {
+                    "gtfsId": "1:2840"
+                  },
+                  {
+                    "gtfsId": "1:2841"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:2557"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  }
+                ],
+                "from": {
+                  "name": "Satya Niketan",
+                  "lat": 28.5888396,
+                  "lon": 77.1700028,
+                  "stop": {
+                    "gtfsId": "1:4937"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place",
+                  "lat": 28.5485761,
+                  "lon": 77.2491332,
+                  "stop": {
+                    "gtfsId": "1:2559"
+                  }
+                },
+                "route": {
+                  "shortName": "724UP",
+                  "gtfsId": "1:2195"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:46:16+05:30",
+            "end": "2026-10-22T10:56:38+05:30",
+            "walkDistance": 619.51,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 619.51,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:46:16+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:54:06+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.648433,
+                  "lon": 77.120783,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Rajouri Garden Ring Road",
+                  "lat": 28.6515786,
+                  "lon": 77.1246619,
+                  "stop": {
+                    "gtfsId": "1:3342"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 19478.9,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:54:06+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:56:38+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1942_09_25"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:6134"
+                  },
+                  {
+                    "gtfsId": "1:1883"
+                  },
+                  {
+                    "gtfsId": "1:2939"
+                  },
+                  {
+                    "gtfsId": "1:2940"
+                  },
+                  {
+                    "gtfsId": "1:2941"
+                  },
+                  {
+                    "gtfsId": "1:3345"
+                  },
+                  {
+                    "gtfsId": "1:2943"
+                  },
+                  {
+                    "gtfsId": "1:2944"
+                  },
+                  {
+                    "gtfsId": "1:4937"
+                  },
+                  {
+                    "gtfsId": "1:7827"
+                  },
+                  {
+                    "gtfsId": "1:1804"
+                  },
+                  {
+                    "gtfsId": "1:6286"
+                  },
+                  {
+                    "gtfsId": "1:3104"
+                  },
+                  {
+                    "gtfsId": "1:3105"
+                  },
+                  {
+                    "gtfsId": "1:2424"
+                  },
+                  {
+                    "gtfsId": "1:2425"
+                  },
+                  {
+                    "gtfsId": "1:2839"
+                  },
+                  {
+                    "gtfsId": "1:2840"
+                  },
+                  {
+                    "gtfsId": "1:2841"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:2557"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  }
+                ],
+                "from": {
+                  "name": "Rajouri Garden Ring Road",
+                  "lat": 28.6515786,
+                  "lon": 77.1246619,
+                  "stop": {
+                    "gtfsId": "1:3342"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place",
+                  "lat": 28.5485761,
+                  "lon": 77.2491332,
+                  "stop": {
+                    "gtfsId": "1:2559"
+                  }
+                },
+                "route": {
+                  "shortName": "442UP",
+                  "gtfsId": "1:1942"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:47:49+05:30",
+            "end": "2026-10-22T11:03:50+05:30",
+            "walkDistance": 864.74,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 864.74,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:47:49+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:00:06+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.648433,
+                  "lon": 77.120783,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Rajouri Garden Market",
+                  "lat": 28.645609,
+                  "lon": 77.127065,
+                  "stop": {
+                    "gtfsId": "1:2937"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 13701.52,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:00:06+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:44:56+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1502_09_40"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2938"
+                  },
+                  {
+                    "gtfsId": "1:1883"
+                  },
+                  {
+                    "gtfsId": "1:2939"
+                  },
+                  {
+                    "gtfsId": "1:2940"
+                  },
+                  {
+                    "gtfsId": "1:2941"
+                  },
+                  {
+                    "gtfsId": "1:3345"
+                  },
+                  {
+                    "gtfsId": "1:2943"
+                  },
+                  {
+                    "gtfsId": "1:2944"
+                  },
+                  {
+                    "gtfsId": "1:4937"
+                  },
+                  {
+                    "gtfsId": "1:5985"
+                  },
+                  {
+                    "gtfsId": "1:6285"
+                  },
+                  {
+                    "gtfsId": "1:6286"
+                  },
+                  {
+                    "gtfsId": "1:3105"
+                  },
+                  {
+                    "gtfsId": "1:2424"
+                  },
+                  {
+                    "gtfsId": "1:2425"
+                  }
+                ],
+                "from": {
+                  "name": "Rajouri Garden Market",
+                  "lat": 28.645609,
+                  "lon": 77.127065,
+                  "stop": {
+                    "gtfsId": "1:2937"
+                  }
+                },
+                "to": {
+                  "name": "AIIMS Ring Road",
+                  "lat": 28.569185,
+                  "lon": 77.21269,
+                  "stop": {
+                    "gtfsId": "1:2839"
+                  }
+                },
+                "route": {
+                  "shortName": "0TMS(-)(NS)DOWN",
+                  "gtfsId": "1:1502"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 5072.8,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:48:54+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:03:50+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:3450_10_20"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2840"
+                  },
+                  {
+                    "gtfsId": "1:2841"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:8354"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  }
+                ],
+                "from": {
+                  "name": "AIIMS Ring Road",
+                  "lat": 28.569185,
+                  "lon": 77.21269,
+                  "stop": {
+                    "gtfsId": "1:2839"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place",
+                  "lat": 28.5485761,
+                  "lon": 77.2491332,
+                  "stop": {
+                    "gtfsId": "1:2559"
+                  }
+                },
+                "route": {
+                  "shortName": "433BUP",
+                  "gtfsId": "1:3450"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:58:43+05:30",
+            "end": "2026-10-22T11:11:12+05:30",
+            "walkDistance": 864.74,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 864.74,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:58:43+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:11:00+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.648433,
+                  "lon": 77.120783,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Rajouri Garden Market",
+                  "lat": 28.645609,
+                  "lon": 77.127065,
+                  "stop": {
+                    "gtfsId": "1:2937"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 18774.33,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:11:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:11:12+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2081_09_09"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2938"
+                  },
+                  {
+                    "gtfsId": "1:3344"
+                  },
+                  {
+                    "gtfsId": "1:2939"
+                  },
+                  {
+                    "gtfsId": "1:2940"
+                  },
+                  {
+                    "gtfsId": "1:2941"
+                  },
+                  {
+                    "gtfsId": "1:3345"
+                  },
+                  {
+                    "gtfsId": "1:2943"
+                  },
+                  {
+                    "gtfsId": "1:2944"
+                  },
+                  {
+                    "gtfsId": "1:4937"
+                  },
+                  {
+                    "gtfsId": "1:7827"
+                  },
+                  {
+                    "gtfsId": "1:1804"
+                  },
+                  {
+                    "gtfsId": "1:6286"
+                  },
+                  {
+                    "gtfsId": "1:3104"
+                  },
+                  {
+                    "gtfsId": "1:3105"
+                  },
+                  {
+                    "gtfsId": "1:2424"
+                  },
+                  {
+                    "gtfsId": "1:2425"
+                  },
+                  {
+                    "gtfsId": "1:2839"
+                  },
+                  {
+                    "gtfsId": "1:2840"
+                  },
+                  {
+                    "gtfsId": "1:2841"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:2557"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  }
+                ],
+                "from": {
+                  "name": "Rajouri Garden Market",
+                  "lat": 28.645609,
+                  "lon": 77.127065,
+                  "stop": {
+                    "gtfsId": "1:2937"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place",
+                  "lat": 28.5485761,
+                  "lon": 77.2491332,
+                  "stop": {
+                    "gtfsId": "1:2559"
+                  }
+                },
+                "route": {
+                  "shortName": "567ADOWN",
+                  "gtfsId": "1:2081"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:59:17+05:30",
+            "end": "2026-10-22T11:14:32+05:30",
+            "walkDistance": 864.74,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 864.74,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:59:17+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:11:34+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.648433,
+                  "lon": 77.120783,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Rajouri Garden Market",
+                  "lat": 28.645609,
+                  "lon": 77.127065,
+                  "stop": {
+                    "gtfsId": "1:2937"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 10520.4,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:11:34+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:46:19+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1980_09_59"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:6134"
+                  },
+                  {
+                    "gtfsId": "1:1883"
+                  },
+                  {
+                    "gtfsId": "1:2939"
+                  },
+                  {
+                    "gtfsId": "1:2940"
+                  },
+                  {
+                    "gtfsId": "1:2941"
+                  },
+                  {
+                    "gtfsId": "1:3345"
+                  },
+                  {
+                    "gtfsId": "1:2943"
+                  },
+                  {
+                    "gtfsId": "1:2944"
+                  },
+                  {
+                    "gtfsId": "1:4937"
+                  },
+                  {
+                    "gtfsId": "1:5985"
+                  },
+                  {
+                    "gtfsId": "1:6285"
+                  }
+                ],
+                "from": {
+                  "name": "Rajouri Garden Market",
+                  "lat": 28.645609,
+                  "lon": 77.127065,
+                  "stop": {
+                    "gtfsId": "1:2937"
+                  }
+                },
+                "to": {
+                  "name": "RK Puram Sec 13",
+                  "lat": 28.57133,
+                  "lon": 77.181727,
+                  "stop": {
+                    "gtfsId": "1:3104"
+                  }
+                },
+                "route": {
+                  "shortName": "479UP",
+                  "gtfsId": "1:1980"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 8251.97,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:49:06+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:14:32+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2194_09_50"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:3105"
+                  },
+                  {
+                    "gtfsId": "1:2424"
+                  },
+                  {
+                    "gtfsId": "1:2425"
+                  },
+                  {
+                    "gtfsId": "1:2839"
+                  },
+                  {
+                    "gtfsId": "1:2840"
+                  },
+                  {
+                    "gtfsId": "1:2841"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:2557"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  }
+                ],
+                "from": {
+                  "name": "RK Puram Sec 13",
+                  "lat": 28.57133,
+                  "lon": 77.181727,
+                  "stop": {
+                    "gtfsId": "1:3104"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place",
+                  "lat": 28.5485761,
+                  "lon": 77.2491332,
+                  "stop": {
+                    "gtfsId": "1:2559"
+                  }
+                },
+                "route": {
+                  "shortName": "724EXTUP",
+                  "gtfsId": "1:2194"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:06:16+05:30",
+            "end": "2026-10-22T11:16:38+05:30",
+            "walkDistance": 619.51,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 619.51,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:06:16+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:14:06+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.648433,
+                  "lon": 77.120783,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Rajouri Garden Ring Road",
+                  "lat": 28.6515786,
+                  "lon": 77.1246619,
+                  "stop": {
+                    "gtfsId": "1:3342"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 19478.9,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:14:06+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:16:38+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1942_09_45"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:6134"
+                  },
+                  {
+                    "gtfsId": "1:1883"
+                  },
+                  {
+                    "gtfsId": "1:2939"
+                  },
+                  {
+                    "gtfsId": "1:2940"
+                  },
+                  {
+                    "gtfsId": "1:2941"
+                  },
+                  {
+                    "gtfsId": "1:3345"
+                  },
+                  {
+                    "gtfsId": "1:2943"
+                  },
+                  {
+                    "gtfsId": "1:2944"
+                  },
+                  {
+                    "gtfsId": "1:4937"
+                  },
+                  {
+                    "gtfsId": "1:7827"
+                  },
+                  {
+                    "gtfsId": "1:1804"
+                  },
+                  {
+                    "gtfsId": "1:6286"
+                  },
+                  {
+                    "gtfsId": "1:3104"
+                  },
+                  {
+                    "gtfsId": "1:3105"
+                  },
+                  {
+                    "gtfsId": "1:2424"
+                  },
+                  {
+                    "gtfsId": "1:2425"
+                  },
+                  {
+                    "gtfsId": "1:2839"
+                  },
+                  {
+                    "gtfsId": "1:2840"
+                  },
+                  {
+                    "gtfsId": "1:2841"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:2557"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  }
+                ],
+                "from": {
+                  "name": "Rajouri Garden Ring Road",
+                  "lat": 28.6515786,
+                  "lon": 77.1246619,
+                  "stop": {
+                    "gtfsId": "1:3342"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place",
+                  "lat": 28.5485761,
+                  "lon": 77.2491332,
+                  "stop": {
+                    "gtfsId": "1:2559"
+                  }
+                },
+                "route": {
+                  "shortName": "442UP",
+                  "gtfsId": "1:1942"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T10:08:06+05:30",
+            "end": "2026-10-22T11:20:28+05:30",
+            "walkDistance": 619.51,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 619.51,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:08:06+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:15:56+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.648433,
+                  "lon": 77.120783,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Rajouri Garden Ring Road",
+                  "lat": 28.6515786,
+                  "lon": 77.1246619,
+                  "stop": {
+                    "gtfsId": "1:3342"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 11654.77,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:15:56+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:54:19+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2735_08_50"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2938"
+                  },
+                  {
+                    "gtfsId": "1:1883"
+                  },
+                  {
+                    "gtfsId": "1:2939"
+                  },
+                  {
+                    "gtfsId": "1:2940"
+                  },
+                  {
+                    "gtfsId": "1:2941"
+                  },
+                  {
+                    "gtfsId": "1:3345"
+                  },
+                  {
+                    "gtfsId": "1:2943"
+                  },
+                  {
+                    "gtfsId": "1:2944"
+                  },
+                  {
+                    "gtfsId": "1:3031"
+                  },
+                  {
+                    "gtfsId": "1:4937"
+                  },
+                  {
+                    "gtfsId": "1:5985"
+                  },
+                  {
+                    "gtfsId": "1:6285"
+                  },
+                  {
+                    "gtfsId": "1:6286"
+                  }
+                ],
+                "from": {
+                  "name": "Rajouri Garden Ring Road",
+                  "lat": 28.6515786,
+                  "lon": 77.1246619,
+                  "stop": {
+                    "gtfsId": "1:3342"
+                  }
+                },
+                "to": {
+                  "name": "Hyatt Hotel",
+                  "lat": 28.5700361,
+                  "lon": 77.1857353,
+                  "stop": {
+                    "gtfsId": "1:3105"
+                  }
+                },
+                "route": {
+                  "shortName": "TMS(-)DOWN",
+                  "gtfsId": "1:2735"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 7831.91,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:56:24+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:20:28+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2868_10_00"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2423"
+                  },
+                  {
+                    "gtfsId": "1:2424"
+                  },
+                  {
+                    "gtfsId": "1:2425"
+                  },
+                  {
+                    "gtfsId": "1:2839"
+                  },
+                  {
+                    "gtfsId": "1:2840"
+                  },
+                  {
+                    "gtfsId": "1:2841"
+                  },
+                  {
+                    "gtfsId": "1:2361"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:2557"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  }
+                ],
+                "from": {
+                  "name": "Hyatt Hotel",
+                  "lat": 28.5700361,
+                  "lon": 77.1857353,
+                  "stop": {
+                    "gtfsId": "1:3105"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place",
+                  "lat": 28.5485761,
+                  "lon": 77.2491332,
+                  "stop": {
+                    "gtfsId": "1:2559"
+                  }
+                },
+                "route": {
+                  "shortName": "CBD CIRCULATOR-3 (+) UP",
+                  "gtfsId": "1:2868"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

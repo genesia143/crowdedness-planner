@@ -1,0 +1,1187 @@
+{
+  "status": 200,
+  "body": {
+    "journeys": [
+      {
+        "start": "2026-10-22T03:55:29+05:30",
+        "end": "2026-10-22T05:03:26+05:30",
+        "walkDistance": 339.39,
+        "numberOfTransfers": 1,
+        "legs": [
+          {
+            "mode": "WALK",
+            "distance": 339.39,
+            "serviceDate": null,
+            "start": {
+              "scheduledTime": "2026-10-22T03:55:29+05:30"
+            },
+            "end": {
+              "scheduledTime": "2026-10-22T04:00:00+05:30"
+            },
+            "trip": null,
+            "intermediateStops": null,
+            "from": {
+              "name": "Origin",
+              "lat": 28.668198,
+              "lon": 77.229219,
+              "stop": null
+            },
+            "to": {
+              "name": "ISBT Kashmere Gate Terminal",
+              "lat": 28.66696,
+              "lon": 77.227456,
+              "stop": {
+                "gtfsId": "1:4109"
+              }
+            },
+            "route": null,
+            "duration_minutes": 4.516666666666667
+          },
+          {
+            "mode": "BUS",
+            "distance": 14196.3,
+            "serviceDate": "2026-10-22",
+            "start": {
+              "scheduledTime": "2026-10-22T04:00:00+05:30"
+            },
+            "end": {
+              "scheduledTime": "2026-10-22T04:43:29+05:30"
+            },
+            "trip": {
+              "gtfsId": "1:1914_04_00"
+            },
+            "intermediateStops": [
+              {
+                "gtfsId": "1:872"
+              },
+              {
+                "gtfsId": "1:7596"
+              },
+              {
+                "gtfsId": "1:333"
+              },
+              {
+                "gtfsId": "1:334"
+              },
+              {
+                "gtfsId": "1:1826"
+              },
+              {
+                "gtfsId": "1:4824"
+              },
+              {
+                "gtfsId": "1:336"
+              },
+              {
+                "gtfsId": "1:4879"
+              },
+              {
+                "gtfsId": "1:338"
+              },
+              {
+                "gtfsId": "1:6036"
+              },
+              {
+                "gtfsId": "1:4266"
+              },
+              {
+                "gtfsId": "1:1368"
+              },
+              {
+                "gtfsId": "1:1361"
+              },
+              {
+                "gtfsId": "1:2139"
+              },
+              {
+                "gtfsId": "1:2620"
+              },
+              {
+                "gtfsId": "1:4922"
+              },
+              {
+                "gtfsId": "1:7767"
+              },
+              {
+                "gtfsId": "1:1373"
+              },
+              {
+                "gtfsId": "1:2140"
+              },
+              {
+                "gtfsId": "1:2757"
+              },
+              {
+                "gtfsId": "1:2791"
+              },
+              {
+                "gtfsId": "1:2759"
+              },
+              {
+                "gtfsId": "1:7952"
+              }
+            ],
+            "from": {
+              "name": "ISBT Kashmere Gate Terminal",
+              "lat": 28.66696,
+              "lon": 77.227456,
+              "stop": {
+                "gtfsId": "1:4109"
+              }
+            },
+            "to": {
+              "name": "Central School (MCKR)",
+              "lat": 28.562727,
+              "lon": 77.232815,
+              "stop": {
+                "gtfsId": "1:7937"
+              }
+            },
+            "route": {
+              "shortName": "419UP",
+              "gtfsId": "1:1914"
+            },
+            "duration_minutes": 43.483333333333334,
+            "v1_signals": [
+              {
+                "from_stop_id": "4109",
+                "to_stop_id": "872",
+                "scheduled_time": "2026-10-22T04:00:00+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 30,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "872",
+                "to_stop_id": "7596",
+                "scheduled_time": "2026-10-22T04:01:48+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 30,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "7596",
+                "to_stop_id": "333",
+                "scheduled_time": "2026-10-22T04:04:41+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "available",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.03333333333333333,
+                  "sample_passengers": 1,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 30,
+                  "observed_days_with_schedule": 1,
+                  "days_without_matching_schedule": 0,
+                  "assumption": "Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": {
+                  "matched_sample_passenger_segments": 1,
+                  "included_with_same_hour_service": 1,
+                  "excluded_without_same_hour_service": 0,
+                  "excluded_sample_fraction": 0.0,
+                  "days_with_unmatched_service": 0,
+                  "interpretation": "Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders."
+                }
+              },
+              {
+                "from_stop_id": "333",
+                "to_stop_id": "334",
+                "scheduled_time": "2026-10-22T04:07:38+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "available",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.06666666666666667,
+                  "sample_passengers": 2,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 30,
+                  "observed_days_with_schedule": 2,
+                  "days_without_matching_schedule": 0,
+                  "assumption": "Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": {
+                  "matched_sample_passenger_segments": 2,
+                  "included_with_same_hour_service": 2,
+                  "excluded_without_same_hour_service": 0,
+                  "excluded_sample_fraction": 0.0,
+                  "days_with_unmatched_service": 0,
+                  "interpretation": "Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders."
+                }
+              },
+              {
+                "from_stop_id": "334",
+                "to_stop_id": "1826",
+                "scheduled_time": "2026-10-22T04:10:19+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "available",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.1,
+                  "sample_passengers": 3,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 30,
+                  "observed_days_with_schedule": 3,
+                  "days_without_matching_schedule": 0,
+                  "assumption": "Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": {
+                  "matched_sample_passenger_segments": 3,
+                  "included_with_same_hour_service": 3,
+                  "excluded_without_same_hour_service": 0,
+                  "excluded_sample_fraction": 0.0,
+                  "days_with_unmatched_service": 0,
+                  "interpretation": "Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders."
+                }
+              },
+              {
+                "from_stop_id": "1826",
+                "to_stop_id": "4824",
+                "scheduled_time": "2026-10-22T04:12:04+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "available",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.1,
+                  "sample_passengers": 3,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 30,
+                  "observed_days_with_schedule": 3,
+                  "days_without_matching_schedule": 0,
+                  "assumption": "Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": {
+                  "matched_sample_passenger_segments": 3,
+                  "included_with_same_hour_service": 3,
+                  "excluded_without_same_hour_service": 0,
+                  "excluded_sample_fraction": 0.0,
+                  "days_with_unmatched_service": 0,
+                  "interpretation": "Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders."
+                }
+              },
+              {
+                "from_stop_id": "4824",
+                "to_stop_id": "336",
+                "scheduled_time": "2026-10-22T04:12:43+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "available",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.1,
+                  "sample_passengers": 3,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 30,
+                  "observed_days_with_schedule": 3,
+                  "days_without_matching_schedule": 0,
+                  "assumption": "Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": {
+                  "matched_sample_passenger_segments": 3,
+                  "included_with_same_hour_service": 3,
+                  "excluded_without_same_hour_service": 0,
+                  "excluded_sample_fraction": 0.0,
+                  "days_with_unmatched_service": 0,
+                  "interpretation": "Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders."
+                }
+              },
+              {
+                "from_stop_id": "336",
+                "to_stop_id": "4879",
+                "scheduled_time": "2026-10-22T04:15:23+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "available",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.1,
+                  "sample_passengers": 3,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 30,
+                  "observed_days_with_schedule": 3,
+                  "days_without_matching_schedule": 0,
+                  "assumption": "Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": {
+                  "matched_sample_passenger_segments": 3,
+                  "included_with_same_hour_service": 3,
+                  "excluded_without_same_hour_service": 0,
+                  "excluded_sample_fraction": 0.0,
+                  "days_with_unmatched_service": 0,
+                  "interpretation": "Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders."
+                }
+              },
+              {
+                "from_stop_id": "4879",
+                "to_stop_id": "338",
+                "scheduled_time": "2026-10-22T04:17:03+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "available",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.1,
+                  "sample_passengers": 3,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 30,
+                  "observed_days_with_schedule": 3,
+                  "days_without_matching_schedule": 0,
+                  "assumption": "Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": {
+                  "matched_sample_passenger_segments": 3,
+                  "included_with_same_hour_service": 3,
+                  "excluded_without_same_hour_service": 0,
+                  "excluded_sample_fraction": 0.0,
+                  "days_with_unmatched_service": 0,
+                  "interpretation": "Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders."
+                }
+              },
+              {
+                "from_stop_id": "338",
+                "to_stop_id": "6036",
+                "scheduled_time": "2026-10-22T04:18:29+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "available",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.1,
+                  "sample_passengers": 3,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 30,
+                  "observed_days_with_schedule": 3,
+                  "days_without_matching_schedule": 0,
+                  "assumption": "Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": {
+                  "matched_sample_passenger_segments": 3,
+                  "included_with_same_hour_service": 3,
+                  "excluded_without_same_hour_service": 0,
+                  "excluded_sample_fraction": 0.0,
+                  "days_with_unmatched_service": 0,
+                  "interpretation": "Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders."
+                }
+              },
+              {
+                "from_stop_id": "6036",
+                "to_stop_id": "4266",
+                "scheduled_time": "2026-10-22T04:20:10+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "available",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.2,
+                  "sample_passengers": 3,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 3,
+                  "days_without_matching_schedule": 0,
+                  "assumption": "Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": {
+                  "matched_sample_passenger_segments": 3,
+                  "included_with_same_hour_service": 3,
+                  "excluded_without_same_hour_service": 0,
+                  "excluded_sample_fraction": 0.0,
+                  "days_with_unmatched_service": 0,
+                  "interpretation": "Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders."
+                }
+              },
+              {
+                "from_stop_id": "4266",
+                "to_stop_id": "1368",
+                "scheduled_time": "2026-10-22T04:20:34+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "available",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.13333333333333333,
+                  "sample_passengers": 2,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 2,
+                  "days_without_matching_schedule": 0,
+                  "assumption": "Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": {
+                  "matched_sample_passenger_segments": 2,
+                  "included_with_same_hour_service": 2,
+                  "excluded_without_same_hour_service": 0,
+                  "excluded_sample_fraction": 0.0,
+                  "days_with_unmatched_service": 0,
+                  "interpretation": "Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders."
+                }
+              },
+              {
+                "from_stop_id": "1368",
+                "to_stop_id": "1361",
+                "scheduled_time": "2026-10-22T04:21:07+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "available",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.13333333333333333,
+                  "sample_passengers": 2,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 2,
+                  "days_without_matching_schedule": 0,
+                  "assumption": "Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": {
+                  "matched_sample_passenger_segments": 2,
+                  "included_with_same_hour_service": 2,
+                  "excluded_without_same_hour_service": 0,
+                  "excluded_sample_fraction": 0.0,
+                  "days_with_unmatched_service": 0,
+                  "interpretation": "Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders."
+                }
+              },
+              {
+                "from_stop_id": "1361",
+                "to_stop_id": "2139",
+                "scheduled_time": "2026-10-22T04:23:34+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "available",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.13333333333333333,
+                  "sample_passengers": 2,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 2,
+                  "days_without_matching_schedule": 0,
+                  "assumption": "Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": {
+                  "matched_sample_passenger_segments": 2,
+                  "included_with_same_hour_service": 2,
+                  "excluded_without_same_hour_service": 0,
+                  "excluded_sample_fraction": 0.0,
+                  "days_with_unmatched_service": 0,
+                  "interpretation": "Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders."
+                }
+              },
+              {
+                "from_stop_id": "2139",
+                "to_stop_id": "2620",
+                "scheduled_time": "2026-10-22T04:25:19+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "available",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.13333333333333333,
+                  "sample_passengers": 2,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 2,
+                  "days_without_matching_schedule": 0,
+                  "assumption": "Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": {
+                  "matched_sample_passenger_segments": 2,
+                  "included_with_same_hour_service": 2,
+                  "excluded_without_same_hour_service": 0,
+                  "excluded_sample_fraction": 0.0,
+                  "days_with_unmatched_service": 0,
+                  "interpretation": "Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders."
+                }
+              },
+              {
+                "from_stop_id": "2620",
+                "to_stop_id": "4922",
+                "scheduled_time": "2026-10-22T04:26:09+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "available",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.13333333333333333,
+                  "sample_passengers": 2,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 2,
+                  "days_without_matching_schedule": 0,
+                  "assumption": "Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": {
+                  "matched_sample_passenger_segments": 2,
+                  "included_with_same_hour_service": 2,
+                  "excluded_without_same_hour_service": 0,
+                  "excluded_sample_fraction": 0.0,
+                  "days_with_unmatched_service": 0,
+                  "interpretation": "Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders."
+                }
+              },
+              {
+                "from_stop_id": "4922",
+                "to_stop_id": "7767",
+                "scheduled_time": "2026-10-22T04:27:19+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "available",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.13333333333333333,
+                  "sample_passengers": 2,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 2,
+                  "days_without_matching_schedule": 0,
+                  "assumption": "Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": {
+                  "matched_sample_passenger_segments": 2,
+                  "included_with_same_hour_service": 2,
+                  "excluded_without_same_hour_service": 0,
+                  "excluded_sample_fraction": 0.0,
+                  "days_with_unmatched_service": 0,
+                  "interpretation": "Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders."
+                }
+              },
+              {
+                "from_stop_id": "7767",
+                "to_stop_id": "1373",
+                "scheduled_time": "2026-10-22T04:28:29+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "available",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.13333333333333333,
+                  "sample_passengers": 2,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 2,
+                  "days_without_matching_schedule": 0,
+                  "assumption": "Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": {
+                  "matched_sample_passenger_segments": 2,
+                  "included_with_same_hour_service": 2,
+                  "excluded_without_same_hour_service": 0,
+                  "excluded_sample_fraction": 0.0,
+                  "days_with_unmatched_service": 0,
+                  "interpretation": "Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders."
+                }
+              },
+              {
+                "from_stop_id": "1373",
+                "to_stop_id": "2140",
+                "scheduled_time": "2026-10-22T04:29:45+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "available",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.13333333333333333,
+                  "sample_passengers": 2,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 2,
+                  "days_without_matching_schedule": 0,
+                  "assumption": "Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": {
+                  "matched_sample_passenger_segments": 2,
+                  "included_with_same_hour_service": 2,
+                  "excluded_without_same_hour_service": 0,
+                  "excluded_sample_fraction": 0.0,
+                  "days_with_unmatched_service": 0,
+                  "interpretation": "Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders."
+                }
+              },
+              {
+                "from_stop_id": "2140",
+                "to_stop_id": "2757",
+                "scheduled_time": "2026-10-22T04:30:33+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "available",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.13333333333333333,
+                  "sample_passengers": 2,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 2,
+                  "days_without_matching_schedule": 0,
+                  "assumption": "Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": {
+                  "matched_sample_passenger_segments": 2,
+                  "included_with_same_hour_service": 2,
+                  "excluded_without_same_hour_service": 0,
+                  "excluded_sample_fraction": 0.0,
+                  "days_with_unmatched_service": 0,
+                  "interpretation": "Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders."
+                }
+              },
+              {
+                "from_stop_id": "2757",
+                "to_stop_id": "2791",
+                "scheduled_time": "2026-10-22T04:34:11+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "available",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.06666666666666667,
+                  "sample_passengers": 1,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 1,
+                  "days_without_matching_schedule": 0,
+                  "assumption": "Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": {
+                  "matched_sample_passenger_segments": 1,
+                  "included_with_same_hour_service": 1,
+                  "excluded_without_same_hour_service": 0,
+                  "excluded_sample_fraction": 0.0,
+                  "days_with_unmatched_service": 0,
+                  "interpretation": "Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders."
+                }
+              },
+              {
+                "from_stop_id": "2791",
+                "to_stop_id": "2759",
+                "scheduled_time": "2026-10-22T04:35:23+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "available",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.06666666666666667,
+                  "sample_passengers": 1,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 1,
+                  "days_without_matching_schedule": 0,
+                  "assumption": "Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": {
+                  "matched_sample_passenger_segments": 1,
+                  "included_with_same_hour_service": 1,
+                  "excluded_without_same_hour_service": 0,
+                  "excluded_sample_fraction": 0.0,
+                  "days_with_unmatched_service": 0,
+                  "interpretation": "Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders."
+                }
+              },
+              {
+                "from_stop_id": "2759",
+                "to_stop_id": "7952",
+                "scheduled_time": "2026-10-22T04:39:20+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "available",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.06666666666666667,
+                  "sample_passengers": 1,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 1,
+                  "days_without_matching_schedule": 0,
+                  "assumption": "Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": {
+                  "matched_sample_passenger_segments": 1,
+                  "included_with_same_hour_service": 1,
+                  "excluded_without_same_hour_service": 0,
+                  "excluded_sample_fraction": 0.0,
+                  "days_with_unmatched_service": 0,
+                  "interpretation": "Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders."
+                }
+              },
+              {
+                "from_stop_id": "7952",
+                "to_stop_id": "7937",
+                "scheduled_time": "2026-10-22T04:40:57+05:30",
+                "model_lookup_time": "2026-10-22T04:00:00+05:30",
+                "model_timing_basis": "boarding",
+                "status": "available",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.06666666666666667,
+                  "sample_passengers": 1,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 1,
+                  "days_without_matching_schedule": 0,
+                  "assumption": "Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": {
+                  "matched_sample_passenger_segments": 1,
+                  "included_with_same_hour_service": 1,
+                  "excluded_without_same_hour_service": 0,
+                  "excluded_sample_fraction": 0.0,
+                  "days_with_unmatched_service": 0,
+                  "interpretation": "Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders."
+                }
+              }
+            ],
+            "v1_signal_status": "attached; availability varies by segment"
+          },
+          {
+            "mode": "BUS",
+            "distance": 3492.69,
+            "serviceDate": "2026-10-22",
+            "start": {
+              "scheduledTime": "2026-10-22T04:52:57+05:30"
+            },
+            "end": {
+              "scheduledTime": "2026-10-22T05:03:26+05:30"
+            },
+            "trip": {
+              "gtfsId": "1:2796_04_41"
+            },
+            "intermediateStops": [
+              {
+                "gtfsId": "1:2792"
+              },
+              {
+                "gtfsId": "1:2556"
+              },
+              {
+                "gtfsId": "1:8354"
+              },
+              {
+                "gtfsId": "1:7938"
+              },
+              {
+                "gtfsId": "1:2558"
+              },
+              {
+                "gtfsId": "1:2559"
+              },
+              {
+                "gtfsId": "1:6054"
+              }
+            ],
+            "from": {
+              "name": "Central School (MCKR)",
+              "lat": 28.562727,
+              "lon": 77.232815,
+              "stop": {
+                "gtfsId": "1:7937"
+              }
+            },
+            "to": {
+              "name": "Nehru Place Terminal",
+              "lat": 28.5487002,
+              "lon": 77.2569812,
+              "stop": {
+                "gtfsId": "1:2560"
+              }
+            },
+            "route": {
+              "shortName": "D-056STLUP",
+              "gtfsId": "1:2796"
+            },
+            "duration_minutes": 10.483333333333333,
+            "v1_signals": [
+              {
+                "from_stop_id": "7937",
+                "to_stop_id": "2792",
+                "scheduled_time": "2026-10-22T04:52:57+05:30",
+                "model_lookup_time": "2026-10-22T04:52:57+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 30,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "2792",
+                "to_stop_id": "2556",
+                "scheduled_time": "2026-10-22T04:54:03+05:30",
+                "model_lookup_time": "2026-10-22T04:52:57+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 30,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "2556",
+                "to_stop_id": "8354",
+                "scheduled_time": "2026-10-22T04:55:18+05:30",
+                "model_lookup_time": "2026-10-22T04:52:57+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 30,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "8354",
+                "to_stop_id": "7938",
+                "scheduled_time": "2026-10-22T04:57:20+05:30",
+                "model_lookup_time": "2026-10-22T04:52:57+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 30,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "7938",
+                "to_stop_id": "2558",
+                "scheduled_time": "2026-10-22T04:57:51+05:30",
+                "model_lookup_time": "2026-10-22T04:52:57+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 30,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "2558",
+                "to_stop_id": "2559",
+                "scheduled_time": "2026-10-22T04:59:04+05:30",
+                "model_lookup_time": "2026-10-22T04:52:57+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 30,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "2559",
+                "to_stop_id": "6054",
+                "scheduled_time": "2026-10-22T05:00:48+05:30",
+                "model_lookup_time": "2026-10-22T04:52:57+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              },
+              {
+                "from_stop_id": "6054",
+                "to_stop_id": "2560",
+                "scheduled_time": "2026-10-22T05:02:47+05:30",
+                "model_lookup_time": "2026-10-22T04:52:57+05:30",
+                "model_timing_basis": "boarding",
+                "status": "unavailable",
+                "all_scheduled_days_proxy": {
+                  "sample_passengers_per_scheduled_crossing": 0.0,
+                  "sample_passengers": 0,
+                  "scheduled_days": 15,
+                  "scheduled_crossings": 15,
+                  "observed_days_with_schedule": 0,
+                  "assumption": "Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders."
+                },
+                "relative_crowding": {
+                  "label": "insufficient evidence",
+                  "provisional": true,
+                  "comparison": "same route, directed segment and day type across hours",
+                  "reason": "too few supported hours or observations for a relative comparison"
+                },
+                "schedule_alignment": null
+              }
+            ],
+            "v1_signal_status": "attached; availability varies by segment"
+          }
+        ],
+        "timing_summary": {
+          "walking_minutes": 4.516666666666667,
+          "bus_minutes": 53.96666666666667,
+          "waiting_minutes": 64.95,
+          "waiting_periods": [
+            {
+              "before_mode": "WALK",
+              "minutes": 55.483333333333334
+            },
+            {
+              "before_mode": "BUS",
+              "minutes": 9.466666666666667
+            }
+          ],
+          "status": "available",
+          "basis": "Scheduled times, including waiting from requested departure; not live predictions."
+        },
+        "signal_coverage": {
+          "segments_with_observations_and_service": 22,
+          "segments_without_observations_or_service": 10,
+          "bus_legs_without_segment_details": 0,
+          "basis": "Ticket-sample signal coverage; not an occupancy or crowding estimate."
+        },
+        "crowding_summary": {
+          "status": "insufficient evidence",
+          "labelled_segments": 0,
+          "segments_without_label": 32,
+          "bus_legs_without_segment_details": 0,
+          "bus_legs": [
+            {
+              "leg_index": 1,
+              "route": "419UP",
+              "labelled_segments": 0,
+              "segments_without_label": 24,
+              "segment_details_available": true,
+              "segment_label_counts": {
+                "likely quieter": 0,
+                "typical": 0,
+                "likely busier": 0
+              }
+            },
+            {
+              "leg_index": 2,
+              "route": "D-056STLUP",
+              "labelled_segments": 0,
+              "segments_without_label": 8,
+              "segment_details_available": true,
+              "segment_label_counts": {
+                "likely quieter": 0,
+                "typical": 0,
+                "likely busier": 0
+              }
+            }
+          ],
+          "provisional": true,
+          "interpretation": "Labels compare each route segment with its own hours on the same day type. Counts are not a journey-level crowding score and cannot compare different routes or segments. Missing details are not quiet segments; the labels are not measured occupancy."
+        }
+      }
+    ],
+    "max_transfer_walk_metres": 1000.0,
+    "returned_candidates": 1,
+    "excluded_bus_candidates": 0,
+    "limitations": "Transfer walking limit is applied after routing, so suitable alternatives may be omitted. Walking uses OpenStreetMap and depends on graph coverage. Ticket signals are not occupancy."
+  }
+}

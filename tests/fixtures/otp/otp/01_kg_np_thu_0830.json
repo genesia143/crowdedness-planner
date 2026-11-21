@@ -1,0 +1,3807 @@
+{
+  "data": {
+    "planConnection": {
+      "edges": [
+        {
+          "node": {
+            "start": "2026-10-22T08:31:58+05:30",
+            "end": "2026-10-22T09:30:36+05:30",
+            "walkDistance": 165.87,
+            "numberOfTransfers": 2,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 165.87,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T08:31:58+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:34:10+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.668198,
+                  "lon": 77.229219,
+                  "stop": null
+                },
+                "to": {
+                  "name": "ISBT Bridge/ ISBT Nityanand Marg",
+                  "lat": 28.66923,
+                  "lon": 77.228774,
+                  "stop": {
+                    "gtfsId": "1:936"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 1748.73,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:34:10+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:39:15+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1712_07_55"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4821"
+                  },
+                  {
+                    "gtfsId": "1:7571"
+                  },
+                  {
+                    "gtfsId": "1:117"
+                  }
+                ],
+                "from": {
+                  "name": "ISBT Bridge/ ISBT Nityanand Marg",
+                  "lat": 28.66923,
+                  "lon": 77.228774,
+                  "stop": {
+                    "gtfsId": "1:936"
+                  }
+                },
+                "to": {
+                  "name": "Red Fort",
+                  "lat": 28.6580149,
+                  "lon": 77.2369583,
+                  "stop": {
+                    "gtfsId": "1:333"
+                  }
+                },
+                "route": {
+                  "shortName": "213DOWN",
+                  "gtfsId": "1:1712"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 10944.38,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:41:46+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:17:37+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1472_08_40"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:334"
+                  },
+                  {
+                    "gtfsId": "1:1826"
+                  },
+                  {
+                    "gtfsId": "1:4824"
+                  },
+                  {
+                    "gtfsId": "1:336"
+                  },
+                  {
+                    "gtfsId": "1:4879"
+                  },
+                  {
+                    "gtfsId": "1:338"
+                  },
+                  {
+                    "gtfsId": "1:6036"
+                  },
+                  {
+                    "gtfsId": "1:4266"
+                  },
+                  {
+                    "gtfsId": "1:1369"
+                  },
+                  {
+                    "gtfsId": "1:1361"
+                  },
+                  {
+                    "gtfsId": "1:2139"
+                  },
+                  {
+                    "gtfsId": "1:2620"
+                  },
+                  {
+                    "gtfsId": "1:4922"
+                  },
+                  {
+                    "gtfsId": "1:7767"
+                  },
+                  {
+                    "gtfsId": "1:1373"
+                  },
+                  {
+                    "gtfsId": "1:2140"
+                  },
+                  {
+                    "gtfsId": "1:2757"
+                  },
+                  {
+                    "gtfsId": "1:2791"
+                  },
+                  {
+                    "gtfsId": "1:2759"
+                  },
+                  {
+                    "gtfsId": "1:7952"
+                  }
+                ],
+                "from": {
+                  "name": "Red Fort",
+                  "lat": 28.6580149,
+                  "lon": 77.2369583,
+                  "stop": {
+                    "gtfsId": "1:333"
+                  }
+                },
+                "to": {
+                  "name": "Central School (MCKR)",
+                  "lat": 28.562727,
+                  "lon": 77.232815,
+                  "stop": {
+                    "gtfsId": "1:7937"
+                  }
+                },
+                "route": {
+                  "shortName": "0419(NS)UP",
+                  "gtfsId": "1:1472"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 3492.7,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:20:11+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:30:36+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2041_08_00"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:2557"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  },
+                  {
+                    "gtfsId": "1:2559"
+                  }
+                ],
+                "from": {
+                  "name": "Central School (MCKR)",
+                  "lat": 28.562727,
+                  "lon": 77.232815,
+                  "stop": {
+                    "gtfsId": "1:7937"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place Terminal",
+                  "lat": 28.5487002,
+                  "lon": 77.2569812,
+                  "stop": {
+                    "gtfsId": "1:2560"
+                  }
+                },
+                "route": {
+                  "shortName": "529SPLDOWN",
+                  "gtfsId": "1:2041"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T08:43:00+05:30",
+            "end": "2026-10-22T09:33:55+05:30",
+            "walkDistance": 0.0,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 15867.2,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:43:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:33:55+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:3666_08_43"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7571"
+                  },
+                  {
+                    "gtfsId": "1:117"
+                  },
+                  {
+                    "gtfsId": "1:333"
+                  },
+                  {
+                    "gtfsId": "1:334"
+                  },
+                  {
+                    "gtfsId": "1:4824"
+                  },
+                  {
+                    "gtfsId": "1:10052"
+                  },
+                  {
+                    "gtfsId": "1:337"
+                  },
+                  {
+                    "gtfsId": "1:4879"
+                  },
+                  {
+                    "gtfsId": "1:338"
+                  },
+                  {
+                    "gtfsId": "1:1368"
+                  },
+                  {
+                    "gtfsId": "1:1369"
+                  },
+                  {
+                    "gtfsId": "1:1361"
+                  },
+                  {
+                    "gtfsId": "1:5952"
+                  },
+                  {
+                    "gtfsId": "1:2620"
+                  },
+                  {
+                    "gtfsId": "1:4922"
+                  },
+                  {
+                    "gtfsId": "1:1373"
+                  },
+                  {
+                    "gtfsId": "1:2140"
+                  },
+                  {
+                    "gtfsId": "1:2757"
+                  },
+                  {
+                    "gtfsId": "1:2791"
+                  },
+                  {
+                    "gtfsId": "1:2759"
+                  },
+                  {
+                    "gtfsId": "1:7952"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:2557"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  },
+                  {
+                    "gtfsId": "1:2559"
+                  }
+                ],
+                "from": {
+                  "name": "Kashmere Gate City Bus Terminal",
+                  "lat": 28.668198,
+                  "lon": 77.229219,
+                  "stop": {
+                    "gtfsId": "1:1025"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place Terminal",
+                  "lat": 28.5487002,
+                  "lon": 77.2569812,
+                  "stop": {
+                    "gtfsId": "1:2560"
+                  }
+                },
+                "route": {
+                  "shortName": "425CLUP",
+                  "gtfsId": "1:3666"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T08:45:31+05:30",
+            "end": "2026-10-22T09:43:29+05:30",
+            "walkDistance": 216.81,
+            "numberOfTransfers": 2,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 21.38,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T08:45:31+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:45:51+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.668198,
+                  "lon": 77.229219,
+                  "stop": null
+                },
+                "to": {
+                  "name": "ISBT Kashmiri Gate",
+                  "lat": 28.6680019,
+                  "lon": 77.2292825,
+                  "stop": {
+                    "gtfsId": "1:6026"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 1407.22,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:45:51+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:50:27+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1714_08_10"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7571"
+                  },
+                  {
+                    "gtfsId": "1:117"
+                  }
+                ],
+                "from": {
+                  "name": "ISBT Kashmiri Gate",
+                  "lat": 28.6680019,
+                  "lon": 77.2292825,
+                  "stop": {
+                    "gtfsId": "1:6026"
+                  }
+                },
+                "to": {
+                  "name": "Red Fort",
+                  "lat": 28.6580149,
+                  "lon": 77.2369583,
+                  "stop": {
+                    "gtfsId": "1:333"
+                  }
+                },
+                "route": {
+                  "shortName": "214DOWN",
+                  "gtfsId": "1:1714"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 13488.72,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:52:38+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:35:59+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1920_08_45"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:334"
+                  },
+                  {
+                    "gtfsId": "1:1826"
+                  },
+                  {
+                    "gtfsId": "1:4824"
+                  },
+                  {
+                    "gtfsId": "1:336"
+                  },
+                  {
+                    "gtfsId": "1:4879"
+                  },
+                  {
+                    "gtfsId": "1:338"
+                  },
+                  {
+                    "gtfsId": "1:6036"
+                  },
+                  {
+                    "gtfsId": "1:4266"
+                  },
+                  {
+                    "gtfsId": "1:5995"
+                  },
+                  {
+                    "gtfsId": "1:1361"
+                  },
+                  {
+                    "gtfsId": "1:2139"
+                  },
+                  {
+                    "gtfsId": "1:2620"
+                  },
+                  {
+                    "gtfsId": "1:4922"
+                  },
+                  {
+                    "gtfsId": "1:7767"
+                  },
+                  {
+                    "gtfsId": "1:1373"
+                  },
+                  {
+                    "gtfsId": "1:2140"
+                  },
+                  {
+                    "gtfsId": "1:2757"
+                  },
+                  {
+                    "gtfsId": "1:2791"
+                  },
+                  {
+                    "gtfsId": "1:2759"
+                  },
+                  {
+                    "gtfsId": "1:7952"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:2557"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  }
+                ],
+                "from": {
+                  "name": "Red Fort",
+                  "lat": 28.6580149,
+                  "lon": 77.2369583,
+                  "stop": {
+                    "gtfsId": "1:333"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place",
+                  "lat": 28.5485761,
+                  "lon": 77.2491332,
+                  "stop": {
+                    "gtfsId": "1:2559"
+                  }
+                },
+                "route": {
+                  "shortName": "425UP",
+                  "gtfsId": "1:1920"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 777.1,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:38:50+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:41:01+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:3450_08_55"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:5970"
+                  }
+                ],
+                "from": {
+                  "name": "Nehru Place",
+                  "lat": 28.5485761,
+                  "lon": 77.2491332,
+                  "stop": {
+                    "gtfsId": "1:2559"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place  / Paras Cinema",
+                  "lat": 28.547959,
+                  "lon": 77.255166,
+                  "stop": {
+                    "gtfsId": "1:6054"
+                  }
+                },
+                "route": {
+                  "shortName": "433BUP",
+                  "gtfsId": "1:3450"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 195.43,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:41:01+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:43:29+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Nehru Place  / Paras Cinema",
+                  "lat": 28.547959,
+                  "lon": 77.255166,
+                  "stop": {
+                    "gtfsId": "1:6054"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5487002,
+                  "lon": 77.2569812,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T08:45:31+05:30",
+            "end": "2026-10-22T09:47:15+05:30",
+            "walkDistance": 813.65,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 21.38,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T08:45:31+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:45:51+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.668198,
+                  "lon": 77.229219,
+                  "stop": null
+                },
+                "to": {
+                  "name": "ISBT Kashmiri Gate",
+                  "lat": 28.6680019,
+                  "lon": 77.2292825,
+                  "stop": {
+                    "gtfsId": "1:6026"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 1407.22,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:45:51+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:50:27+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1714_08_10"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7571"
+                  },
+                  {
+                    "gtfsId": "1:117"
+                  }
+                ],
+                "from": {
+                  "name": "ISBT Kashmiri Gate",
+                  "lat": 28.6680019,
+                  "lon": 77.2292825,
+                  "stop": {
+                    "gtfsId": "1:6026"
+                  }
+                },
+                "to": {
+                  "name": "Red Fort",
+                  "lat": 28.6580149,
+                  "lon": 77.2369583,
+                  "stop": {
+                    "gtfsId": "1:333"
+                  }
+                },
+                "route": {
+                  "shortName": "214DOWN",
+                  "gtfsId": "1:1714"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 13858.53,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:52:38+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:37:13+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1920_08_45"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:334"
+                  },
+                  {
+                    "gtfsId": "1:1826"
+                  },
+                  {
+                    "gtfsId": "1:4824"
+                  },
+                  {
+                    "gtfsId": "1:336"
+                  },
+                  {
+                    "gtfsId": "1:4879"
+                  },
+                  {
+                    "gtfsId": "1:338"
+                  },
+                  {
+                    "gtfsId": "1:6036"
+                  },
+                  {
+                    "gtfsId": "1:4266"
+                  },
+                  {
+                    "gtfsId": "1:5995"
+                  },
+                  {
+                    "gtfsId": "1:1361"
+                  },
+                  {
+                    "gtfsId": "1:2139"
+                  },
+                  {
+                    "gtfsId": "1:2620"
+                  },
+                  {
+                    "gtfsId": "1:4922"
+                  },
+                  {
+                    "gtfsId": "1:7767"
+                  },
+                  {
+                    "gtfsId": "1:1373"
+                  },
+                  {
+                    "gtfsId": "1:2140"
+                  },
+                  {
+                    "gtfsId": "1:2757"
+                  },
+                  {
+                    "gtfsId": "1:2791"
+                  },
+                  {
+                    "gtfsId": "1:2759"
+                  },
+                  {
+                    "gtfsId": "1:7952"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:2557"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  },
+                  {
+                    "gtfsId": "1:2559"
+                  }
+                ],
+                "from": {
+                  "name": "Red Fort",
+                  "lat": 28.6580149,
+                  "lon": 77.2369583,
+                  "stop": {
+                    "gtfsId": "1:333"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Enclave",
+                  "lat": 28.545513,
+                  "lon": 77.250607,
+                  "stop": {
+                    "gtfsId": "1:7064"
+                  }
+                },
+                "route": {
+                  "shortName": "425UP",
+                  "gtfsId": "1:1920"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 792.27,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:37:13+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:47:15+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Nehru Enclave",
+                  "lat": 28.545513,
+                  "lon": 77.250607,
+                  "stop": {
+                    "gtfsId": "1:7064"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5487002,
+                  "lon": 77.2569812,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T08:52:27+05:30",
+            "end": "2026-10-22T09:49:28+05:30",
+            "walkDistance": 21.38,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 21.38,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T08:52:27+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:52:47+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.668198,
+                  "lon": 77.229219,
+                  "stop": null
+                },
+                "to": {
+                  "name": "ISBT Kashmiri Gate",
+                  "lat": 28.6680019,
+                  "lon": 77.2292825,
+                  "stop": {
+                    "gtfsId": "1:6026"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 6811.94,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:52:47+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:15:05+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1894_08_50"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7571"
+                  },
+                  {
+                    "gtfsId": "1:117"
+                  },
+                  {
+                    "gtfsId": "1:333"
+                  },
+                  {
+                    "gtfsId": "1:334"
+                  },
+                  {
+                    "gtfsId": "1:1826"
+                  },
+                  {
+                    "gtfsId": "1:4824"
+                  },
+                  {
+                    "gtfsId": "1:336"
+                  },
+                  {
+                    "gtfsId": "1:4879"
+                  },
+                  {
+                    "gtfsId": "1:338"
+                  },
+                  {
+                    "gtfsId": "1:6036"
+                  },
+                  {
+                    "gtfsId": "1:4266"
+                  },
+                  {
+                    "gtfsId": "1:1368"
+                  },
+                  {
+                    "gtfsId": "1:1369"
+                  },
+                  {
+                    "gtfsId": "1:1361"
+                  }
+                ],
+                "from": {
+                  "name": "ISBT Kashmiri Gate",
+                  "lat": 28.6680019,
+                  "lon": 77.2292825,
+                  "stop": {
+                    "gtfsId": "1:6026"
+                  }
+                },
+                "to": {
+                  "name": "National Stadium",
+                  "lat": 28.610652,
+                  "lon": 77.240152,
+                  "stop": {
+                    "gtfsId": "1:2139"
+                  }
+                },
+                "route": {
+                  "shortName": "402UP",
+                  "gtfsId": "1:1894"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 9033.48,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:20:46+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:49:28+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1869_08_15"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2620"
+                  },
+                  {
+                    "gtfsId": "1:4922"
+                  },
+                  {
+                    "gtfsId": "1:7767"
+                  },
+                  {
+                    "gtfsId": "1:1373"
+                  },
+                  {
+                    "gtfsId": "1:2140"
+                  },
+                  {
+                    "gtfsId": "1:2791"
+                  },
+                  {
+                    "gtfsId": "1:2759"
+                  },
+                  {
+                    "gtfsId": "1:7952"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:2557"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  },
+                  {
+                    "gtfsId": "1:2559"
+                  },
+                  {
+                    "gtfsId": "1:5970"
+                  }
+                ],
+                "from": {
+                  "name": "National Stadium",
+                  "lat": 28.610652,
+                  "lon": 77.240152,
+                  "stop": {
+                    "gtfsId": "1:2139"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place Terminal",
+                  "lat": 28.5487002,
+                  "lon": 77.2569812,
+                  "stop": {
+                    "gtfsId": "1:2560"
+                  }
+                },
+                "route": {
+                  "shortName": "374DOWN",
+                  "gtfsId": "1:1869"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T08:54:41+05:30",
+            "end": "2026-10-22T09:52:07+05:30",
+            "walkDistance": 263.19,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 263.19,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T08:54:41+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:58:07+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.668198,
+                  "lon": 77.229219,
+                  "stop": null
+                },
+                "to": {
+                  "name": "ISBT Kashmere Gate (Lothian Road)",
+                  "lat": 28.6661836,
+                  "lon": 77.2297086,
+                  "stop": {
+                    "gtfsId": "1:4821"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 12162.48,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:58:07+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:38:00+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1900_08_55"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7571"
+                  },
+                  {
+                    "gtfsId": "1:117"
+                  },
+                  {
+                    "gtfsId": "1:333"
+                  },
+                  {
+                    "gtfsId": "1:334"
+                  },
+                  {
+                    "gtfsId": "1:1826"
+                  },
+                  {
+                    "gtfsId": "1:4824"
+                  },
+                  {
+                    "gtfsId": "1:336"
+                  },
+                  {
+                    "gtfsId": "1:4879"
+                  },
+                  {
+                    "gtfsId": "1:338"
+                  },
+                  {
+                    "gtfsId": "1:6036"
+                  },
+                  {
+                    "gtfsId": "1:4266"
+                  },
+                  {
+                    "gtfsId": "1:1368"
+                  },
+                  {
+                    "gtfsId": "1:1361"
+                  },
+                  {
+                    "gtfsId": "1:2139"
+                  },
+                  {
+                    "gtfsId": "1:2620"
+                  },
+                  {
+                    "gtfsId": "1:4922"
+                  },
+                  {
+                    "gtfsId": "1:7767"
+                  },
+                  {
+                    "gtfsId": "1:1373"
+                  },
+                  {
+                    "gtfsId": "1:1346"
+                  },
+                  {
+                    "gtfsId": "1:1347"
+                  },
+                  {
+                    "gtfsId": "1:1348"
+                  },
+                  {
+                    "gtfsId": "1:2168"
+                  }
+                ],
+                "from": {
+                  "name": "ISBT Kashmere Gate (Lothian Road)",
+                  "lat": 28.6661836,
+                  "lon": 77.2297086,
+                  "stop": {
+                    "gtfsId": "1:4821"
+                  }
+                },
+                "to": {
+                  "name": "Mata Mandir New Friends Colony",
+                  "lat": 28.566608,
+                  "lon": 77.2627142,
+                  "stop": {
+                    "gtfsId": "1:2169"
+                  }
+                },
+                "route": {
+                  "shortName": "405UP",
+                  "gtfsId": "1:1900"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 4636.32,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:41:19+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:52:07+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2976_08_25"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2659"
+                  },
+                  {
+                    "gtfsId": "1:2288"
+                  },
+                  {
+                    "gtfsId": "1:2289"
+                  },
+                  {
+                    "gtfsId": "1:2562"
+                  }
+                ],
+                "from": {
+                  "name": "Mata Mandir New Friends Colony",
+                  "lat": 28.566608,
+                  "lon": 77.2627142,
+                  "stop": {
+                    "gtfsId": "1:2169"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place Terminal",
+                  "lat": 28.5487002,
+                  "lon": 77.2569812,
+                  "stop": {
+                    "gtfsId": "1:2560"
+                  }
+                },
+                "route": {
+                  "shortName": "412DOWN",
+                  "gtfsId": "1:2976"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T08:55:27+05:30",
+            "end": "2026-10-22T09:52:55+05:30",
+            "walkDistance": 165.87,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 165.87,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T08:55:27+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:57:39+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.668198,
+                  "lon": 77.229219,
+                  "stop": null
+                },
+                "to": {
+                  "name": "ISBT Bridge/ ISBT Nityanand Marg",
+                  "lat": 28.66923,
+                  "lon": 77.228774,
+                  "stop": {
+                    "gtfsId": "1:936"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 7404.32,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:57:39+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:21:15+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1908_08_55"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4821"
+                  },
+                  {
+                    "gtfsId": "1:7571"
+                  },
+                  {
+                    "gtfsId": "1:117"
+                  },
+                  {
+                    "gtfsId": "1:333"
+                  },
+                  {
+                    "gtfsId": "1:334"
+                  },
+                  {
+                    "gtfsId": "1:1826"
+                  },
+                  {
+                    "gtfsId": "1:4824"
+                  },
+                  {
+                    "gtfsId": "1:336"
+                  },
+                  {
+                    "gtfsId": "1:4879"
+                  },
+                  {
+                    "gtfsId": "1:338"
+                  },
+                  {
+                    "gtfsId": "1:1368"
+                  },
+                  {
+                    "gtfsId": "1:1369"
+                  },
+                  {
+                    "gtfsId": "1:1361"
+                  },
+                  {
+                    "gtfsId": "1:2139"
+                  }
+                ],
+                "from": {
+                  "name": "ISBT Bridge/ ISBT Nityanand Marg",
+                  "lat": 28.66923,
+                  "lon": 77.228774,
+                  "stop": {
+                    "gtfsId": "1:936"
+                  }
+                },
+                "to": {
+                  "name": "Zoo",
+                  "lat": 28.608422,
+                  "lon": 77.240216,
+                  "stop": {
+                    "gtfsId": "1:2620"
+                  }
+                },
+                "route": {
+                  "shortName": "411UP",
+                  "gtfsId": "1:1908"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 8785.29,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:25:10+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:52:55+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1755_08_00"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4922"
+                  },
+                  {
+                    "gtfsId": "1:1373"
+                  },
+                  {
+                    "gtfsId": "1:2140"
+                  },
+                  {
+                    "gtfsId": "1:2757"
+                  },
+                  {
+                    "gtfsId": "1:2791"
+                  },
+                  {
+                    "gtfsId": "1:2759"
+                  },
+                  {
+                    "gtfsId": "1:7952"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:2557"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  },
+                  {
+                    "gtfsId": "1:2559"
+                  }
+                ],
+                "from": {
+                  "name": "Zoo",
+                  "lat": 28.608422,
+                  "lon": 77.240216,
+                  "stop": {
+                    "gtfsId": "1:2620"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place Terminal",
+                  "lat": 28.5487002,
+                  "lon": 77.2569812,
+                  "stop": {
+                    "gtfsId": "1:2560"
+                  }
+                },
+                "route": {
+                  "shortName": "244UP",
+                  "gtfsId": "1:1755"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T08:44:41+05:30",
+            "end": "2026-10-22T09:53:56+05:30",
+            "walkDistance": 1980.52,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 263.19,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T08:44:41+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:48:07+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.668198,
+                  "lon": 77.229219,
+                  "stop": null
+                },
+                "to": {
+                  "name": "ISBT Kashmere Gate (Lothian Road)",
+                  "lat": 28.6661836,
+                  "lon": 77.2297086,
+                  "stop": {
+                    "gtfsId": "1:4821"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 13405.96,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:48:07+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:32:09+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1900_08_45"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7571"
+                  },
+                  {
+                    "gtfsId": "1:117"
+                  },
+                  {
+                    "gtfsId": "1:333"
+                  },
+                  {
+                    "gtfsId": "1:334"
+                  },
+                  {
+                    "gtfsId": "1:1826"
+                  },
+                  {
+                    "gtfsId": "1:4824"
+                  },
+                  {
+                    "gtfsId": "1:336"
+                  },
+                  {
+                    "gtfsId": "1:4879"
+                  },
+                  {
+                    "gtfsId": "1:338"
+                  },
+                  {
+                    "gtfsId": "1:6036"
+                  },
+                  {
+                    "gtfsId": "1:4266"
+                  },
+                  {
+                    "gtfsId": "1:1368"
+                  },
+                  {
+                    "gtfsId": "1:1361"
+                  },
+                  {
+                    "gtfsId": "1:2139"
+                  },
+                  {
+                    "gtfsId": "1:2620"
+                  },
+                  {
+                    "gtfsId": "1:4922"
+                  },
+                  {
+                    "gtfsId": "1:7767"
+                  },
+                  {
+                    "gtfsId": "1:1373"
+                  },
+                  {
+                    "gtfsId": "1:1346"
+                  },
+                  {
+                    "gtfsId": "1:1347"
+                  },
+                  {
+                    "gtfsId": "1:1348"
+                  },
+                  {
+                    "gtfsId": "1:2168"
+                  },
+                  {
+                    "gtfsId": "1:2169"
+                  },
+                  {
+                    "gtfsId": "1:2659"
+                  }
+                ],
+                "from": {
+                  "name": "ISBT Kashmere Gate (Lothian Road)",
+                  "lat": 28.6661836,
+                  "lon": 77.2297086,
+                  "stop": {
+                    "gtfsId": "1:4821"
+                  }
+                },
+                "to": {
+                  "name": "Kalka Ji Crossing",
+                  "lat": 28.5573,
+                  "lon": 77.269767,
+                  "stop": {
+                    "gtfsId": "1:2977"
+                  }
+                },
+                "route": {
+                  "shortName": "405UP",
+                  "gtfsId": "1:1900"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 1717.33,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:32:09+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:53:56+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Kalka Ji Crossing",
+                  "lat": 28.5573,
+                  "lon": 77.269767,
+                  "stop": {
+                    "gtfsId": "1:2977"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5487002,
+                  "lon": 77.2569812,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T08:44:32+05:30",
+            "end": "2026-10-22T09:56:30+05:30",
+            "walkDistance": 1372.3000000000002,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 414.48,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T08:44:32+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:49:51+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.668198,
+                  "lon": 77.229219,
+                  "stop": null
+                },
+                "to": {
+                  "name": "ISBT Kashmere Gate (ORR)  / GGS IP University",
+                  "lat": 28.6692149,
+                  "lon": 77.2321393,
+                  "stop": {
+                    "gtfsId": "1:1072"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 18679.54,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:49:51+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:44:18+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2852_08_00"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:1031"
+                  },
+                  {
+                    "gtfsId": "1:5431"
+                  },
+                  {
+                    "gtfsId": "1:1032"
+                  },
+                  {
+                    "gtfsId": "1:1033"
+                  },
+                  {
+                    "gtfsId": "1:1034"
+                  },
+                  {
+                    "gtfsId": "1:1035"
+                  },
+                  {
+                    "gtfsId": "1:1036"
+                  },
+                  {
+                    "gtfsId": "1:823"
+                  },
+                  {
+                    "gtfsId": "1:824"
+                  },
+                  {
+                    "gtfsId": "1:2073"
+                  },
+                  {
+                    "gtfsId": "1:2074"
+                  },
+                  {
+                    "gtfsId": "1:2075"
+                  },
+                  {
+                    "gtfsId": "1:7873"
+                  },
+                  {
+                    "gtfsId": "1:2077"
+                  },
+                  {
+                    "gtfsId": "1:2714"
+                  },
+                  {
+                    "gtfsId": "1:2277"
+                  },
+                  {
+                    "gtfsId": "1:4953"
+                  },
+                  {
+                    "gtfsId": "1:2280"
+                  },
+                  {
+                    "gtfsId": "1:2281"
+                  },
+                  {
+                    "gtfsId": "1:2282"
+                  },
+                  {
+                    "gtfsId": "1:2283"
+                  },
+                  {
+                    "gtfsId": "1:2284"
+                  },
+                  {
+                    "gtfsId": "1:2285"
+                  },
+                  {
+                    "gtfsId": "1:7903"
+                  },
+                  {
+                    "gtfsId": "1:6146"
+                  },
+                  {
+                    "gtfsId": "1:2287"
+                  },
+                  {
+                    "gtfsId": "1:2288"
+                  }
+                ],
+                "from": {
+                  "name": "ISBT Kashmere Gate (ORR)  / GGS IP University",
+                  "lat": 28.6692149,
+                  "lon": 77.2321393,
+                  "stop": {
+                    "gtfsId": "1:1072"
+                  }
+                },
+                "to": {
+                  "name": "Kalkaji Mandir",
+                  "lat": 28.5521905,
+                  "lon": 77.2644988,
+                  "stop": {
+                    "gtfsId": "1:2289"
+                  }
+                },
+                "route": {
+                  "shortName": "964DOWN",
+                  "gtfsId": "1:2852"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 957.82,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:44:18+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:56:30+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Kalkaji Mandir",
+                  "lat": 28.5521905,
+                  "lon": 77.2644988,
+                  "stop": {
+                    "gtfsId": "1:2289"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5487002,
+                  "lon": 77.2569812,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T08:50:29+05:30",
+            "end": "2026-10-22T09:57:15+05:30",
+            "walkDistance": 1131.6599999999999,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 339.39,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T08:50:29+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:55:00+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.668198,
+                  "lon": 77.229219,
+                  "stop": null
+                },
+                "to": {
+                  "name": "ISBT Kashmere Gate Terminal",
+                  "lat": 28.66696,
+                  "lon": 77.227456,
+                  "stop": {
+                    "gtfsId": "1:4109"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 17110.46,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:55:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:47:13+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1920_08_55"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:872"
+                  },
+                  {
+                    "gtfsId": "1:7596"
+                  },
+                  {
+                    "gtfsId": "1:333"
+                  },
+                  {
+                    "gtfsId": "1:334"
+                  },
+                  {
+                    "gtfsId": "1:1826"
+                  },
+                  {
+                    "gtfsId": "1:4824"
+                  },
+                  {
+                    "gtfsId": "1:336"
+                  },
+                  {
+                    "gtfsId": "1:4879"
+                  },
+                  {
+                    "gtfsId": "1:338"
+                  },
+                  {
+                    "gtfsId": "1:6036"
+                  },
+                  {
+                    "gtfsId": "1:4266"
+                  },
+                  {
+                    "gtfsId": "1:5995"
+                  },
+                  {
+                    "gtfsId": "1:1361"
+                  },
+                  {
+                    "gtfsId": "1:2139"
+                  },
+                  {
+                    "gtfsId": "1:2620"
+                  },
+                  {
+                    "gtfsId": "1:4922"
+                  },
+                  {
+                    "gtfsId": "1:7767"
+                  },
+                  {
+                    "gtfsId": "1:1373"
+                  },
+                  {
+                    "gtfsId": "1:2140"
+                  },
+                  {
+                    "gtfsId": "1:2757"
+                  },
+                  {
+                    "gtfsId": "1:2791"
+                  },
+                  {
+                    "gtfsId": "1:2759"
+                  },
+                  {
+                    "gtfsId": "1:7952"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:2557"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  },
+                  {
+                    "gtfsId": "1:2559"
+                  }
+                ],
+                "from": {
+                  "name": "ISBT Kashmere Gate Terminal",
+                  "lat": 28.66696,
+                  "lon": 77.227456,
+                  "stop": {
+                    "gtfsId": "1:4109"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Enclave",
+                  "lat": 28.545513,
+                  "lon": 77.250607,
+                  "stop": {
+                    "gtfsId": "1:7064"
+                  }
+                },
+                "route": {
+                  "shortName": "425UP",
+                  "gtfsId": "1:1920"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 792.27,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:47:13+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:57:15+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Nehru Enclave",
+                  "lat": 28.545513,
+                  "lon": 77.250607,
+                  "stop": {
+                    "gtfsId": "1:7064"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5487002,
+                  "lon": 77.2569812,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T08:55:27+05:30",
+            "end": "2026-10-22T09:57:50+05:30",
+            "walkDistance": 856.22,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 165.87,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T08:55:27+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:57:39+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.668198,
+                  "lon": 77.229219,
+                  "stop": null
+                },
+                "to": {
+                  "name": "ISBT Bridge/ ISBT Nityanand Marg",
+                  "lat": 28.66923,
+                  "lon": 77.228774,
+                  "stop": {
+                    "gtfsId": "1:936"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 16639.16,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:57:39+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:49:05+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1908_08_55"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4821"
+                  },
+                  {
+                    "gtfsId": "1:7571"
+                  },
+                  {
+                    "gtfsId": "1:117"
+                  },
+                  {
+                    "gtfsId": "1:333"
+                  },
+                  {
+                    "gtfsId": "1:334"
+                  },
+                  {
+                    "gtfsId": "1:1826"
+                  },
+                  {
+                    "gtfsId": "1:4824"
+                  },
+                  {
+                    "gtfsId": "1:336"
+                  },
+                  {
+                    "gtfsId": "1:4879"
+                  },
+                  {
+                    "gtfsId": "1:338"
+                  },
+                  {
+                    "gtfsId": "1:1368"
+                  },
+                  {
+                    "gtfsId": "1:1369"
+                  },
+                  {
+                    "gtfsId": "1:1361"
+                  },
+                  {
+                    "gtfsId": "1:2139"
+                  },
+                  {
+                    "gtfsId": "1:2620"
+                  },
+                  {
+                    "gtfsId": "1:4922"
+                  },
+                  {
+                    "gtfsId": "1:7767"
+                  },
+                  {
+                    "gtfsId": "1:1373"
+                  },
+                  {
+                    "gtfsId": "1:1346"
+                  },
+                  {
+                    "gtfsId": "1:1348"
+                  },
+                  {
+                    "gtfsId": "1:2167"
+                  },
+                  {
+                    "gtfsId": "1:2280"
+                  },
+                  {
+                    "gtfsId": "1:2281"
+                  },
+                  {
+                    "gtfsId": "1:2282"
+                  },
+                  {
+                    "gtfsId": "1:2283"
+                  },
+                  {
+                    "gtfsId": "1:2284"
+                  },
+                  {
+                    "gtfsId": "1:2285"
+                  },
+                  {
+                    "gtfsId": "1:7903"
+                  },
+                  {
+                    "gtfsId": "1:6146"
+                  },
+                  {
+                    "gtfsId": "1:2287"
+                  },
+                  {
+                    "gtfsId": "1:2288"
+                  },
+                  {
+                    "gtfsId": "1:2289"
+                  }
+                ],
+                "from": {
+                  "name": "ISBT Bridge/ ISBT Nityanand Marg",
+                  "lat": 28.66923,
+                  "lon": 77.228774,
+                  "stop": {
+                    "gtfsId": "1:936"
+                  }
+                },
+                "to": {
+                  "name": "Kalkaji Mandir (MaaAnandmayeeMarg)",
+                  "lat": 28.5480769,
+                  "lon": 77.2629011,
+                  "stop": {
+                    "gtfsId": "1:2290"
+                  }
+                },
+                "route": {
+                  "shortName": "411UP",
+                  "gtfsId": "1:1908"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 690.35,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:49:05+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:57:50+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Kalkaji Mandir (MaaAnandmayeeMarg)",
+                  "lat": 28.5480769,
+                  "lon": 77.2629011,
+                  "stop": {
+                    "gtfsId": "1:2290"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5487002,
+                  "lon": 77.2569812,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:07:00+05:30",
+            "end": "2026-10-22T09:57:55+05:30",
+            "walkDistance": 0.0,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 15867.2,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:07:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:57:55+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:3666_09_07"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7571"
+                  },
+                  {
+                    "gtfsId": "1:117"
+                  },
+                  {
+                    "gtfsId": "1:333"
+                  },
+                  {
+                    "gtfsId": "1:334"
+                  },
+                  {
+                    "gtfsId": "1:4824"
+                  },
+                  {
+                    "gtfsId": "1:10052"
+                  },
+                  {
+                    "gtfsId": "1:337"
+                  },
+                  {
+                    "gtfsId": "1:4879"
+                  },
+                  {
+                    "gtfsId": "1:338"
+                  },
+                  {
+                    "gtfsId": "1:1368"
+                  },
+                  {
+                    "gtfsId": "1:1369"
+                  },
+                  {
+                    "gtfsId": "1:1361"
+                  },
+                  {
+                    "gtfsId": "1:5952"
+                  },
+                  {
+                    "gtfsId": "1:2620"
+                  },
+                  {
+                    "gtfsId": "1:4922"
+                  },
+                  {
+                    "gtfsId": "1:1373"
+                  },
+                  {
+                    "gtfsId": "1:2140"
+                  },
+                  {
+                    "gtfsId": "1:2757"
+                  },
+                  {
+                    "gtfsId": "1:2791"
+                  },
+                  {
+                    "gtfsId": "1:2759"
+                  },
+                  {
+                    "gtfsId": "1:7952"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:2557"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  },
+                  {
+                    "gtfsId": "1:2559"
+                  }
+                ],
+                "from": {
+                  "name": "Kashmere Gate City Bus Terminal",
+                  "lat": 28.668198,
+                  "lon": 77.229219,
+                  "stop": {
+                    "gtfsId": "1:1025"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place Terminal",
+                  "lat": 28.5487002,
+                  "lon": 77.2569812,
+                  "stop": {
+                    "gtfsId": "1:2560"
+                  }
+                },
+                "route": {
+                  "shortName": "425CLUP",
+                  "gtfsId": "1:3666"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:17:27+05:30",
+            "end": "2026-10-22T10:12:55+05:30",
+            "walkDistance": 21.38,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 21.38,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:17:27+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:17:47+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.668198,
+                  "lon": 77.229219,
+                  "stop": null
+                },
+                "to": {
+                  "name": "ISBT Kashmiri Gate",
+                  "lat": 28.6680019,
+                  "lon": 77.2292825,
+                  "stop": {
+                    "gtfsId": "1:6026"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 7061.19,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:17:47+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:40:54+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1894_09_15"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7571"
+                  },
+                  {
+                    "gtfsId": "1:117"
+                  },
+                  {
+                    "gtfsId": "1:333"
+                  },
+                  {
+                    "gtfsId": "1:334"
+                  },
+                  {
+                    "gtfsId": "1:1826"
+                  },
+                  {
+                    "gtfsId": "1:4824"
+                  },
+                  {
+                    "gtfsId": "1:336"
+                  },
+                  {
+                    "gtfsId": "1:4879"
+                  },
+                  {
+                    "gtfsId": "1:338"
+                  },
+                  {
+                    "gtfsId": "1:6036"
+                  },
+                  {
+                    "gtfsId": "1:4266"
+                  },
+                  {
+                    "gtfsId": "1:1368"
+                  },
+                  {
+                    "gtfsId": "1:1369"
+                  },
+                  {
+                    "gtfsId": "1:1361"
+                  },
+                  {
+                    "gtfsId": "1:2139"
+                  }
+                ],
+                "from": {
+                  "name": "ISBT Kashmiri Gate",
+                  "lat": 28.6680019,
+                  "lon": 77.2292825,
+                  "stop": {
+                    "gtfsId": "1:6026"
+                  }
+                },
+                "to": {
+                  "name": "Zoo",
+                  "lat": 28.608422,
+                  "lon": 77.240216,
+                  "stop": {
+                    "gtfsId": "1:2620"
+                  }
+                },
+                "route": {
+                  "shortName": "402UP",
+                  "gtfsId": "1:1894"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 8785.29,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:45:10+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:12:55+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1755_08_20"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4922"
+                  },
+                  {
+                    "gtfsId": "1:1373"
+                  },
+                  {
+                    "gtfsId": "1:2140"
+                  },
+                  {
+                    "gtfsId": "1:2757"
+                  },
+                  {
+                    "gtfsId": "1:2791"
+                  },
+                  {
+                    "gtfsId": "1:2759"
+                  },
+                  {
+                    "gtfsId": "1:7952"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:2557"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  },
+                  {
+                    "gtfsId": "1:2559"
+                  }
+                ],
+                "from": {
+                  "name": "Zoo",
+                  "lat": 28.608422,
+                  "lon": 77.240216,
+                  "stop": {
+                    "gtfsId": "1:2620"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place Terminal",
+                  "lat": 28.5487002,
+                  "lon": 77.2569812,
+                  "stop": {
+                    "gtfsId": "1:2560"
+                  }
+                },
+                "route": {
+                  "shortName": "244UP",
+                  "gtfsId": "1:1755"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:10:29+05:30",
+            "end": "2026-10-22T10:16:00+05:30",
+            "walkDistance": 1029.74,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 339.39,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:10:29+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:15:00+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.668198,
+                  "lon": 77.229219,
+                  "stop": null
+                },
+                "to": {
+                  "name": "ISBT Kashmere Gate Terminal",
+                  "lat": 28.66696,
+                  "lon": 77.227456,
+                  "stop": {
+                    "gtfsId": "1:4109"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 17756.44,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:15:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:07:15+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1928_09_15"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:820"
+                  },
+                  {
+                    "gtfsId": "1:7596"
+                  },
+                  {
+                    "gtfsId": "1:333"
+                  },
+                  {
+                    "gtfsId": "1:334"
+                  },
+                  {
+                    "gtfsId": "1:1826"
+                  },
+                  {
+                    "gtfsId": "1:4824"
+                  },
+                  {
+                    "gtfsId": "1:336"
+                  },
+                  {
+                    "gtfsId": "1:4879"
+                  },
+                  {
+                    "gtfsId": "1:338"
+                  },
+                  {
+                    "gtfsId": "1:6036"
+                  },
+                  {
+                    "gtfsId": "1:4266"
+                  },
+                  {
+                    "gtfsId": "1:1368"
+                  },
+                  {
+                    "gtfsId": "1:1361"
+                  },
+                  {
+                    "gtfsId": "1:2139"
+                  },
+                  {
+                    "gtfsId": "1:2620"
+                  },
+                  {
+                    "gtfsId": "1:4922"
+                  },
+                  {
+                    "gtfsId": "1:7767"
+                  },
+                  {
+                    "gtfsId": "1:1373"
+                  },
+                  {
+                    "gtfsId": "1:1346"
+                  },
+                  {
+                    "gtfsId": "1:1347"
+                  },
+                  {
+                    "gtfsId": "1:1348"
+                  },
+                  {
+                    "gtfsId": "1:2167"
+                  },
+                  {
+                    "gtfsId": "1:2280"
+                  },
+                  {
+                    "gtfsId": "1:2281"
+                  },
+                  {
+                    "gtfsId": "1:2282"
+                  },
+                  {
+                    "gtfsId": "1:2283"
+                  },
+                  {
+                    "gtfsId": "1:2284"
+                  },
+                  {
+                    "gtfsId": "1:2285"
+                  },
+                  {
+                    "gtfsId": "1:7903"
+                  },
+                  {
+                    "gtfsId": "1:2287"
+                  },
+                  {
+                    "gtfsId": "1:2288"
+                  }
+                ],
+                "from": {
+                  "name": "ISBT Kashmere Gate Terminal",
+                  "lat": 28.66696,
+                  "lon": 77.227456,
+                  "stop": {
+                    "gtfsId": "1:4109"
+                  }
+                },
+                "to": {
+                  "name": "Kalkaji Mandir (MaaAnandmayeeMarg)",
+                  "lat": 28.5480769,
+                  "lon": 77.2629011,
+                  "stop": {
+                    "gtfsId": "1:2290"
+                  }
+                },
+                "route": {
+                  "shortName": "429UP",
+                  "gtfsId": "1:1928"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 690.35,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:07:15+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:16:00+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Kalkaji Mandir (MaaAnandmayeeMarg)",
+                  "lat": 28.5480769,
+                  "lon": 77.2629011,
+                  "stop": {
+                    "gtfsId": "1:2290"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5487002,
+                  "lon": 77.2569812,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:19:40+05:30",
+            "end": "2026-10-22T10:17:41+05:30",
+            "walkDistance": 21.38,
+            "numberOfTransfers": 2,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 21.38,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:19:40+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:20:00+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.668198,
+                  "lon": 77.229219,
+                  "stop": null
+                },
+                "to": {
+                  "name": "ISBT Kashmiri Gate",
+                  "lat": 28.6680019,
+                  "lon": 77.2292825,
+                  "stop": {
+                    "gtfsId": "1:6026"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 1397.24,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:20:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:24:35+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2865_09_20"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7571"
+                  },
+                  {
+                    "gtfsId": "1:117"
+                  }
+                ],
+                "from": {
+                  "name": "ISBT Kashmiri Gate",
+                  "lat": 28.6680019,
+                  "lon": 77.2292825,
+                  "stop": {
+                    "gtfsId": "1:6026"
+                  }
+                },
+                "to": {
+                  "name": "Red Fort",
+                  "lat": 28.6580149,
+                  "lon": 77.2369583,
+                  "stop": {
+                    "gtfsId": "1:333"
+                  }
+                },
+                "route": {
+                  "shortName": "AIRPORT-EXP-04UP",
+                  "gtfsId": "1:2865"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 10944.38,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:28:38+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:04:29+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1914_09_21"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:334"
+                  },
+                  {
+                    "gtfsId": "1:1826"
+                  },
+                  {
+                    "gtfsId": "1:4824"
+                  },
+                  {
+                    "gtfsId": "1:336"
+                  },
+                  {
+                    "gtfsId": "1:4879"
+                  },
+                  {
+                    "gtfsId": "1:338"
+                  },
+                  {
+                    "gtfsId": "1:6036"
+                  },
+                  {
+                    "gtfsId": "1:4266"
+                  },
+                  {
+                    "gtfsId": "1:1368"
+                  },
+                  {
+                    "gtfsId": "1:1361"
+                  },
+                  {
+                    "gtfsId": "1:2139"
+                  },
+                  {
+                    "gtfsId": "1:2620"
+                  },
+                  {
+                    "gtfsId": "1:4922"
+                  },
+                  {
+                    "gtfsId": "1:7767"
+                  },
+                  {
+                    "gtfsId": "1:1373"
+                  },
+                  {
+                    "gtfsId": "1:2140"
+                  },
+                  {
+                    "gtfsId": "1:2757"
+                  },
+                  {
+                    "gtfsId": "1:2791"
+                  },
+                  {
+                    "gtfsId": "1:2759"
+                  },
+                  {
+                    "gtfsId": "1:7952"
+                  }
+                ],
+                "from": {
+                  "name": "Red Fort",
+                  "lat": 28.6580149,
+                  "lon": 77.2369583,
+                  "stop": {
+                    "gtfsId": "1:333"
+                  }
+                },
+                "to": {
+                  "name": "Central School (MCKR)",
+                  "lat": 28.562727,
+                  "lon": 77.232815,
+                  "stop": {
+                    "gtfsId": "1:7937"
+                  }
+                },
+                "route": {
+                  "shortName": "419UP",
+                  "gtfsId": "1:1914"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 3515.77,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:07:16+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:17:41+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1328_09_55"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:7938"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  },
+                  {
+                    "gtfsId": "1:2559"
+                  }
+                ],
+                "from": {
+                  "name": "Central School (MCKR)",
+                  "lat": 28.562727,
+                  "lon": 77.232815,
+                  "stop": {
+                    "gtfsId": "1:7937"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place Terminal",
+                  "lat": 28.5487002,
+                  "lon": 77.2569812,
+                  "stop": {
+                    "gtfsId": "1:2560"
+                  }
+                },
+                "route": {
+                  "shortName": "D-022UP",
+                  "gtfsId": "1:1328"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:31:00+05:30",
+            "end": "2026-10-22T10:21:55+05:30",
+            "walkDistance": 0.0,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 15867.2,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:31:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:21:55+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:3666_09_31"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7571"
+                  },
+                  {
+                    "gtfsId": "1:117"
+                  },
+                  {
+                    "gtfsId": "1:333"
+                  },
+                  {
+                    "gtfsId": "1:334"
+                  },
+                  {
+                    "gtfsId": "1:4824"
+                  },
+                  {
+                    "gtfsId": "1:10052"
+                  },
+                  {
+                    "gtfsId": "1:337"
+                  },
+                  {
+                    "gtfsId": "1:4879"
+                  },
+                  {
+                    "gtfsId": "1:338"
+                  },
+                  {
+                    "gtfsId": "1:1368"
+                  },
+                  {
+                    "gtfsId": "1:1369"
+                  },
+                  {
+                    "gtfsId": "1:1361"
+                  },
+                  {
+                    "gtfsId": "1:5952"
+                  },
+                  {
+                    "gtfsId": "1:2620"
+                  },
+                  {
+                    "gtfsId": "1:4922"
+                  },
+                  {
+                    "gtfsId": "1:1373"
+                  },
+                  {
+                    "gtfsId": "1:2140"
+                  },
+                  {
+                    "gtfsId": "1:2757"
+                  },
+                  {
+                    "gtfsId": "1:2791"
+                  },
+                  {
+                    "gtfsId": "1:2759"
+                  },
+                  {
+                    "gtfsId": "1:7952"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:2557"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  },
+                  {
+                    "gtfsId": "1:2559"
+                  }
+                ],
+                "from": {
+                  "name": "Kashmere Gate City Bus Terminal",
+                  "lat": 28.668198,
+                  "lon": 77.229219,
+                  "stop": {
+                    "gtfsId": "1:1025"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place Terminal",
+                  "lat": 28.5487002,
+                  "lon": 77.2569812,
+                  "stop": {
+                    "gtfsId": "1:2560"
+                  }
+                },
+                "route": {
+                  "shortName": "425CLUP",
+                  "gtfsId": "1:3666"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:34:41+05:30",
+            "end": "2026-10-22T10:32:55+05:30",
+            "walkDistance": 263.19,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 263.19,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:34:41+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:38:07+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.668198,
+                  "lon": 77.229219,
+                  "stop": null
+                },
+                "to": {
+                  "name": "ISBT Kashmere Gate (Lothian Road)",
+                  "lat": 28.6661836,
+                  "lon": 77.2297086,
+                  "stop": {
+                    "gtfsId": "1:4821"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 6860.23,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:38:07+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:00:33+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1900_09_35"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7571"
+                  },
+                  {
+                    "gtfsId": "1:117"
+                  },
+                  {
+                    "gtfsId": "1:333"
+                  },
+                  {
+                    "gtfsId": "1:334"
+                  },
+                  {
+                    "gtfsId": "1:1826"
+                  },
+                  {
+                    "gtfsId": "1:4824"
+                  },
+                  {
+                    "gtfsId": "1:336"
+                  },
+                  {
+                    "gtfsId": "1:4879"
+                  },
+                  {
+                    "gtfsId": "1:338"
+                  },
+                  {
+                    "gtfsId": "1:6036"
+                  },
+                  {
+                    "gtfsId": "1:4266"
+                  },
+                  {
+                    "gtfsId": "1:1368"
+                  },
+                  {
+                    "gtfsId": "1:1361"
+                  },
+                  {
+                    "gtfsId": "1:2139"
+                  }
+                ],
+                "from": {
+                  "name": "ISBT Kashmere Gate (Lothian Road)",
+                  "lat": 28.6661836,
+                  "lon": 77.2297086,
+                  "stop": {
+                    "gtfsId": "1:4821"
+                  }
+                },
+                "to": {
+                  "name": "Zoo",
+                  "lat": 28.608422,
+                  "lon": 77.240216,
+                  "stop": {
+                    "gtfsId": "1:2620"
+                  }
+                },
+                "route": {
+                  "shortName": "405UP",
+                  "gtfsId": "1:1900"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 8785.29,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:05:10+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:32:55+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1755_08_40"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4922"
+                  },
+                  {
+                    "gtfsId": "1:1373"
+                  },
+                  {
+                    "gtfsId": "1:2140"
+                  },
+                  {
+                    "gtfsId": "1:2757"
+                  },
+                  {
+                    "gtfsId": "1:2791"
+                  },
+                  {
+                    "gtfsId": "1:2759"
+                  },
+                  {
+                    "gtfsId": "1:7952"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:2557"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  },
+                  {
+                    "gtfsId": "1:2559"
+                  }
+                ],
+                "from": {
+                  "name": "Zoo",
+                  "lat": 28.608422,
+                  "lon": 77.240216,
+                  "stop": {
+                    "gtfsId": "1:2620"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place Terminal",
+                  "lat": 28.5487002,
+                  "lon": 77.2569812,
+                  "stop": {
+                    "gtfsId": "1:2560"
+                  }
+                },
+                "route": {
+                  "shortName": "244UP",
+                  "gtfsId": "1:1755"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:35:31+05:30",
+            "end": "2026-10-22T10:32:55+05:30",
+            "walkDistance": 21.38,
+            "numberOfTransfers": 2,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 21.38,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:35:31+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:35:51+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.668198,
+                  "lon": 77.229219,
+                  "stop": null
+                },
+                "to": {
+                  "name": "ISBT Kashmiri Gate",
+                  "lat": 28.6680019,
+                  "lon": 77.2292825,
+                  "stop": {
+                    "gtfsId": "1:6026"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 1407.22,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:35:51+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:40:27+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1714_09_00"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7571"
+                  },
+                  {
+                    "gtfsId": "1:117"
+                  }
+                ],
+                "from": {
+                  "name": "ISBT Kashmiri Gate",
+                  "lat": 28.6680019,
+                  "lon": 77.2292825,
+                  "stop": {
+                    "gtfsId": "1:6026"
+                  }
+                },
+                "to": {
+                  "name": "Red Fort",
+                  "lat": 28.6580149,
+                  "lon": 77.2369583,
+                  "stop": {
+                    "gtfsId": "1:333"
+                  }
+                },
+                "route": {
+                  "shortName": "214DOWN",
+                  "gtfsId": "1:1714"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 5653.96,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:42:54+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:01:25+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1928_09_37"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:334"
+                  },
+                  {
+                    "gtfsId": "1:1826"
+                  },
+                  {
+                    "gtfsId": "1:4824"
+                  },
+                  {
+                    "gtfsId": "1:336"
+                  },
+                  {
+                    "gtfsId": "1:4879"
+                  },
+                  {
+                    "gtfsId": "1:338"
+                  },
+                  {
+                    "gtfsId": "1:6036"
+                  },
+                  {
+                    "gtfsId": "1:4266"
+                  },
+                  {
+                    "gtfsId": "1:1368"
+                  },
+                  {
+                    "gtfsId": "1:1361"
+                  },
+                  {
+                    "gtfsId": "1:2139"
+                  }
+                ],
+                "from": {
+                  "name": "Red Fort",
+                  "lat": 28.6580149,
+                  "lon": 77.2369583,
+                  "stop": {
+                    "gtfsId": "1:333"
+                  }
+                },
+                "to": {
+                  "name": "Zoo",
+                  "lat": 28.608422,
+                  "lon": 77.240216,
+                  "stop": {
+                    "gtfsId": "1:2620"
+                  }
+                },
+                "route": {
+                  "shortName": "429UP",
+                  "gtfsId": "1:1928"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 8785.29,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:05:10+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:32:55+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1755_08_40"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4922"
+                  },
+                  {
+                    "gtfsId": "1:1373"
+                  },
+                  {
+                    "gtfsId": "1:2140"
+                  },
+                  {
+                    "gtfsId": "1:2757"
+                  },
+                  {
+                    "gtfsId": "1:2791"
+                  },
+                  {
+                    "gtfsId": "1:2759"
+                  },
+                  {
+                    "gtfsId": "1:7952"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:2557"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  },
+                  {
+                    "gtfsId": "1:2559"
+                  }
+                ],
+                "from": {
+                  "name": "Zoo",
+                  "lat": 28.608422,
+                  "lon": 77.240216,
+                  "stop": {
+                    "gtfsId": "1:2620"
+                  }
+                },
+                "to": {
+                  "name": "Nehru Place Terminal",
+                  "lat": 28.5487002,
+                  "lon": 77.2569812,
+                  "stop": {
+                    "gtfsId": "1:2560"
+                  }
+                },
+                "route": {
+                  "shortName": "244UP",
+                  "gtfsId": "1:1755"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:32:29+05:30",
+            "end": "2026-10-22T10:38:00+05:30",
+            "walkDistance": 1029.74,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 339.39,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:32:29+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:37:00+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.668198,
+                  "lon": 77.229219,
+                  "stop": null
+                },
+                "to": {
+                  "name": "ISBT Kashmere Gate Terminal",
+                  "lat": 28.66696,
+                  "lon": 77.227456,
+                  "stop": {
+                    "gtfsId": "1:4109"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 17756.44,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:37:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:29:15+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1928_09_37"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:820"
+                  },
+                  {
+                    "gtfsId": "1:7596"
+                  },
+                  {
+                    "gtfsId": "1:333"
+                  },
+                  {
+                    "gtfsId": "1:334"
+                  },
+                  {
+                    "gtfsId": "1:1826"
+                  },
+                  {
+                    "gtfsId": "1:4824"
+                  },
+                  {
+                    "gtfsId": "1:336"
+                  },
+                  {
+                    "gtfsId": "1:4879"
+                  },
+                  {
+                    "gtfsId": "1:338"
+                  },
+                  {
+                    "gtfsId": "1:6036"
+                  },
+                  {
+                    "gtfsId": "1:4266"
+                  },
+                  {
+                    "gtfsId": "1:1368"
+                  },
+                  {
+                    "gtfsId": "1:1361"
+                  },
+                  {
+                    "gtfsId": "1:2139"
+                  },
+                  {
+                    "gtfsId": "1:2620"
+                  },
+                  {
+                    "gtfsId": "1:4922"
+                  },
+                  {
+                    "gtfsId": "1:7767"
+                  },
+                  {
+                    "gtfsId": "1:1373"
+                  },
+                  {
+                    "gtfsId": "1:1346"
+                  },
+                  {
+                    "gtfsId": "1:1347"
+                  },
+                  {
+                    "gtfsId": "1:1348"
+                  },
+                  {
+                    "gtfsId": "1:2167"
+                  },
+                  {
+                    "gtfsId": "1:2280"
+                  },
+                  {
+                    "gtfsId": "1:2281"
+                  },
+                  {
+                    "gtfsId": "1:2282"
+                  },
+                  {
+                    "gtfsId": "1:2283"
+                  },
+                  {
+                    "gtfsId": "1:2284"
+                  },
+                  {
+                    "gtfsId": "1:2285"
+                  },
+                  {
+                    "gtfsId": "1:7903"
+                  },
+                  {
+                    "gtfsId": "1:2287"
+                  },
+                  {
+                    "gtfsId": "1:2288"
+                  }
+                ],
+                "from": {
+                  "name": "ISBT Kashmere Gate Terminal",
+                  "lat": 28.66696,
+                  "lon": 77.227456,
+                  "stop": {
+                    "gtfsId": "1:4109"
+                  }
+                },
+                "to": {
+                  "name": "Kalkaji Mandir (MaaAnandmayeeMarg)",
+                  "lat": 28.5480769,
+                  "lon": 77.2629011,
+                  "stop": {
+                    "gtfsId": "1:2290"
+                  }
+                },
+                "route": {
+                  "shortName": "429UP",
+                  "gtfsId": "1:1928"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 690.35,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:29:15+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:38:00+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Kalkaji Mandir (MaaAnandmayeeMarg)",
+                  "lat": 28.5480769,
+                  "lon": 77.2629011,
+                  "stop": {
+                    "gtfsId": "1:2290"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5487002,
+                  "lon": 77.2569812,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:34:41+05:30",
+            "end": "2026-10-22T10:43:56+05:30",
+            "walkDistance": 1980.52,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 263.19,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:34:41+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:38:07+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.668198,
+                  "lon": 77.229219,
+                  "stop": null
+                },
+                "to": {
+                  "name": "ISBT Kashmere Gate (Lothian Road)",
+                  "lat": 28.6661836,
+                  "lon": 77.2297086,
+                  "stop": {
+                    "gtfsId": "1:4821"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 13405.96,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:38:07+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:22:09+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1900_09_35"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7571"
+                  },
+                  {
+                    "gtfsId": "1:117"
+                  },
+                  {
+                    "gtfsId": "1:333"
+                  },
+                  {
+                    "gtfsId": "1:334"
+                  },
+                  {
+                    "gtfsId": "1:1826"
+                  },
+                  {
+                    "gtfsId": "1:4824"
+                  },
+                  {
+                    "gtfsId": "1:336"
+                  },
+                  {
+                    "gtfsId": "1:4879"
+                  },
+                  {
+                    "gtfsId": "1:338"
+                  },
+                  {
+                    "gtfsId": "1:6036"
+                  },
+                  {
+                    "gtfsId": "1:4266"
+                  },
+                  {
+                    "gtfsId": "1:1368"
+                  },
+                  {
+                    "gtfsId": "1:1361"
+                  },
+                  {
+                    "gtfsId": "1:2139"
+                  },
+                  {
+                    "gtfsId": "1:2620"
+                  },
+                  {
+                    "gtfsId": "1:4922"
+                  },
+                  {
+                    "gtfsId": "1:7767"
+                  },
+                  {
+                    "gtfsId": "1:1373"
+                  },
+                  {
+                    "gtfsId": "1:1346"
+                  },
+                  {
+                    "gtfsId": "1:1347"
+                  },
+                  {
+                    "gtfsId": "1:1348"
+                  },
+                  {
+                    "gtfsId": "1:2168"
+                  },
+                  {
+                    "gtfsId": "1:2169"
+                  },
+                  {
+                    "gtfsId": "1:2659"
+                  }
+                ],
+                "from": {
+                  "name": "ISBT Kashmere Gate (Lothian Road)",
+                  "lat": 28.6661836,
+                  "lon": 77.2297086,
+                  "stop": {
+                    "gtfsId": "1:4821"
+                  }
+                },
+                "to": {
+                  "name": "Kalka Ji Crossing",
+                  "lat": 28.5573,
+                  "lon": 77.269767,
+                  "stop": {
+                    "gtfsId": "1:2977"
+                  }
+                },
+                "route": {
+                  "shortName": "405UP",
+                  "gtfsId": "1:1900"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 1717.33,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:22:09+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:43:56+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Kalka Ji Crossing",
+                  "lat": 28.5573,
+                  "lon": 77.269767,
+                  "stop": {
+                    "gtfsId": "1:2977"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.5487002,
+                  "lon": 77.2569812,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

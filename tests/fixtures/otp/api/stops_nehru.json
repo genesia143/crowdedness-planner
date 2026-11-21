@@ -1,0 +1,133 @@
+{
+  "status": 200,
+  "body": {
+    "stops": [
+      {
+        "stop_id": "2255",
+        "stop_name": "Chacha Nehru Bal Chikitsalaya",
+        "latitude": 28.65217884401808,
+        "longitude": 77.26866912674487
+      },
+      {
+        "stop_id": "8954",
+        "stop_name": "Chacha Nehru Bal Chikitsalaya",
+        "latitude": 28.652160013907665,
+        "longitude": 77.26850768701325
+      },
+      {
+        "stop_id": "3838",
+        "stop_name": "Goyla Dairy / Nehru Bus Stand",
+        "latitude": 28.580514,
+        "longitude": 77.019268
+      },
+      {
+        "stop_id": "3868",
+        "stop_name": "Goyla Dairy / Nehru Bus Stand",
+        "latitude": 28.580346,
+        "longitude": 77.019327
+      },
+      {
+        "stop_id": "2551",
+        "stop_name": "J L Nehru Stadium",
+        "latitude": 28.5841,
+        "longitude": 77.2301
+      },
+      {
+        "stop_id": "2572",
+        "stop_name": "J L Nehru Stadium",
+        "latitude": 28.583833,
+        "longitude": 77.2299
+      },
+      {
+        "stop_id": "2373",
+        "stop_name": "Kalma Nehru College",
+        "latitude": 28.5564,
+        "longitude": 77.2158
+      },
+      {
+        "stop_id": "6367",
+        "stop_name": "KALMA NEHRU COLLEGE",
+        "latitude": 28.5557,
+        "longitude": 77.218102
+      },
+      {
+        "stop_id": "6258",
+        "stop_name": "Kamla Nehru College",
+        "latitude": 28.556551,
+        "longitude": 77.215782
+      },
+      {
+        "stop_id": "6360",
+        "stop_name": "Kamla Nehru College",
+        "latitude": 28.55624819021959,
+        "longitude": 77.2170911686659
+      },
+      {
+        "stop_id": "4579",
+        "stop_name": "Motilal Nehru College",
+        "latitude": 28.57722316294896,
+        "longitude": 77.16222959280249
+      },
+      {
+        "stop_id": "9534",
+        "stop_name": "Motilal Nehru College",
+        "latitude": 28.57702,
+        "longitude": 77.16191
+      },
+      {
+        "stop_id": "2357",
+        "stop_name": "Neeti Bagh / Kamla Nehru College/Niti Bag",
+        "latitude": 28.55785,
+        "longitude": 77.217533
+      },
+      {
+        "stop_id": "7064",
+        "stop_name": "Nehru Enclave",
+        "latitude": 28.545513,
+        "longitude": 77.250607
+      },
+      {
+        "stop_id": "7063",
+        "stop_name": "Nehru Enclave / Nehru Place Crossing / Paras Cinema",
+        "latitude": 28.545462,
+        "longitude": 77.250456
+      },
+      {
+        "stop_id": "2280",
+        "stop_name": "Nehru Nagar",
+        "latitude": 28.568283,
+        "longitude": 77.253917
+      },
+      {
+        "stop_id": "2322",
+        "stop_name": "Nehru Nagar",
+        "latitude": 28.56900137610934,
+        "longitude": 77.25394480449786
+      },
+      {
+        "stop_id": "2559",
+        "stop_name": "Nehru Place",
+        "latitude": 28.54857609786973,
+        "longitude": 77.24913317314967
+      },
+      {
+        "stop_id": "2562",
+        "stop_name": "Nehru Place",
+        "latitude": 28.54732266056635,
+        "longitude": 77.2538969382967
+      },
+      {
+        "stop_id": "2563",
+        "stop_name": "Nehru Place",
+        "latitude": 28.54755,
+        "longitude": 77.249444
+      }
+    ]
+  },
+  "request": {
+    "path": "/stops",
+    "params": {
+      "q": "nehru"
+    }
+  }
+}

@@ -1,0 +1,1907 @@
+{
+  "data": {
+    "planConnection": {
+      "edges": [
+        {
+          "node": {
+            "start": "2026-10-24T18:02:24+05:30",
+            "end": "2026-10-24T18:45:35+05:30",
+            "walkDistance": 0.0,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 6771.67,
+                "serviceDate": "2026-10-24",
+                "start": {
+                  "scheduledTime": "2026-10-24T18:02:24+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T18:20:30+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1313_18_01"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7699"
+                  },
+                  {
+                    "gtfsId": "1:912"
+                  },
+                  {
+                    "gtfsId": "1:913"
+                  },
+                  {
+                    "gtfsId": "1:7742"
+                  },
+                  {
+                    "gtfsId": "1:1165"
+                  },
+                  {
+                    "gtfsId": "1:2190"
+                  },
+                  {
+                    "gtfsId": "1:2216"
+                  },
+                  {
+                    "gtfsId": "1:7886"
+                  },
+                  {
+                    "gtfsId": "1:2193"
+                  },
+                  {
+                    "gtfsId": "1:2194"
+                  },
+                  {
+                    "gtfsId": "1:8833"
+                  }
+                ],
+                "from": {
+                  "name": "Anand Vihar ISBT",
+                  "lat": 28.6488755,
+                  "lon": 77.3183769,
+                  "stop": {
+                    "gtfsId": "1:917"
+                  }
+                },
+                "to": {
+                  "name": "Laxmi Nagar (Vikas Marg) / Laxmi Nagar Metro Station",
+                  "lat": 28.6312895,
+                  "lon": 77.2787972,
+                  "stop": {
+                    "gtfsId": "1:7888"
+                  }
+                },
+                "route": {
+                  "shortName": "D-006UP",
+                  "gtfsId": "1:1313"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 7436.25,
+                "serviceDate": "2026-10-24",
+                "start": {
+                  "scheduledTime": "2026-10-24T18:23:29+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T18:45:35+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1151_18_05"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:813"
+                  },
+                  {
+                    "gtfsId": "1:814"
+                  },
+                  {
+                    "gtfsId": "1:2197"
+                  },
+                  {
+                    "gtfsId": "1:2333"
+                  },
+                  {
+                    "gtfsId": "1:2334"
+                  },
+                  {
+                    "gtfsId": "1:2335"
+                  },
+                  {
+                    "gtfsId": "1:2336"
+                  },
+                  {
+                    "gtfsId": "1:2337"
+                  },
+                  {
+                    "gtfsId": "1:367"
+                  }
+                ],
+                "from": {
+                  "name": "Laxmi Nagar (Vikas Marg) / Laxmi Nagar Metro Station",
+                  "lat": 28.6312895,
+                  "lon": 77.2787972,
+                  "stop": {
+                    "gtfsId": "1:7888"
+                  }
+                },
+                "to": {
+                  "name": "Shivaji Stadium Terminal ( Connaught Place )",
+                  "lat": 28.6323,
+                  "lon": 77.2165,
+                  "stop": {
+                    "gtfsId": "1:365"
+                  }
+                },
+                "route": {
+                  "shortName": "943UP",
+                  "gtfsId": "1:1151"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-24T18:05:00+05:30",
+            "end": "2026-10-24T18:49:57+05:30",
+            "walkDistance": 380.69,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 12865.66,
+                "serviceDate": "2026-10-24",
+                "start": {
+                  "scheduledTime": "2026-10-24T18:05:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T18:45:00+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2206_18_05"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7699"
+                  },
+                  {
+                    "gtfsId": "1:913"
+                  },
+                  {
+                    "gtfsId": "1:7742"
+                  },
+                  {
+                    "gtfsId": "1:1165"
+                  },
+                  {
+                    "gtfsId": "1:2190"
+                  },
+                  {
+                    "gtfsId": "1:2216"
+                  },
+                  {
+                    "gtfsId": "1:7886"
+                  },
+                  {
+                    "gtfsId": "1:2193"
+                  },
+                  {
+                    "gtfsId": "1:2194"
+                  },
+                  {
+                    "gtfsId": "1:8833"
+                  },
+                  {
+                    "gtfsId": "1:7888"
+                  },
+                  {
+                    "gtfsId": "1:813"
+                  },
+                  {
+                    "gtfsId": "1:814"
+                  },
+                  {
+                    "gtfsId": "1:2197"
+                  },
+                  {
+                    "gtfsId": "1:339"
+                  },
+                  {
+                    "gtfsId": "1:7723"
+                  },
+                  {
+                    "gtfsId": "1:1074"
+                  },
+                  {
+                    "gtfsId": "1:1075"
+                  },
+                  {
+                    "gtfsId": "1:1461"
+                  }
+                ],
+                "from": {
+                  "name": "Anand Vihar ISBT",
+                  "lat": 28.6488755,
+                  "lon": 77.3183769,
+                  "stop": {
+                    "gtfsId": "1:917"
+                  }
+                },
+                "to": {
+                  "name": "Hanuman Mandir / Shivaji Stadium",
+                  "lat": 28.630267,
+                  "lon": 77.214133,
+                  "stop": {
+                    "gtfsId": "1:3884"
+                  }
+                },
+                "route": {
+                  "shortName": "73UP",
+                  "gtfsId": "1:2206"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 380.69,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-24T18:45:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T18:49:57+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Hanuman Mandir / Shivaji Stadium",
+                  "lat": 28.630267,
+                  "lon": 77.214133,
+                  "stop": {
+                    "gtfsId": "1:3884"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.6323,
+                  "lon": 77.2165,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-24T18:07:15+05:30",
+            "end": "2026-10-24T18:55:19+05:30",
+            "walkDistance": 386.4,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 216.6,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-24T18:07:15+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T18:10:00+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6488755,
+                  "lon": 77.3183769,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Anand Vihar ISBT",
+                  "lat": 28.6470768,
+                  "lon": 77.3175824,
+                  "stop": {
+                    "gtfsId": "1:9103"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 3.37,
+                "serviceDate": "2026-10-24",
+                "start": {
+                  "scheduledTime": "2026-10-24T18:10:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T18:10:07+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2342_18_10"
+                },
+                "intermediateStops": [],
+                "from": {
+                  "name": "Anand Vihar ISBT",
+                  "lat": 28.6470768,
+                  "lon": 77.3175824,
+                  "stop": {
+                    "gtfsId": "1:9103"
+                  }
+                },
+                "to": {
+                  "name": "Anand Vihar ISBT Main Road",
+                  "lat": 28.647011,
+                  "lon": 77.317959,
+                  "stop": {
+                    "gtfsId": "1:7699"
+                  }
+                },
+                "route": {
+                  "shortName": "85EXTUP",
+                  "gtfsId": "1:2342"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 12635.34,
+                "serviceDate": "2026-10-24",
+                "start": {
+                  "scheduledTime": "2026-10-24T18:14:04+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T18:53:07+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2856_18_13"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:912"
+                  },
+                  {
+                    "gtfsId": "1:913"
+                  },
+                  {
+                    "gtfsId": "1:7742"
+                  },
+                  {
+                    "gtfsId": "1:1165"
+                  },
+                  {
+                    "gtfsId": "1:2190"
+                  },
+                  {
+                    "gtfsId": "1:2216"
+                  },
+                  {
+                    "gtfsId": "1:7886"
+                  },
+                  {
+                    "gtfsId": "1:2193"
+                  },
+                  {
+                    "gtfsId": "1:2194"
+                  },
+                  {
+                    "gtfsId": "1:8833"
+                  },
+                  {
+                    "gtfsId": "1:7888"
+                  },
+                  {
+                    "gtfsId": "1:813"
+                  },
+                  {
+                    "gtfsId": "1:814"
+                  },
+                  {
+                    "gtfsId": "1:2197"
+                  },
+                  {
+                    "gtfsId": "1:339"
+                  },
+                  {
+                    "gtfsId": "1:7723"
+                  },
+                  {
+                    "gtfsId": "1:1074"
+                  },
+                  {
+                    "gtfsId": "1:1075"
+                  },
+                  {
+                    "gtfsId": "1:1461"
+                  }
+                ],
+                "from": {
+                  "name": "Anand Vihar ISBT Main Road",
+                  "lat": 28.647011,
+                  "lon": 77.317959,
+                  "stop": {
+                    "gtfsId": "1:7699"
+                  }
+                },
+                "to": {
+                  "name": "Shivaji Stadium Terminal",
+                  "lat": 28.6330638,
+                  "lon": 77.2154555,
+                  "stop": {
+                    "gtfsId": "1:5100"
+                  }
+                },
+                "route": {
+                  "shortName": "976UP",
+                  "gtfsId": "1:2856"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 169.8,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-24T18:53:07+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T18:55:19+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Shivaji Stadium Terminal",
+                  "lat": 28.6330638,
+                  "lon": 77.2154555,
+                  "stop": {
+                    "gtfsId": "1:5100"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.6323,
+                  "lon": 77.2165,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-24T18:15:00+05:30",
+            "end": "2026-10-24T18:59:57+05:30",
+            "walkDistance": 380.69,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 12865.66,
+                "serviceDate": "2026-10-24",
+                "start": {
+                  "scheduledTime": "2026-10-24T18:15:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T18:55:00+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2206_18_15"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7699"
+                  },
+                  {
+                    "gtfsId": "1:913"
+                  },
+                  {
+                    "gtfsId": "1:7742"
+                  },
+                  {
+                    "gtfsId": "1:1165"
+                  },
+                  {
+                    "gtfsId": "1:2190"
+                  },
+                  {
+                    "gtfsId": "1:2216"
+                  },
+                  {
+                    "gtfsId": "1:7886"
+                  },
+                  {
+                    "gtfsId": "1:2193"
+                  },
+                  {
+                    "gtfsId": "1:2194"
+                  },
+                  {
+                    "gtfsId": "1:8833"
+                  },
+                  {
+                    "gtfsId": "1:7888"
+                  },
+                  {
+                    "gtfsId": "1:813"
+                  },
+                  {
+                    "gtfsId": "1:814"
+                  },
+                  {
+                    "gtfsId": "1:2197"
+                  },
+                  {
+                    "gtfsId": "1:339"
+                  },
+                  {
+                    "gtfsId": "1:7723"
+                  },
+                  {
+                    "gtfsId": "1:1074"
+                  },
+                  {
+                    "gtfsId": "1:1075"
+                  },
+                  {
+                    "gtfsId": "1:1461"
+                  }
+                ],
+                "from": {
+                  "name": "Anand Vihar ISBT",
+                  "lat": 28.6488755,
+                  "lon": 77.3183769,
+                  "stop": {
+                    "gtfsId": "1:917"
+                  }
+                },
+                "to": {
+                  "name": "Hanuman Mandir / Shivaji Stadium",
+                  "lat": 28.630267,
+                  "lon": 77.214133,
+                  "stop": {
+                    "gtfsId": "1:3884"
+                  }
+                },
+                "route": {
+                  "shortName": "73UP",
+                  "gtfsId": "1:2206"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 380.69,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-24T18:55:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T18:59:57+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Hanuman Mandir / Shivaji Stadium",
+                  "lat": 28.630267,
+                  "lon": 77.214133,
+                  "stop": {
+                    "gtfsId": "1:3884"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.6323,
+                  "lon": 77.2165,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-24T18:18:55+05:30",
+            "end": "2026-10-24T19:08:19+05:30",
+            "walkDistance": 712.1800000000001,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 542.38,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-24T18:18:55+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T18:26:00+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6488755,
+                  "lon": 77.3183769,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Anand Vihar ISBT Terminal",
+                  "lat": 28.646953,
+                  "lon": 77.314668,
+                  "stop": {
+                    "gtfsId": "1:8256"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 14230.5,
+                "serviceDate": "2026-10-24",
+                "start": {
+                  "scheduledTime": "2026-10-24T18:26:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T19:06:07+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2856_18_26"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7699"
+                  },
+                  {
+                    "gtfsId": "1:912"
+                  },
+                  {
+                    "gtfsId": "1:913"
+                  },
+                  {
+                    "gtfsId": "1:7742"
+                  },
+                  {
+                    "gtfsId": "1:1165"
+                  },
+                  {
+                    "gtfsId": "1:2190"
+                  },
+                  {
+                    "gtfsId": "1:2216"
+                  },
+                  {
+                    "gtfsId": "1:7886"
+                  },
+                  {
+                    "gtfsId": "1:2193"
+                  },
+                  {
+                    "gtfsId": "1:2194"
+                  },
+                  {
+                    "gtfsId": "1:8833"
+                  },
+                  {
+                    "gtfsId": "1:7888"
+                  },
+                  {
+                    "gtfsId": "1:813"
+                  },
+                  {
+                    "gtfsId": "1:814"
+                  },
+                  {
+                    "gtfsId": "1:2197"
+                  },
+                  {
+                    "gtfsId": "1:339"
+                  },
+                  {
+                    "gtfsId": "1:7723"
+                  },
+                  {
+                    "gtfsId": "1:1074"
+                  },
+                  {
+                    "gtfsId": "1:1075"
+                  },
+                  {
+                    "gtfsId": "1:1461"
+                  }
+                ],
+                "from": {
+                  "name": "Anand Vihar ISBT Terminal",
+                  "lat": 28.646953,
+                  "lon": 77.314668,
+                  "stop": {
+                    "gtfsId": "1:8256"
+                  }
+                },
+                "to": {
+                  "name": "Shivaji Stadium Terminal",
+                  "lat": 28.6330638,
+                  "lon": 77.2154555,
+                  "stop": {
+                    "gtfsId": "1:5100"
+                  }
+                },
+                "route": {
+                  "shortName": "976UP",
+                  "gtfsId": "1:2856"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 169.8,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-24T19:06:07+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T19:08:19+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Shivaji Stadium Terminal",
+                  "lat": 28.6330638,
+                  "lon": 77.2154555,
+                  "stop": {
+                    "gtfsId": "1:5100"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.6323,
+                  "lon": 77.2165,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-24T18:25:00+05:30",
+            "end": "2026-10-24T19:09:57+05:30",
+            "walkDistance": 380.69,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 12865.66,
+                "serviceDate": "2026-10-24",
+                "start": {
+                  "scheduledTime": "2026-10-24T18:25:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T19:05:00+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2206_18_25"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7699"
+                  },
+                  {
+                    "gtfsId": "1:913"
+                  },
+                  {
+                    "gtfsId": "1:7742"
+                  },
+                  {
+                    "gtfsId": "1:1165"
+                  },
+                  {
+                    "gtfsId": "1:2190"
+                  },
+                  {
+                    "gtfsId": "1:2216"
+                  },
+                  {
+                    "gtfsId": "1:7886"
+                  },
+                  {
+                    "gtfsId": "1:2193"
+                  },
+                  {
+                    "gtfsId": "1:2194"
+                  },
+                  {
+                    "gtfsId": "1:8833"
+                  },
+                  {
+                    "gtfsId": "1:7888"
+                  },
+                  {
+                    "gtfsId": "1:813"
+                  },
+                  {
+                    "gtfsId": "1:814"
+                  },
+                  {
+                    "gtfsId": "1:2197"
+                  },
+                  {
+                    "gtfsId": "1:339"
+                  },
+                  {
+                    "gtfsId": "1:7723"
+                  },
+                  {
+                    "gtfsId": "1:1074"
+                  },
+                  {
+                    "gtfsId": "1:1075"
+                  },
+                  {
+                    "gtfsId": "1:1461"
+                  }
+                ],
+                "from": {
+                  "name": "Anand Vihar ISBT",
+                  "lat": 28.6488755,
+                  "lon": 77.3183769,
+                  "stop": {
+                    "gtfsId": "1:917"
+                  }
+                },
+                "to": {
+                  "name": "Hanuman Mandir / Shivaji Stadium",
+                  "lat": 28.630267,
+                  "lon": 77.214133,
+                  "stop": {
+                    "gtfsId": "1:3884"
+                  }
+                },
+                "route": {
+                  "shortName": "73UP",
+                  "gtfsId": "1:2206"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 380.69,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-24T19:05:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T19:09:57+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Hanuman Mandir / Shivaji Stadium",
+                  "lat": 28.630267,
+                  "lon": 77.214133,
+                  "stop": {
+                    "gtfsId": "1:3884"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.6323,
+                  "lon": 77.2165,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-24T18:35:00+05:30",
+            "end": "2026-10-24T19:19:57+05:30",
+            "walkDistance": 380.69,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 12865.66,
+                "serviceDate": "2026-10-24",
+                "start": {
+                  "scheduledTime": "2026-10-24T18:35:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T19:15:00+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2206_18_35"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7699"
+                  },
+                  {
+                    "gtfsId": "1:913"
+                  },
+                  {
+                    "gtfsId": "1:7742"
+                  },
+                  {
+                    "gtfsId": "1:1165"
+                  },
+                  {
+                    "gtfsId": "1:2190"
+                  },
+                  {
+                    "gtfsId": "1:2216"
+                  },
+                  {
+                    "gtfsId": "1:7886"
+                  },
+                  {
+                    "gtfsId": "1:2193"
+                  },
+                  {
+                    "gtfsId": "1:2194"
+                  },
+                  {
+                    "gtfsId": "1:8833"
+                  },
+                  {
+                    "gtfsId": "1:7888"
+                  },
+                  {
+                    "gtfsId": "1:813"
+                  },
+                  {
+                    "gtfsId": "1:814"
+                  },
+                  {
+                    "gtfsId": "1:2197"
+                  },
+                  {
+                    "gtfsId": "1:339"
+                  },
+                  {
+                    "gtfsId": "1:7723"
+                  },
+                  {
+                    "gtfsId": "1:1074"
+                  },
+                  {
+                    "gtfsId": "1:1075"
+                  },
+                  {
+                    "gtfsId": "1:1461"
+                  }
+                ],
+                "from": {
+                  "name": "Anand Vihar ISBT",
+                  "lat": 28.6488755,
+                  "lon": 77.3183769,
+                  "stop": {
+                    "gtfsId": "1:917"
+                  }
+                },
+                "to": {
+                  "name": "Hanuman Mandir / Shivaji Stadium",
+                  "lat": 28.630267,
+                  "lon": 77.214133,
+                  "stop": {
+                    "gtfsId": "1:3884"
+                  }
+                },
+                "route": {
+                  "shortName": "73UP",
+                  "gtfsId": "1:2206"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 380.69,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-24T19:15:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T19:19:57+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Hanuman Mandir / Shivaji Stadium",
+                  "lat": 28.630267,
+                  "lon": 77.214133,
+                  "stop": {
+                    "gtfsId": "1:3884"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.6323,
+                  "lon": 77.2165,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-24T18:45:00+05:30",
+            "end": "2026-10-24T19:29:57+05:30",
+            "walkDistance": 380.69,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 12865.66,
+                "serviceDate": "2026-10-24",
+                "start": {
+                  "scheduledTime": "2026-10-24T18:45:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T19:25:00+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2206_18_45"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7699"
+                  },
+                  {
+                    "gtfsId": "1:913"
+                  },
+                  {
+                    "gtfsId": "1:7742"
+                  },
+                  {
+                    "gtfsId": "1:1165"
+                  },
+                  {
+                    "gtfsId": "1:2190"
+                  },
+                  {
+                    "gtfsId": "1:2216"
+                  },
+                  {
+                    "gtfsId": "1:7886"
+                  },
+                  {
+                    "gtfsId": "1:2193"
+                  },
+                  {
+                    "gtfsId": "1:2194"
+                  },
+                  {
+                    "gtfsId": "1:8833"
+                  },
+                  {
+                    "gtfsId": "1:7888"
+                  },
+                  {
+                    "gtfsId": "1:813"
+                  },
+                  {
+                    "gtfsId": "1:814"
+                  },
+                  {
+                    "gtfsId": "1:2197"
+                  },
+                  {
+                    "gtfsId": "1:339"
+                  },
+                  {
+                    "gtfsId": "1:7723"
+                  },
+                  {
+                    "gtfsId": "1:1074"
+                  },
+                  {
+                    "gtfsId": "1:1075"
+                  },
+                  {
+                    "gtfsId": "1:1461"
+                  }
+                ],
+                "from": {
+                  "name": "Anand Vihar ISBT",
+                  "lat": 28.6488755,
+                  "lon": 77.3183769,
+                  "stop": {
+                    "gtfsId": "1:917"
+                  }
+                },
+                "to": {
+                  "name": "Hanuman Mandir / Shivaji Stadium",
+                  "lat": 28.630267,
+                  "lon": 77.214133,
+                  "stop": {
+                    "gtfsId": "1:3884"
+                  }
+                },
+                "route": {
+                  "shortName": "73UP",
+                  "gtfsId": "1:2206"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 380.69,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-24T19:25:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T19:29:57+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Hanuman Mandir / Shivaji Stadium",
+                  "lat": 28.630267,
+                  "lon": 77.214133,
+                  "stop": {
+                    "gtfsId": "1:3884"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.6323,
+                  "lon": 77.2165,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-24T18:46:24+05:30",
+            "end": "2026-10-24T19:30:19+05:30",
+            "walkDistance": 0.0,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 10239.47,
+                "serviceDate": "2026-10-24",
+                "start": {
+                  "scheduledTime": "2026-10-24T18:46:24+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T19:15:54+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1313_18_45"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7699"
+                  },
+                  {
+                    "gtfsId": "1:912"
+                  },
+                  {
+                    "gtfsId": "1:913"
+                  },
+                  {
+                    "gtfsId": "1:7742"
+                  },
+                  {
+                    "gtfsId": "1:1165"
+                  },
+                  {
+                    "gtfsId": "1:2190"
+                  },
+                  {
+                    "gtfsId": "1:2216"
+                  },
+                  {
+                    "gtfsId": "1:7886"
+                  },
+                  {
+                    "gtfsId": "1:2193"
+                  },
+                  {
+                    "gtfsId": "1:2194"
+                  },
+                  {
+                    "gtfsId": "1:8833"
+                  },
+                  {
+                    "gtfsId": "1:7888"
+                  },
+                  {
+                    "gtfsId": "1:8835"
+                  },
+                  {
+                    "gtfsId": "1:813"
+                  },
+                  {
+                    "gtfsId": "1:814"
+                  }
+                ],
+                "from": {
+                  "name": "Anand Vihar ISBT",
+                  "lat": 28.6488755,
+                  "lon": 77.3183769,
+                  "stop": {
+                    "gtfsId": "1:917"
+                  }
+                },
+                "to": {
+                  "name": "ITO AGCR /  ITO",
+                  "lat": 28.6279214,
+                  "lon": 77.2444654,
+                  "stop": {
+                    "gtfsId": "1:2197"
+                  }
+                },
+                "route": {
+                  "shortName": "D-006UP",
+                  "gtfsId": "1:1313"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 3379.05,
+                "serviceDate": "2026-10-24",
+                "start": {
+                  "scheduledTime": "2026-10-24T19:20:24+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T19:30:19+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2407_19_15"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:339"
+                  },
+                  {
+                    "gtfsId": "1:7723"
+                  },
+                  {
+                    "gtfsId": "1:1074"
+                  },
+                  {
+                    "gtfsId": "1:1075"
+                  },
+                  {
+                    "gtfsId": "1:1461"
+                  }
+                ],
+                "from": {
+                  "name": "ITO AGCR /  ITO",
+                  "lat": 28.6279214,
+                  "lon": 77.2444654,
+                  "stop": {
+                    "gtfsId": "1:2197"
+                  }
+                },
+                "to": {
+                  "name": "Shivaji Stadium Terminal ( Connaught Place )",
+                  "lat": 28.6323,
+                  "lon": 77.2165,
+                  "stop": {
+                    "gtfsId": "1:365"
+                  }
+                },
+                "route": {
+                  "shortName": "910UP",
+                  "gtfsId": "1:2407"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-24T18:50:00+05:30",
+            "end": "2026-10-24T19:34:19+05:30",
+            "walkDistance": 169.8,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 207.03,
+                "serviceDate": "2026-10-24",
+                "start": {
+                  "scheduledTime": "2026-10-24T18:50:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T18:50:42+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2693_18_50"
+                },
+                "intermediateStops": [],
+                "from": {
+                  "name": "Anand Vihar ISBT",
+                  "lat": 28.6488755,
+                  "lon": 77.3183769,
+                  "stop": {
+                    "gtfsId": "1:917"
+                  }
+                },
+                "to": {
+                  "name": "Anand Vihar ISBT Main Road",
+                  "lat": 28.647011,
+                  "lon": 77.317959,
+                  "stop": {
+                    "gtfsId": "1:7699"
+                  }
+                },
+                "route": {
+                  "shortName": "GL-23DOWN",
+                  "gtfsId": "1:2693"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 12635.34,
+                "serviceDate": "2026-10-24",
+                "start": {
+                  "scheduledTime": "2026-10-24T18:53:04+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T19:32:07+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2856_18_52"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:912"
+                  },
+                  {
+                    "gtfsId": "1:913"
+                  },
+                  {
+                    "gtfsId": "1:7742"
+                  },
+                  {
+                    "gtfsId": "1:1165"
+                  },
+                  {
+                    "gtfsId": "1:2190"
+                  },
+                  {
+                    "gtfsId": "1:2216"
+                  },
+                  {
+                    "gtfsId": "1:7886"
+                  },
+                  {
+                    "gtfsId": "1:2193"
+                  },
+                  {
+                    "gtfsId": "1:2194"
+                  },
+                  {
+                    "gtfsId": "1:8833"
+                  },
+                  {
+                    "gtfsId": "1:7888"
+                  },
+                  {
+                    "gtfsId": "1:813"
+                  },
+                  {
+                    "gtfsId": "1:814"
+                  },
+                  {
+                    "gtfsId": "1:2197"
+                  },
+                  {
+                    "gtfsId": "1:339"
+                  },
+                  {
+                    "gtfsId": "1:7723"
+                  },
+                  {
+                    "gtfsId": "1:1074"
+                  },
+                  {
+                    "gtfsId": "1:1075"
+                  },
+                  {
+                    "gtfsId": "1:1461"
+                  }
+                ],
+                "from": {
+                  "name": "Anand Vihar ISBT Main Road",
+                  "lat": 28.647011,
+                  "lon": 77.317959,
+                  "stop": {
+                    "gtfsId": "1:7699"
+                  }
+                },
+                "to": {
+                  "name": "Shivaji Stadium Terminal",
+                  "lat": 28.6330638,
+                  "lon": 77.2154555,
+                  "stop": {
+                    "gtfsId": "1:5100"
+                  }
+                },
+                "route": {
+                  "shortName": "976UP",
+                  "gtfsId": "1:2856"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 169.8,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-24T19:32:07+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T19:34:19+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Shivaji Stadium Terminal",
+                  "lat": 28.6330638,
+                  "lon": 77.2154555,
+                  "stop": {
+                    "gtfsId": "1:5100"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.6323,
+                  "lon": 77.2165,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-24T18:55:00+05:30",
+            "end": "2026-10-24T19:39:57+05:30",
+            "walkDistance": 380.69,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 12865.66,
+                "serviceDate": "2026-10-24",
+                "start": {
+                  "scheduledTime": "2026-10-24T18:55:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T19:35:00+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2206_18_55"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7699"
+                  },
+                  {
+                    "gtfsId": "1:913"
+                  },
+                  {
+                    "gtfsId": "1:7742"
+                  },
+                  {
+                    "gtfsId": "1:1165"
+                  },
+                  {
+                    "gtfsId": "1:2190"
+                  },
+                  {
+                    "gtfsId": "1:2216"
+                  },
+                  {
+                    "gtfsId": "1:7886"
+                  },
+                  {
+                    "gtfsId": "1:2193"
+                  },
+                  {
+                    "gtfsId": "1:2194"
+                  },
+                  {
+                    "gtfsId": "1:8833"
+                  },
+                  {
+                    "gtfsId": "1:7888"
+                  },
+                  {
+                    "gtfsId": "1:813"
+                  },
+                  {
+                    "gtfsId": "1:814"
+                  },
+                  {
+                    "gtfsId": "1:2197"
+                  },
+                  {
+                    "gtfsId": "1:339"
+                  },
+                  {
+                    "gtfsId": "1:7723"
+                  },
+                  {
+                    "gtfsId": "1:1074"
+                  },
+                  {
+                    "gtfsId": "1:1075"
+                  },
+                  {
+                    "gtfsId": "1:1461"
+                  }
+                ],
+                "from": {
+                  "name": "Anand Vihar ISBT",
+                  "lat": 28.6488755,
+                  "lon": 77.3183769,
+                  "stop": {
+                    "gtfsId": "1:917"
+                  }
+                },
+                "to": {
+                  "name": "Hanuman Mandir / Shivaji Stadium",
+                  "lat": 28.630267,
+                  "lon": 77.214133,
+                  "stop": {
+                    "gtfsId": "1:3884"
+                  }
+                },
+                "route": {
+                  "shortName": "73UP",
+                  "gtfsId": "1:2206"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 380.69,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-24T19:35:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T19:39:57+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Hanuman Mandir / Shivaji Stadium",
+                  "lat": 28.630267,
+                  "lon": 77.214133,
+                  "stop": {
+                    "gtfsId": "1:3884"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.6323,
+                  "lon": 77.2165,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-24T18:57:24+05:30",
+            "end": "2026-10-24T19:45:20+05:30",
+            "walkDistance": 169.8,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 8628.84,
+                "serviceDate": "2026-10-24",
+                "start": {
+                  "scheduledTime": "2026-10-24T18:57:24+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T19:21:32+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1313_18_56"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7699"
+                  },
+                  {
+                    "gtfsId": "1:912"
+                  },
+                  {
+                    "gtfsId": "1:913"
+                  },
+                  {
+                    "gtfsId": "1:7742"
+                  },
+                  {
+                    "gtfsId": "1:1165"
+                  },
+                  {
+                    "gtfsId": "1:2190"
+                  },
+                  {
+                    "gtfsId": "1:2216"
+                  },
+                  {
+                    "gtfsId": "1:7886"
+                  },
+                  {
+                    "gtfsId": "1:2193"
+                  },
+                  {
+                    "gtfsId": "1:2194"
+                  },
+                  {
+                    "gtfsId": "1:8833"
+                  },
+                  {
+                    "gtfsId": "1:7888"
+                  },
+                  {
+                    "gtfsId": "1:8835"
+                  }
+                ],
+                "from": {
+                  "name": "Anand Vihar ISBT",
+                  "lat": 28.6488755,
+                  "lon": 77.3183769,
+                  "stop": {
+                    "gtfsId": "1:917"
+                  }
+                },
+                "to": {
+                  "name": "Rainy Well",
+                  "lat": 28.628033,
+                  "lon": 77.260933,
+                  "stop": {
+                    "gtfsId": "1:813"
+                  }
+                },
+                "route": {
+                  "shortName": "D-006UP",
+                  "gtfsId": "1:1313"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 5159.29,
+                "serviceDate": "2026-10-24",
+                "start": {
+                  "scheduledTime": "2026-10-24T19:27:26+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T19:43:08+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2342_18_55"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:814"
+                  },
+                  {
+                    "gtfsId": "1:2197"
+                  },
+                  {
+                    "gtfsId": "1:339"
+                  },
+                  {
+                    "gtfsId": "1:7723"
+                  },
+                  {
+                    "gtfsId": "1:1074"
+                  },
+                  {
+                    "gtfsId": "1:1075"
+                  },
+                  {
+                    "gtfsId": "1:1461"
+                  }
+                ],
+                "from": {
+                  "name": "Rainy Well",
+                  "lat": 28.628033,
+                  "lon": 77.260933,
+                  "stop": {
+                    "gtfsId": "1:813"
+                  }
+                },
+                "to": {
+                  "name": "Shivaji Stadium Terminal",
+                  "lat": 28.6330638,
+                  "lon": 77.2154555,
+                  "stop": {
+                    "gtfsId": "1:5100"
+                  }
+                },
+                "route": {
+                  "shortName": "85EXTUP",
+                  "gtfsId": "1:2342"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 169.8,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-24T19:43:08+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T19:45:20+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Shivaji Stadium Terminal",
+                  "lat": 28.6330638,
+                  "lon": 77.2154555,
+                  "stop": {
+                    "gtfsId": "1:5100"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.6323,
+                  "lon": 77.2165,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-24T18:57:55+05:30",
+            "end": "2026-10-24T19:45:35+05:30",
+            "walkDistance": 542.38,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 542.38,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-24T18:57:55+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T19:05:00+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.6488755,
+                  "lon": 77.3183769,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Anand Vihar ISBT Terminal",
+                  "lat": 28.646953,
+                  "lon": 77.314668,
+                  "stop": {
+                    "gtfsId": "1:8256"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 14650.29,
+                "serviceDate": "2026-10-24",
+                "start": {
+                  "scheduledTime": "2026-10-24T19:05:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-24T19:45:35+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1151_19_05"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7699"
+                  },
+                  {
+                    "gtfsId": "1:912"
+                  },
+                  {
+                    "gtfsId": "1:913"
+                  },
+                  {
+                    "gtfsId": "1:7742"
+                  },
+                  {
+                    "gtfsId": "1:1165"
+                  },
+                  {
+                    "gtfsId": "1:2190"
+                  },
+                  {
+                    "gtfsId": "1:2216"
+                  },
+                  {
+                    "gtfsId": "1:7886"
+                  },
+                  {
+                    "gtfsId": "1:2193"
+                  },
+                  {
+                    "gtfsId": "1:2194"
+                  },
+                  {
+                    "gtfsId": "1:8833"
+                  },
+                  {
+                    "gtfsId": "1:7888"
+                  },
+                  {
+                    "gtfsId": "1:813"
+                  },
+                  {
+                    "gtfsId": "1:814"
+                  },
+                  {
+                    "gtfsId": "1:2197"
+                  },
+                  {
+                    "gtfsId": "1:2333"
+                  },
+                  {
+                    "gtfsId": "1:2334"
+                  },
+                  {
+                    "gtfsId": "1:2335"
+                  },
+                  {
+                    "gtfsId": "1:2336"
+                  },
+                  {
+                    "gtfsId": "1:2337"
+                  },
+                  {
+                    "gtfsId": "1:367"
+                  }
+                ],
+                "from": {
+                  "name": "Anand Vihar ISBT Terminal",
+                  "lat": 28.646953,
+                  "lon": 77.314668,
+                  "stop": {
+                    "gtfsId": "1:8256"
+                  }
+                },
+                "to": {
+                  "name": "Shivaji Stadium Terminal ( Connaught Place )",
+                  "lat": 28.6323,
+                  "lon": 77.2165,
+                  "stop": {
+                    "gtfsId": "1:365"
+                  }
+                },
+                "route": {
+                  "shortName": "943UP",
+                  "gtfsId": "1:1151"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
