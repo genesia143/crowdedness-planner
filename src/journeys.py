@@ -4,7 +4,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from model import rows
 from service import active_services
-from predict import query
+from predict import query, model_timing_basis
 
 IST = timezone(timedelta(hours=5, minutes=30))
 
@@ -21,7 +21,14 @@ class JourneyPlanner:
     def __init__(self, gtfs, database):
         self.gtfs, self.database = Path(gtfs), database
         if (self.gtfs/'frequencies.txt').exists(): raise ValueError('frequency-based service is not supported')
-        self.stops = {r['stop_id']:r['stop_name'] for r in rows(self.gtfs/'stops.txt')}
+        stop_rows = list(rows(self.gtfs/'stops.txt'))
+        self.stops = {r['stop_id']:r['stop_name'] for r in stop_rows}
+        self.stop_coordinates = {}
+        for r in stop_rows:
+            try:
+                self.stop_coordinates[r['stop_id']] = (float(r['stop_lat']), float(r['stop_lon']))
+            except (KeyError, TypeError, ValueError):
+                pass
         routes = {r['route_id']:r['route_short_name'] for r in rows(self.gtfs/'routes.txt')}
         self.trips = {r['trip_id']:(routes.get(r['route_id']),r['service_id']) for r in rows(self.gtfs/'trips.txt')}
         grouped = defaultdict(list)
@@ -40,7 +47,7 @@ class JourneyPlanner:
         if not text.strip(): raise ValueError('stop search query is required')
         if not 1 <= limit <= 50: raise ValueError('limit must be between 1 and 50')
         q=text.casefold().strip()
-        return [{'stop_id':sid,'stop_name':name} for sid,name in sorted(self.stops.items(),key=lambda item:(item[1].casefold(),item[0])) if q in name.casefold()][:limit]
+        return [{'stop_id':sid,'stop_name':name,'latitude':self.stop_coordinates.get(sid, (None,None))[0], 'longitude':self.stop_coordinates.get(sid, (None,None))[1]} for sid,name in sorted(self.stops.items(),key=lambda item:(item[1].casefold(),item[0])) if q in name.casefold()][:limit]
 
     def transfer_journeys(self, origin, destination, departure, limit=5):
         """One transfer at the exact same stop ID; no walking between stops."""
@@ -111,11 +118,13 @@ class JourneyPlanner:
                     choices.append((arrive,depart,route,trip,seq,i,j,midnight))
         choices.sort(key=lambda v:(v[0],v[1],v[2],v[3]))
         result=[]
+        timing_basis = model_timing_basis(self.database) if choices else None
         for arrive,depart,route,trip,seq,i,j,midnight in choices[:limit]:
             segments=[]
             for k in range(i,j):
                 crossing=midnight+timedelta(seconds=seq[k][3])
-                signal=query(self.database,route,seq[k][1],seq[k+1][1],crossing.isoformat())
-                segments.append({'from_stop_id':seq[k][1],'to_stop_id':seq[k+1][1], 'scheduled_time':crossing.isoformat(), 'signal':signal.get('scheduled_service_proxy'), 'all_scheduled_days_signal':signal.get('all_scheduled_days_proxy'), 'signal_status':signal['status'], 'relative_crowding':signal.get('relative_crowding')})
+                lookup = depart if timing_basis == 'boarding' else crossing
+                signal=query(self.database,route,seq[k][1],seq[k+1][1],lookup.isoformat())
+                segments.append({'from_stop_id':seq[k][1],'to_stop_id':seq[k+1][1], 'scheduled_time':crossing.isoformat(), 'model_lookup_time':lookup.isoformat(), 'model_timing_basis':timing_basis, 'signal':signal.get('scheduled_service_proxy'), 'all_scheduled_days_signal':signal.get('all_scheduled_days_proxy'), 'signal_status':signal['status'], 'relative_crowding':signal.get('relative_crowding')})
             result.append({'route':route,'trip_id':trip,'from_stop_id':origin,'to_stop_id':destination,'scheduled_departure':depart.isoformat(),'scheduled_arrival':arrive.isoformat(),'waiting_minutes':(depart-dt).total_seconds()/60,'ride_minutes':(arrive-depart).total_seconds()/60,'segments':segments})
         return {'origin':{'stop_id':origin,'name':self.stops[origin]},'destination':{'stop_id':destination,'name':self.stops[destination]},'requested_departure':dt.isoformat(),'journeys':result,'limitations':'Direct scheduled buses only, within two hours; no walking, transfers, live service or actual occupancy. Ticket creation time may differ from boarding time.'}

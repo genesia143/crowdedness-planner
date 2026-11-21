@@ -68,4 +68,4 @@ Newly built indexes also return `all_scheduled_days_proxy`: sample passengers di
 
 With a graph built from the same GTFS version, start OpenTripPlanner 2.7 with Java 21, then start the API with `--otp-endpoint http://localhost:18080/otp/gtfs/v1` alongside the `--database` and `--gtfs` arguments above. The graph build, map input, example request, limits and coverage checks are described in [the OTP trial note](docs/otp-trial.md). The mapped endpoint provides scheduled walking, waiting and riding times, plus ticket-derived segment signals where available. The transfer-distance limit filters returned options after the routing search; it does not guarantee that every compliant alternative is found.
 
-The basic screen at `http://127.0.0.1:8000/` currently uses the direct-journey endpoint, not mapped transfers. It is a prototype and does not yet present validated crowding levels.
+The screen at `http://127.0.0.1:8000/` uses the mapped journey endpoint when OTP is configured. It shows provisional per-segment comparisons and missing evidence; it does not show validated occupancy or a cross-route crowding ranking. Browser-level verification remains outstanding.

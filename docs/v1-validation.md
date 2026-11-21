@@ -69,3 +69,31 @@ come from the same static schedule used as denominator and can mechanically
 improve alignment without proving actual crossing-time accuracy. No model
 selection has been made; train and compare both timing methods on the same
 validation targets before making that decision.
+
+## Boarding-time versus estimated crossing-time comparison
+
+Both models use the same October 1–21 tickets, reviewed mappings, clean GTFS,
+and scheduled-service denominator. Each was evaluated against both October
+22–24 target constructions. Mean absolute difference in ticket-sample
+passengers per scheduled crossing (lower is better):
+
+| Training model | Tuning target | Weekday | Saturday (weekend group) |
+|---|---|---:|---:|
+| Ticket creation / boarding hour | Boarding hour | 0.1861 | 0.1801 |
+| Estimated segment crossing hour | Boarding hour | 0.1987 | 0.1855 |
+| Ticket creation / boarding hour | Estimated crossing hour | 0.2051 | 0.1891 |
+| Estimated segment crossing hour | Estimated crossing hour | 0.1912 | 0.1834 |
+
+Each model fits the target built with the same timing convention better. Neither
+construction supplies independent actual crossing times, so these results do
+not settle which matches reality. The crossing-time target uses the same GTFS
+assumptions as its model and service denominator. The score includes
+schedule-only zero-sample cells, weights every segment/date/hour cell equally,
+and is not actual occupancy accuracy. The final week remains untouched.
+
+For label availability, 307,747 of 646,955 observed tuning segment/day/hour
+records (47.6%) met the provisional training support rules. Weighted by sample
+passenger-segments, 1,490,689 of 2,050,630 (72.7%) were labelled. This excludes
+unmatched tickets and repeats each passenger over the segments of their trip;
+it is not a percentage of unique riders, tickets, or fully covered journeys.
+Run `scripts/measure_label_coverage.py` to reproduce it.

@@ -6,6 +6,18 @@ from datetime import datetime
 from pathlib import Path
 
 
+def model_timing_basis(database):
+    """Determine the indexed time convention; refuse unknown metadata."""
+    with sqlite3.connect('file:' + str(Path(database).resolve()) + '?mode=ro', uri=True) as db:
+        row = db.execute("SELECT value FROM metadata WHERE key='definition'").fetchone()
+    definition = json.loads(row[0]) if row else ''
+    if 'estimated segment crossing hour' in definition:
+        return 'crossing'
+    if 'grouped by ticket boarding hour' in definition:
+        return 'boarding'
+    raise ValueError('Model timing convention is unknown; rebuild the model')
+
+
 def relative_band(db, route, origin, destination, day_type, hour):
     """Provisional within-segment time-of-day rank, using training data only.
 

@@ -67,6 +67,50 @@ def signal_coverage(itinerary):
     }
 
 
+def journey_crowding_summary(itinerary):
+    """Describe segment labels, without combining incomparable route baselines."""
+    labels = ('likely quieter', 'typical', 'likely busier')
+    legs = []
+    for index, leg in enumerate(itinerary.get('legs', [])):
+        if leg.get('mode') != 'BUS':
+            continue
+        signals = leg.get('v1_signals') or []
+        counts = {label: 0 for label in labels}
+        unknown = 0
+        for signal in signals:
+            label = (signal.get('relative_crowding') or {}).get('label')
+            if signal.get('status') == 'available' and label in counts:
+                counts[label] += 1
+            else:
+                unknown += 1
+        legs.append({
+            'leg_index': index,
+            'route': (leg.get('route') or {}).get('shortName'),
+            'labelled_segments': sum(counts.values()),
+            'segments_without_label': unknown,
+            'segment_details_available': bool(signals),
+            'segment_label_counts': counts,
+        })
+    known = sum(leg['labelled_segments'] for leg in legs)
+    missing = sum(leg['segments_without_label'] for leg in legs)
+    missing_legs = sum(not leg['segment_details_available'] for leg in legs)
+    if not known:
+        status = 'insufficient evidence'
+    elif missing or missing_legs:
+        status = 'partial evidence'
+    else:
+        status = 'labelled segments available'
+    itinerary['crowding_summary'] = {
+        'status': status,
+        'labelled_segments': known,
+        'segments_without_label': missing,
+        'bus_legs_without_segment_details': missing_legs,
+        'bus_legs': legs,
+        'provisional': True,
+        'interpretation': 'Labels compare each route segment with its own hours on the same day type. Counts are not a journey-level crowding score and cannot compare different routes or segments. Missing details are not quiet segments; the labels are not measured occupancy.',
+    }
+
+
 def plan(endpoint, gtfs, database, lat1, lon1, lat2, lon2, departure, max_transfer_walk=1000):
     coords = [float(v) for v in (lat1, lon1, lat2, lon2)]
     if not all(math.isfinite(x) for x in coords) or not all(-90 <= coords[i] <= 90 for i in (0,2)) or not all(-180 <= coords[i] <= 180 for i in (1,3)):
@@ -94,4 +138,5 @@ def plan(endpoint, gtfs, database, lat1, lon1, lat2, lon2, departure, max_transf
         annotate_v1({'legs': [leg for item in accepted for leg in item['legs']]}, gtfs, database)
         for item in accepted:
             signal_coverage(item)
+            journey_crowding_summary(item)
     return {'journeys':accepted, 'max_transfer_walk_metres':limit, 'returned_candidates':len(candidates), 'excluded_bus_candidates':len(bus)-len(accepted), 'limitations':'Transfer walking limit is applied after routing, so suitable alternatives may be omitted. Walking uses OpenStreetMap and depends on graph coverage. Ticket signals are not occupancy.'}

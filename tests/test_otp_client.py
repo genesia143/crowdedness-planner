@@ -5,7 +5,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
-from otp_client import plan, timing_breakdown, signal_coverage
+from otp_client import plan, timing_breakdown, signal_coverage, journey_crowding_summary
 from datetime import datetime
 
 class OtpClientTests(unittest.TestCase):
@@ -38,6 +38,18 @@ class OtpClientTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             plan('http://localhost', '.', 'unused', 28, 77, 28, 77, '2026-10-22T08:00:00')
 
+    def test_inconsistent_timing_is_not_reported_as_a_valid_summary(self):
+        def leg(mode, start, end):
+            return {'mode': mode, 'start': {'scheduledTime': '2026-10-22T' + start + '+05:30'},
+                    'end': {'scheduledTime': '2026-10-22T' + end + '+05:30'}}
+        journey = {'legs': [leg('BUS', '08:05:00', '08:20:00'),
+                            leg('WALK', '08:19:00', '08:25:00'),
+                            leg('BUS', '08:35:00', '08:50:00')]}
+        timing_breakdown(journey, datetime.fromisoformat('2026-10-22T08:00:00+05:30'))
+        self.assertEqual(journey['timing_summary']['status'], 'incomplete or inconsistent leg times')
+        self.assertIsNone(journey['timing_summary']['waiting_minutes'])
+        self.assertIsNone(journey['timing_summary']['walking_minutes'])
+
     def test_coverage_does_not_count_unobserved_zero_as_evidence(self):
         journey = {'legs': [
             {'mode': 'BUS', 'v1_signals': [
@@ -53,5 +65,30 @@ class OtpClientTests(unittest.TestCase):
         self.assertEqual(summary['segments_with_observations_and_service'], 1)
         self.assertEqual(summary['segments_without_observations_or_service'], 2)
         self.assertEqual(summary['bus_legs_without_segment_details'], 1)
+
+    def test_journey_summary_preserves_partial_and_route_specific_evidence(self):
+        journey = {'legs': [
+            {'mode': 'BUS', 'route': {'shortName': '8UP'}, 'v1_signals': [
+                {'status': 'available', 'relative_crowding': {'label': 'likely busier'}},
+                {'status': 'available', 'relative_crowding': {'label': 'insufficient evidence'}},
+                {'status': 'unavailable', 'relative_crowding': {'label': 'likely quieter'}},
+            ]},
+            {'mode': 'WALK'},
+            {'mode': 'BUS', 'route': {'shortName': '405UP'}, 'v1_signals': []},
+        ]}
+        journey_crowding_summary(journey)
+        summary = journey['crowding_summary']
+        self.assertEqual(summary['status'], 'partial evidence')
+        self.assertEqual(summary['labelled_segments'], 1)
+        self.assertEqual(summary['segments_without_label'], 2)
+        self.assertEqual(summary['bus_legs_without_segment_details'], 1)
+        self.assertEqual(summary['bus_legs'][0]['segment_label_counts']['likely busier'], 1)
+        self.assertEqual(summary['bus_legs'][1]['route'], '405UP')
+        self.assertNotIn('label', summary)
+
+    def test_journey_summary_reports_insufficient_evidence_when_no_labels(self):
+        journey = {'legs': [{'mode': 'BUS', 'v1_signals': []}]}
+        journey_crowding_summary(journey)
+        self.assertEqual(journey['crowding_summary']['status'], 'insufficient evidence')
 
 if __name__ == '__main__': unittest.main()

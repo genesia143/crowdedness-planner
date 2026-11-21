@@ -23,7 +23,7 @@ class JourneyTests(unittest.TestCase):
             write(p/'trips.txt',['trip_id','route_id','service_id'],[{'trip_id':'t','route_id':'r','service_id':'s'}])
             write(p/'stop_times.txt',['trip_id','stop_sequence','stop_id','arrival_time','departure_time'],[{'trip_id':'t','stop_sequence':i,'stop_id':s,'arrival_time':time,'departure_time':time} for i,(s,time) in enumerate([('a','09:00:00'),('b','09:10:00'),('c','09:20:00')])])
             write(p/'calendar.txt',['service_id','monday','tuesday','wednesday','thursday','friday','saturday','sunday','start_date','end_date'],[{'service_id':'s','monday':1,'tuesday':1,'wednesday':1,'thursday':1,'friday':1,'saturday':0,'sunday':0,'start_date':'20261001','end_date':'20261031'}])
-            data={'training_start':'2026-10-01','training_end':'2026-10-21','definition':'sample','quality':{},'records':[]}
+            data={'training_start':'2026-10-01','training_end':'2026-10-21','definition':'observed ticket-sample passenger journeys crossing a segment, grouped by ticket boarding hour','quality':{},'records':[]}
             (p/'data.json').write_text(json.dumps(data)); create_database(p/'data.json',p/'model.db')
             planner=JourneyPlanner(p,p/'model.db')
             self.assertEqual(planner.search_stops('alpha')[0]['stop_id'],'a')
@@ -45,7 +45,7 @@ class JourneyTests(unittest.TestCase):
             times=[('t1','a','09:00:00'),('t1','b','09:10:00'),('t2','b','09:15:00'),('t2','c','09:30:00'),('t3','b','09:14:00'),('t3','c','09:25:00')]
             write(p/'stop_times.txt',['trip_id','stop_sequence','stop_id','arrival_time','departure_time'],[{'trip_id':trip,'stop_sequence':i,'stop_id':stop,'arrival_time':time,'departure_time':time} for i,(trip,stop,time) in enumerate(times)])
             write(p/'calendar.txt',['service_id','monday','tuesday','wednesday','thursday','friday','saturday','sunday','start_date','end_date'],[{'service_id':'s','monday':1,'tuesday':1,'wednesday':1,'thursday':1,'friday':1,'saturday':0,'sunday':0,'start_date':'20261001','end_date':'20261031'}])
-            data={'training_start':'2026-10-01','training_end':'2026-10-21','definition':'sample','quality':{},'records':[]}
+            data={'training_start':'2026-10-01','training_end':'2026-10-21','definition':'observed ticket-sample passenger journeys crossing a segment, grouped by ticket boarding hour','quality':{},'records':[]}
             (p/'data.json').write_text(json.dumps(data));create_database(p/'data.json',p/'model.db')
             result=JourneyPlanner(p,p/'model.db').transfer_journeys('a','c','2026-10-22T08:50:00+05:30')
             self.assertEqual(len(result['journeys']),1)
