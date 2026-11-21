@@ -1,19 +1,434 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Delhi bus journey planner</title>
-<style>body{font:16px system-ui,sans-serif;background:#f4f7f5;color:#172b24;max-width:900px;margin:auto;padding:24px}h1{margin-bottom:.2em}label{display:block;font-weight:600;margin-top:14px}input,select,button{box-sizing:border-box;width:100%;padding:10px;font:inherit;border:1px solid #aabbb1;border-radius:6px;background:white}button{background:#176844;color:white;border:0;margin-top:18px;cursor:pointer}.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}.card{background:white;border:1px solid #d6e2da;border-radius:8px;padding:16px;margin:14px 0}.muted{color:#4b6156;font-size:.9em}ul{padding-left:20px}@media(max-width:600px){.row{grid-template-columns:1fr}}</style></head>
-<body><h1>Delhi bus journey planner</h1><p>Explore scheduled bus journeys and compare each route segment with its own usual hours.</p>
-<div class="card"><div class="row"><div><label for="fromSearch">Starting place or bus stop</label><input id="fromSearch" placeholder="Search a place or stop" autocomplete="off"><label for="from">Select starting location</label><select id="from"><option value="">Search for a location</option></select><p id="fromNote" class="muted" role="status"></p></div><div><label for="toSearch">Destination or bus stop</label><input id="toSearch" placeholder="Search a place or stop" autocomplete="off"><label for="to">Select destination</label><select id="to"><option value="">Search for a location</option></select><p id="toNote" class="muted" role="status"></p></div></div><p class="muted">Place searches are sent to Photon, an external OpenStreetMap-based service. Bus stop search remains available if it is unavailable.</p><div class="row"><div><label for="departure">Departure in Delhi time</label><input id="departure" type="datetime-local"></div><div><label for="maxWalk">Maximum walk between buses (metres)</label><input id="maxWalk" type="number" min="0" max="10000" value="1000"><p class="muted">This limit applies between buses; walks to the first stop and from the last stop may be longer.</p></div></div><p id="dayNote" class="muted" aria-live="polite"></p><button id="find">Find journeys</button><p id="status" role="status"></p><p id="routingNote" class="muted" role="status"></p></div><div id="preferences" class="card" hidden><label for="sort">Show best matches first</label><select id="sort"><option value="fastest">Fastest arrival</option><option value="walking">Least walking</option><option value="transfers">Fewest transfers</option></select><p class="muted">Sorts the options found by the planner; it does not search for additional journeys. Walking includes the first and last mile.</p><button id="showMore" type="button" hidden>Show all options</button></div>
-<p class="muted">Labels are provisional comparisons with other hours on the same route segment, not actual occupancy or seat availability. They cannot establish which different route is less crowded. Walks use OpenStreetMap; times use the timetable. Some suitable options may be missed by the routing search. Street data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>.</p><section id="results" aria-live="polite"></section>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Delhi Bus Journey Planner · Product and Policy Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f6f8; --surface:#fff; --surface-2:#f8fafb; --ink:#17212b; --muted:#5d6b78; --line:#e2e7ec;
+  --brand:#0f766e; --brand-strong:#0b5e58; --brand-soft:#e3f3f1; --focus:#0f766e55;
+  --quieter:#2f6fdb; --typical:#9aa7b4; --busier:#e2672a; --unknown:#cfd6dd;
+  --warn-bg:#fff7e8; --warn-ink:#7a4b00; --shadow:0 1px 2px rgba(16,24,40,.05),0 4px 16px rgba(16,24,40,.06);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1418; --surface:#171e24; --surface-2:#1d252c; --ink:#e7edf2; --muted:#9aa8b5; --line:#2a343d;
+  --brand:#2bb3a5; --brand-strong:#3cc6b8; --brand-soft:#173a37; --focus:#2bb3a555;
+  --quieter:#5b93f0; --typical:#6f7d8a; --busier:#f08a50; --unknown:#2a343d;
+  --warn-bg:#3a2d12; --warn-ink:#f3cf87; --shadow:none;
+}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--brand)}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.wrap{max-width:880px;margin:0 auto;padding:0 16px}
+header.top{background:var(--surface);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:10px;height:56px}
+.lab{font-weight:600;letter-spacing:.01em;font-size:14px;color:var(--muted)}
+.lab b{color:var(--ink);font-weight:700}
+.mark{width:26px;height:26px;border-radius:7px;background:var(--brand);display:grid;place-items:center;color:#fff}
+.hero{padding:28px 0 8px}
+.hero h1{font-size:28px;line-height:1.2;margin:0 0 6px;letter-spacing:-.02em}
+.hero p{margin:0;color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+.search{padding:18px;margin:18px 0}
+.places{position:relative;display:grid;gap:10px}
+.field{position:relative}
+.field label{display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 6px 2px}
+.inputbox{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);padding:0 12px;height:48px;transition:border-color .15s,box-shadow .15s}
+.inputbox:focus-within{border-color:var(--brand);box-shadow:0 0 0 3px var(--focus);background:var(--surface)}
+.inputbox input{flex:1;border:0;background:transparent;outline:none;height:100%;font-size:16px;min-width:0}
+.dot{width:10px;height:10px;border-radius:50%;flex:none}
+.dot.from{border:3px solid var(--brand)}
+.dot.to{background:var(--busier)}
+.clear{border:0;background:none;color:var(--muted);cursor:pointer;padding:4px;border-radius:6px;display:none}
+.inputbox.has-value .clear{display:block}
+.swap{position:absolute;right:14px;top:50%;transform:translateY(-10%);z-index:2;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--surface);cursor:pointer;display:grid;place-items:center;color:var(--muted);box-shadow:var(--shadow)}
+.swap:hover{color:var(--brand)}
+.suggest{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:5;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(16,24,40,.16);margin:0;padding:6px;list-style:none;max-height:340px;overflow:auto}
+.suggest[hidden]{display:none}
+.suggest .group{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);padding:8px 10px 4px}
+.suggest [role=option]{display:flex;gap:10px;align-items:center;padding:9px 10px;border-radius:8px;cursor:pointer}
+.suggest [role=option][aria-selected=true],.suggest [role=option]:hover{background:var(--brand-soft)}
+.suggest .icon{color:var(--muted);flex:none;display:grid}
+.suggest .name{font-weight:500}
+.suggest .meta{font-size:13px;color:var(--muted)}
+.suggest .empty{padding:10px;color:var(--muted)}
+.when{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin-top:14px}
+.when .field{flex:1 1 220px}
+.when input[type=datetime-local]{width:100%;height:48px;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);padding:0 12px}
+.btn{height:48px;border-radius:10px;border:1px solid var(--line);background:var(--surface);padding:0 16px;cursor:pointer;font-weight:600}
+.btn.primary{background:var(--brand);border-color:var(--brand);color:#fff;flex:1 1 160px}
+.btn.primary:hover{background:var(--brand-strong)}
+.btn:disabled{opacity:.6;cursor:progress}
+.subtle{font-size:13px;color:var(--muted);margin:8px 2px 0}
+details.options{margin-top:12px}
+details.options summary{cursor:pointer;color:var(--muted);font-size:14px;font-weight:500}
+details.options .row{display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap}
+details.options input{width:110px;height:40px;border:1px solid var(--line);border-radius:8px;background:var(--surface-2);padding:0 10px}
+.status{margin:10px 2px;color:var(--muted);min-height:1.5em}
+.notice{background:var(--warn-bg);color:var(--warn-ink);border-radius:10px;padding:10px 12px;font-size:14px;margin:0 0 12px}
+.notice[hidden]{display:none}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:8px 0 12px}
+.tabs{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:3px}
+.tabs button{border:0;background:none;padding:7px 12px;border-radius:7px;cursor:pointer;font-weight:500;color:var(--muted)}
+.tabs button[aria-pressed=true]{background:var(--brand-soft);color:var(--brand-strong)}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:14px;height:8px;border-radius:3px;display:inline-block}
+.q{background:var(--quieter)} .t{background:var(--typical)} .b{background:var(--busier)}
+.u{background:repeating-linear-gradient(135deg,var(--unknown) 0 3px,transparent 3px 6px);border:1px solid var(--line)}
+.journey{padding:16px 18px;margin:0 0 12px}
+.jhead{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.times{font-size:22px;font-weight:700;letter-spacing:-.01em}
+.times .arrow{color:var(--muted);font-weight:500;margin:0 6px}
+.dur{font-weight:600;color:var(--muted);white-space:nowrap}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 12px}
+.chip{font-size:13px;padding:3px 9px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line);color:var(--muted)}
+.chip.best{background:var(--brand-soft);border-color:transparent;color:var(--brand-strong);font-weight:600}
+.timeline{list-style:none;margin:0;padding:0}
+.step{display:grid;grid-template-columns:28px 1fr;gap:10px;padding:8px 0;position:relative}
+.step+.step{border-top:1px dashed var(--line)}
+.step .ico{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:var(--surface-2);color:var(--muted)}
+.step.bus .ico{background:var(--brand-soft);color:var(--brand-strong)}
+.route{display:inline-block;font-weight:700;font-size:13px;background:var(--brand);color:#fff;border-radius:6px;padding:1px 7px;margin-right:6px}
+.stops{font-weight:500}
+.small{font-size:13px;color:var(--muted)}
+.strip{display:flex;gap:2px;height:8px;margin:8px 0 4px;max-width:420px}
+.strip i{flex:1;border-radius:2px;min-width:3px}
+.caution{font-size:13px;color:var(--warn-ink);background:var(--warn-bg);border-radius:8px;padding:6px 10px;margin-top:8px}
+.evidence{font-size:13px;color:var(--muted);margin-top:10px}
+.more{width:100%;margin-bottom:12px}
+details.explain{padding:14px 18px;margin:12px 0 18px}
+details.explain summary{cursor:pointer;font-weight:600}
+details.explain p{color:var(--muted);margin:10px 0 0;font-size:14px}
+footer{color:var(--muted);font-size:13px;padding:8px 0 32px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.empty-state{text-align:center;color:var(--muted);padding:28px 16px}
+@media (max-width:560px){.hero h1{font-size:23px}.times{font-size:19px}.swap{right:10px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <span class="mark" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M4 16c0 .9.4 1.7 1 2.2V20a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h8v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1.8c.6-.5 1-1.3 1-2.2V6c0-3.5-3.6-4-8-4S4 2.5 4 6v10Zm3.5 1a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm9 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3ZM18 11H6V6h12v5Z"/></svg></span>
+  <span class="lab"><b>Product and Policy Lab</b></span>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Delhi bus journey planner</h1>
+    <p>Find a bus journey and see how each stretch usually compares with other hours of the day.</p>
+  </section>
+
+  <section class="card search" aria-label="Plan a journey">
+    <div class="places">
+      <div class="field" id="fromField">
+        <label for="from">From</label>
+        <div class="inputbox"><span class="dot from" aria-hidden="true"></span>
+          <input id="from" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="fromList" placeholder="Bus stop or place" autocomplete="off">
+          <button class="clear" type="button" aria-label="Clear starting point" data-clear="from">✕</button>
+        </div>
+        <ul class="suggest" id="fromList" role="listbox" hidden></ul>
+      </div>
+      <button class="swap" id="swap" type="button" aria-label="Swap start and destination" title="Swap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16M7 20l-3-3M7 20l3-3M17 20V4M17 4l-3 3M17 4l3 3"/></svg>
+      </button>
+      <div class="field" id="toField">
+        <label for="to">To</label>
+        <div class="inputbox"><span class="dot to" aria-hidden="true"></span>
+          <input id="to" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="toList" placeholder="Bus stop or place" autocomplete="off">
+          <button class="clear" type="button" aria-label="Clear destination" data-clear="to">✕</button>
+        </div>
+        <ul class="suggest" id="toList" role="listbox" hidden></ul>
+      </div>
+    </div>
+    <div class="when">
+      <div class="field">
+        <label for="departure">Leave at (Delhi time)</label>
+        <input id="departure" type="datetime-local">
+      </div>
+      <button class="btn" id="now" type="button">Now</button>
+      <button class="btn primary" id="find" type="button">Find journeys</button>
+    </div>
+    <p class="subtle" id="dayNote" aria-live="polite"></p>
+    <details class="options">
+      <summary>Options</summary>
+      <div class="row">
+        <label for="maxWalk">Maximum walk between buses</label>
+        <input id="maxWalk" type="number" min="0" max="10000" step="50" value="1000"> <span class="small">metres</span>
+      </div>
+      <p class="small">Applies to walks between buses. Walks to the first stop and from the last stop can be longer.</p>
+    </details>
+  </section>
+
+  <p class="status" id="status" role="status"></p>
+  <p class="notice" id="routingNote" role="status" hidden></p>
+
+  <section id="resultsArea" hidden>
+    <div class="toolbar">
+      <div class="tabs" role="group" aria-label="Sort journeys">
+        <button type="button" data-sort="fastest" aria-pressed="true">Fastest</button>
+        <button type="button" data-sort="walking" aria-pressed="false">Least walking</button>
+        <button type="button" data-sort="transfers" aria-pressed="false">Fewest changes</button>
+      </div>
+      <div class="legend" aria-label="Stretch colours">
+        <span><i class="sw q"></i>Likely quieter</span>
+        <span><i class="sw t"></i>Typical</span>
+        <span><i class="sw b"></i>Likely busier</span>
+        <span><i class="sw u"></i>Not enough data</span>
+      </div>
+    </div>
+    <div id="results" aria-live="polite"></div>
+    <button class="btn more" id="showMore" type="button" hidden></button>
+  </section>
+
+  <details class="card explain">
+    <summary>How to read the stretch colours</summary>
+    <p>Each coloured block is one stretch between two stops on the bus you would ride. The colour compares that stretch at your travel hour with the same stretch at other hours on the same kind of day (weekday, Saturday or Sunday), using October 2026 ticket records.</p>
+    <p>These are provisional comparisons from a sample of digital tickets, not counts of people on board or seat availability. Because ticket use differs between routes, the colours cannot tell you which of two different routes is less crowded. Grey stripes mean there was not enough ticket data; they do not mean the bus is empty.</p>
+    <p>Journey times come from the timetable, not live bus positions. Walking routes use OpenStreetMap. Some suitable options may be missed by the routing search.</p>
+  </details>
+
+  <footer>
+    <span>Product and Policy Lab</span>
+    <span>Place search by <a href="https://photon.komoot.io">Photon</a> · Street data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a></span>
+  </footer>
+</main>
+
 <script>
-const $=id=>document.getElementById(id); let timers={}, versions={from:0,to:0}, journeys=[], showAll=false;
-for(const side of ['from','to']) $(side+'Search').addEventListener('input',()=>{clearTimeout(timers[side]);const version=++versions[side],q=$(side+'Search').value.trim();$(side).replaceChildren(new Option('Search for a location',''));$(side+'Note').textContent='';if(q.length<3)return;timers[side]=setTimeout(async()=>{const local=fetch('/stops?q='+encodeURIComponent(q)).then(r=>{if(!r.ok)throw Error('stop search');return r.json()});const params=new URLSearchParams({q,lat:'28.6139',lon:'77.2090',bbox:'76.7,28.3,77.5,28.9',limit:'8'});const remote=fetch('https://photon.komoot.io/api/?'+params,{signal:AbortSignal.timeout(5000)}).then(r=>{if(!r.ok)throw Error('place search');return r.json()});const [stops,places]=await Promise.allSettled([local,remote]);if(version!==versions[side])return;const options=[];if(places.status==='fulfilled')for(const f of places.value.features||[]){const [lon,lat]=f.geometry?.coordinates||[];if(!Number.isFinite(lat)||!Number.isFinite(lon))continue;const p=f.properties||{},name=[p.name,p.street,p.city,p.state].filter((v,i,a)=>v&&a.indexOf(v)===i).join(', ');if(name)options.push(new Option(name+' — place',JSON.stringify([lat,lon])))}if(stops.status==='fulfilled')for(const s of stops.value.stops||[]){if(Number.isFinite(s.latitude)&&Number.isFinite(s.longitude))options.push(new Option(s.stop_name+' — stop ('+s.stop_id+')',JSON.stringify([s.latitude,s.longitude])))}$(side).replaceChildren(new Option(options.length?'Choose a location':'No locations found',''),...options);if(places.status==='rejected')$(side+'Note').textContent='Place search unavailable; use a bus stop if available.';if(stops.status==='rejected')$(side+'Note').textContent+=' Bus stop search unavailable.'},500)});
-$('departure').value=new Date(Date.now()+330*60000).toISOString().slice(0,16);
-function updateDayNote(){const value=$('departure').value;if(!value){$('dayNote').textContent='';return}const day=new Date(value.slice(0,10)+'T12:00:00Z').getUTCDay();$('dayNote').textContent=day===0?'Sunday uses a separate pattern based on three training Sundays; it has no Sunday tuning evidence.':day===6?'Saturday uses a separate pattern based on three training Saturdays.':'Weekday pattern selected; public holidays are not modelled separately.';}
-$('departure').addEventListener('input',updateDayNote);updateDayNote();
-function element(tag,text,cls){const e=document.createElement(tag);e.textContent=text;if(cls)e.className=cls;return e}
-function minutes(x){return Number.isFinite(x)?Math.round(x)+' min':'unavailable'}
-function metric(j, key){if(key==='fastest'){const n=Date.parse(j.end);return Number.isFinite(n)?n:Infinity}if(key==='walking'){const walks=(j.legs||[]).filter(l=>l.mode==='WALK');return walks.some(l=>!Number.isFinite(l.distance))?Infinity:walks.reduce((sum,l)=>sum+l.distance,0)}const n=j.numberOfTransfers;return Number.isFinite(n)?n:Math.max(0,(j.legs||[]).filter(l=>l.mode==='BUS').length-1)}
-function render(){if(journeys.length)$('status').textContent=journeys.length+' scheduled options found; showing '+(showAll?journeys.length:Math.min(3,journeys.length))+'.';const key=$('sort').value,ordered=[...journeys].sort((a,b)=>metric(a,key)-metric(b,key)||metric(a,'fastest')-metric(b,'fastest'));$('results').replaceChildren();$('showMore').hidden=showAll||ordered.length<=3;for(const [i,j] of (showAll?ordered:ordered.slice(0,3)).entries()){const card=element('article','', 'card'),t=j.timing_summary||{},c=j.crowding_summary||{};card.append(element('h2','Option '+(i+1)),element('p','Leave at '+(j.start||'').slice(11,16)+' · Arrive '+(j.end||'').slice(11,16)+' · '+metric(j,'transfers')+' transfer(s) · '+(Number.isFinite(metric(j,'walking'))?Math.round(metric(j,'walking'))+' m walking':'walking distance unavailable')),element('p','From requested time: walking '+minutes(t.walking_minutes)+' · waiting '+minutes(t.waiting_minutes)+' · bus '+minutes(t.bus_minutes)+' · total '+minutes((t.walking_minutes==null||t.waiting_minutes==null||t.bus_minutes==null)?null:t.walking_minutes+t.waiting_minutes+t.bus_minutes)),element('p','Ticket evidence: '+(c.status||'unavailable')));const list=element('ul','');for(const [idx,leg] of (j.legs||[]).entries()){const from=(leg.from||{}).name||'start',to=(leg.to||{}).name||'end';if(leg.mode==='BUS'){const match=(c.bus_legs||[]).find(x=>x.leg_index===idx),counts=match?.segment_label_counts;let text='Bus '+((leg.route||{}).shortName||'route unavailable')+': '+from+' → '+to;if(counts)text+=' · '+counts['likely quieter']+' quieter, '+counts.typical+' typical, '+counts['likely busier']+' busier; '+match.segments_without_label+' unknown segments';else text+=' · ticket signal unavailable';list.append(element('li',text))}else if(leg.mode==='WALK')list.append(element('li','Walk '+(Number.isFinite(leg.distance)?Math.round(leg.distance)+' m':'distance unavailable')+': '+from+' → '+to))}card.append(list);const gaps=(j.legs||[]).flatMap(leg=>leg.v1_signals||[]).filter(signal=>(signal.schedule_alignment?.excluded_without_same_hour_service||0)>0).length;if(gaps)card.append(element('p','Timing caution: '+gaps+' segment(s) had some training-ticket records excluded because no bus was scheduled in that hour.','muted'));$('results').append(card)}}
-$('sort').addEventListener('change',()=>{showAll=false;render()});$('showMore').addEventListener('click',()=>{showAll=true;render()});
-$('find').addEventListener('click',async()=>{const origin=$('from').value,destination=$('to').value,time=$('departure').value,walk=$('maxWalk').value;$('results').replaceChildren();$('preferences').hidden=true;$('routingNote').textContent='';journeys=[];showAll=false;if(!origin||!destination||!time||walk===''||!Number.isFinite(Number(walk))||Number(walk)<0||Number(walk)>10000){$('status').textContent='Choose both locations, a departure time, and a valid walking limit.';return}const [lat1,lon1]=JSON.parse(origin),[lat2,lon2]=JSON.parse(destination);$('status').textContent='Searching scheduled buses…';const params=new URLSearchParams({from_lat:lat1,from_lon:lon1,to_lat:lat2,to_lon:lon2,departure:time+':00+05:30',max_transfer_walk:walk});try{const response=await fetch('/journeys/mapped?'+params),data=await response.json();if(!response.ok)throw Error(data.error);journeys=data.journeys;$('routingNote').textContent=data.routing_source==='built-in'?'Simplified routing ('+(data.fallback_reason||'map routing unavailable')+'): direct buses and changes at the same stop only. Walking distances are straight-line estimates.':'';$('status').textContent=journeys.length?journeys.length+' scheduled options found; showing the top '+Math.min(3,journeys.length)+'.':'No bus option found for this search.';$('preferences').hidden=!journeys.length;render()}catch(e){$('status').textContent='Journey search failed: '+e.message}});
-</script></body></html>
+const $ = id => document.getElementById(id);
+const LABELS = {'likely quieter': 'q', 'typical': 't', 'likely busier': 'b'};
+const selected = {from: null, to: null};
+let journeys = [], showAll = false, sortKey = 'fastest';
+
+function el(tag, cls, text) {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (text != null) e.textContent = text;
+  return e;
+}
+const ICONS = {
+  stop: '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 16c0 .9.4 1.7 1 2.2V20a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h8v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1.8c.6-.5 1-1.3 1-2.2V6c0-3.5-3.6-4-8-4S4 2.5 4 6v10Zm3.5 1a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm9 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3ZM18 11H6V6h12v5Z"/></svg>',
+  place: '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>',
+  walk: '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 5.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM9.8 8.9 7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3A7.3 7.3 0 0 0 19 13v-2a5.1 5.1 0 0 1-4.3-2.4l-1-1.6a2 2 0 0 0-2.5-.8L6 8.3V13h2V9.6l1.8-.7Z"/></svg>'
+};
+function icon(name) { const s = el('span', 'icon'); s.innerHTML = ICONS[name]; return s; }
+
+// ---- Single-box place search: bus stops (local) and places (Photon) ----
+function setupPlace(side) {
+  const input = $(side), list = $(side + 'List'), box = input.parentElement;
+  let timer, version = 0, options = [], active = -1;
+  function close() { list.hidden = true; input.setAttribute('aria-expanded', 'false'); input.removeAttribute('aria-activedescendant'); active = -1; }
+  function highlight(i) {
+    options.forEach((o, n) => o.node.setAttribute('aria-selected', n === i ? 'true' : 'false'));
+    active = i;
+    if (options[i]) { input.setAttribute('aria-activedescendant', options[i].node.id); options[i].node.scrollIntoView({block: 'nearest'}); }
+  }
+  function choose(o) {
+    selected[side] = {lat: o.lat, lon: o.lon, label: o.label};
+    input.value = o.label; box.classList.add('has-value'); close();
+    if (side === 'from' && !selected.to) $('to').focus();
+  }
+  function render(stops, places, note) {
+    list.replaceChildren(); options = [];
+    const add = (items, title, kind) => {
+      if (!items.length) return;
+      list.append(el('li', 'group', title));
+      for (const item of items) {
+        const node = el('li'); node.setAttribute('role', 'option'); node.id = side + '-opt-' + options.length;
+        const text = el('span'); text.append(el('div', 'name', item.label), el('div', 'meta', item.meta));
+        node.append(icon(kind), text);
+        const o = {...item, node};
+        node.addEventListener('mousedown', e => { e.preventDefault(); choose(o); });
+        options.push(o); list.append(node);
+      }
+    };
+    add(stops, 'Bus stops', 'stop');
+    add(places, 'Places', 'place');
+    if (!options.length) list.append(el('li', 'empty', note || 'No matches yet. Try another spelling.'));
+    list.hidden = false; input.setAttribute('aria-expanded', 'true');
+  }
+  input.addEventListener('input', () => {
+    selected[side] = null; box.classList.toggle('has-value', !!input.value);
+    clearTimeout(timer); const q = input.value.trim(), mine = ++version;
+    if (q.length < 2) { close(); return; }
+    timer = setTimeout(async () => {
+      const stopReq = fetch('/stops?q=' + encodeURIComponent(q)).then(r => { if (!r.ok) throw Error(); return r.json(); });
+      const params = new URLSearchParams({q, lat: '28.6139', lon: '77.2090', bbox: '76.7,28.3,77.5,28.9', limit: '5'});
+      const placeReq = q.length < 3 ? Promise.resolve({features: []}) :
+        fetch('https://photon.komoot.io/api/?' + params, {signal: AbortSignal.timeout(5000)}).then(r => { if (!r.ok) throw Error(); return r.json(); });
+      const [s, p] = await Promise.allSettled([stopReq, placeReq]);
+      if (mine !== version) return;
+      const stops = s.status === 'fulfilled' ? (s.value.stops || []).filter(x => Number.isFinite(x.latitude) && Number.isFinite(x.longitude)).slice(0, 6)
+        .map(x => ({label: x.stop_name, meta: 'Bus stop · ID ' + x.stop_id, lat: x.latitude, lon: x.longitude})) : [];
+      const places = [];
+      if (p.status === 'fulfilled') for (const f of p.value.features || []) {
+        const [lon, lat] = (f.geometry && f.geometry.coordinates) || [];
+        if (!Number.isFinite(lat) || !Number.isFinite(lon)) continue;
+        const pr = f.properties || {};
+        if (!pr.name) continue;
+        const meta = [pr.street, pr.district, pr.city].filter((v, i, a) => v && v !== pr.name && a.indexOf(v) === i).join(', ');
+        places.push({label: pr.name, meta: meta || 'Place', lat, lon});
+      }
+      const note = p.status === 'rejected' ? 'Place search is unavailable right now; bus stops still work.' : null;
+      render(stops, places, note);
+    }, 250);
+  });
+  input.addEventListener('keydown', e => {
+    if (list.hidden && e.key === 'ArrowDown' && input.value.trim().length >= 2) { input.dispatchEvent(new Event('input')); return; }
+    if (list.hidden) { if (e.key === 'Enter') $('find').click(); return; }
+    if (e.key === 'ArrowDown') { e.preventDefault(); highlight(Math.min(options.length - 1, active + 1)); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); highlight(Math.max(0, active - 1)); }
+    else if (e.key === 'Enter') { e.preventDefault(); if (options[active >= 0 ? active : 0]) choose(options[active >= 0 ? active : 0]); }
+    else if (e.key === 'Escape') close();
+  });
+  input.addEventListener('blur', () => setTimeout(close, 120));
+  box.querySelector('.clear').addEventListener('click', () => { input.value = ''; selected[side] = null; box.classList.remove('has-value'); close(); input.focus(); });
+}
+setupPlace('from'); setupPlace('to');
+
+$('swap').addEventListener('click', () => {
+  [selected.from, selected.to] = [selected.to, selected.from];
+  [$('from').value, $('to').value] = [$('to').value, $('from').value];
+  for (const s of ['from', 'to']) $(s).parentElement.classList.toggle('has-value', !!$(s).value);
+});
+
+// ---- Departure time (always Delhi time, whatever the browser's zone) ----
+function setNow() { $('departure').value = new Date(Date.now() + 330 * 60000).toISOString().slice(0, 16); updateDayNote(); }
+function updateDayNote() {
+  const v = $('departure').value;
+  if (!v) { $('dayNote').textContent = ''; return; }
+  const day = new Date(v.slice(0, 10) + 'T12:00:00Z').getUTCDay();
+  $('dayNote').textContent = day === 0 ? 'Sunday pattern: based on three October Sundays, not yet checked against later weeks.'
+    : day === 6 ? 'Saturday pattern: based on three October Saturdays.'
+    : 'Weekday pattern. Public holidays are not treated separately.';
+}
+$('departure').addEventListener('input', updateDayNote);
+$('now').addEventListener('click', setNow);
+setNow();
+
+// ---- Results ----
+const time = iso => (iso || '').slice(11, 16);
+const mins = x => Number.isFinite(x) ? Math.round(x) : null;
+function walkMetres(j) {
+  const walks = (j.legs || []).filter(l => l.mode === 'WALK');
+  return walks.some(l => !Number.isFinite(l.distance)) ? null : walks.reduce((s, l) => s + l.distance, 0);
+}
+function changes(j) { return Number.isFinite(j.numberOfTransfers) ? j.numberOfTransfers : Math.max(0, (j.legs || []).filter(l => l.mode === 'BUS').length - 1); }
+function metric(j, key) {
+  if (key === 'walking') { const w = walkMetres(j); return w == null ? Infinity : w; }
+  if (key === 'transfers') return changes(j);
+  const n = Date.parse(j.end); return Number.isFinite(n) ? n : Infinity;
+}
+const EVIDENCE = {
+  'labelled segments available': 'Ticket patterns available for every stretch of this journey.',
+  'partial evidence': 'Ticket patterns available for some stretches only.',
+  'insufficient evidence': 'Not enough ticket data to compare stretches on this journey.'
+};
+
+function busStep(leg, idx, summary) {
+  const li = el('li', 'step bus'), ico = el('span', 'ico'); ico.innerHTML = ICONS.stop;
+  const body = el('div');
+  const line = el('div');
+  line.append(el('span', 'route', (leg.route || {}).shortName || 'Bus'), el('span', 'stops', ((leg.from || {}).name || 'Start') + ' → ' + ((leg.to || {}).name || 'End')));
+  body.append(line);
+  const signals = leg.v1_signals || [];
+  const n = signals.length;
+  body.append(el('div', 'small', [mins(leg.duration_minutes) != null ? mins(leg.duration_minutes) + ' min' : null, n ? n + ' stretches' : null].filter(Boolean).join(' · ')));
+  if (n) {
+    const strip = el('div', 'strip'); strip.setAttribute('role', 'img');
+    const counts = {q: 0, t: 0, b: 0, u: 0};
+    for (const s of signals) {
+      const code = s.status === 'available' && LABELS[(s.relative_crowding || {}).label] || 'u';
+      counts[code]++;
+      const block = el('i', code); block.title = code === 'u' ? 'Not enough data' : (s.relative_crowding || {}).label;
+      strip.append(block);
+    }
+    const words = [counts.b && counts.b + ' likely busier', counts.t && counts.t + ' typical', counts.q && counts.q + ' likely quieter', counts.u && counts.u + ' not enough data'].filter(Boolean).join(', ');
+    strip.setAttribute('aria-label', 'Stretches on this bus: ' + words);
+    body.append(strip, el('div', 'small', 'Compared with other hours: ' + words));
+  } else {
+    body.append(el('div', 'small', 'No stretch comparison available for this bus.'));
+  }
+  li.append(ico, body);
+  return li;
+}
+function walkStep(leg) {
+  const li = el('li', 'step'), ico = el('span', 'ico'); ico.innerHTML = ICONS.walk;
+  const d = Number.isFinite(leg.distance) ? Math.round(leg.distance) + ' m' : 'distance unknown';
+  const t = mins(leg.duration_minutes) != null ? ' · ' + Math.max(1, mins(leg.duration_minutes)) + ' min' : '';
+  const body = el('div');
+  const target = (leg.to || {}).stop ? leg.to.name : (selected.to && selected.to.label) || 'your destination';
+  body.append(el('div', 'stops', 'Walk to ' + target), el('div', 'small', d + t + (leg.distance_basis ? ' (estimate)' : '')));
+  li.append(ico, body);
+  return li;
+}
+function journeyCard(j, rank) {
+  const card = el('article', 'card journey'), t = j.timing_summary || {}, c = j.crowding_summary || {};
+  const head = el('div', 'jhead'), times = el('div', 'times');
+  times.append(document.createTextNode(time(j.start)), el('span', 'arrow', '→'), document.createTextNode(time(j.end)));
+  const total = Date.parse(j.end) - Date.parse(j.start);
+  head.append(times, el('span', 'dur', Number.isFinite(total) ? Math.round(total / 60000) + ' min' : ''));
+  const chips = el('div', 'chips');
+  if (rank === 0) chips.append(el('span', 'chip best', {fastest: 'Arrives first', walking: 'Least walking', transfers: 'Fewest changes'}[sortKey]));
+  const ch = changes(j); chips.append(el('span', 'chip', ch === 0 ? 'Direct' : ch + (ch === 1 ? ' change' : ' changes')));
+  const w = walkMetres(j); if (w != null && w >= 30) chips.append(el('span', 'chip', Math.round(w) + ' m walk'));
+  if (mins(t.waiting_minutes) != null) chips.append(el('span', 'chip', mins(t.waiting_minutes) + ' min wait'));
+  const list = el('ol', 'timeline');
+  (j.legs || []).forEach((leg, i) => {
+    if (leg.mode === 'BUS') list.append(busStep(leg, i, c));
+    else if (leg.mode === 'WALK' && (leg.distance || 0) >= 30) list.append(walkStep(leg));
+  });
+  card.append(head, chips, list);
+  const gaps = (j.legs || []).flatMap(l => l.v1_signals || []).filter(s => ((s.schedule_alignment || {}).excluded_without_same_hour_service || 0) > 0).length;
+  if (gaps) card.append(el('div', 'caution', 'Timing caution: on ' + gaps + ' stretch' + (gaps === 1 ? '' : 'es') + ', some October ticket records fell in hours with no scheduled bus, so the comparison is less certain.'));
+  card.append(el('div', 'evidence', EVIDENCE[c.status] || 'Ticket pattern availability unknown.'));
+  return card;
+}
+function render() {
+  const ordered = [...journeys].sort((a, b) => metric(a, sortKey) - metric(b, sortKey) || metric(a, 'fastest') - metric(b, 'fastest'));
+  const shown = showAll ? ordered : ordered.slice(0, 3);
+  $('results').replaceChildren(...shown.map(journeyCard));
+  const hidden = ordered.length - shown.length;
+  $('showMore').hidden = hidden <= 0;
+  $('showMore').textContent = 'Show ' + hidden + ' more option' + (hidden === 1 ? '' : 's');
+  $('status').textContent = journeys.length + ' option' + (journeys.length === 1 ? '' : 's') + ' found' + (hidden > 0 ? ', showing the best ' + shown.length : '') + '.';
+}
+document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => {
+  sortKey = b.dataset.sort; showAll = false;
+  document.querySelectorAll('.tabs button').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+  render();
+}));
+$('showMore').addEventListener('click', () => { showAll = true; render(); });
+
+$('find').addEventListener('click', async () => {
+  const time = $('departure').value, walk = $('maxWalk').value;
+  $('routingNote').hidden = true;
+  if (!selected.from || !selected.to) { $('status').textContent = 'Choose a starting point and destination from the suggestions.'; (selected.from ? $('to') : $('from')).focus(); return; }
+  if (!time) { $('status').textContent = 'Choose a departure time.'; return; }
+  if (walk === '' || !(Number(walk) >= 0 && Number(walk) <= 10000)) { $('status').textContent = 'Maximum walk must be between 0 and 10,000 metres.'; return; }
+  const params = new URLSearchParams({from_lat: selected.from.lat, from_lon: selected.from.lon, to_lat: selected.to.lat, to_lon: selected.to.lon,
+    departure: time + ':00+05:30', max_transfer_walk: walk});
+  $('find').disabled = true; $('status').textContent = 'Searching timetabled buses…';
+  try {
+    const response = await fetch('/journeys/mapped?' + params), data = await response.json();
+    if (!response.ok) throw Error(data.error || 'search failed');
+    journeys = data.journeys || []; showAll = false;
+    if (data.routing_source === 'built-in') {
+      $('routingNote').textContent = 'Simplified routing (' + (data.fallback_reason || 'map routing unavailable') + '): only direct buses and changes at the same stop are shown, and walking distances are straight-line estimates.';
+      $('routingNote').hidden = false;
+    }
+    $('resultsArea').hidden = !journeys.length;
+    if (journeys.length) render();
+    else { $('results').replaceChildren(); $('status').textContent = 'No bus journeys found for this time. Try a later departure or a nearby stop.'; }
+  } catch (e) {
+    $('resultsArea').hidden = true;
+    $('status').textContent = 'Search failed: ' + e.message + '. Please try again.';
+  } finally { $('find').disabled = false; }
+});
+</script>
+</body>
+</html>
