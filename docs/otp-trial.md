@@ -48,3 +48,21 @@ The API filters transfer walks after OTP returns candidates, then attaches V1 se
 A separate graph built successfully with the complete original GTFS feed and the same limited New Delhi OSM extract using a 5 GB Java heap. OTP reported 6,812 stops and 2,554 patterns, but also reported 926 stops not linked for transfers and 915 isolated stops; these counts are different issue categories and may overlap. This demonstrates that the full timetable can fit with the small map, not that all stops or journeys are routable. The earlier failure with the larger map therefore points to map size or its interaction with graph construction as a bottleneck; it does not isolate the exact cause. A full-timetable cross-city request returned 16 bus options in one experiment. Coverage and broader journey tests remain outstanding.
 
 The mapped endpoint returns each leg's scheduled duration and a timing summary for walking, bus riding, and waiting, including the gap from the requested departure. Waiting is calculated from gaps between scheduled leg end and start times. If times are missing or inconsistent, the aggregate is unavailable rather than guessed. These times are scheduled estimates and depend on map quality, walking speed, and service actually running.
+
+## Expanded map coverage experiment
+
+An experimental combined OSM graph was created by clipping the existing northern-zone PBF to 28.15–29.40 latitude and 76.53–77.50 longitude, then merging it with the New Delhi PBF. These are different source extracts and may represent different snapshots; the merge must not be assumed equivalent to a single consistent regional extract. With the original full GTFS, OTP 2.7 built the combined graph with a 6 GB heap. Its report shows 12 isolated stops, down from 150 on the northern extract alone and 915 with the original city-only graph. The 12 are around 28.81–29.10 N, 77.23–77.27 E and need investigation; no unverified straight-line walking paths are fabricated for them. OTP also reported 38 stops with no nearby transfer, which is a separate condition and can be normal. The counts do not prove all walking routes are safe, connected, or correct.
+
+To reproduce the extract, install `osmium==4.3.2` in a Python environment and run:
+
+```sh
+python3 scripts/prepare_otp_map.py --regional /path/to/northern-zone.osm.pbf --city /path/to/newdelhi.osm.pbf --output-dir data/otp-trial/combined-rebuild
+```
+
+The output directory must not already exist. Put the resulting `combined.osm.pbf`, the flattened original GTFS ZIP, and a `build-config.json` containing `{"dataImportReport":true}` in a separate OTP build directory; then run OTP 2.7 with Java 21 and `--build --save`. Inspect the report and test representative journeys. This is an experiment, not yet a packaged one-command judge setup or a validated complete-coverage graph.
+
+## Single-source India extract
+
+A newer experiment cropped the [Geofabrik India PBF](https://download.geofabrik.de/asia/india.html) to the same bounds using `scripts/prepare_otp_map.py --regional /path/to/india-latest.osm.pbf --output-dir data/otp-trial/india-rebuild`. No `--city` argument is needed. The 1.6 GB source is needed only to prepare the crop, and the crop was about 58 MB. OTP 2.7 successfully built the full GTFS graph from this single-source crop with a 6 GB heap and `dataImportReport` enabled. It reported **zero isolated stops** and 30 stops with no nearby transfer stops. Zero isolated stops means OTP linked all timetable stops to its street graph; it does not prove walking paths are correct, safe, connected to every other point, or sufficient for every requested transfer. Wider sample journey checks, map attribution, input-version pinning and judge setup remain necessary.
+
+A direction-specific check from GTFS stop 9785 (Baraut) to 9792 (Mandola), departing 22 October 2026 at 08:00 IST, returned four bus itineraries on the single-source graph; one reported 20 minutes' wait and about 110 minutes' scheduled bus time. A first check using the opposite-direction stop coordinates returned no options, illustrating the need for direction-aware stop selection and more comprehensive tests.
