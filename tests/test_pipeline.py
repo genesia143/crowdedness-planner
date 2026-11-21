@@ -47,5 +47,13 @@ class PipelineTests(unittest.TestCase):
             result=build(p/'tickets.csv',p,'2026-10-01','2026-10-21',p/'out.json',segment_timing=True)
             self.assertEqual([(r['from_stop_id'],r['hour']) for r in result['records']],[('a',8),('b',9)])
 
+    def test_duplicate_stop_ids_are_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            p=Path(tmp)
+            write(p/'stops.txt',['stop_id','stop_name'],[{'stop_id':'a','stop_name':'Alpha'},{'stop_id':'a','stop_name':'Other'}])
+            from model import route_patterns
+            with self.assertRaisesRegex(ValueError,'duplicate GTFS stop_id'):
+                route_patterns(p)
+
 if __name__ == '__main__':
     unittest.main()

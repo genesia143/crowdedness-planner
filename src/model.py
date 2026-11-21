@@ -40,7 +40,12 @@ def rows(path):
 
 def route_patterns(gtfs):
     gtfs = Path(gtfs)
-    names = {r['stop_id']: r['stop_name'] for r in rows(gtfs / 'stops.txt')}
+    names = {}
+    for stop in rows(gtfs / 'stops.txt'):
+        stop_id = stop['stop_id']
+        if stop_id in names:
+            raise ValueError('duplicate GTFS stop_id: ' + stop_id)
+        names[stop_id] = stop['stop_name']
     routes = {r['route_id']: r['route_short_name'] for r in rows(gtfs / 'routes.txt')}
     trips = {r['trip_id']: routes.get(r['route_id']) for r in rows(gtfs / 'trips.txt')}
     stops = defaultdict(list)
