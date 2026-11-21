@@ -163,7 +163,7 @@ class RecordedOTP:
         return json.loads((self.directory / 'otp' / (case + '.json')).read_text(encoding='utf-8'))
 
 
-def plan(endpoint, gtfs, database, lat1, lon1, lat2, lon2, departure, max_transfer_walk=1000, fetch=fetch_otp):
+def plan(endpoint, gtfs, database, lat1, lon1, lat2, lon2, departure, max_transfer_walk=1000, fetch=fetch_otp, stop_times=None):
     coords, when, limit = validate_request(lat1, lon1, lat2, lon2, departure, max_transfer_walk)
     variables = dict(zip(('lat1','lon1','lat2','lon2'), coords))
     variables['when'] = when.isoformat()
@@ -176,8 +176,8 @@ def plan(endpoint, gtfs, database, lat1, lon1, lat2, lon2, departure, max_transf
     for item in accepted:
         timing_breakdown(item, when)
     if accepted:
-        # Scan the GTFS stop-times file once for all returned itineraries.
-        annotate_v1({'legs': [leg for item in accepted for leg in item['legs']]}, gtfs, database)
+        # Look up stop times once for all returned itineraries: from memory when the API has a planner, else from the file.
+        annotate_v1({'legs': [leg for item in accepted for leg in item['legs']]}, gtfs, database, stop_times=stop_times)
         for item in accepted:
             signal_coverage(item)
             journey_crowding_summary(item)

@@ -28,16 +28,23 @@ def gtfs_id(value):
     return value.split(':',1)[1]
 
 
-def annotate_v1(itinerary, gtfs, database):
-    """Attach existing V1 proxies only where OTP and the GTFS trip agree exactly."""
+def annotate_v1(itinerary, gtfs, database, stop_times=None):
+    """Attach existing V1 proxies only where OTP and the GTFS trip agree exactly.
+
+    `stop_times`, if given, returns {trip_id: rows} from memory (for example
+    JourneyPlanner.trip_stop_times); otherwise stop_times.txt is scanned.
+    """
     from pathlib import Path
     gtfs=Path(gtfs)
     legs=itinerary['legs']
     ids={gtfs_id((leg.get('trip') or {}).get('gtfsId')) for leg in legs if leg.get('mode')=='BUS'}
     ids.discard(None)
-    times={trip:[] for trip in ids}
-    for row in rows(gtfs/'stop_times.txt'):
-        if row['trip_id'] in times: times[row['trip_id']].append(row)
+    if stop_times is not None:
+        times=stop_times(ids)
+    else:
+        times={trip:[] for trip in ids}
+        for row in rows(gtfs/'stop_times.txt'):
+            if row['trip_id'] in times: times[row['trip_id']].append(row)
     signal_cache = {}
     timing_basis = model_timing_basis(database)
     for leg in legs:
