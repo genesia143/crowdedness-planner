@@ -49,3 +49,23 @@ presented as API evidence coverage. It also found 62,981 matched daily segment
 records without corresponding schedule in the same hour. Those timing/service
 mismatches and ranking stability require investigation before the labels are
 validated. No Sunday is present. The local JSON report stays outside Git.
+
+The schedule-gap diagnostic found that, of the 62,981 observed tuning
+segment/day/hour cells without a same-hour scheduled crossing, 50,202 had a
+crossing in an immediately adjacent hour (23,392 next only; 12,614 previous
+only; 14,196 both), and 12,779 had service elsewhere on the same day. These
+are distinct segment-hour cells, not unique tickets or passengers. An adjacent
+schedule is consistent with a time-binning mismatch but does not prove its
+cause. Diagnostics are restricted to the tuning window.
+
+In an exploratory rebuild using median GTFS offsets to estimate each segment's
+crossing hour, the number of observed segment/date/hour cells without a
+same-hour crossing fell from 62,981 of 646,955 (9.7%) to 51,108 of 633,059
+(8.1%). The grouping changes, so cell counts are not a like-for-like count
+of tickets. At passenger-segment weight, the unmatched counts changed from
+109,980 of 2,050,630 (5.36%) to 89,252 of 2,050,373 (4.35%); total weights
+differ slightly, so this is still an observational comparison. Timing offsets
+come from the same static schedule used as denominator and can mechanically
+improve alignment without proving actual crossing-time accuracy. No model
+selection has been made; train and compare both timing methods on the same
+validation targets before making that decision.
