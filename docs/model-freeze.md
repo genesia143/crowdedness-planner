@@ -49,6 +49,18 @@ truth. See [development validation](v1-validation.md),
 
 ## Final-week protocol
 
+The optional `scripts/freeze_manifest.py` can record SHA-256 fingerprints of
+named artifacts before evaluation. It does not make the model-selection
+decision and does not itself enforce the final-week protocol. For a meaningful
+snapshot, include the trained index, clean GTFS, reviewed mappings, relevant
+model and matching source, and the final evaluator. Use a stable set of names
+for creation and verification. Preserve the training provenance and model
+options separately; hash identifiers do not prove how an artifact was built.
+Do not point this utility at the October ticket file: creating the snapshot
+must not read the reserved records. Verify the snapshot immediately before and
+after running the separately guarded evaluator. Do not overwrite a previous
+manifest or a previous evaluation report.
+
 After the above choices and evaluator are fixed, evaluate 25–31 October once
 as a held-out report. Apply the frozen matching and feature rules. Report the
 number of in-period tickets, matched tickets and sample passengers; scheduled

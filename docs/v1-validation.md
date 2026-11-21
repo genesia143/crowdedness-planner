@@ -97,3 +97,22 @@ passenger-segments, 1,490,689 of 2,050,630 (72.7%) were labelled. This excludes
 unmatched tickets and repeats each passenger over the segments of their trip;
 it is not a percentage of unique riders, tickets, or fully covered journeys.
 Run `scripts/measure_label_coverage.py` to reproduce it.
+
+A route-level tuning diagnostic shows that these exclusions are uneven. Of
+435 routes with at least 1,000 matched tuning passenger-segments, 84 had more
+than 10% of that sample without a same-hour scheduled crossing, and 23 had
+more than 25%. Passenger-segments repeat each passenger across their ridden
+segments and exclude unmatched tickets. This does not prove actual service was
+absent or establish the cause, but it warns that the aggregate 5.36% mismatch
+can conceal much larger route-specific uncertainty. See
+`scripts/route_gap_coverage.py`; no final-week data was used.
+
+The segment API now includes `schedule_alignment` for observed training cells:
+matched sample passenger-segments, the number included where a scheduled
+crossing was found, the number excluded without one, their fraction, and the
+number of affected days. The mapped journey response carries this evidence and
+the prototype screen highlights affected segments. This is descriptive
+training evidence, not a correction for missing tickets or proof that a bus
+failed to run. If no sample observation or service calculation exists, alignment
+is unavailable rather than assumed to be zero. No model scores or thresholds
+were changed.

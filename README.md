@@ -23,7 +23,7 @@ python3 -m unittest discover -s tests -v
 python3 src/cli.py --tickets /path/to/October-Delhi.csv --gtfs /path/to/gtfs --start 2026-10-01 --end 2026-10-21 --output data/training.json
 ```
 
-The output contains daily sample passenger-journey counts per segment and ticket boarding hour, plus matching counts. Exact normalized stop names must match on a route and produce one unambiguous segment sequence. The output is **not** onboard load, a prediction for an individual bus, or a normalized crowding level. The full pipeline, API, validation and UI remain to be built. Avoid using October 25–31 for model development; see the design note for the proposed split.
+The output contains daily sample passenger-journey counts per segment and ticket boarding hour, plus matching counts. Exact normalized stop names must match on a route and produce one unambiguous segment sequence. The output is **not** onboard load, a prediction for an individual bus, or a normalized crowding level. The prototype API, tuning diagnostics and a basic UI exist; final validation and submission hardening remain. Avoid using October 25–31 for model development; see the design note for the proposed split.
 
 ### Experimental fuzzy matching
 
@@ -69,3 +69,5 @@ Newly built indexes also return `all_scheduled_days_proxy`: sample passengers di
 With a graph built from the same GTFS version, start OpenTripPlanner 2.7 with Java 21, then start the API with `--otp-endpoint http://localhost:18080/otp/gtfs/v1` alongside the `--database` and `--gtfs` arguments above. The graph build, map input, example request, limits and coverage checks are described in [the OTP trial note](docs/otp-trial.md). The mapped endpoint provides scheduled walking, waiting and riding times, plus ticket-derived segment signals where available. The transfer-distance limit filters returned options after the routing search; it does not guarantee that every compliant alternative is found.
 
 The screen at `http://127.0.0.1:8000/` uses the mapped journey endpoint when OTP is configured. It shows provisional per-segment comparisons and missing evidence; it does not show validated occupancy or a cross-route crowding ranking. Browser-level verification remains outstanding.
+
+For a contributor-oriented walkthrough of the current setup, see [the setup guide](docs/setup.md). It has not yet been verified on an independent clean machine.

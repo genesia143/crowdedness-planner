@@ -116,11 +116,21 @@ def query(database, route, origin, destination, departure):
         totals = db.execute('SELECT scheduled_days,scheduled_crossings FROM scheduled_totals WHERE route=? AND origin=? AND destination=? AND hour=? AND day_type=?', (normalize(route),origin,destination,timestamp.hour,kind)).fetchone() if has_totals else None
         metadata = {key: json.loads(value) for key, value in db.execute('SELECT key,value FROM metadata')}
         band = relative_band(db, normalize(route), origin, destination, kind, timestamp.hour)
+    alignment = None
+    if row is not None and service is not None:
+        observed_total = row[1]
+        included = service[1]
+        alignment = {'matched_sample_passenger_segments': observed_total,
+                     'included_with_same_hour_service': included,
+                     'excluded_without_same_hour_service': observed_total - included,
+                     'excluded_sample_fraction': (observed_total - included) / observed_total if observed_total else None,
+                     'days_with_unmatched_service': service[3],
+                     'interpretation': 'Matched ticket sample for this route, directed segment, hour and day type during training; schedule mismatch may reflect timing or service differences. Not a share of all riders.'}
     if row is None:
         assumed = None
         if totals and totals[1]:
             assumed = {'sample_passengers_per_scheduled_crossing': 0.0, 'sample_passengers': 0, 'scheduled_days': totals[0], 'scheduled_crossings': totals[1], 'observed_days_with_schedule': 0, 'assumption': 'Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders.'}
-        return {'status': 'unavailable', 'reason': 'no matched sample observations for this segment and time', 'all_scheduled_days_proxy': assumed, 'relative_crowding': band, 'training': metadata}
+        return {'status': 'unavailable', 'reason': 'no matched sample observations for this segment and time', 'all_scheduled_days_proxy': assumed, 'relative_crowding': band, 'schedule_alignment': alignment, 'training': metadata}
     days, total = row
     normalized = None
     if service and service[2]:
@@ -128,6 +138,6 @@ def query(database, route, origin, destination, departure):
     all_days = None
     if service and totals and totals[1]:
         all_days = {'sample_passengers_per_scheduled_crossing': service[1] / totals[1], 'sample_passengers': service[1], 'scheduled_days': totals[0], 'scheduled_crossings': totals[1], 'observed_days_with_schedule': service[0], 'days_without_matching_schedule': service[3], 'assumption': 'Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value.'}
-    return {'status': 'available', 'scheduled_service_proxy': normalized, 'all_scheduled_days_proxy': all_days, 'relative_crowding': band, 'sample_passengers_per_observed_day': total / days, 'observed_days': days,
+    return {'status': 'available', 'scheduled_service_proxy': normalized, 'all_scheduled_days_proxy': all_days, 'relative_crowding': band, 'schedule_alignment': alignment, 'sample_passengers_per_observed_day': total / days, 'observed_days': days,
             'definition': 'Mean ticket-sample passenger crossings on days with at least one matched ticket. Not occupancy or per-bus load. Timing: ' + metadata['definition'],
             'day_type': kind, 'hour_ist': timestamp.hour, 'training': metadata}

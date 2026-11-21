@@ -25,6 +25,12 @@ hour within a segment group; many groups share the same tickets and days.
 | Weekend | Typical | 5,647 | 8,494 | 4,577 |
 | Weekend | Busier | 2,019 | 4,594 | 11,132 |
 
+The most consequential opposite-end disagreements were training “quieter”
+versus tuning “busier” or vice versa: 7,574 of 169,389 evaluated weekday
+hours (4.5%) and 3,888 of 54,221 evaluated Saturday hours (7.2%). These are
+correlated segment-hours, not the probability that a passenger encounters an
+incorrect label. Many remaining disagreements involve the middle category.
+
 Of supported training hours with tuning service, 1,015 weekday and 63 weekend
 hours were excluded because the target group had too few hours or no variation.
 This is a comparison of ticket-sample ranks, **not occupancy accuracy**. The

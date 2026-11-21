@@ -67,7 +67,7 @@ def annotate_v1(itinerary, gtfs, database):
                 if key not in signal_cache:
                     signal_cache[key] = query(database, *key)
                 signal = signal_cache[key]
-                leg['v1_signals'].append({'from_stop_id':current['stop_id'],'to_stop_id':nxt['stop_id'],'scheduled_time':crossing.isoformat(), 'model_lookup_time':lookup.isoformat(), 'model_timing_basis':timing_basis, 'status':signal['status'],'all_scheduled_days_proxy':signal.get('all_scheduled_days_proxy'), 'relative_crowding':signal.get('relative_crowding')})
+                leg['v1_signals'].append({'from_stop_id':current['stop_id'],'to_stop_id':nxt['stop_id'],'scheduled_time':crossing.isoformat(), 'model_lookup_time':lookup.isoformat(), 'model_timing_basis':timing_basis, 'status':signal['status'],'all_scheduled_days_proxy':signal.get('all_scheduled_days_proxy'), 'relative_crowding':signal.get('relative_crowding'), 'schedule_alignment':signal.get('schedule_alignment')})
             except (KeyError, ValueError):
                 leg['v1_signals'].append({'from_stop_id':current['stop_id'],'to_stop_id':nxt['stop_id'],'status':'unavailable: invalid scheduled time'})
         leg['v1_signal_status']='attached; availability varies by segment'
