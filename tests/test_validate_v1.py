@@ -18,7 +18,7 @@ class ValidateV1Test(unittest.TestCase):
             database = base / 'model.db'
             with sqlite3.connect(database) as db:
                 db.execute('CREATE TABLE metadata (key TEXT, value TEXT)')
-                db.executemany('INSERT INTO metadata VALUES (?,?)', [(k, json.dumps(v)) for k, v in {'training_start':'2026-10-01', 'training_end':'2026-10-21'}.items()])
+                db.executemany('INSERT INTO metadata VALUES (?,?)', [(k, json.dumps(v)) for k, v in {'training_start':'2026-10-01', 'training_end':'2026-10-21', 'day_type_scheme':'weekday_saturday_sunday_v1'}.items()])
                 db.execute('CREATE TABLE scheduled_totals (route TEXT,origin TEXT,destination TEXT,hour INTEGER,day_type TEXT,scheduled_crossings INTEGER)')
                 db.execute('CREATE TABLE service_signals (route TEXT,origin TEXT,destination TEXT,hour INTEGER,day_type TEXT,sampled_passengers INTEGER)')
                 db.execute("INSERT INTO scheduled_totals VALUES ('r','a','b',8,'weekday',10)")

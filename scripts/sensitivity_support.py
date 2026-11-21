@@ -3,6 +3,7 @@
 Statistics are matched-ticket proxies, not occupancy; variants are exploratory.
 """
 import argparse
+from datetime import date
 from collections import Counter, defaultdict
 import json
 from pathlib import Path
@@ -13,6 +14,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from validate_v1_ranking import compare_group
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
 from service import scheduled_crossings
+from model import day_type
 
 
 def evaluate(database, validation, gtfs, variants):
@@ -22,6 +24,8 @@ def evaluate(database, validation, gtfs, variants):
         raise ValueError('evaluation restricted to October 22–24, 2026')
     with sqlite3.connect('file:' + str(Path(database).resolve()) + '?mode=ro', uri=True) as db:
         meta = {k: json.loads(v) for k, v in db.execute('SELECT key,value FROM metadata')}
+        if meta.get('day_type_scheme') != 'weekday_saturday_sunday_v1':
+            raise ValueError('Use a model rebuilt with separate Saturday and Sunday categories')
         if meta['training_end'] >= start:
             raise ValueError('training must end before tuning')
         rows = list(db.execute('''SELECT s.route,s.origin,s.destination,s.day_type,s.hour,
@@ -32,6 +36,7 @@ def evaluate(database, validation, gtfs, variants):
     for row in data['records']:
         if not start <= row['date'] <= end:
             raise ValueError('record outside declared tuning period')
+        if row['day_type'] != day_type(date.fromisoformat(row['date'])): raise ValueError('Tuning day type does not match calendar date')
         observed[(row['route'],row['from_stop_id'],row['to_stop_id'],row['date'],row['hour'],row['day_type'])] += row['passengers']
     targets = defaultdict(lambda: [0,0])
     for (route,origin,dest,day,hour,kind), buses in scheduled_crossings(gtfs,start,end).items():
@@ -59,7 +64,7 @@ def evaluate(database, validation, gtfs, variants):
         reports.append({'minimum_matched_days':days,'minimum_sample_passengers':passengers,'minimum_scheduled_days':scheduled_days,
                         'sample_passenger_segments':total,'covered_sample_passenger_segments':covered,
                         'sample_passenger_segment_coverage':covered/total if total else None,'rankings':by_kind})
-    return {'start':start,'end':end,'variants':reports,'limitations':'Exploratory tuning, not independent validation. Match-derived sample, not occupancy. Coverage counts passenger-segments, not riders or journeys. Pairwise comparisons are correlated, exclude ties from concordance and cannot be treated as independent. No Sunday in tuning; weekend training combines Saturday and Sunday.'}
+    return {'start':start,'end':end,'variants':reports,'limitations':'Exploratory tuning, not independent validation. Match-derived sample, not occupancy. Coverage counts passenger-segments, not riders or journeys. Pairwise comparisons are correlated, exclude ties from concordance and cannot be treated as independent. No Sunday occurs in the tuning window; day types depend on the supplied model.'}
 
 
 if __name__ == '__main__':

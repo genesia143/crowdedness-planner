@@ -1,10 +1,8 @@
-# V1 model freeze proposal and final evaluation plan
+# V1 model freeze and final evaluation plan
 
-**Status: proposal, not frozen. Do not use the final week for model selection.**
-The development results support retaining a simple baseline, but the current
-labels and their use in journeys still need checks before a freeze is declared.
+**Status: frozen candidate for final evaluation.** The selected model is the boarding-hour V1 with separate Saturday and Sunday categories and the support rules below. Labels remain provisional, Sunday lacks tuning evidence, and this freeze does not establish occupancy accuracy. The final week must not be used to select or revise the model.
 
-## Proposed baseline
+## Frozen candidate
 
 - Train on 1–21 October 2026 and use 22–24 October for development only.
 - Use the original GTFS feed and the same reviewed route-specific stop
@@ -12,15 +10,15 @@ labels and their use in journeys still need checks before a freeze is declared.
 - Assign each matched ticket's passenger count to each traversed directed
   segment in its ticket-creation hour, interpreted provisionally as boarding
   hour. Use IST. Actual purchase and boarding times are unverified.
-- Use weekday and weekend categories as implemented. Saturday and Sunday are
-  pooled; Sunday and holidays lack separate tuning evidence.
+- Use separate weekday, Saturday and Sunday categories. Sunday has no tuning
+  day, and public holidays are not modelled separately.
 - For each route, directed segment, hour and day type, divide matched sample
   passengers on scheduled cells by scheduled crossings across training days.
   A scheduled day with no matched records contributes zero sample passengers,
   conditional on complete ingestion; this is not an empty-bus observation.
 - The provisional within-segment hourly label uses at least three matched
-  days, ten sample passengers, four scheduled days, three supported hours and
-  two distinct rates. Tied values use midrank; below one-third is likely
+  days, ten sample passengers, at least four scheduled weekdays or all three
+  scheduled Saturdays/Sundays, three supported hours and two distinct rates. Tied values use midrank; below one-third is likely
   quieter, above two-thirds likely busier, and the rest typical. Otherwise
   report insufficient evidence. Comparisons are within the same route,
   directed segment and day type, not between routes or actual occupancy.
@@ -32,17 +30,17 @@ truth. See [development validation](v1-validation.md),
 [ranking diagnostics](v1-ranking-validation.md), and
 [support sensitivity](v1-support-sensitivity.md).
 
-## Before freezing
+## Pre-freeze checks
 
-1. Check how the API summarises multiple segment labels, especially unknown
+1. Checked how the API summarises multiple segment labels, especially unknown
    segments, and ensure it cannot imply a cross-route occupancy comparison.
-2. Measure label outcomes and coverage on the tuning dates, including ties,
+2. Measured label outcomes and coverage on the tuning dates, including ties,
    low support, zero observations and cases with no scheduled crossing. The
    existing ranking metric measures pair ordering, not label accuracy.
-3. Lock the exact training inputs, reviewed mapping, model options, source
+3. Snapshotted the exact training inputs, reviewed mapping, model options, source
    revision, output artifact and evaluation code, with hashes or equivalent
    identifiers. Save a reproducible command and retain the training metadata.
-4. Implement and test a separate final-week evaluator. Existing development
+4. Prepared and tested a separate final-week evaluator using synthetic data. Existing development
    scripts explicitly reject dates after 24 October; do not weaken that guard
    without an equally explicit final-evaluation boundary. Verify the evaluator
    does not change model parameters, matching rules or training inputs.
@@ -110,7 +108,4 @@ checks do not prove that the target was generated with the frozen command, do
 not prevent a separate rerun under another filename, and do not validate
 occupancy. Review the code and complete the freeze procedure before use.
 
-A proposed local snapshot was created and verified for the current training
-index, clean GTFS, reviewed workbook, source directory and evaluation scripts.
-It is an audit aid, not a model freeze; later code or input changes invalidate
-it and require a new snapshot. It does not include or read the ticket file.
+The selected separate-day training index, training records, clean GTFS, reviewed workbook, source directory and evaluation scripts were fingerprinted and the local snapshot verified. The full ticket file was not included or read for this snapshot. Metadata in the training records matches the index metadata, but that check and the fingerprints do not independently prove the index was built from those records. Any changes to frozen inputs or evaluation code require an explicit new snapshot and invalidate the present freeze.

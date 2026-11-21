@@ -4,6 +4,7 @@ This evaluates the ticket sample, not actual passenger occupancy. The final
 week is deliberately rejected even when a caller supplies it by mistake.
 """
 import argparse
+from datetime import date
 from collections import defaultdict
 import json
 from pathlib import Path
@@ -12,6 +13,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
 from service import scheduled_crossings
+from model import day_type
 
 
 def evaluate(database, validation, gtfs):
@@ -22,6 +24,8 @@ def evaluate(database, validation, gtfs):
         raise ValueError('development evaluation is restricted to October 22–24, 2026')
     with sqlite3.connect('file:' + str(Path(database).resolve()) + '?mode=ro', uri=True) as db:
         meta = {key: json.loads(value) for key, value in db.execute('SELECT key,value FROM metadata')}
+        if meta.get('day_type_scheme') != 'weekday_saturday_sunday_v1':
+            raise ValueError('Use a model rebuilt with separate Saturday and Sunday categories')
         if meta['training_end'] >= start:
             raise ValueError('training must end before the evaluation period')
         prediction = {}
@@ -37,6 +41,7 @@ def evaluate(database, validation, gtfs):
     for row in data['records']:
         if not start <= row['date'] <= end:
             raise ValueError('record outside declared validation dates')
+        if row['day_type'] != day_type(date.fromisoformat(row['date'])): raise ValueError('Tuning day type does not match calendar date')
         key = (row['route'], row['from_stop_id'], row['to_stop_id'], row['date'], row['hour'], row['day_type'])
         observations[key] += row['passengers']
     schedule = scheduled_crossings(gtfs, start, end)
@@ -65,7 +70,7 @@ def evaluate(database, validation, gtfs):
             'training_end': meta['training_end'], 'matching_quality': data['quality'],
             'unmatched_to_schedule_records': sum(1 for key in observations if key not in schedule),
             'day_types': results,
-            'limitations': 'Ticket creation hour is treated as the crossing hour; zero sample records assume complete ingestion. Schedule-only training cells are evaluated as zero-sample baselines even where the user API reports insufficient evidence. The target uses the same matching process and is not independent occupancy. Day types are weekday and weekend; no Sunday occurs in this tuning interval.'}
+            'limitations': 'Ticket creation hour is treated as the crossing hour; zero sample records assume complete ingestion. Schedule-only training cells are evaluated as zero-sample baselines even where the user API reports insufficient evidence. The target uses the same matching process and is not independent occupancy. Day types follow the indexed model; no Sunday occurs in this tuning interval.'}
 
 
 if __name__ == '__main__':

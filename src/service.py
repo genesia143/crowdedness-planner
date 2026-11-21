@@ -2,7 +2,7 @@
 from collections import Counter, defaultdict
 from datetime import date, datetime, timedelta
 from pathlib import Path
-from model import normalize, rows
+from model import day_type, normalize, rows
 
 
 def active_services(gtfs, start, end):
@@ -65,6 +65,6 @@ def scheduled_crossings(gtfs, start, end):
                     continue
                 actual_day = service_day + timedelta(days=h // 24)
                 if start <= actual_day <= end:
-                    kind = 'weekend' if actual_day.weekday() >= 5 else 'weekday'
+                    kind = day_type(actual_day)
                     counts[(route, first[1], second[1], actual_day.isoformat(), h % 24, kind)] += 1
     return counts

@@ -19,6 +19,7 @@ class SupportSensitivityTest(unittest.TestCase):
             validation = Path(directory) / 'validation.json'
             with sqlite3.connect(dbpath) as db:
                 db.execute('CREATE TABLE metadata (key TEXT, value TEXT)')
+                db.execute('INSERT INTO metadata VALUES (?,?)', ('day_type_scheme', json.dumps('weekday_saturday_sunday_v1')))
                 db.execute('INSERT INTO metadata VALUES (?,?)', ('training_end', json.dumps('2026-10-21')))
                 db.execute('CREATE TABLE service_signals (route TEXT,origin TEXT,destination TEXT,day_type TEXT,hour INTEGER,matched_days INTEGER,sampled_passengers INTEGER)')
                 db.execute('CREATE TABLE scheduled_totals (route TEXT,origin TEXT,destination TEXT,day_type TEXT,hour INTEGER,scheduled_days INTEGER,scheduled_crossings INTEGER)')

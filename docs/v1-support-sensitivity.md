@@ -1,6 +1,6 @@
 # Tuning-period sensitivity of evidence thresholds
 
-The provisional labels currently require at least three matched days, ten sample passengers, four scheduled days and three supported hours in each route/directed-segment/day-type group. The first two rules are choices, not calibrated confidence levels. We compared them with looser and stricter alternatives using the same October 1–21 training index and October 22–24 tuning observations. No final-week data was used.
+The earlier pooled-weekend baseline required at least three matched days, ten sample passengers, four scheduled days and three supported hours in each route/directed-segment/day-type group. The first two rules are choices, not calibrated confidence levels. We compared them with looser and stricter alternatives using the same October 1–21 training index and October 22–24 tuning observations. No final-week data was used.
 
 | Minimum matched days / passengers | Matched tuning passenger-segments covered | Weekday decisive-pair agreement | Saturday decisive-pair agreement |
 |---|---:|---:|---:|
@@ -19,3 +19,5 @@ python3 scripts/sensitivity_support.py --database data/otp-trial/model-v1-origin
 ```
 
 The tradeoff does not by itself establish an optimal threshold. Keep the existing rule until the team decides how much additional coverage is worth the lower agreement and assesses label-level performance; freeze the choice before the final-week evaluation.
+
+The current experimental model now separates Saturday and Sunday. Its minimum is three matched days and ten sample passengers, with four scheduled weekdays or three scheduled Saturdays/Sundays; the prior table describes the earlier pooled model, not this new model.

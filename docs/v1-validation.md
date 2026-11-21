@@ -1,5 +1,7 @@
 # V1 development validation
 
+**Historical results:** the original figures below use the earlier pooled-weekend model. The currently selected separate-day model and its tuning results are described in [the separate-day analysis](separate-days-analysis.md). Do not mix artifacts between the two models.
+
 The development evaluation is restricted to 22–24 October 2026. Final-week
 tickets (25–31 October) remain reserved until the model, matching, labels and
 evaluation plan are frozen. Rebuild the tuning records using the *same* clean

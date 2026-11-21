@@ -10,6 +10,7 @@ class CoverageTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             p=Path(tmp);db=sqlite3.connect(p/'model.db')
             db.execute('CREATE TABLE metadata (key TEXT,value TEXT)')
+            db.execute('INSERT INTO metadata VALUES (?,?)', ('day_type_scheme', json.dumps('weekday_saturday_sunday_v1')))
             db.execute('INSERT INTO metadata VALUES (?,?)',('training_end',json.dumps('2026-10-21')))
             db.execute('CREATE TABLE service_signals (route,origin,destination,day_type,hour,matched_days,sampled_passengers)')
             db.execute('CREATE TABLE scheduled_totals (route,origin,destination,day_type,hour,scheduled_days,scheduled_crossings)')

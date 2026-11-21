@@ -39,7 +39,7 @@ def relative_band(db, route, origin, destination, day_type, hour):
                          WHERE s.route=? AND s.origin=? AND s.destination=? AND s.day_type=?''',
                       (route, origin, destination, day_type)).fetchall()
     supported = {h: passengers / crossings for h, days, passengers, scheduled_days, crossings in rows
-                 if days >= 3 and passengers >= 10 and scheduled_days >= 4 and crossings > 0}
+                 if days >= 3 and passengers >= 10 and scheduled_days >= (3 if day_type in ('saturday', 'sunday') else 4) and crossings > 0}
     if hour not in supported or len(supported) < 3 or len(set(supported.values())) < 2:
         return unavailable
     value = supported[hour]
@@ -50,12 +50,17 @@ def relative_band(db, route, origin, destination, day_type, hour):
     return {'label': label, 'provisional': True,
             'comparison': 'same route, directed segment and day type across hours',
             'relative_percentile': percentile, 'reference_hours': len(supported),
-            'limitation': 'Ticket-sample pressure per scheduled crossing; not actual crowding, occupancy, or a cross-route comparison. Thresholds are not yet validated.'}
+            'limitation': 'Ticket-sample pressure per scheduled crossing; not actual crowding, occupancy, or a cross-route comparison. Thresholds are not yet validated; Saturday and Sunday use at most three training days, and Sunday has no tuning evidence.'}
 
 
 def create_database(source, destination, gtfs=None):
     with open(source, encoding='utf-8') as handle:
         data = json.load(handle)
+    from datetime import date
+    from model import day_type
+    for row in data['records']:
+        if row['day_type'] != day_type(date.fromisoformat(row['date'])):
+            raise ValueError('Training day types do not match calendar dates; regenerate the training data with separate Saturday and Sunday categories')
     from service import scheduled_crossings
     scheduled = scheduled_crossings(gtfs, data['training_start'], data['training_end']) if gtfs else None
     db = sqlite3.connect(destination)
@@ -94,22 +99,26 @@ def create_database(source, destination, gtfs=None):
         db.executemany('INSERT INTO signals VALUES (?,?,?,?,?,?,?)', (key + tuple(value) for key, value in summaries.items()))
         db.executemany('INSERT INTO service_signals VALUES (?,?,?,?,?,?,?,?,?)', (key + tuple(value) for key, value in service_summaries.items()))
         db.executemany('INSERT INTO metadata VALUES (?,?)', [(key, json.dumps(data[key])) for key in ('training_start','training_end','definition','quality')])
+        db.execute('INSERT INTO metadata VALUES (?,?)', ('day_type_scheme', json.dumps('weekday_saturday_sunday_v1')))
         db.commit()
     finally:
         db.close()
 
 
 def query(database, route, origin, destination, departure):
-    from model import normalize, parse_timestamp
+    from model import day_type, normalize, parse_timestamp
     timestamp = parse_timestamp(departure)
     if timestamp.utcoffset() is None:
         raise ValueError('departure must include a timezone offset')
     from datetime import timedelta, timezone
     timestamp = timestamp.astimezone(timezone(timedelta(hours=5, minutes=30)))
-    kind = 'weekend' if timestamp.weekday() >= 5 else 'weekday'
+    kind = day_type(timestamp)
     if not Path(database).is_file():
         raise FileNotFoundError('model database not found')
     with sqlite3.connect('file:' + str(Path(database).resolve()) + '?mode=ro', uri=True) as db:
+        scheme = db.execute("SELECT value FROM metadata WHERE key='day_type_scheme'").fetchone()
+        if not scheme or json.loads(scheme[0]) != 'weekday_saturday_sunday_v1':
+            raise ValueError('Model uses an old or unknown day-type scheme; regenerate training data and rebuild the model with separate Saturday and Sunday categories')
         row = db.execute('SELECT observed_days,total FROM signals WHERE route=? AND origin=? AND destination=? AND hour=? AND day_type=?', (normalize(route),origin,destination,timestamp.hour,kind)).fetchone()
         service = db.execute('SELECT matched_days,sampled_passengers,scheduled_crossings,unmatched_days FROM service_signals WHERE route=? AND origin=? AND destination=? AND hour=? AND day_type=?', (normalize(route),origin,destination,timestamp.hour,kind)).fetchone()
         has_totals = db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='scheduled_totals'").fetchone()

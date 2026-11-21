@@ -5,14 +5,35 @@ import unittest
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
 from service import scheduled_crossings
+from model import day_type
 from predict import create_database, query
 import json
+from datetime import date
+import sqlite3
 
 def write(p, fields, data):
     with open(p, 'w', newline='') as f:
         w=csv.DictWriter(f, fieldnames=fields); w.writeheader(); w.writerows(data)
 
 class ServiceTests(unittest.TestCase):
+    def test_day_types_and_legacy_model(self):
+        self.assertEqual(day_type(date(2026, 10, 2)), 'weekday')
+        self.assertEqual(day_type(date(2026, 10, 3)), 'saturday')
+        self.assertEqual(day_type(date(2026, 10, 4)), 'sunday')
+        with tempfile.TemporaryDirectory() as tmp:
+            db_path = Path(tmp) / 'legacy.db'
+            with sqlite3.connect(db_path) as db:
+                db.execute('CREATE TABLE metadata (key TEXT PRIMARY KEY, value TEXT)')
+            with self.assertRaisesRegex(ValueError, 'rebuild the model'):
+                query(db_path, '8UP', 'a', 'b', '2026-10-03T09:00:00+05:30')
+
+    def test_rejects_legacy_training_records(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            p = Path(tmp)
+            (p / 'input.json').write_text(json.dumps({'records': [{'date': '2026-10-03', 'day_type': 'weekend'}]}))
+            with self.assertRaisesRegex(ValueError, 'regenerate the training data'):
+                create_database(p / 'input.json', p / 'model.db')
+
     def test_calendar_exception_and_after_midnight(self):
         with tempfile.TemporaryDirectory() as tmp:
             p=Path(tmp)
@@ -23,8 +44,8 @@ class ServiceTests(unittest.TestCase):
             write(p/'calendar_dates.txt',['service_id','date','exception_type'],[{'service_id':'s','date':'20261001','exception_type':'2'}])
             counts=scheduled_crossings(p,'2026-10-02','2026-10-03')
             self.assertNotIn(('8up','a','b','2026-10-02',1,'weekday'),counts)
-            self.assertEqual(counts[('8up','a','b','2026-10-03',1,'weekend')],1)
-            records = [{'route':'8up','from_stop_id':'a','to_stop_id':'b','date':'2026-10-03','hour':1,'day_type':'weekend','passengers':4}]
+            self.assertEqual(counts[('8up','a','b','2026-10-03',1,'saturday')],1)
+            records = [{'route':'8up','from_stop_id':'a','to_stop_id':'b','date':'2026-10-03','hour':1,'day_type':'saturday','passengers':4}]
             source = {'training_start':'2026-10-02','training_end':'2026-10-03','definition':'sample','quality':{},'records':records}
             (p/'input.json').write_text(json.dumps(source))
             create_database(p/'input.json', p/'model.db', gtfs=p)

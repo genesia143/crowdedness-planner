@@ -42,6 +42,15 @@ class RelativeBandTest(unittest.TestCase):
         self.assertEqual(self.band(11)['label'], 'insufficient evidence')
         self.assertEqual(self.band(12)['label'], 'insufficient evidence')
 
+    def test_saturday_and_sunday_require_all_three_training_days(self):
+        for kind in ('saturday', 'sunday'):
+            for hour, passengers in [(8,10),(9,20),(10,30)]:
+                self.db.execute('INSERT INTO service_signals VALUES (?,?,?,?,?,?,?,?,?)',('8UP','a','b',hour,kind,3,passengers,3,0))
+                self.db.execute('INSERT INTO scheduled_totals VALUES (?,?,?,?,?,?,?)',('8UP','a','b',hour,kind,3,3))
+            self.assertEqual(relative_band(self.db,'8UP','a','b',kind,8)['label'],'likely quieter')
+            self.db.execute('UPDATE service_signals SET matched_days=2 WHERE route=? AND day_type=? AND hour=?',('8UP',kind,8))
+            self.assertEqual(relative_band(self.db,'8UP','a','b',kind,8)['label'],'insufficient evidence')
+
     def test_ties_share_midrank(self):
         self.add(8, 10)
         self.add(9, 10)

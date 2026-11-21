@@ -28,7 +28,7 @@ class FinalEvaluationTests(unittest.TestCase):
                 db.executescript('''CREATE TABLE metadata(key, value);
                     CREATE TABLE scheduled_totals(route,origin,destination,hour,day_type,scheduled_crossings,scheduled_days);
                     CREATE TABLE service_signals(route,origin,destination,hour,day_type,sampled_passengers,matched_days);''')
-                db.executemany('INSERT INTO metadata VALUES (?,?)', [('training_start', '"2026-10-01"'), ('training_end', '"2026-10-21"'), ('definition', '"grouped by ticket boarding hour"')])
+                db.executemany('INSERT INTO metadata VALUES (?,?)', [('training_start', '"2026-10-01"'), ('training_end', '"2026-10-21"'), ('definition', '"grouped by ticket boarding hour"'), ('day_type_scheme', '"weekday_saturday_sunday_v1"')])
                 db.execute('INSERT INTO scheduled_totals VALUES (?,?,?,?,?,?,?)', ('R', 'A', 'B', 8, 'weekday', 2, 4))
                 db.execute('INSERT INTO service_signals VALUES (?,?,?,?,?,?,?)', ('R', 'A', 'B', 8, 'weekday', 10, 3))
             data = root / 'holdout.json'
@@ -48,7 +48,7 @@ class FinalEvaluationTests(unittest.TestCase):
             root = Path(temp); dbfile = root / 'model.db'
             with sqlite3.connect(dbfile) as db:
                 db.executescript('CREATE TABLE metadata(key,value); CREATE TABLE scheduled_totals(route,origin,destination,hour,day_type,scheduled_crossings,scheduled_days); CREATE TABLE service_signals(route,origin,destination,hour,day_type,sampled_passengers,matched_days);')
-                db.executemany('INSERT INTO metadata VALUES (?,?)', [('training_start','"2026-10-01"'), ('training_end','"2026-10-21"'), ('definition','"grouped by ticket boarding hour"')])
+                db.executemany('INSERT INTO metadata VALUES (?,?)', [('training_start','"2026-10-01"'), ('training_end','"2026-10-21"'), ('definition','"grouped by ticket boarding hour"'), ('day_type_scheme','"weekday_saturday_sunday_v1"')])
                 for hour, passengers in [(8,10),(9,20),(10,30)]:
                     db.execute('INSERT INTO scheduled_totals VALUES (?,?,?,?,?,?,?)',('R','A','B',hour,'weekday',2,4))
                     db.execute('INSERT INTO service_signals VALUES (?,?,?,?,?,?,?)',('R','A','B',hour,'weekday',passengers,3))
@@ -65,7 +65,7 @@ class FinalEvaluationTests(unittest.TestCase):
     def test_cli_refuses_changed_target_before_writing_report(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp); output = root / 'report.json'
-            args = ['eval', '--database','db', '--validation','target', '--gtfs','gtfs', '--mapping','map', '--source','src', '--manifest','manifest', '--output',str(output), '--confirm-final-evaluation']
+            args = ['eval', '--database','db', '--validation','target', '--gtfs','gtfs', '--mapping','map', '--training-records','training', '--source','src', '--manifest','manifest', '--output',str(output), '--confirm-final-evaluation']
             with patch.object(sys, 'argv', args), patch.object(final, 'checked_source', return_value='src'), patch.object(final, 'verify', return_value=True), patch.object(final, 'fingerprint', side_effect=[{'sha256':'first'}, {'sha256':'changed'}]), patch.object(final, 'evaluate', return_value={}):
                 with self.assertRaisesRegex(ValueError, 'target changed'):
                     final.main()
@@ -81,8 +81,8 @@ class FinalEvaluationTests(unittest.TestCase):
             dbfile = root / 'model.db'
             with sqlite3.connect(dbfile) as db:
                 db.executescript('CREATE TABLE metadata(key,value); CREATE TABLE scheduled_totals(route,origin,destination,hour,day_type,scheduled_crossings,scheduled_days); CREATE TABLE service_signals(route,origin,destination,hour,day_type,sampled_passengers,matched_days);')
-                db.executemany('INSERT INTO metadata VALUES (?,?)', [('training_start','"2026-10-01"'), ('training_end','"2026-10-21"'), ('definition','"grouped by ticket boarding hour"')])
-                for kind in ('weekday', 'weekend'):
+                db.executemany('INSERT INTO metadata VALUES (?,?)', [('training_start','"2026-10-01"'), ('training_end','"2026-10-21"'), ('definition','"grouped by ticket boarding hour"'), ('day_type_scheme','"weekday_saturday_sunday_v1"')])
+                for kind in ('weekday', 'saturday', 'sunday'):
                     for hour, passengers in [(8,10),(9,20),(10,30)]:
                         db.execute('INSERT INTO scheduled_totals VALUES (?,?,?,?,?,?,?)', ('R','A','B',hour,kind,2,4))
                         db.execute('INSERT INTO service_signals VALUES (?,?,?,?,?,?,?)', ('R','A','B',hour,kind,passengers,3))
@@ -90,7 +90,7 @@ class FinalEvaluationTests(unittest.TestCase):
             records = []
             # Weekday target reverses the training order; Saturday target ties,
             # so its three hours are ineligible for target rank comparison.
-            for day, kind, values in [('2026-10-26','weekday',[3,2,1]), ('2026-10-31','weekend',[1,1,1])]:
+            for day, kind, values in [('2026-10-26','weekday',[3,2,1]), ('2026-10-31','saturday',[1,1,1])]:
                 for hour, count in zip((8,9,10), values):
                     schedule[('R','A','B',day,hour,kind)] = 1
                     records.append({'route':'R','from_stop_id':'A','to_stop_id':'B','date':day,'hour':hour,'day_type':kind,'passengers':count})

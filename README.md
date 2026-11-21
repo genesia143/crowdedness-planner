@@ -71,3 +71,5 @@ With a graph built from the same GTFS version, start OpenTripPlanner 2.7 with Ja
 The screen at `http://127.0.0.1:8000/` uses the mapped journey endpoint when OTP is configured. It shows provisional per-segment comparisons and missing evidence; it does not show validated occupancy or a cross-route crowding ranking. Browser-level verification remains outstanding.
 
 For a contributor-oriented walkthrough of the current setup, see [the setup guide](docs/setup.md). It has not yet been verified on an independent clean machine.
+
+The experimental model now distinguishes weekdays, Saturdays and Sundays. Rebuild both training records and index after upgrading: older pooled-weekend models are rejected. Saturday and Sunday each have only three training days, and Sunday has no tuning evidence; public holidays are not separately modelled.

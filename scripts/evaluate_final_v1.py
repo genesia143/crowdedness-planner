@@ -14,6 +14,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
 from service import scheduled_crossings
+from model import day_type
 from freeze_manifest import fingerprint, verify
 from validate_v1_ranking import compare_group
 
@@ -51,6 +52,8 @@ def evaluate(database, validation, gtfs):
         meta = {key: json.loads(value) for key, value in db.execute('SELECT key,value FROM metadata')}
         if meta['training_start'] != '2026-10-01' or meta['training_end'] != '2026-10-21':
             raise ValueError('expected frozen October 1–21 training model')
+        if meta.get('day_type_scheme') != 'weekday_saturday_sunday_v1':
+            raise ValueError('final evaluation requires a separate Saturday/Sunday model')
         if 'grouped by ticket boarding hour' not in meta.get('definition', ''):
             raise ValueError('this evaluator requires a boarding-hour model')
         predictions, supported = {}, defaultdict(dict)
@@ -63,7 +66,7 @@ def evaluate(database, validation, gtfs):
         for route, origin, dest, hour, kind, passengers, buses, days, scheduled_days in db.execute(sql):
             rate = passengers / buses
             predictions[(route, origin, dest, hour, kind)] = rate
-            if days >= 3 and passengers >= 10 and scheduled_days >= 4:
+            if days >= 3 and passengers >= 10 and scheduled_days >= (3 if kind in ('saturday', 'sunday') else 4):
                 supported[(route, origin, dest, kind)][hour] = rate
     with open(validation, encoding='utf-8') as handle:
         data = json.load(handle)
@@ -75,6 +78,8 @@ def evaluate(database, validation, gtfs):
     for row in data['records']:
         if not START <= row['date'] <= END:
             raise ValueError('record outside final evaluation dates')
+        if row['day_type'] != day_type(date.fromisoformat(row['date'])):
+            raise ValueError('final evaluation day type does not match its date')
         key = (row['route'], row['from_stop_id'], row['to_stop_id'], row['date'], row['hour'], row['day_type'])
         observations[key] += row['passengers']
     label_groups = {group for group, hours in supported.items() if len(hours) >= 3 and len(set(hours.values())) >= 2}
@@ -144,20 +149,20 @@ def evaluate(database, validation, gtfs):
     return {'start': START, 'end': END, 'matching_quality': data['quality'], 'subgroups': result,
             'unmatched_to_schedule_records': sum(key not in schedule for key in observations),
             'limitations': 'Ticket sample, not occupancy; scheduled zero samples assume complete ingestion. '
-                           'Ranking comparisons are correlated. Saturday and Sunday share the trained weekend category. '
+                           'Ranking comparisons are correlated. Saturday and Sunday are separate categories; Sunday has no development tuning evidence. '
                            'Timing, matching and service differences can bias results. Label coverage is matched, scheduled passenger-segments, not unique people, tickets or complete journeys. '
                            'Label agreement compares training labels against within-subgroup ticket-sample ranks on available supported hours, not actual occupancy; tied rates receive midranks.'}
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    for name in ('database', 'validation', 'gtfs', 'mapping', 'source', 'manifest', 'output'):
+    for name in ('database', 'validation', 'gtfs', 'mapping', 'training-records', 'source', 'manifest', 'output'):
         parser.add_argument('--' + name, required=True)
     parser.add_argument('--confirm-final-evaluation', action='store_true')
     args = parser.parse_args()
     if not args.confirm_final_evaluation:
         parser.error('model freeze and explicit --confirm-final-evaluation are required')
-    inputs = {'database': args.database, 'gtfs': args.gtfs, 'mapping': args.mapping,
+    inputs = {'database': args.database, 'gtfs': args.gtfs, 'mapping': args.mapping, 'training_records': args.training_records,
               'source': checked_source(args.source), 'evaluator': __file__,
               'ranking': str(Path(__file__).with_name('validate_v1_ranking.py')),
               'manifest_tool': str(Path(__file__).with_name('freeze_manifest.py'))}

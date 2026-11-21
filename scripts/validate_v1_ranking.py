@@ -4,6 +4,7 @@ Development only: refuses data outside 22–24 October. A sample zero means no
 matched ticket, not no riders. This is not validation against bus occupancy.
 """
 import argparse
+from datetime import date
 from collections import Counter, defaultdict
 from itertools import combinations
 import json
@@ -13,6 +14,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
 from service import scheduled_crossings
+from model import day_type
 
 
 def compare_group(training, observed):
@@ -42,6 +44,8 @@ def evaluate(database, validation, gtfs):
     training = defaultdict(dict)
     with sqlite3.connect('file:' + str(Path(database).resolve()) + '?mode=ro', uri=True) as db:
         meta = {key: json.loads(value) for key, value in db.execute('SELECT key,value FROM metadata')}
+        if meta.get('day_type_scheme') != 'weekday_saturday_sunday_v1':
+            raise ValueError('Use a model rebuilt with separate Saturday and Sunday categories')
         if meta['training_end'] >= start:
             raise ValueError('training must end before the evaluation period')
         sql = '''SELECT s.route,s.origin,s.destination,s.day_type,s.hour,
@@ -50,13 +54,14 @@ def evaluate(database, validation, gtfs):
                  ON s.route=t.route AND s.origin=t.origin AND s.destination=t.destination
                  AND s.hour=t.hour AND s.day_type=t.day_type
                  WHERE s.matched_days>=3 AND s.sampled_passengers>=10
-                   AND t.scheduled_days>=4 AND t.scheduled_crossings>0'''
+                   AND t.scheduled_days >= CASE WHEN s.day_type IN ('saturday','sunday') THEN 3 ELSE 4 END AND t.scheduled_crossings>0'''
         for route, origin, dest, kind, hour, passengers, crossings in db.execute(sql):
             training[(route, origin, dest, kind)][hour] = passengers / crossings
     observed = defaultdict(int)
     for row in data['records']:
         if not start <= row['date'] <= end:
             raise ValueError('record outside declared validation dates')
+        if row['day_type'] != day_type(date.fromisoformat(row['date'])): raise ValueError('Tuning day type does not match calendar date')
         observed[(row['route'], row['from_stop_id'], row['to_stop_id'], row['date'], row['hour'], row['day_type'])] += row['passengers']
     totals = defaultdict(lambda: [0, 0])
     for (route, origin, dest, day, hour, kind), buses in scheduled_crossings(gtfs, start, end).items():

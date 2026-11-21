@@ -4,6 +4,7 @@ The target labels are relative ranks within the *same supported hours* as the
 training labels. They are a noisy ticket-sample reference, not occupancy truth.
 """
 import argparse
+from datetime import date
 from collections import Counter, defaultdict
 import json
 from pathlib import Path
@@ -12,6 +13,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
 from service import scheduled_crossings
+from model import day_type
 
 
 def bands(rates):
@@ -44,6 +46,8 @@ def evaluate(database, validation, gtfs):
     training = defaultdict(dict)
     with sqlite3.connect('file:' + str(Path(database).resolve()) + '?mode=ro', uri=True) as db:
         meta = {k: json.loads(v) for k, v in db.execute('SELECT key,value FROM metadata')}
+        if meta.get('day_type_scheme') != 'weekday_saturday_sunday_v1':
+            raise ValueError('Use a model rebuilt with separate Saturday and Sunday categories')
         if meta['training_end'] >= start:
             raise ValueError('Training must precede tuning')
         sql = '''SELECT s.route,s.origin,s.destination,s.day_type,s.hour,
@@ -51,7 +55,7 @@ def evaluate(database, validation, gtfs):
                  FROM service_signals s JOIN scheduled_totals t
                  USING(route,origin,destination,hour,day_type)
                  WHERE s.matched_days>=3 AND s.sampled_passengers>=10
-                   AND t.scheduled_days>=4 AND t.scheduled_crossings>0'''
+                   AND t.scheduled_days >= CASE WHEN s.day_type IN ('saturday','sunday') THEN 3 ELSE 4 END AND t.scheduled_crossings>0'''
         for route, origin, dest, kind, hour, rate in db.execute(sql):
             training[(route, origin, dest, kind)][hour] = rate
     observed = defaultdict(int)
