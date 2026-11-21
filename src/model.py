@@ -33,7 +33,9 @@ def critical_tokens(value):
 
 def rows(path):
     with open(path, encoding='utf-8-sig', newline='') as handle:
-        yield from csv.DictReader(handle)
+        header = handle.readline()
+        handle.seek(0)
+        yield from csv.DictReader(handle, delimiter='\t' if '\t' in header else ',')
 
 
 def route_patterns(gtfs):
@@ -68,8 +70,9 @@ def match_segments(route, start, end, names, patterns):
 
 class StopMatcher:
     """Route-scoped exact matching with an optional conservative fuzzy fallback."""
-    def __init__(self, names, patterns, fuzzy=False):
+    def __init__(self, names, patterns, fuzzy=False, reviewed=None):
         self.names, self.patterns, self.fuzzy = names, patterns, fuzzy
+        self.reviewed = reviewed or {}
         self.route_names = {}
         for route, variants in patterns.items():
             self.route_names[route] = sorted({normalize(names[s]) for p in variants for s in p})
@@ -100,22 +103,39 @@ class StopMatcher:
         route = normalize(route)
         if route not in self.patterns:
             return None, 'route_unmatched'
-        start, start_kind = self.resolve(route, start)
-        end, end_kind = self.resolve(route, end)
-        if start is None or end is None:
+        start_id = self.reviewed.get((route, normalize(start), 'boarding'))
+        end_id = self.reviewed.get((route, normalize(end), 'destination'))
+        start_name, start_kind = (None, 'reviewed') if start_id else self.resolve(route, start)
+        end_name, end_kind = (None, 'reviewed') if end_id else self.resolve(route, end)
+        if (start_id is None and start_name is None) or (end_id is None and end_name is None):
             return None, 'stop_unmatched_or_ambiguous'
-        segments = match_segments(route, start, end, self.names, self.patterns)
-        if not segments:
+        candidates = set()
+        for pattern in self.patterns[route]:
+            for i, stop in enumerate(pattern):
+                if not (stop == start_id if start_id is not None else normalize(self.names[stop]) == start_name):
+                    continue
+                for j in range(i + 1, len(pattern)):
+                    target = pattern[j]
+                    if target == end_id if end_id is not None else normalize(self.names[target]) == end_name:
+                        candidates.add(tuple(zip(pattern[i:j], pattern[i+1:j+1])))
+        if len(candidates) != 1:
             return None, 'path_unmatched_or_ambiguous'
-        return segments, 'fuzzy' if 'fuzzy' in (start_kind, end_kind) else 'exact'
+        method = 'reviewed' if 'reviewed' in (start_kind, end_kind) else ('fuzzy' if 'fuzzy' in (start_kind, end_kind) else 'exact')
+        return next(iter(candidates)), method
 
-def build(tickets, gtfs, start_date, end_date, output, fuzzy=False, segment_timing=False):
+def build(tickets, gtfs, start_date, end_date, output, fuzzy=False, segment_timing=False, review_file=None, confirm_review=False):
     start, end = date.fromisoformat(start_date), date.fromisoformat(end_date)
     if end < start:
         raise ValueError('end date must not precede start date')
     names, patterns = route_patterns(gtfs)
     counts, quality = Counter(), Counter()
-    matcher = StopMatcher(names, patterns, fuzzy=fuzzy)
+    reviewed = {}
+    audit = []
+    if review_file:
+        from reviewed_mappings import inspect
+        audit = inspect(review_file, gtfs, confirmed=confirm_review)
+        reviewed = {(normalize(r['route']), normalize(r['ticket_stop_name']), r['used_as']): r['stop_id'] for r in audit if r['status'] == 'accepted'}
+    matcher = StopMatcher(names, patterns, fuzzy=fuzzy, reviewed=reviewed)
     if segment_timing:
         from timing import ScheduleOffsets
         offsets = ScheduleOffsets(gtfs)
@@ -155,7 +175,7 @@ def build(tickets, gtfs, start_date, end_date, output, fuzzy=False, segment_timi
             day_type = 'weekend' if crossing.weekday() >= 5 else 'weekday'
             counts[(normalize(key[0]), a, b, crossing.date().isoformat(), crossing.hour, day_type)] += passengers
     result = {'definition': ('ticket-sample passenger journeys by estimated segment crossing hour using median scheduled offset' if segment_timing else 'observed ticket-sample passenger journeys crossing a segment, grouped by ticket boarding hour'),
-              'training_start': start_date, 'training_end': end_date, 'fuzzy_enabled': fuzzy, 'segment_timing': segment_timing, 'quality': dict(quality),
+              'training_start': start_date, 'training_end': end_date, 'fuzzy_enabled': fuzzy, 'segment_timing': segment_timing, 'reviewed_mapping_count': len(reviewed), 'review_similarity_flags_confirmed': confirm_review, 'review_rows_flagged': sum(r['status'] != 'accepted' for r in audit), 'quality': dict(quality),
               'records': [{'route': route, 'from_stop_id': a, 'to_stop_id': b, 'date': day,
                            'hour': hour, 'day_type': kind, 'passengers': value}
                           for (route, a, b, day, hour, kind), value in sorted(counts.items())]}

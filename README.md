@@ -6,7 +6,7 @@ The October ticket data appears to be a thin and potentially biased sample. Its 
 
 ## Current status
 
-An initial segment-counting baseline and a local read-only API prototype are implemented. A validated crowding model, journey planner and UI are not implemented yet. The evaluation interface and ground truth must be confirmed with the organizers. The October tickets and static GTFS are present elsewhere in the workspace; they are not included in this project.
+A ticket-sample baseline and a local read-only API with direct scheduled-bus journeys are implemented. A validated crowding model, transfer and walking routing, and UI are not implemented yet. The evaluation interface and ground truth must be confirmed with the organizers. The October tickets and static GTFS are present elsewhere in the workspace; they are not included in this project.
 
 ## Run the initial baseline
 
@@ -29,10 +29,10 @@ After generating the training JSON above, index it and start the server:
 
 ```sh
 python3 src/index_model.py --input data/training.json --output data/model.db --gtfs /path/to/gtfs
-python3 src/api.py --database data/model.db --port 8000
+python3 src/api.py --database data/model.db --gtfs /path/to/gtfs --port 8000
 ```
 
-`GET /health` checks that the server is running. `GET /segments/signal` accepts `route`, `from_stop_id`, `to_stop_id`, and `departure` (an ISO timestamp including an offset). URL-encode parameters. It reports the mean sample count **on days with a matched observation**, and the number of such days. It does not include days without observations in the denominator, and is not a per-bus load, an unconditional forecast, or a calibrated crowding level. A missing signal returns an unavailable status. Stop search, journey planning, service normalization, validation, and production hardening remain to be built. The indexer currently loads the full JSON into memory.
+`GET /health` checks that the server is running. `GET /segments/signal` accepts `route`, `from_stop_id`, `to_stop_id`, and `departure` (an ISO timestamp including an offset). URL-encode parameters. It reports the mean sample count **on days with a matched observation**, and the number of such days. It does not include days without observations in the denominator, and is not a per-bus load, an unconditional forecast, or a calibrated crowding level. A missing signal returns an unavailable status. Stop search and direct scheduled-bus journeys are available when the GTFS directory is supplied; transfers, walking, independent crowding validation, and production hardening remain to be built. The indexer currently loads the full JSON into memory.
 
 ### Scheduled-service denominator
 
@@ -43,3 +43,9 @@ With `--gtfs`, the indexer divides matched ticket-sample passengers by scheduled
 The `--segment-timing` flag estimates each segment's crossing time by adding the median scheduled travel time from the ticket's boarding stop across GTFS trips with the same ordered stop path. This is experimental: the ticket creation time may differ from boarding, scheduled travel times may differ from actual travel, and a median across trips can hide time-of-day variation. Records without a suitable timing estimate are reported and excluded. Keep the default boarding-hour baseline until comparisons show whether this improves it.
 
 `scripts/sample_fuzzy.py` creates a reproducible, ticket-row-weighted CSV sample for manual review of accepted fuzzy matches, limited to the supplied dates. The same stop pair can appear more than once because frequent ticket rows receive proportionate weight. Record correctness and reasons in the review columns; do not treat unreviewed output as accuracy evidence. Fuzzy matching remains opt-in.
+
+### Direct journey API (V1 prototype)
+
+With `--gtfs`, `GET /stops?q=...` searches stop names. `GET /journeys?from_stop_id=...&to_stop_id=...&departure=...` returns up to five direct scheduled bus trips departing in the next two hours, sorted by scheduled arrival. The ISO 8601 departure must include a timezone offset. Results include scheduled waiting and ride times and a per-segment sample-per-scheduled-crossing signal when available. URL-encode query parameters, including the `+` in timezone offsets. No transfers, walking, live positions, actual occupancy or crowding ranking are provided. GTFS frequency-based service and missing stop times are not yet supported.
+
+To build V1 with a confirmed review workbook, add `--review /path/to/review.xlsx --confirm-review` to the training command. This uses the workbook's route-valid reviewed mappings, including low-similarity entries confirmed by the reviewer; invalid route/stop combinations remain excluded. The workbook and generated model are excluded from Git, so contributors require appropriate access to those inputs.

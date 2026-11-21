@@ -27,6 +27,14 @@ class MatchingTests(unittest.TestCase):
         matcher = StopMatcher(names, {'8up': {('a', 'b', 'c')}}, fuzzy=True)
         self.assertEqual(matcher.resolve('8up', 'West Patel Nagar'), (None, 'ambiguous'))
         self.assertEqual(matcher.resolve('8up', 'Mangol Puri R Block'), (None, 'ambiguous'))
+    def test_reviewed_stop_id_uses_route_and_role(self):
+        names = {'a':'Alpha', 'b':'Beta', 'c':'Gamma', 'd':'Beta'}
+        patterns = {'8up': {('a','b','c'), ('a','d','c')}, '9up': {('a','d','c')}}
+        reviewed = {('8up','custom beta','boarding'):'b'}
+        matcher = StopMatcher(names, patterns, reviewed=reviewed)
+        self.assertEqual(matcher.match('8UP','Custom Beta','Gamma'), ((('b','c'),), 'reviewed'))
+        self.assertIsNone(matcher.match('9UP','Custom Beta','Gamma')[0])
+        self.assertIsNone(matcher.match('8UP','Alpha','Custom Beta')[0])
     def test_fractional_timestamp_compatibility(self):
         self.assertEqual(parse_timestamp('2026-10-28 10:20:42.89825+05:30').microsecond, 898250)
         self.assertIsNotNone(parse_timestamp('2026-10-28T10:20:42Z').utcoffset())

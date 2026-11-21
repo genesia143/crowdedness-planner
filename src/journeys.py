@@ -1,0 +1,75 @@
+"""Direct scheduled bus journeys. No transfers, walking or live positions."""
+from collections import defaultdict
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+from model import rows
+from service import active_services
+from predict import query
+
+IST = timezone(timedelta(hours=5, minutes=30))
+
+
+def gtfs_seconds(text):
+    parts = text.split(':')
+    if len(parts) != 3: raise ValueError('invalid GTFS time')
+    h, m, s = map(int, parts)
+    if not 0 <= h < 48 or not 0 <= m < 60 or not 0 <= s < 60: raise ValueError('unsupported GTFS time')
+    return h * 3600 + m * 60 + s
+
+
+class JourneyPlanner:
+    def __init__(self, gtfs, database):
+        self.gtfs, self.database = Path(gtfs), database
+        if (self.gtfs/'frequencies.txt').exists(): raise ValueError('frequency-based service is not supported')
+        self.stops = {r['stop_id']:r['stop_name'] for r in rows(self.gtfs/'stops.txt')}
+        routes = {r['route_id']:r['route_short_name'] for r in rows(self.gtfs/'routes.txt')}
+        self.trips = {r['trip_id']:(routes.get(r['route_id']),r['service_id']) for r in rows(self.gtfs/'trips.txt')}
+        grouped = defaultdict(list)
+        for r in rows(self.gtfs/'stop_times.txt'):
+            if r['trip_id'] in self.trips:
+                if not r.get('arrival_time') or not r.get('departure_time'):
+                    raise ValueError('missing stop time; interpolation is not supported')
+                grouped[r['trip_id']].append((int(r['stop_sequence']),r['stop_id'],gtfs_seconds(r['arrival_time']),gtfs_seconds(r['departure_time']),r.get('pickup_type',''),r.get('drop_off_type','')))
+        self.by_stop = defaultdict(list)
+        for trip, seq in grouped.items():
+            seq.sort(); seq=tuple(seq)
+            for i, stop in enumerate(seq[:-1]):
+                if stop[4] in ('', '0'): self.by_stop[stop[1]].append((trip,seq,i))
+
+    def search_stops(self, text, limit=20):
+        if not text.strip(): raise ValueError('stop search query is required')
+        if not 1 <= limit <= 50: raise ValueError('limit must be between 1 and 50')
+        q=text.casefold().strip()
+        return [{'stop_id':sid,'stop_name':name} for sid,name in sorted(self.stops.items(),key=lambda item:(item[1].casefold(),item[0])) if q in name.casefold()][:limit]
+
+    def journeys(self, origin, destination, departure, limit=5):
+        if origin not in self.stops or destination not in self.stops: raise ValueError('unknown stop ID')
+        if origin == destination: raise ValueError('origin and destination must be different')
+        if not 1 <= limit <= 20: raise ValueError('limit must be between 1 and 20')
+        from model import parse_timestamp
+        dt=parse_timestamp(departure)
+        if dt.utcoffset() is None: raise ValueError('departure must include a timezone offset')
+        dt=dt.astimezone(IST)
+        active=active_services(self.gtfs,dt.date()-timedelta(days=1),dt.date())
+        choices=[]
+        for trip, seq, i in self.by_stop.get(origin,()):
+            route, service=self.trips[trip]
+            if not route: continue
+            for j in range(i+1,len(seq)):
+                if seq[j][1] != destination or seq[j][5] not in ('', '0'): continue
+                for service_day, services in active.items():
+                    if service not in services: continue
+                    midnight=datetime.combine(service_day,datetime.min.time(),tzinfo=IST)
+                    depart=midnight+timedelta(seconds=seq[i][3]); arrive=midnight+timedelta(seconds=seq[j][2])
+                    if not dt <= depart <= dt+timedelta(hours=2) or arrive < depart: continue
+                    choices.append((arrive,depart,route,trip,seq,i,j,midnight))
+        choices.sort(key=lambda v:(v[0],v[1],v[2],v[3]))
+        result=[]
+        for arrive,depart,route,trip,seq,i,j,midnight in choices[:limit]:
+            segments=[]
+            for k in range(i,j):
+                crossing=midnight+timedelta(seconds=seq[k][3])
+                signal=query(self.database,route,seq[k][1],seq[k+1][1],crossing.isoformat())
+                segments.append({'from_stop_id':seq[k][1],'to_stop_id':seq[k+1][1], 'scheduled_time':crossing.isoformat(), 'signal':signal.get('scheduled_service_proxy'), 'signal_status':signal['status']})
+            result.append({'route':route,'trip_id':trip,'from_stop_id':origin,'to_stop_id':destination,'scheduled_departure':depart.isoformat(),'scheduled_arrival':arrive.isoformat(),'waiting_minutes':(depart-dt).total_seconds()/60,'ride_minutes':(arrive-depart).total_seconds()/60,'segments':segments})
+        return {'origin':{'stop_id':origin,'name':self.stops[origin]},'destination':{'stop_id':destination,'name':self.stops[destination]},'requested_departure':dt.isoformat(),'journeys':result,'limitations':'Direct scheduled buses only, within two hours; no walking, transfers, live service or actual occupancy. Ticket creation time may differ from boarding time.'}
