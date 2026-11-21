@@ -17,3 +17,15 @@ The edited local `stops.txt` has 35 IDs changed to scientific notation relative 
 ## Runtime and limits
 
 A full northern-zone OSM extract plus the full GTFS feed exhausted a 5 GB Java heap. Even the five-route subset with that regional map ran out of heap while indexing. The 36 MB New Delhi extract plus five routes built successfully; the saved graph was about 60 MB. Scaling to the complete feed and geographic area, checking permissions/attribution for OSM data, deterministic setup for judges, verifying route coverage, and testing a 1 km hard constraint remain open. V1 source data and models are not in Git.
+
+## Recreate the trial feed
+
+Use the untouched original GTFS ZIP, rather than a spreadsheet-edited copy. From the repository root, run:
+
+```sh
+python3 scripts/prepare_otp_feed.py /path/to/original-gtfs.zip data/otp-trial/trial-gtfs.zip --routes 307DOWN,39UP,8UP,405UP,473UP
+```
+
+Create the output directory first. The destination must not already exist. The script selects the routes and their trips, stops, stop times and shapes, validates the referenced stops and shapes, and copies timetable metadata. It writes a flat ZIP that OTP can read. Run the model and OTP on the same source GTFS version; a trial subset is not a full-network feed. This is specific to this feed and trial, not a general-purpose GTFS validator. The archive, output and model are kept outside Git.
+
+The previous experiment used OTP 2.7.0 and Java 21 with a separately obtained BBBike New Delhi OpenStreetMap extract. Install those prerequisites and follow OTP's own graph-building instructions; this script does not download them or establish coverage outside the extract. Place only the intended GTFS ZIP and OSM extract in the OTP graph build directory. A complete setup for judges and full-region graph are still to be validated.

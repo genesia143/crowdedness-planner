@@ -6,7 +6,13 @@ The October ticket data appears to be a thin and potentially biased sample. Its 
 
 ## Current status
 
-A ticket-sample baseline and a local read-only API with direct scheduled-bus journeys are implemented. A validated crowding model, transfer and walking routing, and UI are not implemented yet. The evaluation interface and ground truth must be confirmed with the organizers. The October tickets and static GTFS are present elsewhere in the workspace; they are not included in this project.
+A ticket-sample baseline and a local read-only API with direct and experimental same-stop transfer journeys are implemented. An OpenTripPlanner walking experiment is described in [the trial note](docs/otp-trial.md), but is not integrated into the API. A validated crowding model and UI are not implemented yet. The evaluation interface and ground truth are unspecified in the brief. The October tickets and static GTFS are present elsewhere in the workspace; they are not included in this project.
+
+## Brief and working assumptions
+
+The PS2 brief asks for a rerunnable ticket-to-crowding pipeline, segment-level outputs, a journey planner or demo showing crowding alongside travel time, a technical note, and checks against familiar patterns and across weeks. It emphasizes a sound crowding model over a polished planner. The brief says the final ticket schema is to be confirmed; it does not define an API contract, numerical scoring formula, or hidden-test ground truth. We therefore treat those details as unknown, not established requirements.
+
+Our working assumptions are that the supplied GTFS schedule approximates service, ticket creation time approximates boarding time, and the matched ticket sample can indicate relative passenger pressure. Each may be wrong or vary by route and time. Missing riders, uneven digital-ticket use and incomplete matching prevent us from inferring actual onboard counts, seat availability or calibrated occupancy from these data alone. Scheduled service is not a count of buses that actually ran. We will report coverage and evidence strength, keep low-evidence results unavailable rather than imply an empty bus, and retain the final week as an untouched evaluation set until the approach is fixed. Relative labels must be validated on the tuning period before use; agreement with held-out ticket patterns would not establish accuracy against actual passenger counts.
 
 ## Run the initial baseline
 
