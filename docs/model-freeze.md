@@ -1,6 +1,6 @@
 # V1 model freeze and final evaluation plan
 
-**Status: frozen candidate for final evaluation.** The selected model is the boarding-hour V1 with separate Saturday and Sunday categories and the support rules below. Labels remain provisional, Sunday lacks tuning evidence, and this freeze does not establish occupancy accuracy. The final week must not be used to select or revise the model.
+**Status: revised candidate selected for guarded evaluation.** The boarding-hour V1 candidate below retains the strict hourly rule and adds the Sunday-only broader-window fallback described below. The earlier snapshot no longer describes the source or model; use a new verified snapshot. The final week must not be used to select or revise the model.
 
 ## Frozen candidate
 
@@ -22,6 +22,7 @@
   quieter, above two-thirds likely busier, and the rest typical. Otherwise
   report insufficient evidence. Comparisons are within the same route,
   directed segment and day type, not between routes or actual occupancy.
+- When the strict Sunday label is unavailable, compare overlapping windows spanning the requested hour and its immediate neighbours (clipped at midnight), using eligible scheduled hours, at least two distinct observed Sundays, five sample passengers, three supported reference hours and two distinct rates. This is marked `broader_window` and presented as weaker evidence. The index records which Sundays had observations, avoiding double-counting a date appearing in multiple hours. This is an exploratory relative pattern, not occupancy; see [the Sunday experiment](sunday-window-experiment.md).
 
 This is a defensible starting point, not proof of an optimal threshold or a
 validated confidence level. A crossing-hour model and alternative thresholds
@@ -65,7 +66,7 @@ number of in-period tickets, matched tickets and sample passengers; scheduled
 and unscheduled matched segment observations; API label availability with
 clear denominators; zero-inclusive sample-rate error and decisive hourly
 ranking agreement with ties and group counts. Break out weekday, Saturday and
-Sunday results even though the model currently pools the latter two. Explain
+Sunday results, which the model treats separately. Explain
 that Sunday is an untested subgroup, pairs share observations, and match rate,
 scheduled service, timing and ticket uptake can bias findings. Never present
 these metrics as ground-truth bus occupancy accuracy.
@@ -108,4 +109,4 @@ checks do not prove that the target was generated with the frozen command, do
 not prevent a separate rerun under another filename, and do not validate
 occupancy. Review the code and complete the freeze procedure before use.
 
-The selected separate-day training index, training records, clean GTFS, reviewed workbook, source directory and evaluation scripts were fingerprinted and the local snapshot verified. The full ticket file was not included or read for this snapshot. Metadata in the training records matches the index metadata, but that check and the fingerprints do not independently prove the index was built from those records. Any changes to frozen inputs or evaluation code require an explicit new snapshot and invalidate the present freeze.
+The earlier separate-day snapshot is historical. For the revised candidate, fingerprint and verify its rebuilt index, training records, clean GTFS, reviewed workbook, source directory and evaluation scripts before reading the final-week target. Do not include the full ticket file in the snapshot. Fingerprints do not independently prove how the index was built. Any subsequent change to frozen inputs or evaluation code invalidates the snapshot.

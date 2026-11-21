@@ -27,7 +27,8 @@ class FinalEvaluationTests(unittest.TestCase):
             with sqlite3.connect(dbfile) as db:
                 db.executescript('''CREATE TABLE metadata(key, value);
                     CREATE TABLE scheduled_totals(route,origin,destination,hour,day_type,scheduled_crossings,scheduled_days);
-                    CREATE TABLE service_signals(route,origin,destination,hour,day_type,sampled_passengers,matched_days);''')
+                    CREATE TABLE service_signals(route,origin,destination,hour,day_type,sampled_passengers,matched_days);
+                    CREATE TABLE sunday_observation_days(route,origin,destination,hour,day_type,day_mask);''')
                 db.executemany('INSERT INTO metadata VALUES (?,?)', [('training_start', '"2026-10-01"'), ('training_end', '"2026-10-21"'), ('definition', '"grouped by ticket boarding hour"'), ('day_type_scheme', '"weekday_saturday_sunday_v1"')])
                 db.execute('INSERT INTO scheduled_totals VALUES (?,?,?,?,?,?,?)', ('R', 'A', 'B', 8, 'weekday', 2, 4))
                 db.execute('INSERT INTO service_signals VALUES (?,?,?,?,?,?,?)', ('R', 'A', 'B', 8, 'weekday', 10, 3))
@@ -47,7 +48,7 @@ class FinalEvaluationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp); dbfile = root / 'model.db'
             with sqlite3.connect(dbfile) as db:
-                db.executescript('CREATE TABLE metadata(key,value); CREATE TABLE scheduled_totals(route,origin,destination,hour,day_type,scheduled_crossings,scheduled_days); CREATE TABLE service_signals(route,origin,destination,hour,day_type,sampled_passengers,matched_days);')
+                db.executescript('CREATE TABLE metadata(key,value); CREATE TABLE scheduled_totals(route,origin,destination,hour,day_type,scheduled_crossings,scheduled_days); CREATE TABLE service_signals(route,origin,destination,hour,day_type,sampled_passengers,matched_days); CREATE TABLE sunday_observation_days(route,origin,destination,hour,day_type,day_mask);')
                 db.executemany('INSERT INTO metadata VALUES (?,?)', [('training_start','"2026-10-01"'), ('training_end','"2026-10-21"'), ('definition','"grouped by ticket boarding hour"'), ('day_type_scheme','"weekday_saturday_sunday_v1"')])
                 for hour, passengers in [(8,10),(9,20),(10,30)]:
                     db.execute('INSERT INTO scheduled_totals VALUES (?,?,?,?,?,?,?)',('R','A','B',hour,'weekday',2,4))
@@ -75,12 +76,34 @@ class FinalEvaluationTests(unittest.TestCase):
         self.assertEqual(final.subgroup('2026-10-25'), 'sunday')
         self.assertEqual(final.subgroup('2026-10-31'), 'saturday')
 
+    def test_evaluator_uses_production_labels_and_reports_evidence_tiers(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp); dbfile = root / 'model.db'
+            with sqlite3.connect(dbfile) as db:
+                db.executescript('CREATE TABLE metadata(key,value); CREATE TABLE scheduled_totals(route,origin,destination,hour,day_type,scheduled_crossings,scheduled_days); CREATE TABLE service_signals(route,origin,destination,hour,day_type,sampled_passengers,matched_days); CREATE TABLE sunday_observation_days(route,origin,destination,hour,day_type,day_mask);')
+                db.executemany('INSERT INTO metadata VALUES (?,?)', [('training_start','"2026-10-01"'), ('training_end','"2026-10-21"'), ('definition','"grouped by ticket boarding hour"'), ('day_type_scheme','"weekday_saturday_sunday_v1"')])
+                for hour in range(8,12):
+                    db.execute('INSERT INTO scheduled_totals VALUES (?,?,?,?,?,?,?)', ('R','A','B',hour,'sunday',3,3))
+            records = [{'route':'R','from_stop_id':'A','to_stop_id':'B','date':'2026-10-25','hour':h,'day_type':'sunday','passengers':h-7} for h in range(8,12)]
+            path = root / 'synthetic.json'
+            path.write_text(json.dumps({'training_start':final.START,'training_end':final.END,'definition':'grouped by ticket boarding hour','quality':{},'records':records}))
+            schedule = {('R','A','B','2026-10-25',h,'sunday'):1 for h in range(8,12)}
+            bands = {8:{'label':'likely quieter','relative_percentile':0.1}, 9:{'label':'typical','relative_percentile':0.5,'evidence_tier':'broader_window'}, 10:{'label':'likely busier','relative_percentile':0.9,'evidence_tier':'broader_window'}, 11:{'label':'insufficient evidence'}}
+            with patch.object(final, 'scheduled_crossings', return_value=schedule), patch.object(final, 'relative_band', side_effect=lambda db,r,a,b,k,h: bands[h]):
+                sunday = final.evaluate(dbfile,path,root)['subgroups']['sunday']
+            self.assertEqual(sunday['labelled_sample_passenger_segments'], 6)
+            self.assertEqual(sunday['strict_labelled_sample_passenger_segments'], 1)
+            self.assertEqual(sunday['broader_window_labelled_sample_passenger_segments'], 5)
+            self.assertEqual(sunday['unlabelled_scheduled_cells'], 1)
+            self.assertEqual(sunday['rankings']['mixed_tier_groups_excluded'], 1)
+            self.assertEqual(sunday['label_agreement']['broader_window_evaluated_hours'], 2)
+
     def test_label_agreement_by_actual_day_and_insufficient_target(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             dbfile = root / 'model.db'
             with sqlite3.connect(dbfile) as db:
-                db.executescript('CREATE TABLE metadata(key,value); CREATE TABLE scheduled_totals(route,origin,destination,hour,day_type,scheduled_crossings,scheduled_days); CREATE TABLE service_signals(route,origin,destination,hour,day_type,sampled_passengers,matched_days);')
+                db.executescript('CREATE TABLE metadata(key,value); CREATE TABLE scheduled_totals(route,origin,destination,hour,day_type,scheduled_crossings,scheduled_days); CREATE TABLE service_signals(route,origin,destination,hour,day_type,sampled_passengers,matched_days); CREATE TABLE sunday_observation_days(route,origin,destination,hour,day_type,day_mask);')
                 db.executemany('INSERT INTO metadata VALUES (?,?)', [('training_start','"2026-10-01"'), ('training_end','"2026-10-21"'), ('definition','"grouped by ticket boarding hour"'), ('day_type_scheme','"weekday_saturday_sunday_v1"')])
                 for kind in ('weekday', 'saturday', 'sunday'):
                     for hour, passengers in [(8,10),(9,20),(10,30)]:

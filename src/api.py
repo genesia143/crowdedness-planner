@@ -13,6 +13,16 @@ def mapped_journeys(params, database, planner, otp_endpoint, gtfs, recorded, fal
     if any(len(params.get(field, [])) != 1 for field in fields): raise ValueError('provide from_lat, from_lon, to_lat, to_lon and departure once each')
     if len(params.get('max_transfer_walk', [])) > 1: raise ValueError('provide max_transfer_walk at most once')
     values = [params[field][0] for field in fields] + [params.get('max_transfer_walk', ['1000'])[0]]
+    for key in ('extra_minutes', 'latest_arrival'):
+        if len(params.get(key, [])) > 1:
+            raise ValueError('provide ' + key + ' at most once')
+    from journey_choices import select_choices
+    extra = params.get('extra_minutes', ['20'])[0]
+    latest = params.get('latest_arrival', [None])[0]
+    select_choices([], extra, latest)  # validate before calling routing services
+    def with_choices(result):
+        result['choices'] = select_choices(result['journeys'], extra, latest)
+        return result
     reason = 'mapped routing is not configured'
     if (otp_endpoint or recorded) and gtfs:
         from otp_client import fetch_otp, plan
@@ -20,7 +30,7 @@ def mapped_journeys(params, database, planner, otp_endpoint, gtfs, recorded, fal
             result = plan(otp_endpoint, gtfs, database, *values, fetch=recorded or fetch_otp,
                           stop_times=planner.trip_stop_times if planner is not None else None)
             result['routing_source'] = 'recorded OTP response' if recorded else 'OpenTripPlanner'
-            return result
+            return with_choices(result)
         except LookupError:
             reason = 'no recorded OTP response for this request'
         except OSError:
@@ -29,7 +39,7 @@ def mapped_journeys(params, database, planner, otp_endpoint, gtfs, recorded, fal
     if fallback is None: raise ValueError(reason)
     result = fallback.plan(*values)
     result['fallback_reason'] = reason
-    return result
+    return with_choices(result)
 
 
 def handler_for(database, planner=None, otp_endpoint=None, gtfs=None, recorded=None):

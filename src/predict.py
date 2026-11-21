@@ -6,6 +6,48 @@ from datetime import datetime
 from pathlib import Path
 
 
+def sunday_window_band(db, route, origin, destination, hour):
+    """Experimental centered-hour pooling, using exact distinct observation days."""
+    if not db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='sunday_observation_days'").fetchone():
+        return None
+    rows = db.execute('''SELECT t.hour,t.scheduled_crossings,t.scheduled_days,
+                               COALESCE(s.sampled_passengers,0),COALESCE(d.day_mask,0)
+                        FROM scheduled_totals t
+                        LEFT JOIN service_signals s USING(route,origin,destination,hour,day_type)
+                        LEFT JOIN sunday_observation_days d USING(route,origin,destination,hour,day_type)
+                        WHERE t.route=? AND t.origin=? AND t.destination=? AND t.day_type='sunday'
+                          AND t.scheduled_days=3 AND t.scheduled_crossings>0 AND t.scheduled_crossings%3=0 ''',
+                      (route, origin, destination)).fetchall()
+    hourly = {h: (crossings, days, passengers, mask) for h, crossings, days, passengers, mask in rows}
+    rates = {}
+    evidence = {}
+    for center in hourly:
+        observations = [hourly[h] for h in (center - 1, center, center + 1) if h in hourly]
+        mask = 0
+        for _, _, _, day_mask in observations:
+            mask |= day_mask
+        passengers = sum(item[2] for item in observations)
+        crossings = sum(item[0] for item in observations)
+        days = bin(mask).count('1')
+        if days >= 2 and passengers >= 5 and crossings > 0:
+            rates[center] = passengers / crossings
+            evidence[center] = (days, passengers, crossings)
+    if hour not in rates or len(rates) < 3 or len(set(rates.values())) < 2:
+        return None
+    value = rates[hour]
+    percentile = (sum(v < value for v in rates.values()) +
+                  0.5 * sum(v == value for v in rates.values())) / len(rates)
+    label = 'likely quieter' if percentile < 1 / 3 else 'likely busier' if percentile > 2 / 3 else 'typical'
+    days, passengers, crossings = evidence[hour]
+    return {'label': label, 'provisional': True, 'evidence_tier': 'broader_window',
+            'comparison': 'same route, directed segment and Sunday across overlapping three-hour windows',
+            'relative_percentile': percentile, 'reference_hours': len(rates),
+            'window_start_hour': max(0, hour - 1), 'window_end_hour': min(23, hour + 1),
+            'matched_days_in_window': days, 'sample_passengers_in_window': passengers,
+            'scheduled_crossings_in_window': crossings,
+            'limitation': 'Lower-evidence estimate pooled across adjacent hours on training Sundays. Ticket-sample pressure per scheduled crossing, not actual crowding, occupancy, or a cross-route comparison.'}
+
+
 def model_timing_basis(database):
     """Determine the indexed time convention; refuse unknown metadata."""
     with sqlite3.connect('file:' + str(Path(database).resolve()) + '?mode=ro', uri=True) as db:
@@ -41,6 +83,12 @@ def relative_band(db, route, origin, destination, day_type, hour):
     supported = {h: passengers / crossings for h, days, passengers, scheduled_days, crossings in rows
                  if days >= 3 and passengers >= 10 and scheduled_days >= (3 if day_type in ('saturday', 'sunday') else 4) and crossings > 0}
     if hour not in supported or len(supported) < 3 or len(set(supported.values())) < 2:
+        if day_type == 'sunday':
+            if not db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='sunday_observation_days'").fetchone():
+                unavailable['reason'] = 'Sunday broader-window evidence requires a rebuilt model index with observation-day data'
+            fallback = sunday_window_band(db, route, origin, destination, hour)
+            if fallback is not None:
+                return fallback
         return unavailable
     value = supported[hour]
     # Midrank handles ties consistently, including all members of a tie.
@@ -69,10 +117,12 @@ def create_database(source, destination, gtfs=None):
         db.execute('DROP TABLE IF EXISTS metadata')
         db.execute('DROP TABLE IF EXISTS service_signals')
         db.execute('DROP TABLE IF EXISTS scheduled_totals')
+        db.execute('DROP TABLE IF EXISTS sunday_observation_days')
         db.execute('CREATE TABLE signals (route TEXT, origin TEXT, destination TEXT, hour INTEGER, day_type TEXT, observed_days INTEGER, total INTEGER, PRIMARY KEY(route,origin,destination,hour,day_type))')
         db.execute('CREATE TABLE service_signals (route TEXT, origin TEXT, destination TEXT, hour INTEGER, day_type TEXT, matched_days INTEGER, sampled_passengers INTEGER, scheduled_crossings INTEGER, unmatched_days INTEGER, PRIMARY KEY(route,origin,destination,hour,day_type))')
         db.execute('CREATE TABLE metadata (key TEXT PRIMARY KEY, value TEXT)')
         db.execute('CREATE TABLE scheduled_totals (route TEXT, origin TEXT, destination TEXT, hour INTEGER, day_type TEXT, scheduled_days INTEGER, scheduled_crossings INTEGER, PRIMARY KEY(route,origin,destination,hour,day_type))')
+        db.execute('CREATE TABLE sunday_observation_days (route TEXT, origin TEXT, destination TEXT, hour INTEGER, day_type TEXT, day_mask INTEGER, PRIMARY KEY(route,origin,destination,hour,day_type))')
         schedule_totals = defaultdict(lambda: [0, 0])
         if scheduled is not None:
             for (route, origin, dest, day, hour, kind), buses in scheduled.items():
@@ -82,6 +132,8 @@ def create_database(source, destination, gtfs=None):
         db.executemany('INSERT INTO scheduled_totals VALUES (?,?,?,?,?,?,?)', (key + tuple(value) for key, value in schedule_totals.items()))
         summaries = defaultdict(lambda: [0, 0])
         service_summaries = defaultdict(lambda: [0, 0, 0, 0])
+        sunday_days = defaultdict(int)
+        start_date = date.fromisoformat(data['training_start'])
         for row in data['records']:
             key = (row['route'], row['from_stop_id'], row['to_stop_id'], row['hour'], row['day_type'])
             summaries[key][0] += 1
@@ -94,10 +146,16 @@ def create_database(source, destination, gtfs=None):
                     values[0] += 1
                     values[1] += row['passengers']
                     values[2] += buses
+                    if row['day_type'] == 'sunday':
+                        offset = (date.fromisoformat(row['date']) - start_date).days
+                        if not 0 <= offset < 63:
+                            raise ValueError('Sunday day-mask supports training periods up to 63 days')
+                        sunday_days[key] |= 1 << offset
                 else:
                     values[3] += 1
         db.executemany('INSERT INTO signals VALUES (?,?,?,?,?,?,?)', (key + tuple(value) for key, value in summaries.items()))
         db.executemany('INSERT INTO service_signals VALUES (?,?,?,?,?,?,?,?,?)', (key + tuple(value) for key, value in service_summaries.items()))
+        db.executemany('INSERT INTO sunday_observation_days VALUES (?,?,?,?,?,?)', (key + (mask,) for key, mask in sunday_days.items()))
         db.executemany('INSERT INTO metadata VALUES (?,?)', [(key, json.dumps(data[key])) for key in ('training_start','training_end','definition','quality')])
         db.execute('INSERT INTO metadata VALUES (?,?)', ('day_type_scheme', json.dumps('weekday_saturday_sunday_v1')))
         db.commit()

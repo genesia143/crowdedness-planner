@@ -77,10 +77,14 @@ def journey_crowding_summary(itinerary):
         signals = leg.get('v1_signals') or []
         counts = {label: 0 for label in labels}
         unknown = 0
+        broader = 0
         for signal in signals:
-            label = (signal.get('relative_crowding') or {}).get('label')
-            if signal.get('status') == 'available' and label in counts:
+            comparison = signal.get('relative_crowding') or {}
+            label = comparison.get('label')
+            fallback = comparison.get('evidence_tier') == 'broader_window'
+            if (signal.get('status') == 'available' or fallback) and label in counts:
                 counts[label] += 1
+                broader += int(fallback)
             else:
                 unknown += 1
         legs.append({
@@ -90,6 +94,7 @@ def journey_crowding_summary(itinerary):
             'segments_without_label': unknown,
             'segment_details_available': bool(signals),
             'segment_label_counts': counts,
+            'broader_window_segments': broader,
         })
     known = sum(leg['labelled_segments'] for leg in legs)
     missing = sum(leg['segments_without_label'] for leg in legs)
@@ -100,9 +105,19 @@ def journey_crowding_summary(itinerary):
         status = 'partial evidence'
     else:
         status = 'labelled segments available'
+    busier = sum(leg['segment_label_counts']['likely busier'] for leg in legs)
+    if busier:
+        headline = 'Some stretches busier than usual'
+    elif not known or missing or missing_legs:
+        headline = 'Limited crowding information'
+    else:
+        headline = 'No busier-than-usual stretches identified'
     itinerary['crowding_summary'] = {
         'status': status,
+        'headline': headline,
+        'busier_segments': busier,
         'labelled_segments': known,
+        'broader_window_segments': sum(leg['broader_window_segments'] for leg in legs),
         'segments_without_label': missing,
         'bus_legs_without_segment_details': missing_legs,
         'bus_legs': legs,

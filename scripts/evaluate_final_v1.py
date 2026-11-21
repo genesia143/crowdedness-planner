@@ -15,6 +15,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
 from service import scheduled_crossings
 from model import day_type
+from predict import relative_band
 from freeze_manifest import fingerprint, verify
 from validate_v1_ranking import compare_group
 
@@ -56,7 +57,9 @@ def evaluate(database, validation, gtfs):
             raise ValueError('final evaluation requires a separate Saturday/Sunday model')
         if 'grouped by ticket boarding hour' not in meta.get('definition', ''):
             raise ValueError('this evaluator requires a boarding-hour model')
-        predictions, supported = {}, defaultdict(dict)
+        if not db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='sunday_observation_days'").fetchone():
+            raise ValueError('Sunday broader-window policy requires a rebuilt observation-day index')
+        predictions = {}
         sql = '''SELECT t.route,t.origin,t.destination,t.hour,t.day_type,
                         COALESCE(s.sampled_passengers,0),t.scheduled_crossings,
                         COALESCE(s.matched_days,0),t.scheduled_days
@@ -66,8 +69,6 @@ def evaluate(database, validation, gtfs):
         for route, origin, dest, hour, kind, passengers, buses, days, scheduled_days in db.execute(sql):
             rate = passengers / buses
             predictions[(route, origin, dest, hour, kind)] = rate
-            if days >= 3 and passengers >= 10 and scheduled_days >= (3 if kind in ('saturday', 'sunday') else 4):
-                supported[(route, origin, dest, kind)][hour] = rate
     with open(validation, encoding='utf-8') as handle:
         data = json.load(handle)
     if (data['training_start'], data['training_end']) != (START, END):
@@ -82,8 +83,27 @@ def evaluate(database, validation, gtfs):
             raise ValueError('final evaluation day type does not match its date')
         key = (row['route'], row['from_stop_id'], row['to_stop_id'], row['date'], row['hour'], row['day_type'])
         observations[key] += row['passengers']
-    label_groups = {group for group, hours in supported.items() if len(hours) >= 3 and len(set(hours.values())) >= 2}
     schedule = scheduled_crossings(gtfs, START, END)
+    # Evaluate the exact function serving the API, including any broader-window
+    # fallback. Do not reconstruct its evidence rules in this evaluator.
+    requested = {(route, origin, dest, kind, hour)
+                 for route, origin, dest, day, hour, kind in schedule}
+    supported, predictions_by_label, tiers = defaultdict(dict), {}, {}
+    with sqlite3.connect('file:' + str(Path(database).resolve()) + '?mode=ro', uri=True) as db:
+        for route, origin, dest, kind, hour in requested:
+            band = relative_band(db, route, origin, dest, kind, hour)
+            label = band.get('label')
+            if label not in ('likely quieter', 'typical', 'likely busier'):
+                continue
+            cell = (route, origin, dest, kind, hour)
+            tier = band.get('evidence_tier', 'strict')
+            if tier not in ('strict', 'broader_window'):
+                raise ValueError(f'Unknown evidence tier: {tier}')
+            if 'relative_percentile' not in band:
+                raise ValueError('A label must include its production percentile')
+            supported[cell[:4]][hour] = band['relative_percentile']
+            predictions_by_label[cell] = label
+            tiers[cell] = tier
     stats = defaultdict(Counter)
     totals = defaultdict(lambda: [0, 0])
     for (route, origin, dest, day, hour, kind), buses in schedule.items():
@@ -94,8 +114,12 @@ def evaluate(database, validation, gtfs):
         stats[name]['scheduled_cells'] += 1
         stats[name]['matched_cells'] += bool(sample)
         stats[name]['sample_passenger_segments'] += sample
-        if group in label_groups and hour in supported[group]:
+        if hour in supported.get(group, {}):
             stats[name]['labelled_sample_passenger_segments'] += sample
+            stats[name][tiers[group + (hour,)] + '_labelled_sample_passenger_segments'] += sample
+            stats[name][tiers[group + (hour,)] + '_labelled_scheduled_cells'] += 1
+        else:
+            stats[name]['unlabelled_scheduled_cells'] += 1
         predicted = predictions.get((route, origin, dest, hour, kind))
         if predicted is not None:
             stats[name]['prediction_cells'] += 1
@@ -115,23 +139,30 @@ def evaluate(database, validation, gtfs):
         for name in ('weekday', 'saturday', 'sunday'):
             target = {h: totals[(name, group, h)][0] / totals[(name, group, h)][1]
                       for h in hours if (name, group, h) in totals and totals[(name, group, h)][1]}
-            if len(target) >= 2:
+            # Different tiers use different reference windows; percentiles
+            # between tiers cannot be treated as a common numerical scale.
+            group_tiers = {tiers[group + (h,)] for h in target}
+            if len(target) >= 2 and len(group_tiers) == 1:
                 rankings[name]['evaluated_groups'] += 1
                 rankings[name].update(compare_group(hours, target))
+            elif len(group_tiers) > 1:
+                rankings[name]['mixed_tier_groups_excluded'] += 1
             counts = labels[name]
             counts['training_supported_groups'] += 1
             counts['training_supported_hours'] += len(hours)
-            predicted_bands = bands(hours)
             target_bands = bands(target)
             if not target_bands:
                 counts['common_hours_excluded_no_target_rank'] += len(target)
                 continue
             counts['evaluated_groups'] += 1
             for hour, observed_label in target_bands.items():
-                predicted_label = predicted_bands[hour]
+                predicted_label = predictions_by_label[group + (hour,)]
                 counts['prediction=' + predicted_label + '|target=' + observed_label] += 1
                 counts['evaluated_hours'] += 1
                 counts['agreement'] += predicted_label == observed_label
+                tier = tiers[group + (hour,)]
+                counts[tier + '_evaluated_hours'] += 1
+                counts[tier + '_agreement'] += predicted_label == observed_label
     result = {}
     for name in ('weekday', 'saturday', 'sunday'):
         row = stats[name]
@@ -149,7 +180,8 @@ def evaluate(database, validation, gtfs):
     return {'start': START, 'end': END, 'matching_quality': data['quality'], 'subgroups': result,
             'unmatched_to_schedule_records': sum(key not in schedule for key in observations),
             'limitations': 'Ticket sample, not occupancy; scheduled zero samples assume complete ingestion. '
-                           'Ranking comparisons are correlated. Saturday and Sunday are separate categories; Sunday has no development tuning evidence. '
+                           'Ranking comparisons are correlated and exclude groups mixing evidence tiers. Saturday and Sunday are separate categories. '
+                           'Mean absolute error evaluates the original hourly numerical proxy, not the broader-window labels. '
                            'Timing, matching and service differences can bias results. Label coverage is matched, scheduled passenger-segments, not unique people, tickets or complete journeys. '
                            'Label agreement compares training labels against within-subgroup ticket-sample ranks on available supported hours, not actual occupancy; tied rates receive midranks.'}
 

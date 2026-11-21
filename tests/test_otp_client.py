@@ -91,4 +91,39 @@ class OtpClientTests(unittest.TestCase):
         journey_crowding_summary(journey)
         self.assertEqual(journey['crowding_summary']['status'], 'insufficient evidence')
 
+    def test_broader_window_label_counts_even_without_exact_hour_observation(self):
+        journey = {'legs': [{'mode': 'BUS', 'v1_signals': [
+            {'status': 'unavailable', 'relative_crowding': {'label': 'likely quieter', 'evidence_tier': 'broader_window'}},
+            {'status': 'unavailable', 'relative_crowding': {'label': 'insufficient evidence'}},
+        ]}]}
+        journey_crowding_summary(journey)
+        summary = journey['crowding_summary']
+        self.assertEqual(summary['status'], 'partial evidence')
+        self.assertEqual(summary['labelled_segments'], 1)
+        self.assertEqual(summary['broader_window_segments'], 1)
+        self.assertEqual(summary['segments_without_label'], 1)
+
+    def test_headline_reports_busier_even_when_other_segments_unknown(self):
+        journey = {'legs': [{'mode': 'BUS', 'v1_signals': [
+            {'status': 'available', 'relative_crowding': {'label': 'likely busier'}},
+            {'status': 'unavailable', 'relative_crowding': {'label': 'insufficient evidence'}},
+        ]}]}
+        journey_crowding_summary(journey)
+        self.assertEqual(journey['crowding_summary']['headline'], 'Some stretches busier than usual')
+        self.assertEqual(journey['crowding_summary']['segments_without_label'], 1)
+
+    def test_missing_evidence_does_not_imply_no_busier_stretches(self):
+        journey = {'legs': [{'mode': 'BUS', 'v1_signals': [
+            {'status': 'available', 'relative_crowding': {'label': 'typical'}},
+            {'status': 'unavailable', 'relative_crowding': {'label': 'insufficient evidence'}},
+        ]}]}
+        journey_crowding_summary(journey)
+        self.assertEqual(journey['crowding_summary']['headline'], 'Limited crowding information')
+
+    def test_all_supported_without_busier_reports_only_observed_comparisons(self):
+        journey = {'legs': [{'mode': 'BUS', 'v1_signals': [
+            {'status': 'available', 'relative_crowding': {'label': 'typical'}}]}]}
+        journey_crowding_summary(journey)
+        self.assertEqual(journey['crowding_summary']['headline'], 'No busier-than-usual stretches identified')
+
 if __name__ == '__main__': unittest.main()
