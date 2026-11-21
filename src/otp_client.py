@@ -111,21 +111,63 @@ def journey_crowding_summary(itinerary):
     }
 
 
-def plan(endpoint, gtfs, database, lat1, lon1, lat2, lon2, departure, max_transfer_walk=1000):
-    coords = [float(v) for v in (lat1, lon1, lat2, lon2)]
+def validate_request(lat1, lon1, lat2, lon2, departure, max_transfer_walk=1000):
+    """Check mapped-journey inputs; shared by OTP and the built-in fallback."""
+    try:
+        coords = [float(v) for v in (lat1, lon1, lat2, lon2)]
+    except (TypeError, ValueError):
+        raise ValueError('invalid coordinates')
     if not all(math.isfinite(x) for x in coords) or not all(-90 <= coords[i] <= 90 for i in (0,2)) or not all(-180 <= coords[i] <= 180 for i in (1,3)):
         raise ValueError('invalid coordinates')
     when = datetime.fromisoformat(departure.replace('Z', '+00:00'))
     if when.utcoffset() is None:
         raise ValueError('departure must include a timezone offset')
-    limit = float(max_transfer_walk)
+    try:
+        limit = float(max_transfer_walk)
+    except (TypeError, ValueError):
+        raise ValueError('max_transfer_walk must be between 0 and 10000 metres')
     if not math.isfinite(limit) or not 0 <= limit <= 10000:
         raise ValueError('max_transfer_walk must be between 0 and 10000 metres')
-    variables = dict(zip(('lat1','lon1','lat2','lon2'), coords))
-    variables['when'] = when.isoformat()
+    return coords, when, limit
+
+
+def fetch_otp(endpoint, variables):
     request = Request(endpoint, data=json.dumps({'query':QUERY, 'variables':variables}).encode(), headers={'Content-Type':'application/json'})
     with urlopen(request, timeout=90) as response:
-        data = json.load(response)
+        return json.load(response)
+
+
+class RecordedOTP:
+    """Replay raw OTP responses saved by scripts/record_fixtures.py.
+
+    Matches on rounded coordinates and the exact departure; raises LookupError
+    when no recording exists so the caller can fall back.
+    """
+    def __init__(self, directory):
+        from pathlib import Path
+        self.directory = Path(directory)
+        manifest = json.loads((self.directory / 'manifest.json').read_text(encoding='utf-8'))
+        # The recorder writes origin/destination; from/to is accepted for hand-written manifests.
+        self.cases = {self.key(*case.get('origin', case.get('from')), *case.get('destination', case.get('to')), case['departure']): case['id']
+                      for case in manifest['cases']}
+
+    @staticmethod
+    def key(lat1, lon1, lat2, lon2, when):
+        moment = datetime.fromisoformat(str(when).replace('Z', '+00:00'))
+        return tuple(round(float(v), 5) for v in (lat1, lon1, lat2, lon2)) + (moment.isoformat(),)
+
+    def __call__(self, endpoint, variables):
+        case = self.cases.get(self.key(variables['lat1'], variables['lon1'], variables['lat2'], variables['lon2'], variables['when']))
+        if case is None:
+            raise LookupError('no recorded OTP response for this request')
+        return json.loads((self.directory / 'otp' / (case + '.json')).read_text(encoding='utf-8'))
+
+
+def plan(endpoint, gtfs, database, lat1, lon1, lat2, lon2, departure, max_transfer_walk=1000, fetch=fetch_otp):
+    coords, when, limit = validate_request(lat1, lon1, lat2, lon2, departure, max_transfer_walk)
+    variables = dict(zip(('lat1','lon1','lat2','lon2'), coords))
+    variables['when'] = when.isoformat()
+    data = fetch(endpoint, variables)
     if data.get('errors') or not (data.get('data') or {}).get('planConnection'):
         raise RuntimeError('OpenTripPlanner could not plan the journey')
     candidates = [edge['node'] for edge in data['data']['planConnection']['edges']]
