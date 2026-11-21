@@ -70,6 +70,14 @@ With a graph built from the same GTFS version, start OpenTripPlanner 2.7 with Ja
 
 The screen at `http://127.0.0.1:8000/` uses the mapped journey endpoint when OTP is configured. It shows provisional per-segment comparisons and missing evidence; it does not show validated occupancy or a cross-route crowding ranking. Browser-level verification remains outstanding.
 
+### Without a running OTP
+
+`/journeys/mapped` answers in this order: the live OTP endpoint if `--otp-endpoint` is given; a recorded response if `--otp-recordings tests/fixtures/otp` is given and the request matches a recorded case; otherwise the built-in planner, when `--gtfs` is supplied. The response's `routing_source` says which answered and `fallback_reason` says why. The built-in fallback searches up to eight stops within 800 m of each end, for direct buses and changes at the same stop only; walking is a straight-line estimate with a 1.3 detour factor at 4.5 km/h, not a street route. Segment signals and the journey evidence summary are attached the same way as for OTP results. The screen shows a "Simplified routing" note when the fallback answered.
+
+```sh
+python3 src/api.py --database data/model.db --gtfs /path/to/gtfs --otp-recordings tests/fixtures/otp --port 8000
+```
+
 For a contributor-oriented walkthrough of the current setup, see [the setup guide](docs/setup.md). It has not yet been verified on an independent clean machine.
 
 The experimental model now distinguishes weekdays, Saturdays and Sundays. Rebuild both training records and index after upgrading: older pooled-weekend models are rejected. Saturday and Sunday each have only three training days, and Sunday has no tuning evidence; public holidays are not separately modelled.
