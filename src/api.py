@@ -17,7 +17,8 @@ def mapped_journeys(params, database, planner, otp_endpoint, gtfs, recorded, fal
     if (otp_endpoint or recorded) and gtfs:
         from otp_client import fetch_otp, plan
         try:
-            result = plan(otp_endpoint, gtfs, database, *values, fetch=recorded or fetch_otp)
+            result = plan(otp_endpoint, gtfs, database, *values, fetch=recorded or fetch_otp,
+                          stop_times=planner.trip_stop_times if planner is not None else None)
             result['routing_source'] = 'recorded OTP response' if recorded else 'OpenTripPlanner'
             return result
         except LookupError:

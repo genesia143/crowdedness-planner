@@ -38,10 +38,19 @@ class JourneyPlanner:
                     raise ValueError('missing stop time; interpolation is not supported')
                 grouped[r['trip_id']].append((int(r['stop_sequence']),r['stop_id'],gtfs_seconds(r['arrival_time']),gtfs_seconds(r['departure_time']),r.get('pickup_type',''),r.get('drop_off_type','')))
         self.by_stop = defaultdict(list)
+        self.sequences = {}
         for trip, seq in grouped.items():
             seq.sort(); seq=tuple(seq)
+            self.sequences[trip] = seq
             for i, stop in enumerate(seq[:-1]):
                 if stop[4] in ('', '0'): self.by_stop[stop[1]].append((trip,seq,i))
+
+    def trip_stop_times(self, trip_ids):
+        """Stop-time rows for the given trips, in the stop_times.txt row shape, from memory."""
+        def clock(seconds):
+            return '%02d:%02d:%02d' % (seconds // 3600, seconds % 3600 // 60, seconds % 60)
+        return {trip: [{'trip_id': trip, 'stop_sequence': str(s[0]), 'stop_id': s[1], 'arrival_time': clock(s[2]), 'departure_time': clock(s[3])}
+                       for s in self.sequences.get(trip, ())] for trip in trip_ids}
 
     def search_stops(self, text, limit=20):
         if not text.strip(): raise ValueError('stop search query is required')

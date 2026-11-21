@@ -48,7 +48,7 @@ def _walk(start, distance, origin, destination):
 class FallbackPlanner:
     def __init__(self, planner):
         self.planner = planner
-        self.sequences = {trip: seq for entries in planner.by_stop.values() for trip, seq, _ in entries}
+        self.sequences = planner.sequences
 
     def _signals(self, route, seq, i, j, midnight):
         timing_basis = model_timing_basis(self.planner.database)
