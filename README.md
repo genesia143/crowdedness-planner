@@ -6,7 +6,7 @@ The October ticket data appears to be a thin and potentially biased sample. Its 
 
 ## Current status
 
-A ticket-sample baseline and a local read-only API with direct and experimental same-stop transfer journeys are implemented. An OpenTripPlanner walking experiment is described in [the trial note](docs/otp-trial.md), but is not integrated into the API. A validated crowding model and UI are not implemented yet. The October tickets and static GTFS are present elsewhere in the workspace; they are not included in this project.
+A ticket-sample baseline and local API provide direct journeys and experimental mapped journeys through OpenTripPlanner, with walking and segment signals. A basic direct-journey screen is available, but validated crowding labels, complete routing validation and a submission-ready UI are still in progress; see [the trial note](docs/otp-trial.md). The October tickets and static GTFS are present elsewhere in the workspace; they are not included in this project.
 
 ## Brief and working assumptions
 
@@ -38,7 +38,7 @@ python3 src/index_model.py --input data/training.json --output data/model.db --g
 python3 src/api.py --database data/model.db --gtfs /path/to/gtfs --port 8000
 ```
 
-`GET /health` checks that the server is running. `GET /segments/signal` accepts `route`, `from_stop_id`, `to_stop_id`, and `departure` (an ISO timestamp including an offset). URL-encode parameters. It reports the mean sample count **on days with a matched observation**, and the number of such days. It does not include days without observations in the denominator, and is not a per-bus load, an unconditional forecast, or a calibrated crowding level. A missing signal returns an unavailable status. Stop search and direct scheduled-bus journeys are available when the GTFS directory is supplied; transfers, walking, independent crowding validation, and production hardening remain to be built. The indexer currently loads the full JSON into memory.
+`GET /health` checks that the server is running. `GET /segments/signal` accepts `route`, `from_stop_id`, `to_stop_id`, and `departure` (an ISO timestamp including an offset). URL-encode parameters. It reports the mean sample count **on days with a matched observation**, and the number of such days. It does not include days without observations in the denominator, and is not a per-bus load, an unconditional forecast, or a calibrated crowding level. A missing signal returns an unavailable status. Stop search and direct scheduled-bus journeys are available when the GTFS directory is supplied. The experimental mapped endpoint supports walking and transfers when a local OTP server is configured; see the trial note. Independent crowding validation and production hardening remain to be completed. The indexer currently loads the full JSON into memory.
 
 ### Scheduled-service denominator
 
@@ -63,3 +63,9 @@ Newly built indexes also return `all_scheduled_days_proxy`: sample passengers di
 ### Experimental one-transfer endpoint
 
 `GET /journeys/transfers?from_stop_id=...&to_stop_id=...&departure=...` returns up to five two-bus itineraries with a transfer at the **same GTFS stop ID**. It assumes a 5–60 minute transfer wait, a first departure within two hours, and arrival within four hours. It does not yet model walking between nearby stops, guaranteed connections, real-time changes, accessibility, or V1 crowding signals on transfer legs. Similar itineraries can appear more than once when buses share several transfer stops. This is an initial experiment, not a full transit router.
+
+## Experimental mapped journeys
+
+With a graph built from the same GTFS version, start OpenTripPlanner 2.7 with Java 21, then start the API with `--otp-endpoint http://localhost:18080/otp/gtfs/v1` alongside the `--database` and `--gtfs` arguments above. The graph build, map input, example request, limits and coverage checks are described in [the OTP trial note](docs/otp-trial.md). The mapped endpoint provides scheduled walking, waiting and riding times, plus ticket-derived segment signals where available. The transfer-distance limit filters returned options after the routing search; it does not guarantee that every compliant alternative is found.
+
+The basic screen at `http://127.0.0.1:8000/` currently uses the direct-journey endpoint, not mapped transfers. It is a prototype and does not yet present validated crowding levels.

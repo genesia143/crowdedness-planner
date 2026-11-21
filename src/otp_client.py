@@ -52,6 +52,21 @@ def timing_breakdown(itinerary, requested):
     }
 
 
+def signal_coverage(itinerary):
+    """Summarise model coverage without inventing a journey crowding score."""
+    bus_legs = [leg for leg in itinerary.get('legs', []) if leg.get('mode') == 'BUS']
+    signals = [signal for leg in bus_legs for signal in leg.get('v1_signals', [])]
+    matched = sum(signal.get('status') == 'available' and
+                  signal.get('all_scheduled_days_proxy') is not None for signal in signals)
+    incomplete_legs = sum(not leg.get('v1_signals') for leg in bus_legs)
+    itinerary['signal_coverage'] = {
+        'segments_with_observations_and_service': matched,
+        'segments_without_observations_or_service': len(signals) - matched,
+        'bus_legs_without_segment_details': incomplete_legs,
+        'basis': 'Ticket-sample signal coverage; not an occupancy or crowding estimate.'
+    }
+
+
 def plan(endpoint, gtfs, database, lat1, lon1, lat2, lon2, departure, max_transfer_walk=1000):
     coords = [float(v) for v in (lat1, lon1, lat2, lon2)]
     if not all(math.isfinite(x) for x in coords) or not all(-90 <= coords[i] <= 90 for i in (0,2)) or not all(-180 <= coords[i] <= 180 for i in (1,3)):
@@ -77,4 +92,6 @@ def plan(endpoint, gtfs, database, lat1, lon1, lat2, lon2, departure, max_transf
     if accepted:
         # Scan the GTFS stop-times file once for all returned itineraries.
         annotate_v1({'legs': [leg for item in accepted for leg in item['legs']]}, gtfs, database)
+        for item in accepted:
+            signal_coverage(item)
     return {'journeys':accepted, 'max_transfer_walk_metres':limit, 'returned_candidates':len(candidates), 'excluded_bus_candidates':len(bus)-len(accepted), 'limitations':'Transfer walking limit is applied after routing, so suitable alternatives may be omitted. Walking uses OpenStreetMap and depends on graph coverage. Ticket signals are not occupancy.'}

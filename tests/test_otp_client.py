@@ -5,7 +5,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
-from otp_client import plan, timing_breakdown
+from otp_client import plan, timing_breakdown, signal_coverage
 from datetime import datetime
 
 class OtpClientTests(unittest.TestCase):
@@ -37,5 +37,21 @@ class OtpClientTests(unittest.TestCase):
             plan('http://localhost', '.', 'unused', 'nan', 77, 28, 77, '2026-10-22T08:00:00+05:30')
         with self.assertRaises(ValueError):
             plan('http://localhost', '.', 'unused', 28, 77, 28, 77, '2026-10-22T08:00:00')
+
+    def test_coverage_does_not_count_unobserved_zero_as_evidence(self):
+        journey = {'legs': [
+            {'mode': 'BUS', 'v1_signals': [
+                {'status': 'available', 'all_scheduled_days_proxy': {'sample_passengers_per_scheduled_crossing': 0.2}},
+                {'status': 'unavailable', 'all_scheduled_days_proxy': {'sample_passengers_per_scheduled_crossing': 0}},
+                {'status': 'available', 'all_scheduled_days_proxy': None},
+            ]},
+            {'mode': 'WALK'},
+            {'mode': 'BUS', 'v1_signals': []},
+        ]}
+        signal_coverage(journey)
+        summary = journey['signal_coverage']
+        self.assertEqual(summary['segments_with_observations_and_service'], 1)
+        self.assertEqual(summary['segments_without_observations_or_service'], 2)
+        self.assertEqual(summary['bus_legs_without_segment_details'], 1)
 
 if __name__ == '__main__': unittest.main()

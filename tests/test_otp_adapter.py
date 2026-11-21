@@ -10,6 +10,8 @@ class AdapterTests(unittest.TestCase):
         self.assertTrue(transfer_walks_within_limit([leg('BUS',0),leg('WALK',600),leg('WALK',400),leg('BUS',0)]))
         self.assertFalse(transfer_walks_within_limit([leg('BUS',0),leg('WALK',1001),leg('BUS',0)]))
         self.assertFalse(transfer_walks_within_limit([leg('BUS',0),leg('WALK',None),leg('BUS',0)]))
+        self.assertFalse(transfer_walks_within_limit([leg('BUS',0),leg('WALK',float('nan')),leg('BUS',0)]))
+        self.assertFalse(transfer_walks_within_limit([leg('BUS',0),leg('WALK',float('inf')),leg('BUS',0)]))
         self.assertTrue(transfer_walks_within_limit([leg('WALK',2000),leg('BUS',0)]))
     def test_gtfs_prefix(self):
         self.assertEqual(gtfs_id('1:123'),'123')
@@ -27,6 +29,10 @@ class AdapterTests(unittest.TestCase):
             result=annotate_v1({'legs':[leg]},p,'unused')
             self.assertEqual(len(result['legs'][0]['v1_signals']),2)
             self.assertEqual(query.call_args_list[1].args[4],'2026-10-22T09:10:00+05:30')
+            query.reset_mock()
+            import copy
+            annotate_v1({'legs':[leg,copy.deepcopy(leg)]},p,'unused')
+            self.assertEqual(query.call_count,2)
             leg['intermediateStops']=[]
             result=annotate_v1({'legs':[leg]},p,'unused')
             self.assertIn('unavailable',result['legs'][0]['v1_signal_status'])

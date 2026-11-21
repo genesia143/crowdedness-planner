@@ -116,6 +116,6 @@ class JourneyPlanner:
             for k in range(i,j):
                 crossing=midnight+timedelta(seconds=seq[k][3])
                 signal=query(self.database,route,seq[k][1],seq[k+1][1],crossing.isoformat())
-                segments.append({'from_stop_id':seq[k][1],'to_stop_id':seq[k+1][1], 'scheduled_time':crossing.isoformat(), 'signal':signal.get('scheduled_service_proxy'), 'all_scheduled_days_signal':signal.get('all_scheduled_days_proxy'), 'signal_status':signal['status']})
+                segments.append({'from_stop_id':seq[k][1],'to_stop_id':seq[k+1][1], 'scheduled_time':crossing.isoformat(), 'signal':signal.get('scheduled_service_proxy'), 'all_scheduled_days_signal':signal.get('all_scheduled_days_proxy'), 'signal_status':signal['status'], 'relative_crowding':signal.get('relative_crowding')})
             result.append({'route':route,'trip_id':trip,'from_stop_id':origin,'to_stop_id':destination,'scheduled_departure':depart.isoformat(),'scheduled_arrival':arrive.isoformat(),'waiting_minutes':(depart-dt).total_seconds()/60,'ride_minutes':(arrive-depart).total_seconds()/60,'segments':segments})
         return {'origin':{'stop_id':origin,'name':self.stops[origin]},'destination':{'stop_id':destination,'name':self.stops[destination]},'requested_departure':dt.isoformat(),'journeys':result,'limitations':'Direct scheduled buses only, within two hours; no walking, transfers, live service or actual occupancy. Ticket creation time may differ from boarding time.'}

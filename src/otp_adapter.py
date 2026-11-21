@@ -1,5 +1,6 @@
 """Helpers for the local OpenTripPlanner trial, not a production router."""
 from datetime import date, datetime, timedelta, timezone
+from math import isfinite
 from model import rows
 from predict import query
 
@@ -10,7 +11,7 @@ def transfer_walks_within_limit(legs, maximum_metres=1000):
     transit=[i for i,leg in enumerate(legs) if leg.get('mode') == 'BUS']
     for first, second in zip(transit,transit[1:]):
         between=legs[first+1:second]
-        if any(leg.get('mode') != 'WALK' or leg.get('distance') is None or leg['distance'] < 0 for leg in between):
+        if any(leg.get('mode') != 'WALK' or not isinstance(leg.get('distance'), (int, float)) or not isfinite(leg['distance']) or leg['distance'] < 0 for leg in between):
             return False
         if sum(leg['distance'] for leg in between) > maximum_metres:
             return False
@@ -32,6 +33,7 @@ def annotate_v1(itinerary, gtfs, database):
     times={trip:[] for trip in ids}
     for row in rows(gtfs/'stop_times.txt'):
         if row['trip_id'] in times: times[row['trip_id']].append(row)
+    signal_cache = {}
     for leg in legs:
         if leg.get('mode') != 'BUS': continue
         trip=gtfs_id((leg.get('trip') or {}).get('gtfsId'))
@@ -52,8 +54,11 @@ def annotate_v1(itinerary, gtfs, database):
                 h,m,s=map(int,current['departure_time'].split(':'))
                 if h < 0 or not 0 <= m < 60 or not 0 <= s < 60: raise ValueError('invalid time')
                 crossing=midnight+timedelta(hours=h,minutes=m,seconds=s)
-                signal=query(database,route,current['stop_id'],nxt['stop_id'],crossing.isoformat())
-                leg['v1_signals'].append({'from_stop_id':current['stop_id'],'to_stop_id':nxt['stop_id'],'scheduled_time':crossing.isoformat(),'status':signal['status'],'all_scheduled_days_proxy':signal.get('all_scheduled_days_proxy')})
+                key = (route, current['stop_id'], nxt['stop_id'], crossing.isoformat())
+                if key not in signal_cache:
+                    signal_cache[key] = query(database, *key)
+                signal = signal_cache[key]
+                leg['v1_signals'].append({'from_stop_id':current['stop_id'],'to_stop_id':nxt['stop_id'],'scheduled_time':crossing.isoformat(),'status':signal['status'],'all_scheduled_days_proxy':signal.get('all_scheduled_days_proxy'), 'relative_crowding':signal.get('relative_crowding')})
             except (KeyError, ValueError):
                 leg['v1_signals'].append({'from_stop_id':current['stop_id'],'to_stop_id':nxt['stop_id'],'status':'unavailable: invalid scheduled time'})
         leg['v1_signal_status']='attached; availability varies by segment'

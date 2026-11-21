@@ -6,6 +6,41 @@ from datetime import datetime
 from pathlib import Path
 
 
+def relative_band(db, route, origin, destination, day_type, hour):
+    """Provisional within-segment time-of-day rank, using training data only.
+
+    This deliberately does not compare different segments or routes: ticket
+    uptake may differ between them. Thresholds are initial support rules, not
+    measured confidence or calibrated passenger occupancy.
+    """
+    unavailable = {'label': 'insufficient evidence', 'provisional': True,
+                   'comparison': 'same route, directed segment and day type across hours',
+                   'reason': 'too few supported hours or observations for a relative comparison'}
+    has_totals = db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='scheduled_totals'").fetchone()
+    if not has_totals:
+        return unavailable
+    rows = db.execute('''SELECT s.hour, s.matched_days, s.sampled_passengers,
+                                t.scheduled_days, t.scheduled_crossings
+                         FROM service_signals s JOIN scheduled_totals t
+                         ON s.route=t.route AND s.origin=t.origin AND s.destination=t.destination
+                         AND s.hour=t.hour AND s.day_type=t.day_type
+                         WHERE s.route=? AND s.origin=? AND s.destination=? AND s.day_type=?''',
+                      (route, origin, destination, day_type)).fetchall()
+    supported = {h: passengers / crossings for h, days, passengers, scheduled_days, crossings in rows
+                 if days >= 3 and passengers >= 10 and scheduled_days >= 4 and crossings > 0}
+    if hour not in supported or len(supported) < 3 or len(set(supported.values())) < 2:
+        return unavailable
+    value = supported[hour]
+    # Midrank handles ties consistently, including all members of a tie.
+    percentile = (sum(v < value for v in supported.values()) +
+                  0.5 * sum(v == value for v in supported.values())) / len(supported)
+    label = 'likely quieter' if percentile < 1 / 3 else 'likely busier' if percentile > 2 / 3 else 'typical'
+    return {'label': label, 'provisional': True,
+            'comparison': 'same route, directed segment and day type across hours',
+            'relative_percentile': percentile, 'reference_hours': len(supported),
+            'limitation': 'Ticket-sample pressure per scheduled crossing; not actual crowding, occupancy, or a cross-route comparison. Thresholds are not yet validated.'}
+
+
 def create_database(source, destination, gtfs=None):
     with open(source, encoding='utf-8') as handle:
         data = json.load(handle)
@@ -68,11 +103,12 @@ def query(database, route, origin, destination, departure):
         has_totals = db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='scheduled_totals'").fetchone()
         totals = db.execute('SELECT scheduled_days,scheduled_crossings FROM scheduled_totals WHERE route=? AND origin=? AND destination=? AND hour=? AND day_type=?', (normalize(route),origin,destination,timestamp.hour,kind)).fetchone() if has_totals else None
         metadata = {key: json.loads(value) for key, value in db.execute('SELECT key,value FROM metadata')}
+        band = relative_band(db, normalize(route), origin, destination, kind, timestamp.hour)
     if row is None:
         assumed = None
         if totals and totals[1]:
             assumed = {'sample_passengers_per_scheduled_crossing': 0.0, 'sample_passengers': 0, 'scheduled_days': totals[0], 'scheduled_crossings': totals[1], 'observed_days_with_schedule': 0, 'assumption': 'Zero matched ticket records on scheduled days; valid as a sample count only if ticket ingestion was complete, and not evidence of zero actual riders.'}
-        return {'status': 'unavailable', 'reason': 'no matched sample observations for this segment and time', 'all_scheduled_days_proxy': assumed, 'training': metadata}
+        return {'status': 'unavailable', 'reason': 'no matched sample observations for this segment and time', 'all_scheduled_days_proxy': assumed, 'relative_crowding': band, 'training': metadata}
     days, total = row
     normalized = None
     if service and service[2]:
@@ -80,6 +116,6 @@ def query(database, route, origin, destination, departure):
     all_days = None
     if service and totals and totals[1]:
         all_days = {'sample_passengers_per_scheduled_crossing': service[1] / totals[1], 'sample_passengers': service[1], 'scheduled_days': totals[0], 'scheduled_crossings': totals[1], 'observed_days_with_schedule': service[0], 'days_without_matching_schedule': service[3], 'assumption': 'Days with scheduled service but no matched ticket observations are counted as zero observed tickets; incomplete ticket coverage can bias this value.'}
-    return {'status': 'available', 'scheduled_service_proxy': normalized, 'all_scheduled_days_proxy': all_days, 'sample_passengers_per_observed_day': total / days, 'observed_days': days,
+    return {'status': 'available', 'scheduled_service_proxy': normalized, 'all_scheduled_days_proxy': all_days, 'relative_crowding': band, 'sample_passengers_per_observed_day': total / days, 'observed_days': days,
             'definition': 'Mean ticket-sample passenger crossings on days with at least one matched ticket. Not occupancy or per-bus load. Timing: ' + metadata['definition'],
             'day_type': kind, 'hour_ist': timestamp.hour, 'training': metadata}
