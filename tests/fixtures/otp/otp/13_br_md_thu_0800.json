@@ -1,0 +1,264 @@
+{
+  "data": {
+    "planConnection": {
+      "edges": [
+        {
+          "node": {
+            "start": "2026-10-22T08:20:00+05:30",
+            "end": "2026-10-22T10:10:28+05:30",
+            "walkDistance": 0.0,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 35493.74,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:20:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:10:28+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:3231_08_20"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:9786"
+                  },
+                  {
+                    "gtfsId": "1:9787"
+                  },
+                  {
+                    "gtfsId": "1:9788"
+                  },
+                  {
+                    "gtfsId": "1:9789"
+                  },
+                  {
+                    "gtfsId": "1:9790"
+                  },
+                  {
+                    "gtfsId": "1:9791"
+                  }
+                ],
+                "from": {
+                  "name": "Baraut",
+                  "lat": 29.0989494,
+                  "lon": 77.2565573,
+                  "stop": {
+                    "gtfsId": "1:9785"
+                  }
+                },
+                "to": {
+                  "name": "Mandola",
+                  "lat": 28.8122737,
+                  "lon": 77.2736217,
+                  "stop": {
+                    "gtfsId": "1:9792"
+                  }
+                },
+                "route": {
+                  "shortName": "Baraut To Maharana Pratap ISBT DOWN",
+                  "gtfsId": "1:3231"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T08:50:00+05:30",
+            "end": "2026-10-22T10:40:28+05:30",
+            "walkDistance": 0.0,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 35493.74,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:50:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:40:28+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:3231_08_50"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:9786"
+                  },
+                  {
+                    "gtfsId": "1:9787"
+                  },
+                  {
+                    "gtfsId": "1:9788"
+                  },
+                  {
+                    "gtfsId": "1:9789"
+                  },
+                  {
+                    "gtfsId": "1:9790"
+                  },
+                  {
+                    "gtfsId": "1:9791"
+                  }
+                ],
+                "from": {
+                  "name": "Baraut",
+                  "lat": 29.0989494,
+                  "lon": 77.2565573,
+                  "stop": {
+                    "gtfsId": "1:9785"
+                  }
+                },
+                "to": {
+                  "name": "Mandola",
+                  "lat": 28.8122737,
+                  "lon": 77.2736217,
+                  "stop": {
+                    "gtfsId": "1:9792"
+                  }
+                },
+                "route": {
+                  "shortName": "Baraut To Maharana Pratap ISBT DOWN",
+                  "gtfsId": "1:3231"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:00:00+05:30",
+            "end": "2026-10-22T10:50:28+05:30",
+            "walkDistance": 0.0,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 35493.74,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:00:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:50:28+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:3231_09_00"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:9786"
+                  },
+                  {
+                    "gtfsId": "1:9787"
+                  },
+                  {
+                    "gtfsId": "1:9788"
+                  },
+                  {
+                    "gtfsId": "1:9789"
+                  },
+                  {
+                    "gtfsId": "1:9790"
+                  },
+                  {
+                    "gtfsId": "1:9791"
+                  }
+                ],
+                "from": {
+                  "name": "Baraut",
+                  "lat": 29.0989494,
+                  "lon": 77.2565573,
+                  "stop": {
+                    "gtfsId": "1:9785"
+                  }
+                },
+                "to": {
+                  "name": "Mandola",
+                  "lat": 28.8122737,
+                  "lon": 77.2736217,
+                  "stop": {
+                    "gtfsId": "1:9792"
+                  }
+                },
+                "route": {
+                  "shortName": "Baraut To Maharana Pratap ISBT DOWN",
+                  "gtfsId": "1:3231"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:25:00+05:30",
+            "end": "2026-10-22T11:15:28+05:30",
+            "walkDistance": 0.0,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 35493.74,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:25:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T11:15:28+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:3231_09_25"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:9786"
+                  },
+                  {
+                    "gtfsId": "1:9787"
+                  },
+                  {
+                    "gtfsId": "1:9788"
+                  },
+                  {
+                    "gtfsId": "1:9789"
+                  },
+                  {
+                    "gtfsId": "1:9790"
+                  },
+                  {
+                    "gtfsId": "1:9791"
+                  }
+                ],
+                "from": {
+                  "name": "Baraut",
+                  "lat": 29.0989494,
+                  "lon": 77.2565573,
+                  "stop": {
+                    "gtfsId": "1:9785"
+                  }
+                },
+                "to": {
+                  "name": "Mandola",
+                  "lat": 28.8122737,
+                  "lon": 77.2736217,
+                  "stop": {
+                    "gtfsId": "1:9792"
+                  }
+                },
+                "route": {
+                  "shortName": "Baraut To Maharana Pratap ISBT DOWN",
+                  "gtfsId": "1:3231"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

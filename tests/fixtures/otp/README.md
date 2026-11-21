@@ -1,0 +1,9 @@
+# Recorded routing fixtures
+
+These are real responses from OTP 2.7.0 and the mapped API with the V1 split-day model. They support offline replay; no OTP service or model database is needed to read the JSON. Each `otp/<case>.json` is the unmodified GraphQL response to the exact `QUERY` in `src/otp_client.py`; each `api/<case>.json` wraps the response as `{ "status": ..., "body": ... }`. The API-only captures also include their request. `manifest.json` lists coordinates, departure, walk limit, statuses, response hashes and input fingerprints. Stop coordinates come from the GTFS file actually used; place-to-place coordinates are supplied directly.
+
+Recordings use public timetable and map inputs, and API responses contain ticket-derived training aggregates. They are not raw tickets or actual occupancy. They are examples, not expected ground truth, and may change with model, map or timetable versions. The hashes identify local files, but do not independently prove what a running process loaded. All routing dates avoid 25–31 October; the recorder does not read ticket files.
+
+Two names describe intended test scenarios, not guaranteed outcomes: `15_no_service_0300` returned **one journey**, while the Rajouri Garden 0 m case returned the same number of journeys as the 1000 m case. Neither is a verified no-result or transfer-filter-exclusion fixture. Select an additional actual case before relying on either behavior.
+
+To regenerate, run OTP and the API with the inputs and ports specified in `scripts/record_fixtures.py`, and use an empty output directory. Review paths, versions and data publication permissions first. Model and validation inputs are frozen for the final evaluation; regenerating fixtures should not change them.

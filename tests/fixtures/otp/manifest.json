@@ -1,0 +1,365 @@
+{
+  "recorded_at_utc": "2026-11-21T17:21:33.065321+00:00",
+  "git_commit": "1fb90308b71ba12e24185082da1b4f2090626dcb",
+  "otp_version": "2.7.0",
+  "osm_extract": "Geofabrik India extract cropped to Delhi region; local source file dated 2026-11-21",
+  "input_sha256": {
+    "data/otp-trial/india-crop/delhi-gtfs.zip": "7f6eb5f12f5e531f046dd6361a1d75cdbd9d00aeec72996394310cef530fd5b7",
+    "data/otp-trial/india-crop/graph.obj": "5acc587f9d843976b8652f25cd5ce8bd09b31e9a87789cfe9cf5a219fab46159",
+    "data/otp-trial/india-crop/delhi-ncr.osm.pbf": "dc4c96e1f5c44c331507ffdc25d5e5926b66ddbeb55f8a5fdcbf8bb5d1e337fc",
+    "data/otp-trial/model-v1-split-days.db": "1d32c3ef19e7c1aac7f459d11d518c35d8a52cceb992b0243168edbb70917e4a"
+  },
+  "warning": "Input hashes describe the files configured when recording; they do not independently prove running process provenance.",
+  "cases": [
+    {
+      "id": "01_kg_np_thu_0830",
+      "from_stop_id": "1025",
+      "to_stop_id": "2560",
+      "origin": [
+        28.668198,
+        77.229219
+      ],
+      "destination": [
+        28.54870017781327,
+        77.25698123406022
+      ],
+      "departure": "2026-10-22T08:30:00+05:30",
+      "max_transfer_walk": 1000,
+      "otp_status": 200,
+      "otp_errors": null,
+      "api_status": 200,
+      "journeys": 20,
+      "otp_seconds": 0.26,
+      "api_seconds": 2.93
+    },
+    {
+      "id": "02_kg_np_thu_2300",
+      "from_stop_id": "1025",
+      "to_stop_id": "2560",
+      "origin": [
+        28.668198,
+        77.229219
+      ],
+      "destination": [
+        28.54870017781327,
+        77.25698123406022
+      ],
+      "departure": "2026-10-22T23:00:00+05:30",
+      "max_transfer_walk": 1000,
+      "otp_status": 200,
+      "otp_errors": null,
+      "api_status": 200,
+      "journeys": 11,
+      "otp_seconds": 0.35,
+      "api_seconds": 3.16
+    },
+    {
+      "id": "03_av_cp_thu_1800",
+      "from_stop_id": "917",
+      "to_stop_id": "365",
+      "origin": [
+        28.64887548911451,
+        77.31837692717225
+      ],
+      "destination": [
+        28.6323,
+        77.2165
+      ],
+      "departure": "2026-10-22T18:00:00+05:30",
+      "max_transfer_walk": 1000,
+      "otp_status": 200,
+      "otp_errors": null,
+      "api_status": 200,
+      "journeys": 13,
+      "otp_seconds": 0.17,
+      "api_seconds": 2.83
+    },
+    {
+      "id": "04_av_cp_thu_1820",
+      "from_stop_id": "917",
+      "to_stop_id": "365",
+      "origin": [
+        28.64887548911451,
+        77.31837692717225
+      ],
+      "destination": [
+        28.6323,
+        77.2165
+      ],
+      "departure": "2026-10-22T18:20:00+05:30",
+      "max_transfer_walk": 1000,
+      "otp_status": 200,
+      "otp_errors": null,
+      "api_status": 200,
+      "journeys": 13,
+      "otp_seconds": 0.16,
+      "api_seconds": 3.41
+    },
+    {
+      "id": "05_av_cp_thu_1840",
+      "from_stop_id": "917",
+      "to_stop_id": "365",
+      "origin": [
+        28.64887548911451,
+        77.31837692717225
+      ],
+      "destination": [
+        28.6323,
+        77.2165
+      ],
+      "departure": "2026-10-22T18:40:00+05:30",
+      "max_transfer_walk": 1000,
+      "otp_status": 200,
+      "otp_errors": null,
+      "api_status": 200,
+      "journeys": 15,
+      "otp_seconds": 0.24,
+      "api_seconds": 3.13
+    },
+    {
+      "id": "06_av_cp_sat_1800",
+      "from_stop_id": "917",
+      "to_stop_id": "365",
+      "origin": [
+        28.64887548911451,
+        77.31837692717225
+      ],
+      "destination": [
+        28.6323,
+        77.2165
+      ],
+      "departure": "2026-10-24T18:00:00+05:30",
+      "max_transfer_walk": 1000,
+      "otp_status": 200,
+      "otp_errors": null,
+      "api_status": 200,
+      "journeys": 13,
+      "otp_seconds": 0.19,
+      "api_seconds": 2.91
+    },
+    {
+      "id": "07_av_cp_sun_1800",
+      "from_stop_id": "917",
+      "to_stop_id": "365",
+      "origin": [
+        28.64887548911451,
+        77.31837692717225
+      ],
+      "destination": [
+        28.6323,
+        77.2165
+      ],
+      "departure": "2026-11-01T18:00:00+05:30",
+      "max_transfer_walk": 1000,
+      "otp_status": 200,
+      "otp_errors": null,
+      "api_status": 200,
+      "journeys": 13,
+      "otp_seconds": 0.15,
+      "api_seconds": 2.88
+    },
+    {
+      "id": "08_ln_hk_thu_0900",
+      "from_stop_id": "8299",
+      "to_stop_id": "2378",
+      "origin": [
+        28.56661,
+        77.246373
+      ],
+      "destination": [
+        28.543389,
+        77.20754
+      ],
+      "departure": "2026-10-22T09:00:00+05:30",
+      "max_transfer_walk": 1000,
+      "otp_status": 200,
+      "otp_errors": null,
+      "api_status": 200,
+      "journeys": 11,
+      "otp_seconds": 0.13,
+      "api_seconds": 2.89
+    },
+    {
+      "id": "09_rg_np_thu_0900",
+      "from_stop_id": "2707",
+      "to_stop_id": "2559",
+      "origin": [
+        28.648433,
+        77.120783
+      ],
+      "destination": [
+        28.54857609786973,
+        77.24913317314967
+      ],
+      "departure": "2026-10-22T09:00:00+05:30",
+      "max_transfer_walk": 1000,
+      "otp_status": 200,
+      "otp_errors": null,
+      "api_status": 200,
+      "journeys": 17,
+      "otp_seconds": 0.34,
+      "api_seconds": 3.1
+    },
+    {
+      "id": "10_rg_np_thu_0900_walk0",
+      "from_stop_id": "2707",
+      "to_stop_id": "2559",
+      "origin": [
+        28.648433,
+        77.120783
+      ],
+      "destination": [
+        28.54857609786973,
+        77.24913317314967
+      ],
+      "departure": "2026-10-22T09:00:00+05:30",
+      "max_transfer_walk": 0,
+      "otp_status": 200,
+      "otp_errors": null,
+      "api_status": 200,
+      "journeys": 17,
+      "otp_seconds": 0.37,
+      "api_seconds": 3.08
+    },
+    {
+      "id": "11_dw_mh_thu_0800",
+      "from_stop_id": "7544",
+      "to_stop_id": "7908",
+      "origin": [
+        28.54908596925742,
+        77.055574068797
+      ],
+      "destination": [
+        28.521316,
+        77.183047
+      ],
+      "departure": "2026-10-22T08:00:00+05:30",
+      "max_transfer_walk": 1000,
+      "otp_status": 200,
+      "otp_errors": null,
+      "api_status": 200,
+      "journeys": 13,
+      "otp_seconds": 0.1,
+      "api_seconds": 2.68
+    },
+    {
+      "id": "12_nr_kg_thu_0730",
+      "from_stop_id": "319",
+      "to_stop_id": "1025",
+      "origin": [
+        28.85184754676453,
+        77.08803408455098
+      ],
+      "destination": [
+        28.668198,
+        77.229219
+      ],
+      "departure": "2026-10-22T07:30:00+05:30",
+      "max_transfer_walk": 1000,
+      "otp_status": 200,
+      "otp_errors": null,
+      "api_status": 200,
+      "journeys": 44,
+      "otp_seconds": 0.22,
+      "api_seconds": 3.14
+    },
+    {
+      "id": "13_br_md_thu_0800",
+      "from_stop_id": "9785",
+      "to_stop_id": "9792",
+      "origin": [
+        29.09894940510752,
+        77.25655734819553
+      ],
+      "destination": [
+        28.81227365495447,
+        77.27362170510877
+      ],
+      "departure": "2026-10-22T08:00:00+05:30",
+      "max_transfer_walk": 1000,
+      "otp_status": 200,
+      "otp_errors": null,
+      "api_status": 200,
+      "journeys": 4,
+      "otp_seconds": 0.03,
+      "api_seconds": 2.56
+    },
+    {
+      "id": "14_place_to_place",
+      "from_stop_id": null,
+      "to_stop_id": null,
+      "origin": [
+        28.6129,
+        77.2295
+      ],
+      "destination": [
+        28.5286,
+        77.219
+      ],
+      "departure": "2026-10-22T10:00:00+05:30",
+      "max_transfer_walk": 1000,
+      "otp_status": 200,
+      "otp_errors": null,
+      "api_status": 200,
+      "journeys": 30,
+      "otp_seconds": 0.29,
+      "api_seconds": 2.9
+    },
+    {
+      "id": "15_no_service_0300",
+      "from_stop_id": "1025",
+      "to_stop_id": "2560",
+      "origin": [
+        28.668198,
+        77.229219
+      ],
+      "destination": [
+        28.54870017781327,
+        77.25698123406022
+      ],
+      "departure": "2026-10-22T03:00:00+05:30",
+      "max_transfer_walk": 1000,
+      "otp_status": 200,
+      "otp_errors": null,
+      "api_status": 200,
+      "journeys": 1,
+      "otp_seconds": 0.19,
+      "api_seconds": 2.8
+    }
+  ],
+  "files_sha256": {
+    "api/01_kg_np_thu_0830.json": "96c8f579262ec77442696b35851ddcd352a455da6381abaf347f03bf3d8d1a9e",
+    "api/02_kg_np_thu_2300.json": "d8878e80184ab96bb03a514e08cfa1ba73e69926ce6585aef53cf7384e76d7e2",
+    "api/03_av_cp_thu_1800.json": "5c9810daa363aa2e5fdfbdc73a42685ab1fa75024aaf438a9b2b0f82c11da1b6",
+    "api/04_av_cp_thu_1820.json": "ab16db0cea36638ea4511b64a915d538a3da189ec04b031831eb2dca14be0d3a",
+    "api/05_av_cp_thu_1840.json": "323646494ab1b0adc5119783dd97174da422cc497581160ebf57d2b9fde77c63",
+    "api/06_av_cp_sat_1800.json": "88e678d6d42e74148f9465645720d8470795fdafad4c4a3786cbe947fd5d15bb",
+    "api/07_av_cp_sun_1800.json": "4da28030e0397f75ab9f80a5bec337c5e970df0ef6742c7b5a792cd0f610b6d7",
+    "api/08_ln_hk_thu_0900.json": "d68f5009eb03fc70b1e54e801623ce59b1c69e73a7686b0ebf6bc40f7281c161",
+    "api/09_rg_np_thu_0900.json": "749bde80ea807678d2bf5936ff569ee9eece820baac05a61c075fbdb1e00dafc",
+    "api/10_rg_np_thu_0900_walk0.json": "62a3f49ffa895bc054a10cc69a899f708a77b0e6630cd6cf0a23197946c06a3c",
+    "api/11_dw_mh_thu_0800.json": "732030fc0139489a0ff68b6ca16bbc897b23d625a2e3a58b8b8c5e437b7d50c3",
+    "api/12_nr_kg_thu_0730.json": "7759591f0bf2371d90270e53cc19bd77581cf67d75a1bad46893a321b426ebf0",
+    "api/13_br_md_thu_0800.json": "bb6c2d28a5c7ab75f8719b72e8c78d1fcc8fef916c10d4f4a93a6a89780c5a2d",
+    "api/14_place_to_place.json": "e2a021f8d272f809cfa7152fd7d5e773d11add31f3fa4f1122f1ecf86e4e83e2",
+    "api/15_no_service_0300.json": "c551b5272d238d9f3ead7c9cc1363a59d6e46cde2fa39f4d9fedf6a9f49c964d",
+    "api/bad_departure.json": "5927ac071ee73d00fec29fc8e0c1392aae7806cac24e843818084899d679e716",
+    "api/segment_signal.json": "fd12e0c165935a39dc36a5e31a0988426eb9b1e69b1ca307d55f939fc92197b0",
+    "api/stops_nehru.json": "90356e31bf251db24b20f31cdf8640818091ac1ce1429f5b385ff21e5effe926",
+    "otp/01_kg_np_thu_0830.json": "e7fe6389c93c4f5a3d20544b9081f1ce8a2ab624bd09c549860759f322b15c7b",
+    "otp/02_kg_np_thu_2300.json": "90a995f94fca7a46bae424f0c428ecbcdf1b45d6f7ffd36d34860d1ccf49d2c0",
+    "otp/03_av_cp_thu_1800.json": "e4bb0e55755176fed632e2339e1bd467c29c62755093d0aba25c5e8b3ec7bb7f",
+    "otp/04_av_cp_thu_1820.json": "960f2d8052c5073af0f8951da4280759c4b819a3a6a5fac97f76bb6102f6928e",
+    "otp/05_av_cp_thu_1840.json": "275d76901aaa410e05687a5093d3add5d7b59514e081764b09f6748cc21ddb2e",
+    "otp/06_av_cp_sat_1800.json": "edc29fd1c8bb8e77f970b97e8f2e06f5274a95e10b3b2117ea11796cde0bcd9a",
+    "otp/07_av_cp_sun_1800.json": "ec5cbdf53456415ba53e39a7290588a97d3ad9eeb887f286ee1a5694e62be02a",
+    "otp/08_ln_hk_thu_0900.json": "073e1c8fe9051d33bbbbd3ffdd6258e0c75e403efcc39b81822cbc58c9cbb1a7",
+    "otp/09_rg_np_thu_0900.json": "a9221d8ea2c99ce9c582a5a81d1062c3c80cc9e616070608cdec05e2e7c8d404",
+    "otp/10_rg_np_thu_0900_walk0.json": "a9221d8ea2c99ce9c582a5a81d1062c3c80cc9e616070608cdec05e2e7c8d404",
+    "otp/11_dw_mh_thu_0800.json": "5461e2025684e91c1440b54a43b538b73ec3e0771bb1bc593206d5733992b46a",
+    "otp/12_nr_kg_thu_0730.json": "b6042f8a9ce176614b582812b0fae49cf5be42d36163d2266b9cc123f253ebdf",
+    "otp/13_br_md_thu_0800.json": "74912672b74ec3ce522841b39dce3f65958717922e3fe1b612ad3c5510290331",
+    "otp/14_place_to_place.json": "a963327d7b2f59c04305a14c8249c3c03952432499f3e5e118e6214b8e54ccb8",
+    "otp/15_no_service_0300.json": "d816d13a6c023501c3bf556ec22eb1ff4f9e1ec419f8cedf1a9b5dbe398b8d5b"
+  }
+}

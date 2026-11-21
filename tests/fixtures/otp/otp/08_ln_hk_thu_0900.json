@@ -1,0 +1,1540 @@
+{
+  "data": {
+    "planConnection": {
+      "edges": [
+        {
+          "node": {
+            "start": "2026-10-22T09:03:52+05:30",
+            "end": "2026-10-22T09:29:24+05:30",
+            "walkDistance": 590.72,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 365.41,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:03:52+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:08:38+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.56661,
+                  "lon": 77.246373,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Lajpat Nagar Ring Road / VINOBA PURI METRO STATAION",
+                  "lat": 28.565391,
+                  "lon": 77.248511,
+                  "stop": {
+                    "gtfsId": "1:2365"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 5609.85,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:08:38+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:26:32+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1910_08_59"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2367"
+                  },
+                  {
+                    "gtfsId": "1:2370"
+                  },
+                  {
+                    "gtfsId": "1:2371"
+                  },
+                  {
+                    "gtfsId": "1:2372"
+                  },
+                  {
+                    "gtfsId": "1:6265"
+                  },
+                  {
+                    "gtfsId": "1:2373"
+                  },
+                  {
+                    "gtfsId": "1:2375"
+                  },
+                  {
+                    "gtfsId": "1:2376"
+                  },
+                  {
+                    "gtfsId": "1:2377"
+                  }
+                ],
+                "from": {
+                  "name": "Lajpat Nagar Ring Road / VINOBA PURI METRO STATAION",
+                  "lat": 28.565391,
+                  "lon": 77.248511,
+                  "stop": {
+                    "gtfsId": "1:2365"
+                  }
+                },
+                "to": {
+                  "name": "Bhavishya Nidhi Enclave",
+                  "lat": 28.5428,
+                  "lon": 77.209567,
+                  "stop": {
+                    "gtfsId": "1:2726"
+                  }
+                },
+                "route": {
+                  "shortName": "413UP",
+                  "gtfsId": "1:1910"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 225.31,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:26:32+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:29:24+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Bhavishya Nidhi Enclave",
+                  "lat": 28.5428,
+                  "lon": 77.209567,
+                  "stop": {
+                    "gtfsId": "1:2726"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.543389,
+                  "lon": 77.20754,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:10:14+05:30",
+            "end": "2026-10-22T09:32:53+05:30",
+            "walkDistance": 365.41,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 365.41,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:10:14+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:15:00+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.56661,
+                  "lon": 77.246373,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Lajpat Nagar Ring Road / VINOBA PURI METRO STATAION",
+                  "lat": 28.565391,
+                  "lon": 77.248511,
+                  "stop": {
+                    "gtfsId": "1:2365"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 5662.01,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:15:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:32:53+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1351_09_15"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2366"
+                  },
+                  {
+                    "gtfsId": "1:2367"
+                  },
+                  {
+                    "gtfsId": "1:2368"
+                  },
+                  {
+                    "gtfsId": "1:2369"
+                  },
+                  {
+                    "gtfsId": "1:2370"
+                  },
+                  {
+                    "gtfsId": "1:2371"
+                  },
+                  {
+                    "gtfsId": "1:2372"
+                  },
+                  {
+                    "gtfsId": "1:2373"
+                  },
+                  {
+                    "gtfsId": "1:2374"
+                  },
+                  {
+                    "gtfsId": "1:2375"
+                  },
+                  {
+                    "gtfsId": "1:2376"
+                  },
+                  {
+                    "gtfsId": "1:2377"
+                  }
+                ],
+                "from": {
+                  "name": "Lajpat Nagar Ring Road / VINOBA PURI METRO STATAION",
+                  "lat": 28.565391,
+                  "lon": 77.248511,
+                  "stop": {
+                    "gtfsId": "1:2365"
+                  }
+                },
+                "to": {
+                  "name": "Hauz Khas Terminal",
+                  "lat": 28.543389,
+                  "lon": 77.20754,
+                  "stop": {
+                    "gtfsId": "1:2378"
+                  }
+                },
+                "route": {
+                  "shortName": "D-046UP",
+                  "gtfsId": "1:1351"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:13:52+05:30",
+            "end": "2026-10-22T09:39:24+05:30",
+            "walkDistance": 590.72,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 365.41,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:13:52+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:18:38+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.56661,
+                  "lon": 77.246373,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Lajpat Nagar Ring Road / VINOBA PURI METRO STATAION",
+                  "lat": 28.565391,
+                  "lon": 77.248511,
+                  "stop": {
+                    "gtfsId": "1:2365"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 5609.85,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:18:38+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:36:32+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1910_09_09"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2367"
+                  },
+                  {
+                    "gtfsId": "1:2370"
+                  },
+                  {
+                    "gtfsId": "1:2371"
+                  },
+                  {
+                    "gtfsId": "1:2372"
+                  },
+                  {
+                    "gtfsId": "1:6265"
+                  },
+                  {
+                    "gtfsId": "1:2373"
+                  },
+                  {
+                    "gtfsId": "1:2375"
+                  },
+                  {
+                    "gtfsId": "1:2376"
+                  },
+                  {
+                    "gtfsId": "1:2377"
+                  }
+                ],
+                "from": {
+                  "name": "Lajpat Nagar Ring Road / VINOBA PURI METRO STATAION",
+                  "lat": 28.565391,
+                  "lon": 77.248511,
+                  "stop": {
+                    "gtfsId": "1:2365"
+                  }
+                },
+                "to": {
+                  "name": "Bhavishya Nidhi Enclave",
+                  "lat": 28.5428,
+                  "lon": 77.209567,
+                  "stop": {
+                    "gtfsId": "1:2726"
+                  }
+                },
+                "route": {
+                  "shortName": "413UP",
+                  "gtfsId": "1:1910"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 225.31,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:36:32+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:39:24+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Bhavishya Nidhi Enclave",
+                  "lat": 28.5428,
+                  "lon": 77.209567,
+                  "stop": {
+                    "gtfsId": "1:2726"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.543389,
+                  "lon": 77.20754,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:21:14+05:30",
+            "end": "2026-10-22T09:43:53+05:30",
+            "walkDistance": 365.41,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 365.41,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:21:14+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:26:00+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.56661,
+                  "lon": 77.246373,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Lajpat Nagar Ring Road / VINOBA PURI METRO STATAION",
+                  "lat": 28.565391,
+                  "lon": 77.248511,
+                  "stop": {
+                    "gtfsId": "1:2365"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 5662.01,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:26:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:43:53+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1351_09_26"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2366"
+                  },
+                  {
+                    "gtfsId": "1:2367"
+                  },
+                  {
+                    "gtfsId": "1:2368"
+                  },
+                  {
+                    "gtfsId": "1:2369"
+                  },
+                  {
+                    "gtfsId": "1:2370"
+                  },
+                  {
+                    "gtfsId": "1:2371"
+                  },
+                  {
+                    "gtfsId": "1:2372"
+                  },
+                  {
+                    "gtfsId": "1:2373"
+                  },
+                  {
+                    "gtfsId": "1:2374"
+                  },
+                  {
+                    "gtfsId": "1:2375"
+                  },
+                  {
+                    "gtfsId": "1:2376"
+                  },
+                  {
+                    "gtfsId": "1:2377"
+                  }
+                ],
+                "from": {
+                  "name": "Lajpat Nagar Ring Road / VINOBA PURI METRO STATAION",
+                  "lat": 28.565391,
+                  "lon": 77.248511,
+                  "stop": {
+                    "gtfsId": "1:2365"
+                  }
+                },
+                "to": {
+                  "name": "Hauz Khas Terminal",
+                  "lat": 28.543389,
+                  "lon": 77.20754,
+                  "stop": {
+                    "gtfsId": "1:2378"
+                  }
+                },
+                "route": {
+                  "shortName": "D-046UP",
+                  "gtfsId": "1:1351"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:24:52+05:30",
+            "end": "2026-10-22T09:50:24+05:30",
+            "walkDistance": 590.72,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 365.41,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:24:52+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:29:38+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.56661,
+                  "lon": 77.246373,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Lajpat Nagar Ring Road / VINOBA PURI METRO STATAION",
+                  "lat": 28.565391,
+                  "lon": 77.248511,
+                  "stop": {
+                    "gtfsId": "1:2365"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 5609.85,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:29:38+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:47:32+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1910_09_20"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2367"
+                  },
+                  {
+                    "gtfsId": "1:2370"
+                  },
+                  {
+                    "gtfsId": "1:2371"
+                  },
+                  {
+                    "gtfsId": "1:2372"
+                  },
+                  {
+                    "gtfsId": "1:6265"
+                  },
+                  {
+                    "gtfsId": "1:2373"
+                  },
+                  {
+                    "gtfsId": "1:2375"
+                  },
+                  {
+                    "gtfsId": "1:2376"
+                  },
+                  {
+                    "gtfsId": "1:2377"
+                  }
+                ],
+                "from": {
+                  "name": "Lajpat Nagar Ring Road / VINOBA PURI METRO STATAION",
+                  "lat": 28.565391,
+                  "lon": 77.248511,
+                  "stop": {
+                    "gtfsId": "1:2365"
+                  }
+                },
+                "to": {
+                  "name": "Bhavishya Nidhi Enclave",
+                  "lat": 28.5428,
+                  "lon": 77.209567,
+                  "stop": {
+                    "gtfsId": "1:2726"
+                  }
+                },
+                "route": {
+                  "shortName": "413UP",
+                  "gtfsId": "1:1910"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 225.31,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:47:32+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:50:24+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Bhavishya Nidhi Enclave",
+                  "lat": 28.5428,
+                  "lon": 77.209567,
+                  "stop": {
+                    "gtfsId": "1:2726"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.543389,
+                  "lon": 77.20754,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:32:14+05:30",
+            "end": "2026-10-22T09:54:53+05:30",
+            "walkDistance": 365.41,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 365.41,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:32:14+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:37:00+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.56661,
+                  "lon": 77.246373,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Lajpat Nagar Ring Road / VINOBA PURI METRO STATAION",
+                  "lat": 28.565391,
+                  "lon": 77.248511,
+                  "stop": {
+                    "gtfsId": "1:2365"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 5662.01,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:37:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:54:53+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1351_09_37"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2366"
+                  },
+                  {
+                    "gtfsId": "1:2367"
+                  },
+                  {
+                    "gtfsId": "1:2368"
+                  },
+                  {
+                    "gtfsId": "1:2369"
+                  },
+                  {
+                    "gtfsId": "1:2370"
+                  },
+                  {
+                    "gtfsId": "1:2371"
+                  },
+                  {
+                    "gtfsId": "1:2372"
+                  },
+                  {
+                    "gtfsId": "1:2373"
+                  },
+                  {
+                    "gtfsId": "1:2374"
+                  },
+                  {
+                    "gtfsId": "1:2375"
+                  },
+                  {
+                    "gtfsId": "1:2376"
+                  },
+                  {
+                    "gtfsId": "1:2377"
+                  }
+                ],
+                "from": {
+                  "name": "Lajpat Nagar Ring Road / VINOBA PURI METRO STATAION",
+                  "lat": 28.565391,
+                  "lon": 77.248511,
+                  "stop": {
+                    "gtfsId": "1:2365"
+                  }
+                },
+                "to": {
+                  "name": "Hauz Khas Terminal",
+                  "lat": 28.543389,
+                  "lon": 77.20754,
+                  "stop": {
+                    "gtfsId": "1:2378"
+                  }
+                },
+                "route": {
+                  "shortName": "D-046UP",
+                  "gtfsId": "1:1351"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:38:53+05:30",
+            "end": "2026-10-22T10:09:42+05:30",
+            "walkDistance": 365.41,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 365.41,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:38:53+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:43:39+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.56661,
+                  "lon": 77.246373,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Lajpat Nagar Ring Road / VINOBA PURI METRO STATAION",
+                  "lat": 28.565391,
+                  "lon": 77.248511,
+                  "stop": {
+                    "gtfsId": "1:2365"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 4208.39,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:43:39+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:57:13+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:3467_09_17"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2368"
+                  },
+                  {
+                    "gtfsId": "1:2369"
+                  },
+                  {
+                    "gtfsId": "1:2827"
+                  },
+                  {
+                    "gtfsId": "1:5984"
+                  },
+                  {
+                    "gtfsId": "1:2829"
+                  }
+                ],
+                "from": {
+                  "name": "Lajpat Nagar Ring Road / VINOBA PURI METRO STATAION",
+                  "lat": 28.565391,
+                  "lon": 77.248511,
+                  "stop": {
+                    "gtfsId": "1:2365"
+                  }
+                },
+                "to": {
+                  "name": "AIIMS / Safdurjung Hospital",
+                  "lat": 28.566983,
+                  "lon": 77.20795,
+                  "stop": {
+                    "gtfsId": "1:3004"
+                  }
+                },
+                "route": {
+                  "shortName": "507DOWN",
+                  "gtfsId": "1:3467"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 3171.01,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:00:30+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:09:42+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1835_09_05"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:3005"
+                  },
+                  {
+                    "gtfsId": "1:3006"
+                  },
+                  {
+                    "gtfsId": "1:3007"
+                  },
+                  {
+                    "gtfsId": "1:3008"
+                  }
+                ],
+                "from": {
+                  "name": "AIIMS / Safdurjung Hospital",
+                  "lat": 28.566983,
+                  "lon": 77.20795,
+                  "stop": {
+                    "gtfsId": "1:3004"
+                  }
+                },
+                "to": {
+                  "name": "Hauz Khas Terminal",
+                  "lat": 28.543389,
+                  "lon": 77.20754,
+                  "stop": {
+                    "gtfsId": "1:2378"
+                  }
+                },
+                "route": {
+                  "shortName": "344DOWN",
+                  "gtfsId": "1:1835"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:38:53+05:30",
+            "end": "2026-10-22T10:15:47+05:30",
+            "walkDistance": 1192.6100000000001,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 365.41,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:38:53+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:43:39+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.56661,
+                  "lon": 77.246373,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Lajpat Nagar Ring Road / VINOBA PURI METRO STATAION",
+                  "lat": 28.565391,
+                  "lon": 77.248511,
+                  "stop": {
+                    "gtfsId": "1:2365"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 6608.79,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:43:39+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:05:08+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:3467_09_17"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2368"
+                  },
+                  {
+                    "gtfsId": "1:2369"
+                  },
+                  {
+                    "gtfsId": "1:2827"
+                  },
+                  {
+                    "gtfsId": "1:5984"
+                  },
+                  {
+                    "gtfsId": "1:2829"
+                  },
+                  {
+                    "gtfsId": "1:3004"
+                  },
+                  {
+                    "gtfsId": "1:3005"
+                  },
+                  {
+                    "gtfsId": "1:3006"
+                  },
+                  {
+                    "gtfsId": "1:3007"
+                  },
+                  {
+                    "gtfsId": "1:3008"
+                  }
+                ],
+                "from": {
+                  "name": "Lajpat Nagar Ring Road / VINOBA PURI METRO STATAION",
+                  "lat": 28.565391,
+                  "lon": 77.248511,
+                  "stop": {
+                    "gtfsId": "1:2365"
+                  }
+                },
+                "to": {
+                  "name": "IIT Gate",
+                  "lat": 28.5462498,
+                  "lon": 77.2023876,
+                  "stop": {
+                    "gtfsId": "1:3009"
+                  }
+                },
+                "route": {
+                  "shortName": "507DOWN",
+                  "gtfsId": "1:3467"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 827.2,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:05:08+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:15:47+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "IIT Gate",
+                  "lat": 28.5462498,
+                  "lon": 77.2023876,
+                  "stop": {
+                    "gtfsId": "1:3009"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.543389,
+                  "lon": 77.20754,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:40:37+05:30",
+            "end": "2026-10-22T10:15:59+05:30",
+            "walkDistance": 901.9000000000001,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 676.59,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:40:37+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:49:21+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.56661,
+                  "lon": 77.246373,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Lajpat Nagar Crossing",
+                  "lat": 28.564183,
+                  "lon": 77.250367,
+                  "stop": {
+                    "gtfsId": "1:2282"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 3555.99,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:49:21+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:59:08+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2789_09_40"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:8346"
+                  },
+                  {
+                    "gtfsId": "1:7938"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  },
+                  {
+                    "gtfsId": "1:2559"
+                  }
+                ],
+                "from": {
+                  "name": "Lajpat Nagar Crossing",
+                  "lat": 28.564183,
+                  "lon": 77.250367,
+                  "stop": {
+                    "gtfsId": "1:2282"
+                  }
+                },
+                "to": {
+                  "name": "Pumposh Enclave",
+                  "lat": 28.543597,
+                  "lon": 77.244165,
+                  "stop": {
+                    "gtfsId": "1:2805"
+                  }
+                },
+                "route": {
+                  "shortName": "D-044UP",
+                  "gtfsId": "1:2789"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 3507.54,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:01:32+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:13:07+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:3149_09_40"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2806"
+                  },
+                  {
+                    "gtfsId": "1:3043"
+                  },
+                  {
+                    "gtfsId": "1:3044"
+                  },
+                  {
+                    "gtfsId": "1:3070"
+                  },
+                  {
+                    "gtfsId": "1:3045"
+                  }
+                ],
+                "from": {
+                  "name": "Pumposh Enclave",
+                  "lat": 28.543597,
+                  "lon": 77.244165,
+                  "stop": {
+                    "gtfsId": "1:2805"
+                  }
+                },
+                "to": {
+                  "name": "Bhavishya Nidhi Enclave",
+                  "lat": 28.5428,
+                  "lon": 77.209567,
+                  "stop": {
+                    "gtfsId": "1:2726"
+                  }
+                },
+                "route": {
+                  "shortName": "511BLNKSTLUP",
+                  "gtfsId": "1:3149"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 225.31,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:13:07+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:15:59+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Bhavishya Nidhi Enclave",
+                  "lat": 28.5428,
+                  "lon": 77.209567,
+                  "stop": {
+                    "gtfsId": "1:2726"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.543389,
+                  "lon": 77.20754,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:43:11+05:30",
+            "end": "2026-10-22T10:16:57+05:30",
+            "walkDistance": 442.49,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 82.61,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:43:11+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:44:20+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.56661,
+                  "lon": 77.246373,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Lajpat Nagar",
+                  "lat": 28.566999,
+                  "lon": 77.246696,
+                  "stop": {
+                    "gtfsId": "1:5964"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 3123.22,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:44:20+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:53:39+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1961_09_40"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2367"
+                  },
+                  {
+                    "gtfsId": "1:2369"
+                  },
+                  {
+                    "gtfsId": "1:2569"
+                  }
+                ],
+                "from": {
+                  "name": "Lajpat Nagar",
+                  "lat": 28.566999,
+                  "lon": 77.246696,
+                  "stop": {
+                    "gtfsId": "1:5964"
+                  }
+                },
+                "to": {
+                  "name": "Defence Colony",
+                  "lat": 28.574267,
+                  "lon": 77.228733,
+                  "stop": {
+                    "gtfsId": "1:2570"
+                  }
+                },
+                "route": {
+                  "shortName": "450DOWN",
+                  "gtfsId": "1:1961"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 134.57,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:53:39+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:55:28+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Defence Colony",
+                  "lat": 28.574267,
+                  "lon": 77.228733,
+                  "stop": {
+                    "gtfsId": "1:2570"
+                  }
+                },
+                "to": {
+                  "name": "Defence Colony",
+                  "lat": 28.5743438,
+                  "lon": 77.2289576,
+                  "stop": {
+                    "gtfsId": "1:6403"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 4197.42,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:00:21+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:14:05+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:515_09_22"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2553"
+                  },
+                  {
+                    "gtfsId": "1:2554"
+                  },
+                  {
+                    "gtfsId": "1:2370"
+                  },
+                  {
+                    "gtfsId": "1:2371"
+                  },
+                  {
+                    "gtfsId": "1:2372"
+                  },
+                  {
+                    "gtfsId": "1:2373"
+                  },
+                  {
+                    "gtfsId": "1:2374"
+                  },
+                  {
+                    "gtfsId": "1:2375"
+                  },
+                  {
+                    "gtfsId": "1:2376"
+                  },
+                  {
+                    "gtfsId": "1:2377"
+                  }
+                ],
+                "from": {
+                  "name": "Defence Colony",
+                  "lat": 28.5743438,
+                  "lon": 77.2289576,
+                  "stop": {
+                    "gtfsId": "1:6403"
+                  }
+                },
+                "to": {
+                  "name": "Bhavishya Nidhi Enclave",
+                  "lat": 28.5428,
+                  "lon": 77.209567,
+                  "stop": {
+                    "gtfsId": "1:2726"
+                  }
+                },
+                "route": {
+                  "shortName": "456UP",
+                  "gtfsId": "1:515"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 225.31,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:14:05+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:16:57+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Bhavishya Nidhi Enclave",
+                  "lat": 28.5428,
+                  "lon": 77.209567,
+                  "stop": {
+                    "gtfsId": "1:2726"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.543389,
+                  "lon": 77.20754,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:47:19+05:30",
+            "end": "2026-10-22T10:25:11+05:30",
+            "walkDistance": 752.9,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 506.81,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:47:19+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:54:00+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.56661,
+                  "lon": 77.246373,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Lajpat Nagar Ring Road",
+                  "lat": 28.5649676,
+                  "lon": 77.2427952,
+                  "stop": {
+                    "gtfsId": "1:2366"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 5558.59,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:54:00+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:10:39+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1319_09_54"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2367"
+                  },
+                  {
+                    "gtfsId": "1:2368"
+                  },
+                  {
+                    "gtfsId": "1:7937"
+                  },
+                  {
+                    "gtfsId": "1:2792"
+                  },
+                  {
+                    "gtfsId": "1:2556"
+                  },
+                  {
+                    "gtfsId": "1:7938"
+                  },
+                  {
+                    "gtfsId": "1:2558"
+                  },
+                  {
+                    "gtfsId": "1:2559"
+                  },
+                  {
+                    "gtfsId": "1:2805"
+                  }
+                ],
+                "from": {
+                  "name": "Lajpat Nagar Ring Road",
+                  "lat": 28.5649676,
+                  "lon": 77.2427952,
+                  "stop": {
+                    "gtfsId": "1:2366"
+                  }
+                },
+                "to": {
+                  "name": "Masjid Moth",
+                  "lat": 28.540504,
+                  "lon": 77.235786,
+                  "stop": {
+                    "gtfsId": "1:2806"
+                  }
+                },
+                "route": {
+                  "shortName": "D-014DOWN",
+                  "gtfsId": "1:1319"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 2539.56,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T10:13:37+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:22:05+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:785_09_37"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:3044"
+                  },
+                  {
+                    "gtfsId": "1:3070"
+                  },
+                  {
+                    "gtfsId": "1:3045"
+                  }
+                ],
+                "from": {
+                  "name": "Masjid Moth",
+                  "lat": 28.540504,
+                  "lon": 77.235786,
+                  "stop": {
+                    "gtfsId": "1:2806"
+                  }
+                },
+                "to": {
+                  "name": "Panchsheel Club  / Panchsheel Enclave",
+                  "lat": 28.5432462,
+                  "lon": 77.2100533,
+                  "stop": {
+                    "gtfsId": "1:3071"
+                  }
+                },
+                "route": {
+                  "shortName": "774UP",
+                  "gtfsId": "1:785"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 246.09,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:22:05+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:25:11+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Panchsheel Club  / Panchsheel Enclave",
+                  "lat": 28.5432462,
+                  "lon": 77.2100533,
+                  "stop": {
+                    "gtfsId": "1:3071"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.543389,
+                  "lon": 77.20754,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

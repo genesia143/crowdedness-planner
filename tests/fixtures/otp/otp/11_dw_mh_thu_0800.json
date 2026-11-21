@@ -1,0 +1,2459 @@
+{
+  "data": {
+    "planConnection": {
+      "edges": [
+        {
+          "node": {
+            "start": "2026-10-22T08:12:41+05:30",
+            "end": "2026-10-22T09:15:57+05:30",
+            "walkDistance": 85.69,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 7092.91,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:12:41+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:35:11+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:679_08_00"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7920"
+                  },
+                  {
+                    "gtfsId": "1:3671"
+                  },
+                  {
+                    "gtfsId": "1:2486"
+                  }
+                ],
+                "from": {
+                  "name": "Dwarka Sec 21/ 22 /25 XING",
+                  "lat": 28.549086,
+                  "lon": 77.0555741,
+                  "stop": {
+                    "gtfsId": "1:7544"
+                  }
+                },
+                "to": {
+                  "name": "Rang Puri (NH8 Circle)",
+                  "lat": 28.5438654,
+                  "lon": 77.1179139,
+                  "stop": {
+                    "gtfsId": "1:2487"
+                  }
+                },
+                "route": {
+                  "shortName": "717CDOWN",
+                  "gtfsId": "1:679"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 11493.02,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:38:30+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:14:48+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:565_06_50"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7921"
+                  },
+                  {
+                    "gtfsId": "1:2489"
+                  },
+                  {
+                    "gtfsId": "1:7922"
+                  },
+                  {
+                    "gtfsId": "1:2526"
+                  },
+                  {
+                    "gtfsId": "1:7923"
+                  },
+                  {
+                    "gtfsId": "1:2494"
+                  },
+                  {
+                    "gtfsId": "1:2495"
+                  },
+                  {
+                    "gtfsId": "1:2497"
+                  },
+                  {
+                    "gtfsId": "1:2498"
+                  },
+                  {
+                    "gtfsId": "1:2499"
+                  },
+                  {
+                    "gtfsId": "1:2500"
+                  },
+                  {
+                    "gtfsId": "1:2501"
+                  },
+                  {
+                    "gtfsId": "1:3724"
+                  },
+                  {
+                    "gtfsId": "1:2503"
+                  },
+                  {
+                    "gtfsId": "1:2504"
+                  },
+                  {
+                    "gtfsId": "1:2505"
+                  },
+                  {
+                    "gtfsId": "1:2507"
+                  },
+                  {
+                    "gtfsId": "1:2508"
+                  },
+                  {
+                    "gtfsId": "1:2387"
+                  }
+                ],
+                "from": {
+                  "name": "Rang Puri (NH8 Circle)",
+                  "lat": 28.5438654,
+                  "lon": 77.1179139,
+                  "stop": {
+                    "gtfsId": "1:2487"
+                  }
+                },
+                "to": {
+                  "name": "Mehrauli Terminal",
+                  "lat": 28.521823,
+                  "lon": 77.183418,
+                  "stop": {
+                    "gtfsId": "1:7910"
+                  }
+                },
+                "route": {
+                  "shortName": "539DOWN",
+                  "gtfsId": "1:565"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 85.69,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:14:48+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:15:57+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Mehrauli Terminal",
+                  "lat": 28.521823,
+                  "lon": 77.183418,
+                  "stop": {
+                    "gtfsId": "1:7910"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.521316,
+                  "lon": 77.183047,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T08:13:53+05:30",
+            "end": "2026-10-22T09:23:36+05:30",
+            "walkDistance": 226.31,
+            "numberOfTransfers": 2,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 226.31,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T08:13:53+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:16:44+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.549086,
+                  "lon": 77.0555741,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Bharthal Under Pass",
+                  "lat": 28.5478378,
+                  "lon": 77.0574032,
+                  "stop": {
+                    "gtfsId": "1:2480"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 5292.84,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:16:44+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:34:10+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:838_08_14"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2482"
+                  },
+                  {
+                    "gtfsId": "1:7920"
+                  },
+                  {
+                    "gtfsId": "1:3671"
+                  }
+                ],
+                "from": {
+                  "name": "Bharthal Under Pass",
+                  "lat": 28.5478378,
+                  "lon": 77.0574032,
+                  "stop": {
+                    "gtfsId": "1:2480"
+                  }
+                },
+                "to": {
+                  "name": "Shiv Murti  2 (NH8) /  Dwarka Mor",
+                  "lat": 28.5352037,
+                  "lon": 77.1086764,
+                  "stop": {
+                    "gtfsId": "1:2486"
+                  }
+                },
+                "route": {
+                  "shortName": "801STL-IGI-DWS-22UP",
+                  "gtfsId": "1:838"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 12254.4,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:36:25+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:14:41+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2053_07_10"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:6315"
+                  },
+                  {
+                    "gtfsId": "1:7921"
+                  },
+                  {
+                    "gtfsId": "1:2490"
+                  },
+                  {
+                    "gtfsId": "1:2526"
+                  },
+                  {
+                    "gtfsId": "1:7923"
+                  },
+                  {
+                    "gtfsId": "1:6316"
+                  },
+                  {
+                    "gtfsId": "1:2494"
+                  },
+                  {
+                    "gtfsId": "1:2495"
+                  },
+                  {
+                    "gtfsId": "1:2496"
+                  },
+                  {
+                    "gtfsId": "1:2497"
+                  },
+                  {
+                    "gtfsId": "1:2498"
+                  },
+                  {
+                    "gtfsId": "1:2499"
+                  },
+                  {
+                    "gtfsId": "1:2500"
+                  },
+                  {
+                    "gtfsId": "1:2501"
+                  },
+                  {
+                    "gtfsId": "1:3724"
+                  },
+                  {
+                    "gtfsId": "1:2504"
+                  },
+                  {
+                    "gtfsId": "1:2505"
+                  },
+                  {
+                    "gtfsId": "1:2507"
+                  },
+                  {
+                    "gtfsId": "1:2800"
+                  }
+                ],
+                "from": {
+                  "name": "Shiv Murti  2 (NH8) /  Dwarka Mor",
+                  "lat": 28.5352037,
+                  "lon": 77.1086764,
+                  "stop": {
+                    "gtfsId": "1:2486"
+                  }
+                },
+                "to": {
+                  "name": "Lado Sarai Firni Road (T)",
+                  "lat": 28.522326,
+                  "lon": 77.195969,
+                  "stop": {
+                    "gtfsId": "1:2778"
+                  }
+                },
+                "route": {
+                  "shortName": "539ADOWN",
+                  "gtfsId": "1:2053"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 2048.62,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:17:49+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:23:36+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1924_08_30"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:5961"
+                  },
+                  {
+                    "gtfsId": "1:2387"
+                  }
+                ],
+                "from": {
+                  "name": "Lado Sarai Firni Road (T)",
+                  "lat": 28.522326,
+                  "lon": 77.195969,
+                  "stop": {
+                    "gtfsId": "1:2778"
+                  }
+                },
+                "to": {
+                  "name": "Mehrauli Terminal",
+                  "lat": 28.521316,
+                  "lon": 77.183047,
+                  "stop": {
+                    "gtfsId": "1:7908"
+                  }
+                },
+                "route": {
+                  "shortName": "427UP",
+                  "gtfsId": "1:1924"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T08:25:55+05:30",
+            "end": "2026-10-22T09:25:57+05:30",
+            "walkDistance": 85.69,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 15089.07,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:25:55+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:12:21+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2174_08_14"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7920"
+                  },
+                  {
+                    "gtfsId": "1:3671"
+                  },
+                  {
+                    "gtfsId": "1:2486"
+                  },
+                  {
+                    "gtfsId": "1:6315"
+                  },
+                  {
+                    "gtfsId": "1:2490"
+                  },
+                  {
+                    "gtfsId": "1:2526"
+                  },
+                  {
+                    "gtfsId": "1:7923"
+                  },
+                  {
+                    "gtfsId": "1:2494"
+                  },
+                  {
+                    "gtfsId": "1:6430"
+                  },
+                  {
+                    "gtfsId": "1:2495"
+                  },
+                  {
+                    "gtfsId": "1:2496"
+                  },
+                  {
+                    "gtfsId": "1:2497"
+                  },
+                  {
+                    "gtfsId": "1:2498"
+                  },
+                  {
+                    "gtfsId": "1:2499"
+                  },
+                  {
+                    "gtfsId": "1:2500"
+                  },
+                  {
+                    "gtfsId": "1:2501"
+                  },
+                  {
+                    "gtfsId": "1:3724"
+                  }
+                ],
+                "from": {
+                  "name": "Dwarka Sec 21/ 22 /25 XING",
+                  "lat": 28.549086,
+                  "lon": 77.0555741,
+                  "stop": {
+                    "gtfsId": "1:7544"
+                  }
+                },
+                "to": {
+                  "name": "Andheria Bagh More",
+                  "lat": 28.509433,
+                  "lon": 77.17875,
+                  "stop": {
+                    "gtfsId": "1:2504"
+                  }
+                },
+                "route": {
+                  "shortName": "717DOWN",
+                  "gtfsId": "1:2174"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 3496.88,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:14:27+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:24:48+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:565_07_00"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2505"
+                  },
+                  {
+                    "gtfsId": "1:2507"
+                  },
+                  {
+                    "gtfsId": "1:2508"
+                  },
+                  {
+                    "gtfsId": "1:2387"
+                  }
+                ],
+                "from": {
+                  "name": "Andheria Bagh More",
+                  "lat": 28.509433,
+                  "lon": 77.17875,
+                  "stop": {
+                    "gtfsId": "1:2504"
+                  }
+                },
+                "to": {
+                  "name": "Mehrauli Terminal",
+                  "lat": 28.521823,
+                  "lon": 77.183418,
+                  "stop": {
+                    "gtfsId": "1:7910"
+                  }
+                },
+                "route": {
+                  "shortName": "539DOWN",
+                  "gtfsId": "1:565"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 85.69,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:24:48+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:25:57+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Mehrauli Terminal",
+                  "lat": 28.521823,
+                  "lon": 77.183418,
+                  "stop": {
+                    "gtfsId": "1:7910"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.521316,
+                  "lon": 77.183047,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T08:25:55+05:30",
+            "end": "2026-10-22T09:32:57+05:30",
+            "walkDistance": 1373.09,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 16029.23,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:25:55+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:15:19+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2174_08_14"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7920"
+                  },
+                  {
+                    "gtfsId": "1:3671"
+                  },
+                  {
+                    "gtfsId": "1:2486"
+                  },
+                  {
+                    "gtfsId": "1:6315"
+                  },
+                  {
+                    "gtfsId": "1:2490"
+                  },
+                  {
+                    "gtfsId": "1:2526"
+                  },
+                  {
+                    "gtfsId": "1:7923"
+                  },
+                  {
+                    "gtfsId": "1:2494"
+                  },
+                  {
+                    "gtfsId": "1:6430"
+                  },
+                  {
+                    "gtfsId": "1:2495"
+                  },
+                  {
+                    "gtfsId": "1:2496"
+                  },
+                  {
+                    "gtfsId": "1:2497"
+                  },
+                  {
+                    "gtfsId": "1:2498"
+                  },
+                  {
+                    "gtfsId": "1:2499"
+                  },
+                  {
+                    "gtfsId": "1:2500"
+                  },
+                  {
+                    "gtfsId": "1:2501"
+                  },
+                  {
+                    "gtfsId": "1:3724"
+                  },
+                  {
+                    "gtfsId": "1:2504"
+                  }
+                ],
+                "from": {
+                  "name": "Dwarka Sec 21/ 22 /25 XING",
+                  "lat": 28.549086,
+                  "lon": 77.0555741,
+                  "stop": {
+                    "gtfsId": "1:7544"
+                  }
+                },
+                "to": {
+                  "name": "Qutub Minar Metro Sation",
+                  "lat": 28.514082,
+                  "lon": 77.186152,
+                  "stop": {
+                    "gtfsId": "1:2505"
+                  }
+                },
+                "route": {
+                  "shortName": "717DOWN",
+                  "gtfsId": "1:2174"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 1373.09,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:15:19+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:32:57+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Qutub Minar Metro Sation",
+                  "lat": 28.514082,
+                  "lon": 77.186152,
+                  "stop": {
+                    "gtfsId": "1:2505"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.521316,
+                  "lon": 77.183047,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T08:27:53+05:30",
+            "end": "2026-10-22T09:35:57+05:30",
+            "walkDistance": 312.0,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 226.31,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T08:27:53+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:30:44+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.549086,
+                  "lon": 77.0555741,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Bharthal Under Pass",
+                  "lat": 28.5478378,
+                  "lon": 77.0574032,
+                  "stop": {
+                    "gtfsId": "1:2480"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 5292.84,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:30:44+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:48:10+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:838_08_28"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2482"
+                  },
+                  {
+                    "gtfsId": "1:7920"
+                  },
+                  {
+                    "gtfsId": "1:3671"
+                  }
+                ],
+                "from": {
+                  "name": "Bharthal Under Pass",
+                  "lat": 28.5478378,
+                  "lon": 77.0574032,
+                  "stop": {
+                    "gtfsId": "1:2480"
+                  }
+                },
+                "to": {
+                  "name": "Shiv Murti  2 (NH8) /  Dwarka Mor",
+                  "lat": 28.5352037,
+                  "lon": 77.1086764,
+                  "stop": {
+                    "gtfsId": "1:2486"
+                  }
+                },
+                "route": {
+                  "shortName": "801STL-IGI-DWS-22UP",
+                  "gtfsId": "1:838"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 13070.21,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:54:06+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:34:48+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:565_07_10"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2487"
+                  },
+                  {
+                    "gtfsId": "1:7921"
+                  },
+                  {
+                    "gtfsId": "1:2489"
+                  },
+                  {
+                    "gtfsId": "1:7922"
+                  },
+                  {
+                    "gtfsId": "1:2526"
+                  },
+                  {
+                    "gtfsId": "1:7923"
+                  },
+                  {
+                    "gtfsId": "1:2494"
+                  },
+                  {
+                    "gtfsId": "1:2495"
+                  },
+                  {
+                    "gtfsId": "1:2497"
+                  },
+                  {
+                    "gtfsId": "1:2498"
+                  },
+                  {
+                    "gtfsId": "1:2499"
+                  },
+                  {
+                    "gtfsId": "1:2500"
+                  },
+                  {
+                    "gtfsId": "1:2501"
+                  },
+                  {
+                    "gtfsId": "1:3724"
+                  },
+                  {
+                    "gtfsId": "1:2503"
+                  },
+                  {
+                    "gtfsId": "1:2504"
+                  },
+                  {
+                    "gtfsId": "1:2505"
+                  },
+                  {
+                    "gtfsId": "1:2507"
+                  },
+                  {
+                    "gtfsId": "1:2508"
+                  },
+                  {
+                    "gtfsId": "1:2387"
+                  }
+                ],
+                "from": {
+                  "name": "Shiv Murti  2 (NH8) /  Dwarka Mor",
+                  "lat": 28.5352037,
+                  "lon": 77.1086764,
+                  "stop": {
+                    "gtfsId": "1:2486"
+                  }
+                },
+                "to": {
+                  "name": "Mehrauli Terminal",
+                  "lat": 28.521823,
+                  "lon": 77.183418,
+                  "stop": {
+                    "gtfsId": "1:7910"
+                  }
+                },
+                "route": {
+                  "shortName": "539DOWN",
+                  "gtfsId": "1:565"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 85.69,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:34:48+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:35:57+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Mehrauli Terminal",
+                  "lat": 28.521823,
+                  "lon": 77.183418,
+                  "stop": {
+                    "gtfsId": "1:7910"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.521316,
+                  "lon": 77.183047,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T08:29:26+05:30",
+            "end": "2026-10-22T09:35:57+05:30",
+            "walkDistance": 451.56,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 226.31,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T08:29:26+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:32:17+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.549086,
+                  "lon": 77.0555741,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Bharthal Under Pass",
+                  "lat": 28.5478378,
+                  "lon": 77.0574032,
+                  "stop": {
+                    "gtfsId": "1:2480"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 3707.79,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:32:17+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:44:16+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2738_07_55"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7920"
+                  },
+                  {
+                    "gtfsId": "1:7545"
+                  }
+                ],
+                "from": {
+                  "name": "Bharthal Under Pass",
+                  "lat": 28.5478378,
+                  "lon": 77.0574032,
+                  "stop": {
+                    "gtfsId": "1:2480"
+                  }
+                },
+                "to": {
+                  "name": "Samalkha Crossing",
+                  "lat": 28.537322,
+                  "lon": 77.092137,
+                  "stop": {
+                    "gtfsId": "1:3208"
+                  }
+                },
+                "route": {
+                  "shortName": "UTTAM NAGAR (T) TO GURGAON UP",
+                  "gtfsId": "1:2738"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 139.56,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T08:44:16+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:46:08+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Samalkha Crossing",
+                  "lat": 28.537322,
+                  "lon": 77.092137,
+                  "stop": {
+                    "gtfsId": "1:3208"
+                  }
+                },
+                "to": {
+                  "name": "Samalkha Crossing",
+                  "lat": 28.5372759,
+                  "lon": 77.0919325,
+                  "stop": {
+                    "gtfsId": "1:9726"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 14851.85,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:48:35+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:34:48+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:565_07_10"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2486"
+                  },
+                  {
+                    "gtfsId": "1:2487"
+                  },
+                  {
+                    "gtfsId": "1:7921"
+                  },
+                  {
+                    "gtfsId": "1:2489"
+                  },
+                  {
+                    "gtfsId": "1:7922"
+                  },
+                  {
+                    "gtfsId": "1:2526"
+                  },
+                  {
+                    "gtfsId": "1:7923"
+                  },
+                  {
+                    "gtfsId": "1:2494"
+                  },
+                  {
+                    "gtfsId": "1:2495"
+                  },
+                  {
+                    "gtfsId": "1:2497"
+                  },
+                  {
+                    "gtfsId": "1:2498"
+                  },
+                  {
+                    "gtfsId": "1:2499"
+                  },
+                  {
+                    "gtfsId": "1:2500"
+                  },
+                  {
+                    "gtfsId": "1:2501"
+                  },
+                  {
+                    "gtfsId": "1:3724"
+                  },
+                  {
+                    "gtfsId": "1:2503"
+                  },
+                  {
+                    "gtfsId": "1:2504"
+                  },
+                  {
+                    "gtfsId": "1:2505"
+                  },
+                  {
+                    "gtfsId": "1:2507"
+                  },
+                  {
+                    "gtfsId": "1:2508"
+                  },
+                  {
+                    "gtfsId": "1:2387"
+                  }
+                ],
+                "from": {
+                  "name": "Samalkha Crossing",
+                  "lat": 28.5372759,
+                  "lon": 77.0919325,
+                  "stop": {
+                    "gtfsId": "1:9726"
+                  }
+                },
+                "to": {
+                  "name": "Mehrauli Terminal",
+                  "lat": 28.521823,
+                  "lon": 77.183418,
+                  "stop": {
+                    "gtfsId": "1:7910"
+                  }
+                },
+                "route": {
+                  "shortName": "539DOWN",
+                  "gtfsId": "1:565"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 85.69,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:34:48+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:35:57+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Mehrauli Terminal",
+                  "lat": 28.521823,
+                  "lon": 77.183418,
+                  "stop": {
+                    "gtfsId": "1:7910"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.521316,
+                  "lon": 77.183047,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T08:37:25+05:30",
+            "end": "2026-10-22T09:45:57+05:30",
+            "walkDistance": 225.25,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 3934.06,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:37:25+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:50:08+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2179_08_00"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7920"
+                  },
+                  {
+                    "gtfsId": "1:7545"
+                  }
+                ],
+                "from": {
+                  "name": "Dwarka Sec 21/ 22 /25 XING",
+                  "lat": 28.549086,
+                  "lon": 77.0555741,
+                  "stop": {
+                    "gtfsId": "1:7544"
+                  }
+                },
+                "to": {
+                  "name": "Samalkha Crossing",
+                  "lat": 28.537322,
+                  "lon": 77.092137,
+                  "stop": {
+                    "gtfsId": "1:3208"
+                  }
+                },
+                "route": {
+                  "shortName": "718UP",
+                  "gtfsId": "1:2179"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 139.56,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T08:50:08+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:52:00+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Samalkha Crossing",
+                  "lat": 28.537322,
+                  "lon": 77.092137,
+                  "stop": {
+                    "gtfsId": "1:3208"
+                  }
+                },
+                "to": {
+                  "name": "Samalkha Crossing",
+                  "lat": 28.5372759,
+                  "lon": 77.0919325,
+                  "stop": {
+                    "gtfsId": "1:9726"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 14851.85,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:58:35+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:44:48+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:565_07_20"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2486"
+                  },
+                  {
+                    "gtfsId": "1:2487"
+                  },
+                  {
+                    "gtfsId": "1:7921"
+                  },
+                  {
+                    "gtfsId": "1:2489"
+                  },
+                  {
+                    "gtfsId": "1:7922"
+                  },
+                  {
+                    "gtfsId": "1:2526"
+                  },
+                  {
+                    "gtfsId": "1:7923"
+                  },
+                  {
+                    "gtfsId": "1:2494"
+                  },
+                  {
+                    "gtfsId": "1:2495"
+                  },
+                  {
+                    "gtfsId": "1:2497"
+                  },
+                  {
+                    "gtfsId": "1:2498"
+                  },
+                  {
+                    "gtfsId": "1:2499"
+                  },
+                  {
+                    "gtfsId": "1:2500"
+                  },
+                  {
+                    "gtfsId": "1:2501"
+                  },
+                  {
+                    "gtfsId": "1:3724"
+                  },
+                  {
+                    "gtfsId": "1:2503"
+                  },
+                  {
+                    "gtfsId": "1:2504"
+                  },
+                  {
+                    "gtfsId": "1:2505"
+                  },
+                  {
+                    "gtfsId": "1:2507"
+                  },
+                  {
+                    "gtfsId": "1:2508"
+                  },
+                  {
+                    "gtfsId": "1:2387"
+                  }
+                ],
+                "from": {
+                  "name": "Samalkha Crossing",
+                  "lat": 28.5372759,
+                  "lon": 77.0919325,
+                  "stop": {
+                    "gtfsId": "1:9726"
+                  }
+                },
+                "to": {
+                  "name": "Mehrauli Terminal",
+                  "lat": 28.521823,
+                  "lon": 77.183418,
+                  "stop": {
+                    "gtfsId": "1:7910"
+                  }
+                },
+                "route": {
+                  "shortName": "539DOWN",
+                  "gtfsId": "1:565"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 85.69,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:44:48+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:45:57+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Mehrauli Terminal",
+                  "lat": 28.521823,
+                  "lon": 77.183418,
+                  "stop": {
+                    "gtfsId": "1:7910"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.521316,
+                  "lon": 77.183047,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T08:41:53+05:30",
+            "end": "2026-10-22T09:46:13+05:30",
+            "walkDistance": 312.0,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "WALK",
+                "distance": 226.31,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T08:41:53+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T08:44:44+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Origin",
+                  "lat": 28.549086,
+                  "lon": 77.0555741,
+                  "stop": null
+                },
+                "to": {
+                  "name": "Bharthal Under Pass",
+                  "lat": 28.5478378,
+                  "lon": 77.0574032,
+                  "stop": {
+                    "gtfsId": "1:2480"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 5292.84,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:44:44+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:02:10+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:838_08_42"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2482"
+                  },
+                  {
+                    "gtfsId": "1:7920"
+                  },
+                  {
+                    "gtfsId": "1:3671"
+                  }
+                ],
+                "from": {
+                  "name": "Bharthal Under Pass",
+                  "lat": 28.5478378,
+                  "lon": 77.0574032,
+                  "stop": {
+                    "gtfsId": "1:2480"
+                  }
+                },
+                "to": {
+                  "name": "Shiv Murti  2 (NH8) /  Dwarka Mor",
+                  "lat": 28.5352037,
+                  "lon": 77.1086764,
+                  "stop": {
+                    "gtfsId": "1:2486"
+                  }
+                },
+                "route": {
+                  "shortName": "801STL-IGI-DWS-22UP",
+                  "gtfsId": "1:838"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 13070.21,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:04:29+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:45:04+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:1040_08_00"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2487"
+                  },
+                  {
+                    "gtfsId": "1:7921"
+                  },
+                  {
+                    "gtfsId": "1:2489"
+                  },
+                  {
+                    "gtfsId": "1:7922"
+                  },
+                  {
+                    "gtfsId": "1:2526"
+                  },
+                  {
+                    "gtfsId": "1:7923"
+                  },
+                  {
+                    "gtfsId": "1:2494"
+                  },
+                  {
+                    "gtfsId": "1:2495"
+                  },
+                  {
+                    "gtfsId": "1:2497"
+                  },
+                  {
+                    "gtfsId": "1:2498"
+                  },
+                  {
+                    "gtfsId": "1:2499"
+                  },
+                  {
+                    "gtfsId": "1:2500"
+                  },
+                  {
+                    "gtfsId": "1:2501"
+                  },
+                  {
+                    "gtfsId": "1:3724"
+                  },
+                  {
+                    "gtfsId": "1:2503"
+                  },
+                  {
+                    "gtfsId": "1:2504"
+                  },
+                  {
+                    "gtfsId": "1:2505"
+                  },
+                  {
+                    "gtfsId": "1:2507"
+                  },
+                  {
+                    "gtfsId": "1:4698"
+                  },
+                  {
+                    "gtfsId": "1:2387"
+                  }
+                ],
+                "from": {
+                  "name": "Shiv Murti  2 (NH8) /  Dwarka Mor",
+                  "lat": 28.5352037,
+                  "lon": 77.1086764,
+                  "stop": {
+                    "gtfsId": "1:2486"
+                  }
+                },
+                "to": {
+                  "name": "Mehrauli Terminal",
+                  "lat": 28.521823,
+                  "lon": 77.183418,
+                  "stop": {
+                    "gtfsId": "1:7910"
+                  }
+                },
+                "route": {
+                  "shortName": "886DOWN",
+                  "gtfsId": "1:1040"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 85.69,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:45:04+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:46:13+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Mehrauli Terminal",
+                  "lat": 28.521823,
+                  "lon": 77.183418,
+                  "stop": {
+                    "gtfsId": "1:7910"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.521316,
+                  "lon": 77.183047,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T08:47:41+05:30",
+            "end": "2026-10-22T09:52:58+05:30",
+            "walkDistance": 203.07,
+            "numberOfTransfers": 2,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 5515.72,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:47:41+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:05:48+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:679_08_35"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7920"
+                  },
+                  {
+                    "gtfsId": "1:3671"
+                  }
+                ],
+                "from": {
+                  "name": "Dwarka Sec 21/ 22 /25 XING",
+                  "lat": 28.549086,
+                  "lon": 77.0555741,
+                  "stop": {
+                    "gtfsId": "1:7544"
+                  }
+                },
+                "to": {
+                  "name": "Shiv Murti  2 (NH8) /  Dwarka Mor",
+                  "lat": 28.5352037,
+                  "lon": 77.1086764,
+                  "stop": {
+                    "gtfsId": "1:2486"
+                  }
+                },
+                "route": {
+                  "shortName": "717CDOWN",
+                  "gtfsId": "1:679"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 11768.06,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:08:12+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:43:07+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2170_08_56"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2490"
+                  },
+                  {
+                    "gtfsId": "1:2526"
+                  },
+                  {
+                    "gtfsId": "1:6316"
+                  },
+                  {
+                    "gtfsId": "1:2495"
+                  },
+                  {
+                    "gtfsId": "1:2496"
+                  },
+                  {
+                    "gtfsId": "1:2497"
+                  },
+                  {
+                    "gtfsId": "1:2498"
+                  },
+                  {
+                    "gtfsId": "1:2499"
+                  },
+                  {
+                    "gtfsId": "1:2500"
+                  },
+                  {
+                    "gtfsId": "1:2501"
+                  },
+                  {
+                    "gtfsId": "1:3724"
+                  },
+                  {
+                    "gtfsId": "1:9323"
+                  },
+                  {
+                    "gtfsId": "1:2504"
+                  },
+                  {
+                    "gtfsId": "1:2505"
+                  },
+                  {
+                    "gtfsId": "1:2507"
+                  }
+                ],
+                "from": {
+                  "name": "Shiv Murti  2 (NH8) /  Dwarka Mor",
+                  "lat": 28.5352037,
+                  "lon": 77.1086764,
+                  "stop": {
+                    "gtfsId": "1:2486"
+                  }
+                },
+                "to": {
+                  "name": "Lado Sarai Crossing",
+                  "lat": 28.5232359,
+                  "lon": 77.1911156,
+                  "stop": {
+                    "gtfsId": "1:2800"
+                  }
+                },
+                "route": {
+                  "shortName": "717ADOWN",
+                  "gtfsId": "1:2170"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 203.07,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:43:07+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:45:47+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Lado Sarai Crossing",
+                  "lat": 28.5232359,
+                  "lon": 77.1911156,
+                  "stop": {
+                    "gtfsId": "1:2800"
+                  }
+                },
+                "to": {
+                  "name": "Lado Sarai Crossing",
+                  "lat": 28.522833,
+                  "lon": 77.191895,
+                  "stop": {
+                    "gtfsId": "1:5961"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 1641.86,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:49:03+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:52:58+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2039_09_10"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4698"
+                  },
+                  {
+                    "gtfsId": "1:5936"
+                  }
+                ],
+                "from": {
+                  "name": "Lado Sarai Crossing",
+                  "lat": 28.522833,
+                  "lon": 77.191895,
+                  "stop": {
+                    "gtfsId": "1:5961"
+                  }
+                },
+                "to": {
+                  "name": "Mehrauli Terminal",
+                  "lat": 28.521316,
+                  "lon": 77.183047,
+                  "stop": {
+                    "gtfsId": "1:7908"
+                  }
+                },
+                "route": {
+                  "shortName": "525STLUP",
+                  "gtfsId": "1:2039"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T08:47:41+05:30",
+            "end": "2026-10-22T09:55:57+05:30",
+            "walkDistance": 85.69,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 7092.91,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T08:47:41+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:10:11+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:679_08_35"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7920"
+                  },
+                  {
+                    "gtfsId": "1:3671"
+                  },
+                  {
+                    "gtfsId": "1:2486"
+                  }
+                ],
+                "from": {
+                  "name": "Dwarka Sec 21/ 22 /25 XING",
+                  "lat": 28.549086,
+                  "lon": 77.0555741,
+                  "stop": {
+                    "gtfsId": "1:7544"
+                  }
+                },
+                "to": {
+                  "name": "Rang Puri (NH8 Circle)",
+                  "lat": 28.5438654,
+                  "lon": 77.1179139,
+                  "stop": {
+                    "gtfsId": "1:2487"
+                  }
+                },
+                "route": {
+                  "shortName": "717CDOWN",
+                  "gtfsId": "1:679"
+                }
+              },
+              {
+                "mode": "BUS",
+                "distance": 11493.02,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:18:30+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:54:48+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:565_07_30"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7921"
+                  },
+                  {
+                    "gtfsId": "1:2489"
+                  },
+                  {
+                    "gtfsId": "1:7922"
+                  },
+                  {
+                    "gtfsId": "1:2526"
+                  },
+                  {
+                    "gtfsId": "1:7923"
+                  },
+                  {
+                    "gtfsId": "1:2494"
+                  },
+                  {
+                    "gtfsId": "1:2495"
+                  },
+                  {
+                    "gtfsId": "1:2497"
+                  },
+                  {
+                    "gtfsId": "1:2498"
+                  },
+                  {
+                    "gtfsId": "1:2499"
+                  },
+                  {
+                    "gtfsId": "1:2500"
+                  },
+                  {
+                    "gtfsId": "1:2501"
+                  },
+                  {
+                    "gtfsId": "1:3724"
+                  },
+                  {
+                    "gtfsId": "1:2503"
+                  },
+                  {
+                    "gtfsId": "1:2504"
+                  },
+                  {
+                    "gtfsId": "1:2505"
+                  },
+                  {
+                    "gtfsId": "1:2507"
+                  },
+                  {
+                    "gtfsId": "1:2508"
+                  },
+                  {
+                    "gtfsId": "1:2387"
+                  }
+                ],
+                "from": {
+                  "name": "Rang Puri (NH8 Circle)",
+                  "lat": 28.5438654,
+                  "lon": 77.1179139,
+                  "stop": {
+                    "gtfsId": "1:2487"
+                  }
+                },
+                "to": {
+                  "name": "Mehrauli Terminal",
+                  "lat": 28.521823,
+                  "lon": 77.183418,
+                  "stop": {
+                    "gtfsId": "1:7910"
+                  }
+                },
+                "route": {
+                  "shortName": "539DOWN",
+                  "gtfsId": "1:565"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 85.69,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:54:48+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:55:57+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Mehrauli Terminal",
+                  "lat": 28.521823,
+                  "lon": 77.183418,
+                  "stop": {
+                    "gtfsId": "1:7910"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.521316,
+                  "lon": 77.183047,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:00:55+05:30",
+            "end": "2026-10-22T10:02:58+05:30",
+            "walkDistance": 203.07,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 17283.79,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:00:55+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:54:04+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2174_08_49"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7920"
+                  },
+                  {
+                    "gtfsId": "1:3671"
+                  },
+                  {
+                    "gtfsId": "1:2486"
+                  },
+                  {
+                    "gtfsId": "1:6315"
+                  },
+                  {
+                    "gtfsId": "1:2490"
+                  },
+                  {
+                    "gtfsId": "1:2526"
+                  },
+                  {
+                    "gtfsId": "1:7923"
+                  },
+                  {
+                    "gtfsId": "1:2494"
+                  },
+                  {
+                    "gtfsId": "1:6430"
+                  },
+                  {
+                    "gtfsId": "1:2495"
+                  },
+                  {
+                    "gtfsId": "1:2496"
+                  },
+                  {
+                    "gtfsId": "1:2497"
+                  },
+                  {
+                    "gtfsId": "1:2498"
+                  },
+                  {
+                    "gtfsId": "1:2499"
+                  },
+                  {
+                    "gtfsId": "1:2500"
+                  },
+                  {
+                    "gtfsId": "1:2501"
+                  },
+                  {
+                    "gtfsId": "1:3724"
+                  },
+                  {
+                    "gtfsId": "1:2504"
+                  },
+                  {
+                    "gtfsId": "1:2505"
+                  },
+                  {
+                    "gtfsId": "1:2507"
+                  }
+                ],
+                "from": {
+                  "name": "Dwarka Sec 21/ 22 /25 XING",
+                  "lat": 28.549086,
+                  "lon": 77.0555741,
+                  "stop": {
+                    "gtfsId": "1:7544"
+                  }
+                },
+                "to": {
+                  "name": "Lado Sarai Crossing",
+                  "lat": 28.5232359,
+                  "lon": 77.1911156,
+                  "stop": {
+                    "gtfsId": "1:2800"
+                  }
+                },
+                "route": {
+                  "shortName": "717DOWN",
+                  "gtfsId": "1:2174"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 203.07,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:54:04+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:56:44+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Lado Sarai Crossing",
+                  "lat": 28.5232359,
+                  "lon": 77.1911156,
+                  "stop": {
+                    "gtfsId": "1:2800"
+                  }
+                },
+                "to": {
+                  "name": "Lado Sarai Crossing",
+                  "lat": 28.522833,
+                  "lon": 77.191895,
+                  "stop": {
+                    "gtfsId": "1:5961"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 1641.86,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:59:03+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:02:58+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2039_09_20"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:4698"
+                  },
+                  {
+                    "gtfsId": "1:5936"
+                  }
+                ],
+                "from": {
+                  "name": "Lado Sarai Crossing",
+                  "lat": 28.522833,
+                  "lon": 77.191895,
+                  "stop": {
+                    "gtfsId": "1:5961"
+                  }
+                },
+                "to": {
+                  "name": "Mehrauli Terminal",
+                  "lat": 28.521316,
+                  "lon": 77.183047,
+                  "stop": {
+                    "gtfsId": "1:7908"
+                  }
+                },
+                "route": {
+                  "shortName": "525STLUP",
+                  "gtfsId": "1:2039"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:00:55+05:30",
+            "end": "2026-10-22T10:07:57+05:30",
+            "walkDistance": 1373.09,
+            "numberOfTransfers": 0,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 16029.23,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:00:55+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:50:19+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2174_08_49"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7920"
+                  },
+                  {
+                    "gtfsId": "1:3671"
+                  },
+                  {
+                    "gtfsId": "1:2486"
+                  },
+                  {
+                    "gtfsId": "1:6315"
+                  },
+                  {
+                    "gtfsId": "1:2490"
+                  },
+                  {
+                    "gtfsId": "1:2526"
+                  },
+                  {
+                    "gtfsId": "1:7923"
+                  },
+                  {
+                    "gtfsId": "1:2494"
+                  },
+                  {
+                    "gtfsId": "1:6430"
+                  },
+                  {
+                    "gtfsId": "1:2495"
+                  },
+                  {
+                    "gtfsId": "1:2496"
+                  },
+                  {
+                    "gtfsId": "1:2497"
+                  },
+                  {
+                    "gtfsId": "1:2498"
+                  },
+                  {
+                    "gtfsId": "1:2499"
+                  },
+                  {
+                    "gtfsId": "1:2500"
+                  },
+                  {
+                    "gtfsId": "1:2501"
+                  },
+                  {
+                    "gtfsId": "1:3724"
+                  },
+                  {
+                    "gtfsId": "1:2504"
+                  }
+                ],
+                "from": {
+                  "name": "Dwarka Sec 21/ 22 /25 XING",
+                  "lat": 28.549086,
+                  "lon": 77.0555741,
+                  "stop": {
+                    "gtfsId": "1:7544"
+                  }
+                },
+                "to": {
+                  "name": "Qutub Minar Metro Sation",
+                  "lat": 28.514082,
+                  "lon": 77.186152,
+                  "stop": {
+                    "gtfsId": "1:2505"
+                  }
+                },
+                "route": {
+                  "shortName": "717DOWN",
+                  "gtfsId": "1:2174"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 1373.09,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:50:19+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:07:57+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Qutub Minar Metro Sation",
+                  "lat": 28.514082,
+                  "lon": 77.186152,
+                  "stop": {
+                    "gtfsId": "1:2505"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.521316,
+                  "lon": 77.183047,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "start": "2026-10-22T09:07:25+05:30",
+            "end": "2026-10-22T10:15:57+05:30",
+            "walkDistance": 225.25,
+            "numberOfTransfers": 1,
+            "legs": [
+              {
+                "mode": "BUS",
+                "distance": 3934.06,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:07:25+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:20:08+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:2179_08_30"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:7920"
+                  },
+                  {
+                    "gtfsId": "1:7545"
+                  }
+                ],
+                "from": {
+                  "name": "Dwarka Sec 21/ 22 /25 XING",
+                  "lat": 28.549086,
+                  "lon": 77.0555741,
+                  "stop": {
+                    "gtfsId": "1:7544"
+                  }
+                },
+                "to": {
+                  "name": "Samalkha Crossing",
+                  "lat": 28.537322,
+                  "lon": 77.092137,
+                  "stop": {
+                    "gtfsId": "1:3208"
+                  }
+                },
+                "route": {
+                  "shortName": "718UP",
+                  "gtfsId": "1:2179"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 139.56,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T09:20:08+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T09:22:00+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Samalkha Crossing",
+                  "lat": 28.537322,
+                  "lon": 77.092137,
+                  "stop": {
+                    "gtfsId": "1:3208"
+                  }
+                },
+                "to": {
+                  "name": "Samalkha Crossing",
+                  "lat": 28.5372759,
+                  "lon": 77.0919325,
+                  "stop": {
+                    "gtfsId": "1:9726"
+                  }
+                },
+                "route": null
+              },
+              {
+                "mode": "BUS",
+                "distance": 14851.85,
+                "serviceDate": "2026-10-22",
+                "start": {
+                  "scheduledTime": "2026-10-22T09:28:35+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:14:48+05:30"
+                },
+                "trip": {
+                  "gtfsId": "1:565_07_50"
+                },
+                "intermediateStops": [
+                  {
+                    "gtfsId": "1:2486"
+                  },
+                  {
+                    "gtfsId": "1:2487"
+                  },
+                  {
+                    "gtfsId": "1:7921"
+                  },
+                  {
+                    "gtfsId": "1:2489"
+                  },
+                  {
+                    "gtfsId": "1:7922"
+                  },
+                  {
+                    "gtfsId": "1:2526"
+                  },
+                  {
+                    "gtfsId": "1:7923"
+                  },
+                  {
+                    "gtfsId": "1:2494"
+                  },
+                  {
+                    "gtfsId": "1:2495"
+                  },
+                  {
+                    "gtfsId": "1:2497"
+                  },
+                  {
+                    "gtfsId": "1:2498"
+                  },
+                  {
+                    "gtfsId": "1:2499"
+                  },
+                  {
+                    "gtfsId": "1:2500"
+                  },
+                  {
+                    "gtfsId": "1:2501"
+                  },
+                  {
+                    "gtfsId": "1:3724"
+                  },
+                  {
+                    "gtfsId": "1:2503"
+                  },
+                  {
+                    "gtfsId": "1:2504"
+                  },
+                  {
+                    "gtfsId": "1:2505"
+                  },
+                  {
+                    "gtfsId": "1:2507"
+                  },
+                  {
+                    "gtfsId": "1:2508"
+                  },
+                  {
+                    "gtfsId": "1:2387"
+                  }
+                ],
+                "from": {
+                  "name": "Samalkha Crossing",
+                  "lat": 28.5372759,
+                  "lon": 77.0919325,
+                  "stop": {
+                    "gtfsId": "1:9726"
+                  }
+                },
+                "to": {
+                  "name": "Mehrauli Terminal",
+                  "lat": 28.521823,
+                  "lon": 77.183418,
+                  "stop": {
+                    "gtfsId": "1:7910"
+                  }
+                },
+                "route": {
+                  "shortName": "539DOWN",
+                  "gtfsId": "1:565"
+                }
+              },
+              {
+                "mode": "WALK",
+                "distance": 85.69,
+                "serviceDate": null,
+                "start": {
+                  "scheduledTime": "2026-10-22T10:14:48+05:30"
+                },
+                "end": {
+                  "scheduledTime": "2026-10-22T10:15:57+05:30"
+                },
+                "trip": null,
+                "intermediateStops": null,
+                "from": {
+                  "name": "Mehrauli Terminal",
+                  "lat": 28.521823,
+                  "lon": 77.183418,
+                  "stop": {
+                    "gtfsId": "1:7910"
+                  }
+                },
+                "to": {
+                  "name": "Destination",
+                  "lat": 28.521316,
+                  "lon": 77.183047,
+                  "stop": null
+                },
+                "route": null
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
