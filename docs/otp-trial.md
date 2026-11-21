@@ -29,3 +29,16 @@ python3 scripts/prepare_otp_feed.py /path/to/original-gtfs.zip data/otp-trial/tr
 Create the output directory first. The destination must not already exist. The script selects the routes and their trips, stops, stop times and shapes, validates the referenced stops and shapes, and copies timetable metadata. It writes a flat ZIP that OTP can read. Run the model and OTP on the same source GTFS version; a trial subset is not a full-network feed. This is specific to this feed and trial, not a general-purpose GTFS validator. The archive, output and model are kept outside Git.
 
 The previous experiment used OTP 2.7.0 and Java 21 with a separately obtained BBBike New Delhi OpenStreetMap extract. Install those prerequisites and follow OTP's own graph-building instructions; this script does not download them or establish coverage outside the extract. Place only the intended GTFS ZIP and OSM extract in the OTP graph build directory. A complete setup for judges and full-region graph are still to be validated.
+
+## Backend endpoint
+
+Start the API with the same original GTFS used to build the OTP graph and model, and pass `--otp-endpoint http://localhost:18080/otp/gtfs/v1`. `GET /journeys/mapped` takes `from_lat`, `from_lon`, `to_lat`, `to_lon`, and a timezone-qualified `departure`; `max_transfer_walk` is optional and defaults to 1000 metres. Example:
+
+```sh
+curl --get 'http://127.0.0.1:8000/journeys/mapped' \
+  --data-urlencode 'from_lat=28.60342055' --data-urlencode 'from_lon=77.30234208' \
+  --data-urlencode 'to_lat=28.49313012' --data-urlencode 'to_lon=77.30372712' \
+  --data-urlencode 'departure=2026-10-22T08:00:00+05:30' --data-urlencode 'max_transfer_walk=1000'
+```
+
+The API filters transfer walks after OTP returns candidates, then attaches V1 segment signals where the OTP trip and stop sequence match the source GTFS. Walking-only itineraries are excluded. The response includes the number of candidates and rejected bus journeys so filtering is visible. This endpoint is experimental: post-filtering can miss valid alternatives, coverage depends on the graph, and scanning stop times per request needs performance work. Arrival and departure walking are not capped by the transfer limit. The current small graph is a feasibility test, not full-city routing.
