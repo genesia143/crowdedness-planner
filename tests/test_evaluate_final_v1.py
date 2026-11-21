@@ -53,15 +53,57 @@ class FinalEvaluationTests(unittest.TestCase):
                     db.execute('INSERT INTO scheduled_totals VALUES (?,?,?,?,?,?,?)',('R','A','B',hour,'weekday',2,4))
                     db.execute('INSERT INTO service_signals VALUES (?,?,?,?,?,?,?)',('R','A','B',hour,'weekday',passengers,3))
                 db.execute('INSERT INTO scheduled_totals VALUES (?,?,?,?,?,?,?)',('R','A','B',11,'weekday',2,4))
-            records=[{'route':'R','from_stop_id':'A','to_stop_id':'B','date':'2026-10-26','hour':hour,'day_type':'weekday','passengers':count} for hour,count in [(8,3),(11,1)]]
+            records=[{'route':'R','from_stop_id':'A','to_stop_id':'B','date':'2026-10-26','hour':hour,'day_type':'weekday','passengers':count} for hour,count in [(8,3),(11,1),(12,2)]]
             path=root/'holdout.json';path.write_text(json.dumps({'training_start':final.START,'training_end':final.END,'definition':'grouped by ticket boarding hour','quality':{},'records':records}))
             schedule={('R','A','B','2026-10-26',h,'weekday'):2 for h in [8,9,10,11]}
             with patch.object(final,'scheduled_crossings',return_value=schedule): result=final.evaluate(dbfile,path,root)
             self.assertEqual(result['subgroups']['weekday']['labelled_sample_passenger_segment_coverage'],0.75)
+            self.assertEqual(result['subgroups']['weekday']['unscheduled_sample_passenger_segments'],2)
+            self.assertEqual(result['subgroups']['weekday']['all_matched_sample_passenger_segments'],6)
+            self.assertEqual(result['subgroups']['weekday']['labelled_all_matched_sample_passenger_segment_coverage'],0.5)
+
+    def test_cli_refuses_changed_target_before_writing_report(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp); output = root / 'report.json'
+            args = ['eval', '--database','db', '--validation','target', '--gtfs','gtfs', '--mapping','map', '--source','src', '--manifest','manifest', '--output',str(output), '--confirm-final-evaluation']
+            with patch.object(sys, 'argv', args), patch.object(final, 'checked_source', return_value='src'), patch.object(final, 'verify', return_value=True), patch.object(final, 'fingerprint', side_effect=[{'sha256':'first'}, {'sha256':'changed'}]), patch.object(final, 'evaluate', return_value={}):
+                with self.assertRaisesRegex(ValueError, 'target changed'):
+                    final.main()
+            self.assertFalse(output.exists())
 
     def test_calendar_groups(self):
         self.assertEqual(final.subgroup('2026-10-25'), 'sunday')
         self.assertEqual(final.subgroup('2026-10-31'), 'saturday')
+
+    def test_label_agreement_by_actual_day_and_insufficient_target(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            dbfile = root / 'model.db'
+            with sqlite3.connect(dbfile) as db:
+                db.executescript('CREATE TABLE metadata(key,value); CREATE TABLE scheduled_totals(route,origin,destination,hour,day_type,scheduled_crossings,scheduled_days); CREATE TABLE service_signals(route,origin,destination,hour,day_type,sampled_passengers,matched_days);')
+                db.executemany('INSERT INTO metadata VALUES (?,?)', [('training_start','"2026-10-01"'), ('training_end','"2026-10-21"'), ('definition','"grouped by ticket boarding hour"')])
+                for kind in ('weekday', 'weekend'):
+                    for hour, passengers in [(8,10),(9,20),(10,30)]:
+                        db.execute('INSERT INTO scheduled_totals VALUES (?,?,?,?,?,?,?)', ('R','A','B',hour,kind,2,4))
+                        db.execute('INSERT INTO service_signals VALUES (?,?,?,?,?,?,?)', ('R','A','B',hour,kind,passengers,3))
+            schedule = {}
+            records = []
+            # Weekday target reverses the training order; Saturday target ties,
+            # so its three hours are ineligible for target rank comparison.
+            for day, kind, values in [('2026-10-26','weekday',[3,2,1]), ('2026-10-31','weekend',[1,1,1])]:
+                for hour, count in zip((8,9,10), values):
+                    schedule[('R','A','B',day,hour,kind)] = 1
+                    records.append({'route':'R','from_stop_id':'A','to_stop_id':'B','date':day,'hour':hour,'day_type':kind,'passengers':count})
+            path = root / 'synthetic.json'
+            path.write_text(json.dumps({'training_start':final.START,'training_end':final.END,'definition':'grouped by ticket boarding hour','quality':{},'records':records}))
+            with patch.object(final, 'scheduled_crossings', return_value=schedule):
+                result = final.evaluate(dbfile, path, root)['subgroups']
+            weekday = result['weekday']['label_agreement']
+            self.assertEqual(weekday['evaluated_hours'], 3)
+            self.assertAlmostEqual(weekday['agreement_rate'], 1/3)
+            self.assertEqual(weekday['prediction=likely quieter|target=likely busier'], 1)
+            self.assertEqual(result['saturday']['label_agreement']['common_hours_excluded_no_target_rank'], 3)
+            self.assertIsNone(result['sunday']['label_agreement']['agreement_rate'])
 
 
 if __name__ == '__main__':

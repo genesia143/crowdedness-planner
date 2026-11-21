@@ -76,3 +76,41 @@ Record unexpected failures and results without silently changing the model and
 reusing this week as a fresh test. Any later model revision needs another
 independent evaluation period or an explicit qualification that the week is no
 longer an untouched holdout.
+
+## Provenance limitations and target generation
+
+The evaluator accepts an already-built JSON target. A manifest proving the
+review workbook and source files did not change does **not** prove that those
+files generated that target. Before any final evaluation, record the exact
+command, options, model and input snapshot, and independently verify the
+expected target-building procedure. With the proposed boarding-hour V1, the
+intended command after freeze is:
+
+```sh
+python3 src/cli.py --tickets /path/to/October-Delhi.csv --gtfs /path/to/clean-gtfs \
+  --review /path/to/confirmed-review.xlsx --confirm-review \
+  --start 2026-10-25 --end 2026-10-31 --output /path/to/new-final-target.json
+```
+
+Do not add `--fuzzy` or `--segment-timing` for this proposal. The target command
+reads the October file and should be run only once the model and evaluation
+policy are frozen. Record the target file hash after its creation and the
+manifest and output hashes in the evaluation record. These steps improve
+auditability but do not independently establish that the data or matching is
+correct. Treat the final week as used after inspecting its results; subsequent
+changes need new independent test data for an unbiased final assessment.
+
+The prepared evaluator reports label agreement by weekday, Saturday and
+Sunday against within-subgroup ticket-sample ranks, and separately reports
+matched passenger-segments with and without a same-hour scheduled crossing.
+Coverage is reported both among scheduled matched sample passenger-segments
+and among all matched sample passenger-segments. It fingerprints the target
+before and after evaluation and records that fingerprint in the report. These
+checks do not prove that the target was generated with the frozen command, do
+not prevent a separate rerun under another filename, and do not validate
+occupancy. Review the code and complete the freeze procedure before use.
+
+A proposed local snapshot was created and verified for the current training
+index, clean GTFS, reviewed workbook, source directory and evaluation scripts.
+It is an audit aid, not a model freeze; later code or input changes invalidate
+it and require a new snapshot. It does not include or read the ticket file.
