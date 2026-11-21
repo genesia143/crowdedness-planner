@@ -36,4 +36,20 @@ class JourneyTests(unittest.TestCase):
             self.assertEqual(planner.journeys('a','c','2026-10-25T08:50:00+05:30')['journeys'],[])
             with self.assertRaises(ValueError):planner.journeys('a','c','2026-10-22T08:50:00')
 
+    def test_one_transfer_and_minimum_wait(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            p=Path(tmp)
+            write(p/'stops.txt',['stop_id','stop_name'],[{'stop_id':x,'stop_name':x.upper()} for x in 'abc'])
+            write(p/'routes.txt',['route_id','route_short_name'],[{'route_id':'r1','route_short_name':'1UP'},{'route_id':'r2','route_short_name':'2UP'}])
+            write(p/'trips.txt',['trip_id','route_id','service_id'],[{'trip_id':'t1','route_id':'r1','service_id':'s'},{'trip_id':'t2','route_id':'r2','service_id':'s'},{'trip_id':'t3','route_id':'r2','service_id':'s'}])
+            times=[('t1','a','09:00:00'),('t1','b','09:10:00'),('t2','b','09:15:00'),('t2','c','09:30:00'),('t3','b','09:14:00'),('t3','c','09:25:00')]
+            write(p/'stop_times.txt',['trip_id','stop_sequence','stop_id','arrival_time','departure_time'],[{'trip_id':trip,'stop_sequence':i,'stop_id':stop,'arrival_time':time,'departure_time':time} for i,(trip,stop,time) in enumerate(times)])
+            write(p/'calendar.txt',['service_id','monday','tuesday','wednesday','thursday','friday','saturday','sunday','start_date','end_date'],[{'service_id':'s','monday':1,'tuesday':1,'wednesday':1,'thursday':1,'friday':1,'saturday':0,'sunday':0,'start_date':'20261001','end_date':'20261031'}])
+            data={'training_start':'2026-10-01','training_end':'2026-10-21','definition':'sample','quality':{},'records':[]}
+            (p/'data.json').write_text(json.dumps(data));create_database(p/'data.json',p/'model.db')
+            result=JourneyPlanner(p,p/'model.db').transfer_journeys('a','c','2026-10-22T08:50:00+05:30')
+            self.assertEqual(len(result['journeys']),1)
+            self.assertEqual(result['journeys'][0]['transfer_wait_minutes'],5)
+            self.assertEqual(result['journeys'][0]['legs'][1]['trip_id'],'t2')
+
 if __name__=='__main__': unittest.main()

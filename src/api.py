@@ -18,6 +18,12 @@ def handler_for(database, planner=None):
                     if planner is None: raise ValueError('journey planner is not configured')
                     if len(params.get('q', [])) != 1: raise ValueError('provide q once')
                     result, status = {'stops': planner.search_stops(params['q'][0])}, 200
+                elif parsed.path == '/journeys/transfers':
+                    params = parse_qs(parsed.query)
+                    if planner is None: raise ValueError('journey planner is not configured')
+                    fields = ['from_stop_id','to_stop_id','departure']
+                    if any(len(params.get(field, [])) != 1 for field in fields): raise ValueError('provide from_stop_id, to_stop_id, and departure once each')
+                    result, status = planner.transfer_journeys(*(params[field][0] for field in fields)), 200
                 elif parsed.path == '/journeys':
                     params = parse_qs(parsed.query)
                     if planner is None: raise ValueError('journey planner is not configured')
