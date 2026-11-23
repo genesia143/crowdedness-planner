@@ -1,5 +1,7 @@
 # Delhi crowdedness-aware journey planner
 
+**Getting started:** follow [SETUP.md](SETUP.md) for step-by-step local setup, including the required data and an optional full map-based router.
+
 This project is being developed for Problem 2. It provides a local journey-planner UI and backend that estimates a **relative ticket-derived demand signal** for bus segments.
 
 The organisers confirmed that the October dataset covers mobile-app e-tickets. It does not cover all riders, and its counts do not establish how many people are aboard, whether a seat is available, or actual crowding. The proposed signal and its evaluation are explained in [the backend design](docs/backend-design.md).
