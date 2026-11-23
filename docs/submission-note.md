@@ -2,7 +2,7 @@
 
 ## The problem and current outcome
 
-The planner returns scheduled bus journey options, including access, transfer and egress walking when the full OpenTripPlanner (OTP) graph is available. It reports historical ticket-pattern comparisons for supported route segments, and lets a traveller constrain later arrival relative to the fastest returned option. It does not provide calibrated physical occupancy, seat availability or a reliable comfort ranking across different routes. In limited cases it can flag a potentially quieter time on the same route and ordered stretches; its strict conditions and limitations are in [same-route alternatives](same-route-alternatives.md). In four representative full-router checks no alternative met those strict conditions. Therefore the requested speed-versus-physical-comfort comparison remains only partially addressed.
+The planner returns scheduled bus journey options, including access, transfer and egress walking when the full OpenTripPlanner (OTP) graph is available. It now provides one experimental mobile-ticket pressure indication per eligible option and lets a traveller constrain later arrival relative to the fastest returned option. Cross-route comparisons explicitly assume uniform mobile-ticket uptake; this has not been verified. The resulting indicator is not calibrated physical occupancy, a prediction of seat availability, or a validated comfort ranking.
 
 ## Data and method
 
@@ -12,7 +12,7 @@ Strict hourly labels compare a segment with its own supported hours for the same
 
 ## Journey search and interface
 
-The full graph combines GTFS timetables with OpenStreetMap walking. The API tests departure at the requested time and 10 and 20 minutes later, then applies the maximum extra-arrival window and optional arrival deadline to returned candidates. The router is not exhaustive; the transfer-walk limit is applied after search and may exclude valid alternatives before they are seen. When OTP is unavailable, a limited GTFS fallback estimates walking from straight-line distance and may miss routes or transfers. Route times are scheduled, not GPS-derived. Displayed evidence is relative, not a claim about seats or cross-route crowding.
+The full graph combines GTFS timetables with OpenStreetMap walking. The API tests departure at the requested time and 10 and 20 minutes later, then applies the maximum extra-arrival window and optional arrival deadline to returned candidates. The router is not exhaustive; the transfer-walk limit is applied after search and may exclude valid alternatives before they are seen. When OTP is unavailable, a limited GTFS fallback estimates walking from straight-line distance and may miss routes or transfers. Route times are scheduled, not GPS-derived. Option labels use fixed exploratory ticket-pressure bands, not physical crowding thresholds; see the README for the estimator and its unverified assumptions.
 
 ## Checks and limitations
 

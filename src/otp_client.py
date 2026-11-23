@@ -7,7 +7,7 @@ from otp_adapter import annotate_v1, transfer_walks_within_limit
 
 QUERY = '''query($lat1:CoordinateValue!,$lon1:CoordinateValue!,$lat2:CoordinateValue!,$lon2:CoordinateValue!,$when:OffsetDateTime!) {
  planConnection(origin:{location:{coordinate:{latitude:$lat1,longitude:$lon1}}}, destination:{location:{coordinate:{latitude:$lat2,longitude:$lon2}}}, dateTime:{earliestDeparture:$when}, modes:{direct:[WALK],transit:{transit:[{mode:BUS}]}}) {
- edges { node { start end walkDistance numberOfTransfers legs { mode distance serviceDate start { scheduledTime } end { scheduledTime } trip { gtfsId } intermediateStops { gtfsId } from { name lat lon stop { gtfsId } } to { name lat lon stop { gtfsId } } route { shortName gtfsId } } } } } }'''
+ edges { node { start end walkDistance numberOfTransfers legs { mode distance serviceDate legGeometry { points } start { scheduledTime } end { scheduledTime } trip { gtfsId } intermediateStops { gtfsId } from { name lat lon stop { gtfsId } } to { name lat lon stop { gtfsId } } route { shortName gtfsId } } } } } }'''
 
 
 

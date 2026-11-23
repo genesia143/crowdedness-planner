@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <title>Delhi Bus Journey Planner · Product and Policy Lab</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -74,6 +76,16 @@ details.options input{width:110px;height:40px;border:1px solid var(--line);borde
 .notice{background:var(--warn-bg);color:var(--warn-ink);border-radius:10px;padding:10px 12px;font-size:14px;margin:0 0 12px}
 .notice[hidden]{display:none}
 .toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:8px 0 12px}
+.map-panel{overflow:hidden;margin:8px 0 16px}
+.map-panel[hidden]{display:none}
+.map-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:16px 18px 12px}
+.map-header h2{font-size:17px;margin:0 0 4px}
+.map-header p{margin:0;color:var(--muted);font-size:13px}
+.map-close{height:36px;padding:0 12px;white-space:nowrap}
+.journey button[aria-pressed="true"]{background:var(--brand-soft);border-color:var(--brand);color:var(--brand-strong)}
+.map-canvas{height:360px;width:100%;background:var(--surface-2);z-index:0}
+.map-legend{padding:10px 18px;margin:0;color:var(--muted);font-size:13px}
+.transfer-marker{background:#fff;color:#713f12;border:2px solid #a16207;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;box-shadow:0 1px 4px #0004}
 .tabs{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:3px}
 .tabs button{border:0;background:none;padding:7px 12px;border-radius:7px;cursor:pointer;font-weight:500;color:var(--muted)}
 .tabs button[aria-pressed=true]{background:var(--brand-soft);color:var(--brand-strong)}
@@ -121,7 +133,7 @@ footer{color:var(--muted);font-size:13px;padding:8px 0 32px;display:flex;justify
 <main class="wrap">
   <section class="hero">
     <h1>Delhi bus journey planner</h1>
-    <p>Find a bus journey and see how each stretch usually compares with other hours of the day.</p>
+    <p>Compare journey times and tentative crowd estimates for your options.</p>
   </section>
 
   <section class="card search" aria-label="Plan a journey">
@@ -154,8 +166,6 @@ footer{color:var(--muted);font-size:13px;padding:8px 0 32px;display:flex;justify
       <button class="btn" id="now" type="button">Now</button>
       <button class="btn primary" id="find" type="button">Find journeys</button>
     </div>
-    <p class="subtle" id="dayNote" aria-live="polite"></p>
-    <div class="row"><div><label for="extraMinutes">Maximum extra time after fastest arrival (minutes)</label><input id="extraMinutes" type="number" min="0" max="180" value="20"></div><div><label for="latestArrival">Arrive by (optional, Delhi time)</label><input id="latestArrival" type="datetime-local"></div></div>
     <details class="options">
       <summary>Options</summary>
       <div class="row">
@@ -177,22 +187,23 @@ footer{color:var(--muted);font-size:13px;padding:8px 0 32px;display:flex;justify
         <button type="button" data-sort="walking" aria-pressed="false">Least walking</button>
         <button type="button" data-sort="transfers" aria-pressed="false">Fewest changes</button>
       </div>
-      <div class="legend" aria-label="Stretch colours">
-        <span><i class="sw q"></i>Likely quieter</span>
-        <span><i class="sw t"></i>Typical</span>
-        <span><i class="sw b"></i>Likely busier</span>
-        <span><i class="sw u"></i>Not enough data</span>
-        <span><i class="sw t broader"></i>Broader-window estimate (weaker evidence)</span>
-      </div>
     </div>
+    <section id="journeyMapPanel" class="card map-panel" aria-label="Selected journey map" hidden>
+      <div class="map-header">
+        <div><h2>Journey map</h2><p id="journeyMapTitle"></p></div>
+        <button type="button" id="closeJourneyMap" class="btn map-close" aria-label="Close journey map">Close map</button>
+      </div>
+      <div id="journeyMap" class="map-canvas" aria-label="Map of the selected journey"></div>
+      <p id="journeyMapNote" class="map-legend" role="status"></p>
+    </section>
     <div id="results" aria-live="polite"></div>
     <button class="btn more" id="showMore" type="button" hidden></button>
   </section>
 
   <details class="card explain">
-    <summary>How to read the stretch colours</summary>
-    <p>Each coloured block is one stretch between two stops on the bus you would ride. The colour compares that stretch at your travel time with the same stretch at other times on the same kind of day (weekday, Saturday or Sunday), using October 2026 ticket records. A dotted outline marks a provisional, weaker-evidence estimate based on a broader three-hour window; it is not a precise hourly comparison.</p>
-    <p>These are provisional comparisons from a sample of digital tickets, not counts of people on board or seat availability. Because ticket use differs between routes, the colours cannot tell you which of two different routes is less crowded. Grey stripes mean there was not enough ticket data; they do not mean the bus is empty.</p>
+    <summary>How to read the estimated crowd comparison</summary>
+    <p>The crowd indicator is an experimental estimate from mobile e-tickets and scheduled buses. Low means fewer recorded mobile tickets per scheduled bus; high means more. It uses the same fixed ranges for every option. It assumes similar mobile-ticket use across routes and may use a route-wide average. The estimate can be wrong.</p>
+    <p>This is a tentative comparison, not a count of people on board or a prediction of seat availability. An unavailable estimate does not mean the bus is empty.</p>
     <p>Journey times come from the timetable, not live bus positions. Map-based walking uses OpenStreetMap; simplified routing estimates straight-line distances. Some suitable options may be missed by the routing search.</p>
   </details>
 
@@ -301,16 +312,7 @@ $('swap').addEventListener('click', () => {
 });
 
 // ---- Departure time (always Delhi time, whatever the browser's zone) ----
-function setNow() { $('departure').value = new Date(Date.now() + 330 * 60000).toISOString().slice(0, 16); updateDayNote(); }
-function updateDayNote() {
-  const v = $('departure').value;
-  if (!v) { $('dayNote').textContent = ''; return; }
-  const day = new Date(v.slice(0, 10) + 'T12:00:00Z').getUTCDay();
-  $('dayNote').textContent = day === 0 ? 'Sunday pattern: based on three October Sundays; comparisons remain provisional and are not measured occupancy.'
-    : day === 6 ? 'Saturday pattern: based on three October Saturdays.'
-    : 'Weekday pattern. Public holidays are not treated separately.';
-}
-$('departure').addEventListener('input', updateDayNote);
+function setNow() { $('departure').value = new Date(Date.now() + 330 * 60000).toISOString().slice(0, 16); }
 $('now').addEventListener('click', setNow);
 setNow();
 
@@ -342,27 +344,6 @@ function busStep(leg, idx, summary) {
   const signals = leg.v1_signals || [];
   const n = signals.length;
   body.append(el('div', 'small', [mins(leg.duration_minutes) != null ? mins(leg.duration_minutes) + ' min' : null, n ? n + ' stretches' : null].filter(Boolean).join(' · ')));
-  if (n) {
-    const strip = el('div', 'strip'); strip.setAttribute('role', 'img');
-    const counts = {q: 0, t: 0, b: 0, u: 0};
-    let broader = 0;
-    for (const s of signals) {
-      const comparison = s.relative_crowding || {};
-      const isBroader = comparison.evidence_tier === 'broader_window' && !!LABELS[comparison.label];
-      const code = (s.status === 'available' || isBroader) && LABELS[comparison.label] || 'u';
-      counts[code]++;
-      if (isBroader) broader++;
-      const block = el('i', code + (isBroader ? ' broader' : ''));
-      block.title = code === 'u' ? 'Not enough data' : comparison.label + (isBroader ? ' — broader three-hour window, weaker evidence' : ' — hourly comparison');
-      strip.append(block);
-    }
-    const words = [counts.b && counts.b + ' likely busier', counts.t && counts.t + ' typical', counts.q && counts.q + ' likely quieter', counts.u && counts.u + ' not enough data'].filter(Boolean).join(', ');
-    const qualifier = broader ? '; ' + broader + ' based on a broader three-hour window (weaker evidence)' : '';
-    strip.setAttribute('aria-label', 'Stretches on this bus: ' + words + qualifier);
-    body.append(strip, el('div', 'small', 'Compared with other times: ' + words + qualifier));
-  } else {
-    body.append(el('div', 'small', 'No stretch comparison available for this bus.'));
-  }
   li.append(ico, body);
   return li;
 }
@@ -396,17 +377,17 @@ function journeyCard(j, rank) {
   if (Number.isFinite(j.extra_arrival_minutes)) chips.append(el('span', j.extra_arrival_minutes === 0 ? 'chip best' : 'chip', j.extra_arrival_minutes === 0 ? 'Fastest arrival' : Math.round(j.extra_arrival_minutes) + ' min later than fastest'));
   if (j.potentially_quieter) chips.append(el('span', 'chip best', 'Potentially quieter than fastest on the same stretches'));
   card.append(head, chips);
-  card.append(el('strong', 'journey-summary', c.headline || 'Crowding information unavailable'));
-  const known = c.labelled_segments, unknown = c.segments_without_label;
-  if (Number.isInteger(known) && Number.isInteger(unknown)) {
-    const omitted = c.bus_legs_without_segment_details || 0;
-    card.append(el('div', 'evidence', 'Ticket comparisons for ' + known + ' of ' + (known + unknown) + ' mapped stretches' + (omitted ? '; ' + omitted + ' bus leg(s) have no stretch details' : '') + '.'));
-  }
-  const details = el('details'); const summary = el('summary', '', 'Journey details and stretch comparisons');
+  const estimate = j.journey_pressure || {};
+  const readable = {'Low estimated crowding':'Crowd estimate: Low', 'Moderate estimated crowding':'Crowd estimate: Moderate', 'High estimated crowding':'Crowd estimate: High'};
+  card.append(el('strong', 'journey-summary', estimate.status === 'available' ? (readable[estimate.label] || 'Crowd estimate available') : 'Crowd estimate unavailable'));
+  if (estimate.status === 'available') card.append(el('div', 'evidence', 'Tentative comparison based on mobile tickets and scheduled buses; not seat availability.' + ((estimate.evidence_tiers || []).some(t => t.startsWith('route_')) ? ' Includes a route-wide fallback.' : '') + ((estimate.evidence_tiers || []).some(t => t === 'route_day' || t === 'route_all_days') ? ' Uses other hours.' : '') + ((estimate.evidence_tiers || []).includes('route_all_days') ? ' Includes other days.' : '') + (Number.isFinite(estimate.minimum_pool_passengers) && estimate.minimum_pool_passengers <= 5 ? ' Some estimates use five or fewer matched passengers.' : '')));
+  const mapButton = el('button', 'btn', 'Show on map'); mapButton.type = 'button';
+  mapButton.setAttribute('aria-pressed', String(selectedMapJourney === j));
+  mapButton.addEventListener('click', () => showJourneyMap(j, mapButton)); card.append(mapButton);
+  const details = el('details'); const summary = el('summary', '', 'Journey details');
   details.append(summary, list); card.append(details);
   const gaps = (j.legs || []).flatMap(l => l.v1_signals || []).filter(s => ((s.schedule_alignment || {}).excluded_without_same_hour_service || 0) > 0).length;
   if (gaps) card.append(el('div', 'caution', 'Timing caution: on ' + gaps + ' stretch' + (gaps === 1 ? '' : 'es') + ', some October ticket records fell in hours with no scheduled bus, so the comparison is less certain.'));
-  card.append(el('div', 'evidence', EVIDENCE[c.status] || 'Ticket pattern availability unknown.'));
   return card;
 }
 function render() {
@@ -424,6 +405,79 @@ function render() {
   $('showMore').textContent = 'Show ' + hidden + ' more option' + (hidden === 1 ? '' : 's');
   $('status').textContent = journeys.length + ' option' + (journeys.length === 1 ? '' : 's') + ' found' + (hidden > 0 ? ', showing the best ' + shown.length : '') + '.';
 }
+let journeyMap, selectedMapJourney;
+function decodePolyline(encoded) {
+  const points = []; let i = 0, lat = 0, lng = 0;
+  while (i < encoded.length) {
+    let values = [];
+    for (let n = 0; n < 2; n++) {
+      let result = 0, shift = 0, b;
+      do { if (i >= encoded.length || shift > 30) throw Error('Invalid geometry'); b = encoded.charCodeAt(i++) - 63; result |= (b & 31) << shift; shift += 5; } while (b >= 32);
+      values.push((result & 1) ? ~(result >> 1) : (result >> 1));
+    }
+    lat += values[0]; lng += values[1]; points.push([lat / 1e5, lng / 1e5]);
+  }
+  return points;
+}
+function showJourneyMap(j, chosen) {
+  const panel = $('journeyMapPanel'), note = $('journeyMapNote');
+  selectedMapJourney = j;
+  const routes = (j.legs || []).filter(leg => leg.mode === 'BUS').map(leg => (leg.route || {}).shortName || 'Bus');
+  $('journeyMapTitle').textContent = (routes.length ? routes.join(' → ') + ' · ' : '') + time(j.start) + ' – ' + time(j.end);
+  for (const button of $('results').querySelectorAll('button[aria-pressed]')) button.setAttribute('aria-pressed', 'false');
+  if (chosen) chosen.setAttribute('aria-pressed', 'true');
+  panel.hidden = false;
+  if (!window.L) { note.textContent = 'Map could not load. Check your internet connection.'; return; }
+  if (journeyMap) journeyMap.remove();
+  journeyMap = L.map('journeyMap');
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(journeyMap);
+  const all = []; let approximate = false;
+  for (const leg of j.legs || []) {
+    let points = [];
+    try { if (leg.legGeometry && leg.legGeometry.points) points = decodePolyline(leg.legGeometry.points); } catch (_) { points = []; }
+    let legApproximate = false;
+    if (points.length < 2) {
+      const a = leg.from || {}, b = leg.to || {};
+      if (![a.lat, a.lon, b.lat, b.lon].every(Number.isFinite)) continue;
+      points = [[a.lat,a.lon],[b.lat,b.lon]]; approximate = legApproximate = true;
+    }
+    L.polyline(points, {color: leg.mode === 'WALK' ? '#e2672a' : '#0f766e', weight: 5, dashArray: leg.mode === 'WALK' || legApproximate ? '7 7' : null}).addTo(journeyMap);
+    all.push(...points);
+  }
+  if (!all.length) { note.textContent = 'This option has no map coordinates.'; journeyMap.setView([28.6139,77.2090], 10); return; }
+  L.circleMarker(all[0], {radius: 7, color: '#0f766e'}).addTo(journeyMap).bindTooltip('Start');
+  L.circleMarker(all[all.length - 1], {radius: 7, color: '#b91c1c'}).addTo(journeyMap).bindTooltip('Destination');
+  const busLegs = (j.legs || []).filter(leg => leg.mode === 'BUS');
+  let missingTransferLocations = false;
+  const markerAt = (place, number, description) => {
+    if (!place || !Number.isFinite(place.lat) || !Number.isFinite(place.lon)) { missingTransferLocations = true; return; }
+    const content = document.createElement('div');
+    content.textContent = description + (place.name ? ' · ' + place.name : '');
+    const icon = L.divIcon({className:'', html:'<span class="transfer-marker">' + number + '</span>', iconSize:[28,28], iconAnchor:[14,14]});
+    L.marker([place.lat, place.lon], {icon, title:content.textContent, keyboard:true}).addTo(journeyMap).bindPopup(content).bindTooltip(content.textContent);
+  };
+  for (let i = 0; i + 1 < busLegs.length; i++) {
+    const previous = busLegs[i], next = busLegs[i + 1];
+    const exit = previous.to || {}, board = next.from || {};
+    const firstRoute = (previous.route || {}).shortName || 'bus';
+    const nextRoute = (next.route || {}).shortName || 'next bus';
+    const sameStop = exit.stop && board.stop && exit.stop.gtfsId && exit.stop.gtfsId === board.stop.gtfsId;
+    if (sameStop) markerAt(exit, i + 1, 'Change ' + (i + 1) + ': ' + firstRoute + ' to ' + nextRoute);
+    else {
+      markerAt(exit, i + 1, 'Change ' + (i + 1) + ': get off ' + firstRoute);
+      markerAt(board, i + 1, 'Change ' + (i + 1) + ': board ' + nextRoute);
+    }
+  }
+  journeyMap.fitBounds(all, {padding:[25,25], maxZoom:16});
+  note.textContent = 'Green: bus · orange dashed: walking.' + (busLegs.length > 1 ? ' Numbered markers: bus changes; tap for details.' : '') + (missingTransferLocations ? ' Some change locations are unavailable.' : '') + (approximate ? ' Some dashed lines are straight-line approximations because route geometry is unavailable.' : '');
+  panel.scrollIntoView({behavior:'smooth', block:'nearest'});
+  setTimeout(() => journeyMap.invalidateSize(), 100);
+}
+$('closeJourneyMap').addEventListener('click', () => {
+  $('journeyMapPanel').hidden = true;
+  selectedMapJourney = null;
+  for (const button of $('results').querySelectorAll('button[aria-pressed]')) button.setAttribute('aria-pressed', 'false');
+});
 document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => {
   sortKey = b.dataset.sort; showAll = false;
   document.querySelectorAll('.tabs button').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
@@ -432,16 +486,16 @@ document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click
 $('showMore').addEventListener('click', () => { showAll = true; render(); });
 
 $('find').addEventListener('click', async () => {
-  const time = $('departure').value, walk = $('maxWalk').value, extra = $('extraMinutes').value, latest = $('latestArrival').value;
+  const time = $('departure').value, walk = $('maxWalk').value;
+  $('journeyMapPanel').hidden = true;
+  selectedMapJourney = null;
   $('routingNote').hidden = true;
   $('comfortNote').hidden = true;
   if (!selected.from || !selected.to) { $('status').textContent = 'Choose a starting point and destination from the suggestions.'; (selected.from ? $('to') : $('from')).focus(); return; }
   if (!time) { $('status').textContent = 'Choose a departure time.'; return; }
   if (walk === '' || !(Number(walk) >= 0 && Number(walk) <= 10000)) { $('status').textContent = 'Maximum walk must be between 0 and 10,000 metres.'; return; }
-  if (extra === '' || !(Number(extra) >= 0 && Number(extra) <= 180)) { $('status').textContent = 'Extra time must be between 0 and 180 minutes.'; return; }
   const params = new URLSearchParams({from_lat: selected.from.lat, from_lon: selected.from.lon, to_lat: selected.to.lat, to_lon: selected.to.lon,
-    departure: time + ':00+05:30', max_transfer_walk: walk, extra_minutes: extra});
-  if (latest) params.set('latest_arrival', latest + ':00+05:30');
+    departure: time + ':00+05:30', max_transfer_walk: walk});
   $('find').disabled = true; $('status').textContent = 'Searching timetabled buses…';
   try {
     const response = await fetch('/journeys/mapped?' + params), data = await response.json();
@@ -449,7 +503,7 @@ $('find').addEventListener('click', async () => {
     const all = data.journeys || [], choice = data.choices || {}, indices = choice.eligible_indices || [];
     const fastest = all[choice.fastest_index], fastestEnd = fastest ? Date.parse(fastest.end) : NaN;
     journeys = indices.map(i => ({...all[i], is_fastest: i === choice.fastest_index, potentially_quieter: i === choice.potentially_quieter_index, extra_arrival_minutes: (Date.parse(all[i].end) - fastestEnd) / 60000})); showAll = false;
-    $('comfortNote').textContent = choice.potentially_quieter_index == null ? 'Most comfortable: not yet reliably comparable across routes. Showing options within your extra-time limit among journeys found; suitable alternatives may be missed.' : 'Potentially quieter compares ticket patterns on the same route and stretches with the fastest option. It is provisional, not a seat or actual comfort prediction; other options may be missing.';
+    $('comfortNote').textContent = 'Crowd levels use experimental fixed bands and assume similar mobile-ticket use across routes. They do not predict seat availability; suitable alternatives may be missing.';
     $('comfortNote').hidden = false;
     if (data.routing_source === 'built-in') {
       $('routingNote').textContent = 'Simplified routing (' + (data.fallback_reason || 'map routing unavailable') + '): only direct buses and changes at the same stop are shown, and walking distances are straight-line estimates.';
@@ -462,7 +516,7 @@ $('find').addEventListener('click', async () => {
     }
     $('resultsArea').hidden = !journeys.length;
     if (journeys.length) render();
-    else { $('results').replaceChildren(); $('status').textContent = latest ? 'No returned journey arrives by your deadline. Try another time or destination.' : 'No bus journeys found for this time. Try a later departure or a nearby stop.'; }
+    else { $('results').replaceChildren(); $('status').textContent = 'No bus journeys found for this time. Try a later departure or a nearby stop.'; }
   } catch (e) {
     $('resultsArea').hidden = true;
     $('status').textContent = 'Search failed: ' + e.message + '. Please try again.';

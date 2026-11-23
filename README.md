@@ -2,11 +2,11 @@
 
 This project is being developed for Problem 2. It provides a local journey-planner UI and backend that estimates a **relative ticket-derived demand signal** for bus segments.
 
-The October ticket data appears to be a thin and potentially biased sample. Its counts do not establish how many people are aboard, whether a seat is available, or actual crowding. The proposed signal and its evaluation are explained in [the backend design](docs/backend-design.md).
+The organisers confirmed that the October dataset covers mobile-app e-tickets. It does not cover all riders, and its counts do not establish how many people are aboard, whether a seat is available, or actual crowding. The proposed signal and its evaluation are explained in [the backend design](docs/backend-design.md).
 
 ## Current status
 
-A ticket-sample baseline and local API provide direct journeys and experimental mapped journeys through OpenTripPlanner, with walking and segment signals. The UI displays journey alternatives, a configurable extra-arrival-time limit and available ticket-pattern evidence. A same-route, same-stretch provisional comparison is available when every segment has strict evidence; calibrated cross-route comfort, complete routing validation and an independent clean-machine setup check remain open; see [the trial note](docs/otp-trial.md).
+A ticket-sample baseline and local API provide direct journeys and experimental mapped journeys through OpenTripPlanner, with walking and ticket signals. The UI displays journey alternatives, a configurable extra-arrival-time limit and an experimental option-level comparison under the assumptions below. Calibrated cross-route comfort, complete routing validation and an independent clean-machine setup check remain open; see [the trial note](docs/otp-trial.md).
 
 ## Brief and working assumptions
 
@@ -68,7 +68,9 @@ Newly built indexes also return `all_scheduled_days_proxy`: sample passengers di
 
 With a graph built from the same GTFS version, start OpenTripPlanner 2.7 with Java 21, then start the API with `--otp-endpoint http://localhost:18080/otp/gtfs/v1` alongside the `--database` and `--gtfs` arguments above. The graph build, map input, example request, limits and coverage checks are described in [the OTP trial note](docs/otp-trial.md). The mapped endpoint provides scheduled walking, waiting and riding times, plus ticket-derived segment signals where available. The transfer-distance limit filters returned options after the routing search; it does not guarantee that every compliant alternative is found.
 
-The screen at `http://127.0.0.1:8000/` uses the mapped journey endpoint when OTP is configured. It shows provisional per-segment comparisons and missing evidence; it does not show validated occupancy or a cross-route crowding ranking. Representative browser workflows were checked locally; broader routing and accessibility verification remain open.
+The screen at `http://127.0.0.1:8000/` uses the mapped journey endpoint when OTP is configured. It shows a provisional option-level comparison based on unverified cross-route uptake assumptions; it does not show validated occupancy. Broader routing and accessibility verification remain open.
+
+The “Show on map” button draws a selected journey using OTP leg geometry when available. For replayed or simplified journeys without geometry, dashed straight lines are only an approximation and are labelled as such. The map loads Leaflet and OpenStreetMap tiles over the internet; journey search can still be used when the map cannot load.
 
 ### Without a running OTP
 
@@ -86,4 +88,6 @@ The experimental model now distinguishes weekdays, Saturdays and Sundays. Rebuil
 
 ## Time and comfort comparison
 
-The mapped API accepts `extra_minutes` (default 20) and optional `latest_arrival` with a timezone offset. It returns the fastest and time-feasible options among those found by the bounded search. In limited cases it may suggest a potentially quieter option on the same route and stretches using strict within-segment ticket patterns. It cannot rank physical comfort across routes or guarantee a seat. See [same-stretch comparison](docs/same-route-alternatives.md) for exact eligibility, caveats and remaining validation.
+The mapped API accepts `extra_minutes` (default 20) and optional `latest_arrival` with a timezone offset. The UI hides these inputs and uses the 20-minute default; it returns time-feasible options among those found by the bounded search. The experimental `journey_pressure` field uses fixed low/moderate/high bands, independent of the other options. The cutoffs 1/6 and 0.4 are the approximate 33rd and 67th percentiles of 1,019,450 positive training-period route-segment-hour sample rates, not measured physical crowding. These hourly segment thresholds are exploratory when applied to pooled journey scores. They do not predict seats or calibrated physical comfort.
+
+The comparison **assumes uniform mobile-ticket uptake across routes**, treats static GTFS scheduled crossings as service, and pools the requested hour with its immediate neighbours. One observed mobile ticket is sufficient. Days with a scheduled crossing but no matched ticket count as zero in the mobile-ticket sample. If a segment has no ticket evidence, a route-wide three-hour average is substituted when available; if that is missing, the fallback uses the same day type across all hours, then all day types and hours. Those progressively broader fallbacks make stronger assumptions that route patterns transfer across time and days. Each leg's segment scores are averaged and the leg scores are weighted by scheduled bus travel time. An option remains unavailable when any bus leg has no usable evidence. Uneven ticket uptake, missing riders and matching errors, schedule deviations, assumed ticket timing and route-wide fallback can all bias rankings. Within-leg segment durations are approximated as equal, and the labels do not measure actual occupancy. The user-selected assumptions are unverified; evaluation is against ticket patterns and heuristics, not independent passenger counts.

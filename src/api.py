@@ -23,6 +23,8 @@ def mapped_journeys(params, database, planner, otp_endpoint, gtfs, recorded, fal
     select_choices([], extra, latest)  # validate before calling routing services
     def with_choices(result):
         result['choices'] = select_choices(result['journeys'], extra, latest)
+        from journey_pressure import compare
+        compare(result['journeys'], result['choices']['eligible_indices'], database)
         return result
     def search_more(result, search):
         # A bounded set of later departure queries broadens the candidate set;
