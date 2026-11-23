@@ -366,6 +366,12 @@ function journeyCard(j, rank) {
   head.append(times, el('span', 'dur', total == null ? 'Total time unavailable' : total + ' min from requested time'));
   const chips = el('div', 'chips');
   if (rank === 0 && sortKey !== 'fastest') chips.append(el('span', 'chip best', {walking: 'Least walking', transfers: 'Fewest changes'}[sortKey]));
+  for (const leg of j.legs || []) {
+    if (leg.mode === 'BUS') {
+      const route = (leg.route || {}).shortName;
+      chips.append(el('span', 'chip best', route ? 'Bus ' + route : 'Bus number unavailable'));
+    }
+  }
   const ch = changes(j); chips.append(el('span', 'chip', ch === 0 ? 'Direct' : ch + (ch === 1 ? ' change' : ' changes')));
   const w = walkMetres(j); if (w != null && w > 0) chips.append(el('span', 'chip', Math.round(w) + ' m walk'));
   if (mins(t.waiting_minutes) != null) chips.append(el('span', 'chip', mins(t.waiting_minutes) + ' min wait'));
@@ -380,7 +386,6 @@ function journeyCard(j, rank) {
   const estimate = j.journey_pressure || {};
   const readable = {'Low estimated crowding':'Crowd estimate: Low', 'Moderate estimated crowding':'Crowd estimate: Moderate', 'High estimated crowding':'Crowd estimate: High'};
   card.append(el('strong', 'journey-summary', estimate.status === 'available' ? (readable[estimate.label] || 'Crowd estimate available') : 'Crowd estimate unavailable'));
-  if (estimate.status === 'available') card.append(el('div', 'evidence', 'Tentative comparison based on mobile tickets and scheduled buses; not seat availability.' + ((estimate.evidence_tiers || []).some(t => t.startsWith('route_')) ? ' Includes a route-wide fallback.' : '') + ((estimate.evidence_tiers || []).some(t => t === 'route_day' || t === 'route_all_days') ? ' Uses other hours.' : '') + ((estimate.evidence_tiers || []).includes('route_all_days') ? ' Includes other days.' : '') + (Number.isFinite(estimate.minimum_pool_passengers) && estimate.minimum_pool_passengers <= 5 ? ' Some estimates use five or fewer matched passengers.' : '')));
   const mapButton = el('button', 'btn', 'Show on map'); mapButton.type = 'button';
   mapButton.setAttribute('aria-pressed', String(selectedMapJourney === j));
   mapButton.addEventListener('click', () => showJourneyMap(j, mapButton)); card.append(mapButton);
@@ -503,7 +508,7 @@ $('find').addEventListener('click', async () => {
     const all = data.journeys || [], choice = data.choices || {}, indices = choice.eligible_indices || [];
     const fastest = all[choice.fastest_index], fastestEnd = fastest ? Date.parse(fastest.end) : NaN;
     journeys = indices.map(i => ({...all[i], is_fastest: i === choice.fastest_index, potentially_quieter: i === choice.potentially_quieter_index, extra_arrival_minutes: (Date.parse(all[i].end) - fastestEnd) / 60000})); showAll = false;
-    $('comfortNote').textContent = 'Crowd levels use experimental fixed bands and assume similar mobile-ticket use across routes. They do not predict seat availability; suitable alternatives may be missing.';
+    $('comfortNote').textContent = 'Crowd levels are estimates; actual crowding may vary.';
     $('comfortNote').hidden = false;
     if (data.routing_source === 'built-in') {
       $('routingNote').textContent = 'Simplified routing (' + (data.fallback_reason || 'map routing unavailable') + '): only direct buses and changes at the same stop are shown, and walking distances are straight-line estimates.';
