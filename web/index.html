@@ -64,6 +64,7 @@ header.top .wrap{display:flex;align-items:center;gap:10px;height:56px}
 .when .field{flex:1 1 220px}
 .when input[type=datetime-local]{width:100%;height:48px;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);padding:0 12px}
 .btn{height:48px;border-radius:10px;border:1px solid var(--line);background:var(--surface);padding:0 16px;cursor:pointer;font-weight:600}
+.map-button{display:block;height:36px;margin-top:12px;padding:0 12px;font-size:13px}
 .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff;flex:1 1 160px}
 .btn.primary:hover{background:var(--brand-strong)}
 .btn:disabled{opacity:.6;cursor:progress}
@@ -386,7 +387,7 @@ function journeyCard(j, rank) {
   const estimate = j.journey_pressure || {};
   const readable = {'Low estimated crowding':'Crowd estimate: Low', 'Moderate estimated crowding':'Crowd estimate: Moderate', 'High estimated crowding':'Crowd estimate: High'};
   card.append(el('strong', 'journey-summary', estimate.status === 'available' ? (readable[estimate.label] || 'Crowd estimate available') : 'Crowd estimate unavailable'));
-  const mapButton = el('button', 'btn', 'Show on map'); mapButton.type = 'button';
+  const mapButton = el('button', 'btn map-button', 'Show on map'); mapButton.type = 'button';
   mapButton.setAttribute('aria-pressed', String(selectedMapJourney === j));
   mapButton.addEventListener('click', () => showJourneyMap(j, mapButton)); card.append(mapButton);
   const details = el('details'); const summary = el('summary', '', 'Journey details');
