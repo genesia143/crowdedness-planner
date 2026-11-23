@@ -1,6 +1,7 @@
 """Local, read-only demonstration API using Python's standard library."""
 import argparse
 import json
+from datetime import datetime, timedelta
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
 from pathlib import Path
@@ -23,6 +24,40 @@ def mapped_journeys(params, database, planner, otp_endpoint, gtfs, recorded, fal
     def with_choices(result):
         result['choices'] = select_choices(result['journeys'], extra, latest)
         return result
+    def search_more(result, search):
+        # A bounded set of later departure queries broadens the candidate set;
+        # this is not an exhaustive search and must not be described as one.
+        from otp_client import timing_breakdown
+        requested = datetime.fromisoformat(values[4].replace('Z', '+00:00'))
+        seen = set()
+        def key(journey):
+            return json.dumps([(leg.get('mode'), leg.get('start'), leg.get('end'), leg.get('route'),
+                                leg.get('trip'), leg.get('from'), leg.get('to'), leg.get('intermediateStops'))
+                               for leg in journey.get('legs', [])], sort_keys=True)
+        for journey in result['journeys']:
+            seen.add(key(journey))
+        attempted, completed = [0], [0]
+        for minutes in (10, 20):
+            attempted.append(minutes)
+            later_values = values[:]
+            later_values[4] = (requested + timedelta(minutes=minutes)).isoformat()
+            try:
+                later = search(later_values)
+            except (LookupError, OSError, RuntimeError):
+                continue
+            completed.append(minutes)
+            for journey in later['journeys']:
+                fingerprint = key(journey)
+                if fingerprint not in seen:
+                    seen.add(fingerprint)
+                    # Wait includes time from the user's original requested departure.
+                    timing_breakdown(journey, requested)
+                    result['journeys'].append(journey)
+        result['search_coverage'] = {'departure_offsets_minutes_attempted': attempted,
+                                     'departure_offsets_minutes_completed': completed,
+                                     'exhaustive': False,
+                                     'note': 'Bounded later-departure searches; routing may omit alternatives.'}
+        return with_choices(result)
     reason = 'mapped routing is not configured'
     if (otp_endpoint or recorded) and gtfs:
         from otp_client import fetch_otp, plan
@@ -30,7 +65,9 @@ def mapped_journeys(params, database, planner, otp_endpoint, gtfs, recorded, fal
             result = plan(otp_endpoint, gtfs, database, *values, fetch=recorded or fetch_otp,
                           stop_times=planner.trip_stop_times if planner is not None else None)
             result['routing_source'] = 'recorded OTP response' if recorded else 'OpenTripPlanner'
-            return with_choices(result)
+            return search_more(result, lambda vals: plan(otp_endpoint, gtfs, database, *vals,
+                               fetch=recorded or fetch_otp,
+                               stop_times=planner.trip_stop_times if planner is not None else None))
         except LookupError:
             reason = 'no recorded OTP response for this request'
         except OSError:
@@ -39,7 +76,7 @@ def mapped_journeys(params, database, planner, otp_endpoint, gtfs, recorded, fal
     if fallback is None: raise ValueError(reason)
     result = fallback.plan(*values)
     result['fallback_reason'] = reason
-    return with_choices(result)
+    return search_more(result, lambda vals: fallback.plan(*vals))
 
 
 def handler_for(database, planner=None, otp_endpoint=None, gtfs=None, recorded=None):

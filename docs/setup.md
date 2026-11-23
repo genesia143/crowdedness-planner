@@ -4,7 +4,7 @@ This is a working setup guide for contributors; an independent clean-machine run
 
 ## Inputs and versions
 
-- Python 3.9 or later. The baseline and API use the standard library. Run the unit tests with `python3 -m unittest discover -s tests -v`.
+- Python 3.9 or later. The baseline and API use the standard library. Run the unit tests with `python3 -m unittest discover -s tests -v`. Python 3.15 produced a test error in an earlier run; use a version on which the suite passes and record the version alongside your results.
 - The original October ticket CSV and original static GTFS archive. Extract the GTFS to a directory and identify the directory containing `stops.txt`, `routes.txt`, `trips.txt` and `stop_times.txt`; use that same directory throughout. Do not use the spreadsheet-edited GTFS copy: some IDs were altered.
 - For the reviewed V1 baseline, obtain the confirmed stop-review workbook separately. Without it the pipeline still runs, but matching coverage and output differ from our reported V1 results.
 - For mapped journeys: Java 21, [OTP 2.7.0](https://github.com/opentripplanner/OpenTripPlanner/releases/tag/v2.7.0), the [Geofabrik India PBF](https://download.geofabrik.de/asia/india.html), and `osmium==4.3.2` for map preparation. Record the download date and checksums of the GTFS, PBF and OTP jar: a `latest` map can change and therefore does not guarantee identical results.
@@ -13,7 +13,7 @@ The India download used in our experiment was approximately 1.6 GB; the clipped 
 
 ## Build the model
 
-Create an output directory, replace the example paths below, and use an output name that does not overwrite previous work. The 1–21 October window is the training period; retain 25–31 October for final evaluation. The confirmed workbook is optional only if you accept a different baseline.
+Create an output directory, replace the example paths below, and use an output name that does not overwrite previous work. The 1–21 October window is the training period. Do not use 25–31 October to train or select a model: it has been evaluated for an earlier candidate and is not an untouched independent test for a revised one. The confirmed workbook is optional only if you accept a different baseline.
 
 ```sh
 mkdir -p data/setup
@@ -25,6 +25,17 @@ python3 src/index_model.py --input data/setup/training.json \
 ```
 
 The indexer loads the training JSON in memory. Check the command's matching counts and keep the exact GTFS version with the model. This baseline groups tickets by their creation/assumed boarding hour and reports relative evidence from a potentially biased sample; it is not measured bus occupancy.
+
+## Quick local demo without OTP
+
+After building the index above, you can start the UI without Java, an OSM download or a running OTP server:
+
+```sh
+python3 src/api.py --database data/setup/model.db --gtfs /path/to/gtfs \
+  --otp-recordings tests/fixtures/otp --port 8000
+```
+
+Open `http://127.0.0.1:8000/` and check `http://127.0.0.1:8000/health`. The recordings cover only the exact captured requests; other requests use the simplified GTFS fallback. That fallback estimates walking with straight-line distance and searches a limited set of routes, so it can miss journeys and does not provide street-network walking distances. The response's `routing_source` identifies which routing method answered. The recordings do not replace the ticket file, GTFS or model database needed to start the API. See [fixture notes](../tests/fixtures/otp/README.md) for recorded cases and their limitations.
 
 ## Build the full-timetable map graph
 

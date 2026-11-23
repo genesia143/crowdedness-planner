@@ -380,10 +380,11 @@ function journeyCard(j, rank) {
   const card = el('article', 'card journey'), t = j.timing_summary || {}, c = j.crowding_summary || {};
   const head = el('div', 'jhead'), times = el('div', 'times');
   times.append(document.createTextNode(time(j.start)), el('span', 'arrow', '→'), document.createTextNode(time(j.end)));
-  const total = Date.parse(j.end) - Date.parse(j.start);
-  head.append(times, el('span', 'dur', Number.isFinite(total) ? Math.round(total / 60000) + ' min' : ''));
+  const parts = [t.walking_minutes, t.waiting_minutes, t.bus_minutes];
+  const total = parts.every(Number.isFinite) ? Math.round(parts.reduce((sum, value) => sum + value, 0)) : null;
+  head.append(times, el('span', 'dur', total == null ? 'Total time unavailable' : total + ' min from requested time'));
   const chips = el('div', 'chips');
-  if (rank === 0) chips.append(el('span', 'chip best', {fastest: 'Arrives first', walking: 'Least walking', transfers: 'Fewest changes'}[sortKey]));
+  if (rank === 0 && sortKey !== 'fastest') chips.append(el('span', 'chip best', {walking: 'Least walking', transfers: 'Fewest changes'}[sortKey]));
   const ch = changes(j); chips.append(el('span', 'chip', ch === 0 ? 'Direct' : ch + (ch === 1 ? ' change' : ' changes')));
   const w = walkMetres(j); if (w != null && w > 0) chips.append(el('span', 'chip', Math.round(w) + ' m walk'));
   if (mins(t.waiting_minutes) != null) chips.append(el('span', 'chip', mins(t.waiting_minutes) + ' min wait'));
@@ -392,7 +393,8 @@ function journeyCard(j, rank) {
     if (leg.mode === 'BUS') list.append(busStep(leg, i, c));
     else if (leg.mode === 'WALK') list.append(walkStep(leg));
   });
-  if (Number.isFinite(j.extra_arrival_minutes)) chips.append(el('span', 'chip', j.extra_arrival_minutes === 0 ? 'Fastest arrival' : Math.round(j.extra_arrival_minutes) + ' min later than fastest'));
+  if (Number.isFinite(j.extra_arrival_minutes)) chips.append(el('span', j.extra_arrival_minutes === 0 ? 'chip best' : 'chip', j.extra_arrival_minutes === 0 ? 'Fastest arrival' : Math.round(j.extra_arrival_minutes) + ' min later than fastest'));
+  if (j.potentially_quieter) chips.append(el('span', 'chip best', 'Potentially quieter than fastest on the same stretches'));
   card.append(head, chips);
   card.append(el('strong', 'journey-summary', c.headline || 'Crowding information unavailable'));
   const known = c.labelled_segments, unknown = c.segments_without_label;
@@ -408,7 +410,13 @@ function journeyCard(j, rank) {
   return card;
 }
 function render() {
-  const ordered = [...journeys].sort((a, b) => metric(a, sortKey) - metric(b, sortKey) || metric(a, 'fastest') - metric(b, 'fastest'));
+  const ordered = [...journeys].sort((a, b) => {
+    if (sortKey === 'fastest') {
+      const priority = j => j.is_fastest ? 0 : j.potentially_quieter ? 1 : 2;
+      return priority(a) - priority(b) || metric(a, 'fastest') - metric(b, 'fastest');
+    }
+    return metric(a, sortKey) - metric(b, sortKey) || metric(a, 'fastest') - metric(b, 'fastest');
+  });
   const shown = showAll ? ordered : ordered.slice(0, 3);
   $('results').replaceChildren(...shown.map(journeyCard));
   const hidden = ordered.length - shown.length;
@@ -440,11 +448,16 @@ $('find').addEventListener('click', async () => {
     if (!response.ok) throw Error(data.error || 'search failed');
     const all = data.journeys || [], choice = data.choices || {}, indices = choice.eligible_indices || [];
     const fastest = all[choice.fastest_index], fastestEnd = fastest ? Date.parse(fastest.end) : NaN;
-    journeys = indices.map(i => ({...all[i], extra_arrival_minutes: (Date.parse(all[i].end) - fastestEnd) / 60000})); showAll = false;
-    $('comfortNote').textContent = 'Most comfortable: not yet reliably comparable across routes. Showing options within your extra-time limit among journeys found; suitable alternatives may be missed.';
+    journeys = indices.map(i => ({...all[i], is_fastest: i === choice.fastest_index, potentially_quieter: i === choice.potentially_quieter_index, extra_arrival_minutes: (Date.parse(all[i].end) - fastestEnd) / 60000})); showAll = false;
+    $('comfortNote').textContent = choice.potentially_quieter_index == null ? 'Most comfortable: not yet reliably comparable across routes. Showing options within your extra-time limit among journeys found; suitable alternatives may be missed.' : 'Potentially quieter compares ticket patterns on the same route and stretches with the fastest option. It is provisional, not a seat or actual comfort prediction; other options may be missing.';
     $('comfortNote').hidden = false;
     if (data.routing_source === 'built-in') {
       $('routingNote').textContent = 'Simplified routing (' + (data.fallback_reason || 'map routing unavailable') + '): only direct buses and changes at the same stop are shown, and walking distances are straight-line estimates.';
+      $('routingNote').hidden = false;
+    }
+    const coverage = data.search_coverage;
+    if (coverage && coverage.departure_offsets_minutes_completed.length < coverage.departure_offsets_minutes_attempted.length) {
+      $('routingNote').textContent += ' Some later-departure searches were unavailable; additional options may be missing.';
       $('routingNote').hidden = false;
     }
     $('resultsArea').hidden = !journeys.length;
