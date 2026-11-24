@@ -6,7 +6,7 @@ alternatives on the same evaluated segment-hours:
 
 - citywide: every stretch follows the citywide hourly pattern for its day type
 - route: every stretch follows its own route's hourly pattern
-- always_typical: predicts "typical" everywhere (a chance reference)
+- always_typical: predicts "typical" everywhere (a constant baseline)
 
 If the stretch-level model does not beat the citywide and route patterns, its
 extra detail adds nothing over "Delhi is busy at 9 am". Agreement is with later

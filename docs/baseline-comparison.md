@@ -6,7 +6,7 @@ A stretch label ("likely busier / typical / likely quieter than this stretch at 
 |---|---|
 | **Model** | Each stretch has its own hourly pattern, learned from that stretch's tickets |
 | **Route pattern** | Every stretch follows its route's overall hourly pattern |
-| **Citywide pattern** | Every stretch follows Delhi's overall hourly pattern ("buses are busy at 9 am") |
+| **Citywide pattern** | Every stretch follows the citywide mobile-ticket hourly pattern |
 | **Always typical** | A chance reference |
 
 ## Results
@@ -25,7 +25,7 @@ Share of hours labelled at the **opposite end** (quieter when the target says bu
 
 ## What this shows
 
-- **Stretch-level labels add real information.** They agree with later tickets about 12 points more often than the citywide pattern, and about 5 points more often than the route's own pattern, on both weekdays and Saturdays.
+- **On this development sample, stretch-level labels agree more often.** They agree with later tickets about 12 points more often than the citywide pattern, and about 5 points more often than the route's own pattern, on both weekdays and Saturdays.
 - **They also make fewer serious errors.** Opposite-end mistakes are less than half as common as with the citywide pattern.
 - **The gain over the route pattern is modest.** Much of the time-of-day signal is shared along a route; the stretch level mainly adds where a route's busy section shifts during the day.
 
