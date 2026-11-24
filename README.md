@@ -16,10 +16,19 @@ A journey planner for Delhi buses that shows, next to each option's travel time,
 
 ## Try it
 
-You need Python 3.9+, the October ticket CSV and original static GTFS feed (see [Data and licences](#data-and-licences)). The reviewed stop mappings are included. No packages to install.
+The fastest setup uses the published model and GTFS feed; no ticket data or packages are needed. Install Git and Python 3.9+, then run:
 
 ```sh
-python3 -m unittest discover -s tests            # 110 tests
+git clone https://github.com/genesia143/crowdedness-planner.git
+cd crowdedness-planner
+python3 scripts/fetch_release.py
+python3 src/api.py --database data/release/model.db --gtfs data/release/gtfs --port 8000
+```
+
+Open http://127.0.0.1:8000/. See [SETUP.md](SETUP.md) for detailed instructions and optional OpenTripPlanner setup. To rebuild the model instead, obtain the October ticket CSV and original GTFS feed (see [Data and licences](#data-and-licences)), and run:
+
+```sh
+python3 -m unittest discover -s tests
 python3 src/cli.py --tickets data/input/October-Delhi.csv --gtfs data/input/gtfs \
   --review data-reference/reviewed-stop-mappings.csv --confirm-review \
   --start 2026-10-01 --end 2026-10-21 --output data/setup/training.json

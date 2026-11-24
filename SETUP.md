@@ -4,7 +4,7 @@ This guide starts from a fresh clone and runs the UI and API on your computer. T
 
 ## Fast path: published model release
 
-**Availability:** the `v1.0` release is currently a draft pending data-licence confirmation, so this download will work only after the release is published and accessible to you. Once available, clone the repository, activate a Python 3.9+ virtual environment as in step 2, and run:
+Clone the repository, activate a Python 3.9+ virtual environment as in step 2, and run:
 
 ```sh
 python3 scripts/fetch_release.py
