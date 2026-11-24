@@ -394,7 +394,7 @@ function journeyCard(j, rank) {
   const total = parts.every(Number.isFinite) ? Math.round(parts.reduce((sum, value) => sum + value, 0)) : null;
   head.append(times, el('span', 'dur', total == null ? 'Total time unavailable' : total + ' min from requested time'));
   const chips = el('div', 'chips');
-  if (rank === 0 && sortKey !== 'fastest') chips.append(el('span', 'chip best', {walking: 'Least walking', transfers: 'Fewest changes', crowd: 'Lowest crowd estimate'}[sortKey]));
+  if (rank === 0 && sortKey !== 'fastest' && (sortKey !== 'crowd' || Number.isFinite(metric(j, 'crowd')))) chips.append(el('span', 'chip best', {walking: 'Least walking', transfers: 'Fewest changes', crowd: 'Lowest crowd estimate'}[sortKey]));
   for (const leg of j.legs || []) {
     if (leg.mode === 'BUS') {
       const route = (leg.route || {}).shortName;
