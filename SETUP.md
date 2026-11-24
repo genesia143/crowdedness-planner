@@ -2,6 +2,17 @@
 
 This guide starts from a fresh clone and runs the UI and API on your computer. The **quick setup** does not require OpenTripPlanner (OTP), Java or a map download. It uses a limited built-in journey planner: its walks are estimates and it may miss routes or transfers. For the full map-based router, follow the last section.
 
+## Fast path: published model release
+
+**Availability:** the `v1.0` release is currently a draft pending data-licence confirmation, so this download will work only after the release is published and accessible to you. Once available, clone the repository, activate a Python 3.9+ virtual environment as in step 2, and run:
+
+```sh
+python3 scripts/fetch_release.py
+python3 src/api.py --database data/release/model.db --gtfs data/release/gtfs --port 8000
+```
+
+Open http://127.0.0.1:8000/. The downloader checks SHA-256 hashes and refuses to overwrite an existing model or GTFS folder. This runs the limited built-in router; for full street-network routing, build and run OTP as described in step 7. Downloading and running a released derived model remains subject to the applicable data terms.
+
 The steps below use a macOS or Linux terminal. Windows users can run the same commands in a suitable Unix-like shell; the Windows virtual-environment command is shown below. This setup has been exercised on the development Mac, but has **not** been independently verified on a fresh machine.
 
 ## 1. Obtain the required files
