@@ -63,7 +63,7 @@ footer{color:var(--muted);font-size:13px;padding:8px 0 32px}
 <main class="wrap">
   <section class="hero">
     <h1>Where buses are under most pressure</h1>
-    <p>For bus operators and planners: the route stretches and routes with the most recorded mobile-ticket passengers per scheduled bus, by day type and time of day. Use it to see which routes and hours look overloaded and where extra buses might help most.</p>
+    <p>For bus operators and planners: the route stretches and routes with the most recorded mobile-ticket passengers per scheduled bus, by day type and time of day. Use it to identify routes and hours for further investigation; the data cannot establish actual crowding or whether extra buses are needed.</p>
   </section>
   <section class="card controls" aria-label="Filters">
     <div><label for="day">Day</label>
@@ -85,10 +85,10 @@ footer{color:var(--muted);font-size:13px;padding:8px 0 32px}
   <div class="grid">
     <section class="card"><h2>Highest-pressure stretches</h2><p class="sub">Between two consecutive stops on a route. Select a row to find it on the map, where stretches are drawn as straight lines between stops.</p>
       <div class="tablewrap"><table><thead><tr><th>#</th><th>Route</th><th>Stretch</th><th class="num">Per bus</th><th class="num">Sample</th></tr></thead><tbody id="stretches"></tbody></table></div></section>
-    <section class="card"><h2>Highest-pressure routes</h2><p class="sub">Average over all stretches of the route in this time window.</p>
+    <section class="card"><h2>Highest-pressure routes</h2><p class="sub">Average across route stretches and scheduled crossings. Sample counts passenger–stretch observations, so a passenger may be counted on several stretches.</p>
       <div class="tablewrap"><table><thead><tr><th>#</th><th>Route</th><th class="num">Per bus</th><th class="num">Sample</th></tr></thead><tbody id="routes"></tbody></table></div></section>
   </div>
-  <footer>Product and Policy Lab · Street map © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> · “Per bus” = matched mobile-ticket passengers per scheduled bus crossing; “Sample” = matched mobile-ticket passengers behind the figure.</footer>
+  <footer>Product and Policy Lab · Street map © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> · “Per bus” = matched mobile-ticket passengers per scheduled bus crossing; “Sample” counts matched passenger–stretch observations, not necessarily distinct passengers.</footer>
 </main>
 <script>
 const $ = id => document.getElementById(id);
