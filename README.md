@@ -2,7 +2,7 @@
 
 **Product and Policy Lab** · Delhi Transport Stack challenge, Problem 2
 
-A journey planner for Delhi buses that shows, next to each option's travel time, how crowded the bus is likely to be, estimated from October 2026 mobile e-ticket records. Commuters can pick between a faster trip and a more comfortable one. Operators get a map of where buses are under most pressure.
+A journey planner for Delhi buses that shows, next to each option's travel time, an experimental ticket-derived pressure indicator, estimated from October 2026 mobile e-ticket records. Commuters can compare travel times with indicative estimates. Operators get a map of ticket-derived pressure.
 
 ![Journey planner: Anand Vihar to Connaught Place at 6 pm, sorted by least crowded](docs/images/planner.png)
 
@@ -45,7 +45,7 @@ The full method, assumptions and API are in the [technical note](docs/submission
 |---|---|---|
 | Ticket sample behaves like commuter travel | Weekday peaks at 09:00 and 18:00; Saturday 74% and Sunday 47% of a weekday; weekday shape correlates 0.985–0.991 week to week; 9 of the 12 busiest peak routes reverse direction between morning and evening | [Known patterns](docs/known-patterns.md) |
 | Tickets matched to the timetable (training, 1–21 Oct) | 916,872 of 1,672,406 (54.8%) | [Reproducibility check](docs/reproducibility-check.md) |
-| Stretch labels on the held-out week (25–31 Oct), against labels from that week's tickets | Weekday 66.5%, Saturday 54.8%, Sunday 42.8% agreement (about 33% by chance) | [Final ticket evaluation](docs/final-ticket-evaluation.md) |
+| Stretch labels on the held-out week (25–31 Oct), against labels from that week's tickets | Weekday 66.5%, Saturday 54.8%, Sunday 42.8% agreement | [Final ticket evaluation](docs/final-ticket-evaluation.md) |
 | Hour-order stability across rotating development weeks | 82.5–84.0% of weekday hour pairs ordered the same way | [Rotating weeks](docs/rotating-week-development.md) |
 | Options with a journey crowd estimate (200 random searches) | 958 of 1,102 (86.9%). 687 of those use a route-wide fallback on at least one stretch | [Journey pressure evaluation](docs/journey-pressure-evaluation.md) |
 | Rebuild from the same inputs | Training records and model index reproduced byte for byte | [Reproducibility check](docs/reproducibility-check.md) |
@@ -54,7 +54,7 @@ These agreement figures compare the model with **later ticket patterns**, not wi
 
 ## Limitations
 
-- **The data covers mobile e-tickets only.** The organisers confirmed it is a subset of riders. Free tickets for women and passes are not in it, and its share of riders may differ by route and hour. Estimates are relative pressure, not passengers on board or seat availability.
+- **The data covers mobile e-tickets only.** The organisers confirmed it is a subset of riders. Riders using other ticketing channels or passes may be missing, and its share of riders may differ by route and hour. Estimates are relative pressure, not passengers on board or seat availability.
 - **Comparing routes assumes similar app use on every route.** The Low / Moderate / High labels, the least-crowded sort and the operator view rely on this, and it has not been verified.
 - **Bus service is the timetable,** not buses that actually ran. Ticket time is treated as boarding time.
 - **Thin evidence is filled from wider pools.** Many journey estimates use route-wide averages for some stretches; missing evidence is shown as *not enough data*, never as quiet.
@@ -85,7 +85,7 @@ These agreement figures compare the model with **later ticket patterns**, not wi
 
 ## Data and licences
 
-**Data source: [Delhi Transport Stack](https://delhi.transportstack.in)** (Delhi Transport Corporation and Department of Transport, Government of NCT of Delhi): October 2026 bus ticket records and the static GTFS feed. The data is used under the Delhi Transport Stack licence agreement, which allows derivatives and requires this attribution. It is provided "as is"; the estimates here are our own derived work, and the Delhi Transport Stack makes no representation about their accuracy.
+**Data source: [Delhi Transport Stack](https://delhi.transportstack.in)** (Delhi Transport Corporation and Department of Transport, Government of NCT of Delhi): October 2026 bus ticket records and the static GTFS feed. The applicable terms for the challenge ticket dataset and redistribution of derived outputs require confirmation with the organisers. It is provided "as is"; the estimates here are our own derived work, and the Delhi Transport Stack makes no representation about their accuracy.
 
 The raw ticket CSV, GTFS feed, reviewed stop workbook, trained model and map graph are not in this repository. The reviewed workbook is the team's manual stop-name corrections, needed to reproduce the reported match rate exactly. `tests/fixtures/otp` contains recorded routing responses that include aggregate figures derived from training tickets; no raw ticket records are included.
 
