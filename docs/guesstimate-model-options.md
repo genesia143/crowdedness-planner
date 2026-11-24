@@ -1,6 +1,6 @@
 # Guesstimates for the crowding model
 
-This is a design note, not a calibrated model or a claim of improved accuracy. The relevant guesstimate sections were inspected selectively in the local Product Casebook (PDF pp. 52–54) and Casebook_2025 (PDF p. 58). They recommend defining the question, segmenting assumptions, using demand and supply perspectives, and sanity-checking results. Their examples are interview exercises, not evidence about Delhi's ticket sampling.
+This is a design note, not a calibrated model or a claim of improved accuracy. It follows standard guesstimation practice: define the quantity, segment the assumptions, look at demand and supply, and sanity-check the result. Those are reasoning steps, not evidence about Delhi's ticket sampling.
 
 ## Define the quantity
 

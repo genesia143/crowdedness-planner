@@ -1,6 +1,6 @@
 # Model-improvement experiments: development period only
 
-The user's current boundary is that October 25–31 must never be used to build or tune a model. That week was previously evaluated for an earlier candidate and is not a fresh independent test for a revised candidate. The experiments below used October 1–21 training and/or October 22–24 development records; no new model was trained on October 25–31.
+The team's rule is that October 25–31 must never be used to build or tune a model. That week was previously evaluated for an earlier candidate and is not a fresh independent test for a revised candidate. The experiments below used October 1–21 training and/or October 22–24 development records; no new model was trained on October 25–31.
 
 - **Magnitude and day-to-day stability:** an illustrative ±25% rule labels fewer supported hours as busier, but compares against a differently defined target than rank and has not been shown to improve accuracy. The positive-only same-training-days stability check has selection and denominator biases. See [holiday and magnitude study](holiday-magnitude-study.md).
 - **Holiday exclusion:** on the same supported weekday cells, excluding October 2 and 20 in both observed passengers and scheduled crossings changed magnitude-target agreement from 65.14% to 65.39%. Support was fixed from the original model; correlated ticket-sample results do not establish a meaningful improvement in crowding prediction.

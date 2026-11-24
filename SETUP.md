@@ -100,7 +100,7 @@ curl -G 'http://127.0.0.1:8000/journeys/mapped' \
 
 The example date is for routing and must be supported by your GTFS feed. The API's `routing_source` identifies the router used. If the quick planner does not find an option, try another time or nearby stops; absence of an option does not prove no service exists. To stop the server, return to its terminal and press **Ctrl+C**.
 
-The UI's crowd indicators are **experimental mobile-ticket pressure estimates**, not measured onboard loads or seat availability. They assume comparable app use across routes and use scheduled rather than observed bus service; see the root [README](README.md) for the assumptions and limitations.
+The UI's crowd indicators are **experimental mobile-ticket pressure estimates**, not measured onboard loads or seat availability. They assume comparable app use across routes and use scheduled rather than observed bus service; see the [technical reference](docs/technical-reference.md#time-and-comfort-comparison) for the assumptions and limitations.
 
 ## 7. Optional: run with the full map-based router
 
