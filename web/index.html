@@ -15,12 +15,14 @@
   --brand:#0f766e; --brand-strong:#0b5e58; --brand-soft:#e3f3f1; --focus:#0f766e55;
   --quieter:#2f6fdb; --typical:#9aa7b4; --busier:#e2672a; --unknown:#cfd6dd;
   --warn-bg:#fff7e8; --warn-ink:#7a4b00; --shadow:0 1px 2px rgba(16,24,40,.05),0 4px 16px rgba(16,24,40,.06);
+  --crowd-low:#1a8f3c; --crowd-mid:#e57f00; --crowd-high:#d1242f;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#0f1418; --surface:#171e24; --surface-2:#1d252c; --ink:#e7edf2; --muted:#9aa8b5; --line:#2a343d;
   --brand:#2bb3a5; --brand-strong:#3cc6b8; --brand-soft:#173a37; --focus:#2bb3a555;
   --quieter:#5b93f0; --typical:#6f7d8a; --busier:#f08a50; --unknown:#2a343d;
   --warn-bg:#3a2d12; --warn-ink:#f3cf87; --shadow:none;
+  --crowd-low:#3fb950; --crowd-mid:#f0a33a; --crowd-high:#f85149;
 }}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
@@ -116,6 +118,16 @@ details.options input{width:110px;height:40px;border:1px solid var(--line);borde
 .strip i{flex:1;border-radius:2px;min-width:3px}
 .caution{font-size:13px;color:var(--warn-ink);background:var(--warn-bg);border-radius:8px;padding:6px 10px;margin-top:8px}
 .evidence{font-size:13px;color:var(--muted);margin-top:10px}
+.crowd{display:flex;align-items:center;gap:8px;font-weight:600;margin:2px 0 6px}
+.meter{display:inline-flex;gap:3px}
+.meter i{width:7px;height:14px;border-radius:2px;background:var(--line)}
+.crowd.l1 .meter i:nth-child(-n+1){background:var(--crowd-low)}
+.crowd.l2 .meter i:nth-child(-n+2){background:var(--crowd-mid)}
+.crowd.l3 .meter i:nth-child(-n+3){background:var(--crowd-high)}
+.crowd.na{color:var(--muted);font-weight:500}
+.crowd .why{font-weight:400;color:var(--muted);font-size:13px}
+.crowdkey{display:flex;gap:14px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--muted)}
+.crowdkey .crowd{margin:0;font-weight:500;gap:6px}
 .more{width:100%;margin-bottom:12px}
 details.explain{padding:14px 18px;margin:12px 0 18px}
 details.explain summary{cursor:pointer;font-weight:600}
@@ -187,7 +199,9 @@ footer{color:var(--muted);font-size:13px;padding:8px 0 32px;display:flex;justify
         <button type="button" data-sort="fastest" aria-pressed="true">Fastest</button>
         <button type="button" data-sort="walking" aria-pressed="false">Least walking</button>
         <button type="button" data-sort="transfers" aria-pressed="false">Fewest changes</button>
+        <button type="button" data-sort="crowd" aria-pressed="false">Least crowded</button>
       </div>
+      <div class="crowdkey" id="crowdKey" aria-label="Crowd estimate key"></div>
     </div>
     <section id="journeyMapPanel" class="card map-panel" aria-label="Selected journey map" hidden>
       <div class="map-header">
@@ -328,6 +342,7 @@ function changes(j) { return Number.isFinite(j.numberOfTransfers) ? j.numberOfTr
 function metric(j, key) {
   if (key === 'walking') { const w = walkMetres(j); return w == null ? Infinity : w; }
   if (key === 'transfers') return changes(j);
+  if (key === 'crowd') { const p = j.journey_pressure || {}; return p.status === 'available' && Number.isFinite(p.score) ? p.score : Infinity; }
   const n = Date.parse(j.end); return Number.isFinite(n) ? n : Infinity;
 }
 const EVIDENCE = {
@@ -336,6 +351,19 @@ const EVIDENCE = {
   'insufficient evidence': 'Not enough ticket data to compare stretches on this journey.'
 };
 
+const LEVELS = {'Low estimated crowding': [1, 'Low'], 'Moderate estimated crowding': [2, 'Moderate'], 'High estimated crowding': [3, 'High']};
+function meter(level, text, extra) {
+  const wrap = el('span', 'crowd ' + (level ? 'l' + level : 'na')), m = el('span', 'meter');
+  m.setAttribute('aria-hidden', 'true'); m.append(el('i'), el('i'), el('i'));
+  wrap.append(m, el('span', '', text));
+  if (extra) wrap.append(el('span', 'why', extra));
+  return wrap;
+}
+function crowdBadge(estimate) {
+  const level = estimate.status === 'available' && LEVELS[estimate.label];
+  return level ? meter(level[0], 'Crowd estimate: ' + level[1])
+    : meter(0, 'Crowd estimate: not enough ticket data', '· does not mean the bus is empty');
+}
 function busStep(leg, idx, summary) {
   const li = el('li', 'step bus'), ico = el('span', 'ico'); ico.innerHTML = ICONS.stop;
   const body = el('div');
@@ -366,7 +394,7 @@ function journeyCard(j, rank) {
   const total = parts.every(Number.isFinite) ? Math.round(parts.reduce((sum, value) => sum + value, 0)) : null;
   head.append(times, el('span', 'dur', total == null ? 'Total time unavailable' : total + ' min from requested time'));
   const chips = el('div', 'chips');
-  if (rank === 0 && sortKey !== 'fastest') chips.append(el('span', 'chip best', {walking: 'Least walking', transfers: 'Fewest changes'}[sortKey]));
+  if (rank === 0 && sortKey !== 'fastest' && (sortKey !== 'crowd' || Number.isFinite(metric(j, 'crowd')))) chips.append(el('span', 'chip best', {walking: 'Least walking', transfers: 'Fewest changes', crowd: 'Lowest crowd estimate'}[sortKey]));
   for (const leg of j.legs || []) {
     if (leg.mode === 'BUS') {
       const route = (leg.route || {}).shortName;
@@ -385,8 +413,7 @@ function journeyCard(j, rank) {
   if (j.potentially_quieter) chips.append(el('span', 'chip best', 'Potentially quieter than fastest on the same stretches'));
   card.append(head, chips);
   const estimate = j.journey_pressure || {};
-  const readable = {'Low estimated crowding':'Crowd estimate: Low', 'Moderate estimated crowding':'Crowd estimate: Moderate', 'High estimated crowding':'Crowd estimate: High'};
-  card.append(el('strong', 'journey-summary', estimate.status === 'available' ? (readable[estimate.label] || 'Crowd estimate available') : 'Crowd estimate unavailable'));
+  card.append(crowdBadge(estimate));
   const mapButton = el('button', 'btn map-button', 'Show on map'); mapButton.type = 'button';
   mapButton.setAttribute('aria-pressed', String(selectedMapJourney === j));
   mapButton.addEventListener('click', () => showJourneyMap(j, mapButton)); card.append(mapButton);
@@ -484,6 +511,7 @@ $('closeJourneyMap').addEventListener('click', () => {
   selectedMapJourney = null;
   for (const button of $('results').querySelectorAll('button[aria-pressed]')) button.setAttribute('aria-pressed', 'false');
 });
+$('crowdKey').append(el('span', '', 'Crowd estimate:'), meter(1, 'Low'), meter(2, 'Moderate'), meter(3, 'High'));
 document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => {
   sortKey = b.dataset.sort; showAll = false;
   document.querySelectorAll('.tabs button').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
