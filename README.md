@@ -20,7 +20,7 @@ A journey planner for Delhi buses that shows, next to each option's travel time,
 You need Python 3.9+, the October ticket CSV, the original static GTFS feed and, to match our reported results, the team's reviewed stop workbook (see [Data and licences](#data-and-licences)). No packages to install.
 
 ```sh
-python3 -m unittest discover -s tests            # 108 tests
+python3 -m unittest discover -s tests            # 110 tests
 python3 src/cli.py --tickets data/input/October-Delhi.csv --gtfs data/input/gtfs \
   --review data/input/stop-review.xlsx --confirm-review \
   --start 2026-10-01 --end 2026-10-21 --output data/setup/training.json
@@ -47,6 +47,7 @@ The full method, assumptions and API are in the [technical note](docs/submission
 | Ticket sample behaves like commuter travel | Weekday peaks at 09:00 and 18:00; Saturday 74% and Sunday 47% of a weekday; weekday shape correlates 0.985–0.991 week to week; 9 of the 12 busiest peak routes reverse direction between morning and evening | [Known patterns](docs/known-patterns.md) |
 | Tickets matched to the timetable (training, 1–21 Oct) | 916,872 of 1,672,406 (54.8%) | [Reproducibility check](docs/reproducibility-check.md) |
 | Stretch labels on the held-out week (25–31 Oct), against labels from that week's tickets | Weekday 66.5%, Saturday 54.8%, Sunday 42.8% agreement (about 33% by chance) | [Final ticket evaluation](docs/final-ticket-evaluation.md) |
+| Stretch labels vs simpler predictors (22–24 Oct development days) | Weekday agreement: model 60.6%, route pattern 55.0%, citywide pattern 48.1%, always "typical" 35.2%. Opposite-end errors 4.7% vs 10.5% citywide | [Baseline comparison](docs/baseline-comparison.md) |
 | Hour-order stability across rotating development weeks | 82.5–84.0% of weekday hour pairs ordered the same way | [Rotating weeks](docs/rotating-week-development.md) |
 | Options with a journey crowd estimate (200 random searches) | 958 of 1,102 (86.9%). 687 of those use a route-wide fallback on at least one stretch | [Journey pressure evaluation](docs/journey-pressure-evaluation.md) |
 | Rebuild from the same inputs | Training records and model index reproduced byte for byte | [Reproducibility check](docs/reproducibility-check.md) |

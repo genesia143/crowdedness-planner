@@ -5,6 +5,7 @@
 - [Technical note](submission-note.md): the problem, method, checks and limitations
 - [Checks against known patterns](known-patterns.md): peaks, weekday vs weekend, busy corridors
 - [Final ticket evaluation](final-ticket-evaluation.md): the one-time held-out week (25–31 October)
+- [Baseline comparison](baseline-comparison.md): stretch labels against route-wide, citywide and chance predictors
 - [Technical reference](technical-reference.md): API endpoints, pipeline options and the journey estimator
 - [Setup](../SETUP.md) and the [full-router setup](setup.md)
 
