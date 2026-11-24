@@ -1,4 +1,5 @@
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -6,6 +7,17 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
 from reviewed_mappings import inspect
 
 class ReviewAuditTests(unittest.TestCase):
+    @patch('reviewed_mappings.route_patterns')
+    def test_csv_enforces_route_and_confirmation(self, patterns):
+        patterns.return_value = ({'1':'Alpha Station Terminal', '2':'Elsewhere'}, {'8up':{('1',)}})
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / 'mappings.csv'
+            path.write_text('route,ticket_stop_name,used_as,stop_id\n8UP,Alpha,boarding,1\n8UP,Alpha,destination,2\n')
+            rows = inspect(path, 'unused', confirmed=True)
+            self.assertEqual([r['status'] for r in rows], ['accepted', 'review'])
+            self.assertIn('stop_not_on_route', rows[1]['reasons'])
+            self.assertEqual(inspect(path, 'unused')[0]['status'], 'review')
+
     @patch('reviewed_mappings.read_xlsx')
     @patch('reviewed_mappings.route_patterns')
     def test_route_score_and_ambiguous_ids(self, patterns, workbook):

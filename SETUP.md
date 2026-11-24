@@ -6,13 +6,13 @@ The steps below use a macOS or Linux terminal. Windows users can run the same co
 
 ## 1. Obtain the required files
 
-The repository does **not** contain the ticket data, GTFS feed, reviewed workbook, trained model or OTP graph. Obtain the following separately from an authorised source:
+The repository does **not** contain the ticket data, GTFS feed, reviewed workbook, trained model or OTP graph. Obtain the first two inputs separately from an authorised source; the reviewed mapping CSV is included:
 
 1. The October mobile e-ticket CSV, named `October-Delhi.csv` below.
 2. The **original, unedited** Delhi static GTFS feed, extracted into a folder containing `stops.txt`, `routes.txt`, `trips.txt`, `stop_times.txt` and the other feed files directly. Do not use a spreadsheet-edited copy: IDs can change.
-3. The confirmed stop-review workbook used by the team, named `stop-review.xlsx` below. Without this workbook the model can still be built, but it will have different coverage and results from the demonstrated model.
+3. The reviewed stop-name mappings in this repository at `data-reference/reviewed-stop-mappings.csv`. A confirmed workbook can also be supplied instead.
 
-Keep these files outside Git and share them only where you have permission. If you have received a compatible prebuilt model database, you can skip the ticket CSV, workbook and model-building steps, but you **still need the matching GTFS feed**.
+Keep the separately supplied data outside Git and share it only where you have permission. If you have received a compatible prebuilt model database, you can skip the ticket CSV and model-building steps, but you **still need the matching GTFS feed**.
 
 ## 2. Install prerequisites and clone
 
@@ -43,7 +43,6 @@ crowdedness-planner/
   data/
     input/
       October-Delhi.csv
-      stop-review.xlsx
       gtfs/
         stops.txt
         routes.txt
@@ -71,13 +70,13 @@ Run these two commands from the repository root. Building and indexing the full 
 
 ```sh
 python3 src/cli.py --tickets data/input/October-Delhi.csv --gtfs data/input/gtfs \
-  --review data/input/stop-review.xlsx --confirm-review \
+  --review data-reference/reviewed-stop-mappings.csv --confirm-review \
   --start 2026-10-01 --end 2026-10-21 --output data/setup/training.json
 python3 src/index_model.py --input data/setup/training.json \
   --output data/setup/model.db --gtfs data/input/gtfs
 ```
 
-If the confirmed workbook is unavailable, omit `--review data/input/stop-review.xlsx --confirm-review` from the first command; record that the resulting model differs from the reviewed model. Use the **same GTFS** when building the model and running the API. The 25–31 October tickets are not used for training or selecting a model; that period has already been evaluated for an earlier candidate and is not an untouched test for a revised model.
+The included CSV contains accepted mappings from the reviewed workbook. Use the **same GTFS** when building the model and running the API. The 25–31 October tickets are not used for training or selecting a model; that period has already been evaluated for an earlier candidate and is not an untouched test for a revised model.
 
 ## 6. Start the quick local planner
 

@@ -13,19 +13,19 @@ A stretch label ("likely busier / typical / likely quieter than this stretch at 
 
 | Day type | Evaluated stretch-hours | Model | Route pattern | Citywide pattern | Always typical |
 |---|---:|---:|---:|---:|---:|
-| Weekday | 152,958 | **60.6%** | 55.0% | 48.1% | 35.2% |
-| Saturday | 22,862 | **56.7%** | 52.3% | 46.3% | 35.2% |
+| Weekday | 169,389 | **61.0%** | 55.6% | 48.3% | 35.1% |
+| Saturday | 27,522 | **56.4%** | 52.0% | 46.4% | 35.2% |
 
 Share of hours labelled at the **opposite end** (quieter when the target says busier, or the reverse), lower is better:
 
 | Day type | Model | Route pattern | Citywide pattern |
 |---|---:|---:|---:|
-| Weekday | **4.7%** | 7.0% | 10.5% |
-| Saturday | **5.8%** | 7.3% | 12.0% |
+| Weekday | **4.5%** | 6.7% | 10.4% |
+| Saturday | **6.0%** | 7.9% | 12.3% |
 
 ## What this shows
 
-- **On this development sample, stretch-level labels agree more often.** They agree with later tickets about 12 points more often than the citywide pattern, and about 5 points more often than the route's own pattern, on both weekdays and Saturdays.
+- **On this development sample, stretch-level labels agree more often.** They agree with later tickets about 10–13 percentage points more often than the citywide pattern, and about 4–5 points more often than the route's own pattern, on weekdays and Saturdays.
 - **They also make fewer serious errors.** Opposite-end mistakes are less than half as common as with the citywide pattern.
 - **The gain over the route pattern is modest.** Much of the time-of-day signal is shared along a route; the stretch level mainly adds where a route's busy section shifts during the day.
 
@@ -34,7 +34,7 @@ Share of hours labelled at the **opposite end** (quieter when the target says bu
 - Agreement is with **later mobile-ticket patterns**, not with people counted on buses.
 - Stretch-hours share passengers, so they are not independent observations.
 - The development window has two weekdays and one Saturday and no Sunday, so Sunday is not covered.
-- These figures come from a model built without the reviewed stop workbook (50.0% of tickets matched rather than 54.8%). The model's agreement here matches `scripts/validate_v1_labels.py` exactly on the same inputs; rerun on the reviewed model with:
+- These figures were rerun using the reviewed model and reviewed October 22–24 records (241 accepted mappings). They are development-set checks, not a fresh final test; rerun with:
 
 ```sh
 python3 scripts/compare_label_baselines.py --database data/setup/model.db \

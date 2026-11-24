@@ -1,0 +1,242 @@
+route,ticket_stop_name,used_as,stop_id
+120ADOWN,Jahangirpuri Gt Road,destination,5085
+125DOWN,Jahangir Puri Metro Station,destination,7594
+144DOWN,Jahangir Puri Metro Station,destination,7594
+144DOWN,Azadpur Terminal,destination,7760
+144DOWN,Alipur Gt Road,boarding,298
+144UP,Singhu Border,destination,1010
+144UP,Jahangir Puri Metro Station,boarding,5172
+144UP,Alipur Gt Road,destination,298
+165DOWN,Badli Railway Staion,destination,1521
+165UP,Badli Railway Staion,boarding,1541
+192UP,Kashmere Gate City Terminal,boarding,4822
+211UP,Seelam Pur,boarding,899
+307DOWN,Kamla Market,destination,1573
+307DOWN,Laxmi Nagar Xing,boarding,8820
+307DOWN,Zakir Hussain College,destination,1557
+307DOWN,Delhi Gate,destination,1555
+307UP,Laxmi Nagar Xing,destination,7676
+307UP,Trilok Puri 13-Block,destination,838
+307UP,Zakir Hussain College,boarding,1564
+307UP,Ambedkar Stadium,boarding,822
+309DOWN,Laxmi Nagar Xing,boarding,8820
+33UP,Isbt Anand Vihar,destination,7699
+34DOWN,Said Ul Zeb Village,destination,2776
+39UP,Laxmi Nagar,boarding,7888
+405DOWN,Badarpur Border,boarding,2640
+405DOWN,Badarpur,boarding,2642
+405UP,Badarpur Border,destination,2640
+405UP,Madanpur Xing,boarding,2667
+405UP,Badarpur,destination,2672
+413DOWN,Andrews Ganj,destination,2360
+413DOWN,Lajpat Nagar,destination,2363
+413UP,Khel Gaon,destination,2375
+413UP,Andrews Ganj,boarding,2370
+413UP,Ashram,boarding,2167
+419ADOWN,Saidulajab / Saket Metro Station,boarding,2734
+419DOWN,Madangir,boarding,7949
+425DOWN,Hamdard Nagar,boarding,2301
+425UP,Hamdard Nagar,destination,2300
+434DOWN,Saidul-A-Jab / Saket Metro Station,boarding,2734
+434UP,Saket Metro Sation,destination,2775
+448DOWN,Hamdard Nagar,boarding,2300
+448DOWN,Munirka Village,boarding,2413
+448DOWN,Naraina Village,destination,2926
+448UP,Hamdard Nagar,destination,2301
+448UP,Munirka Village,destination,2412
+460DOWN,Badarpur Border,boarding,2640
+460DOWN,Badarpur,boarding,2642
+460DOWN,Minto Road Terminal,destination,1562
+460UP,Badarpur Border,destination,2640
+463DOWN,Hamdard Nagar,destination,2301
+463DOWN,Hamdard Nagar,boarding,2301
+463DOWN,Mehrauli,boarding,7908
+463DOWN,Devoli Road Crossing,destination,2873
+463UP,Hamdard Nagar,destination,2300
+463UP,Nsic Hostel,boarding,2288
+463UP,Hamdard Nagar,boarding,2300
+463UP,Mehrauli,destination,7910
+469UP,Hamdard Nagar,boarding,2300
+473DOWN,Badarpur Border,boarding,9702
+473DOWN,Badarpur,boarding,9702
+473DOWN,Anand Vihar (Isbt),destination,7699
+473UP,Badarpur Border,destination,2640
+473UP,Ishwar Nagar-Ii,boarding,2659
+473UP,Badarpur,destination,2640
+479DOWN,Badarpur Border,boarding,9702
+479DOWN,Badarpur,boarding,9702
+479UP,Badarpur Border,destination,2640
+502DOWN,S.J. Hospital,destination,2997
+502DOWN,Lado Sarai Dda Flats,boarding,2347
+502UP,S.J. Hospital,boarding,3004
+502UP,Tb Hospital,destination,2386
+502UP,Lado Sarai Dda Flats,destination,2717
+523DOWN,Munirka Village,destination,2413
+523DOWN,Bhatti Mines,boarding,7991
+523UP,Bhatti Mines,destination,8012
+523UP,Dda Flat Munirka,boarding,2951
+534ADOWN,Mahipal Pur,boarding,2489
+534ADOWN,Andheria More,destination,9323
+534AUP,Mahipal Pur,destination,7933
+534AUP,Igi Air Port Terminal-2,destination,8107
+534DOWN,Government Model School,destination,2455
+534DOWN,Tamoor Nagar,destination,2780
+534DOWN,Saket A-Block,boarding,2957
+534UP,Government Model School,boarding,2451
+539ADOWN,Andheria More,destination,2504
+539UP,Bamnoli Crossing,destination,3214
+539UP,Kapashera More (Najafgarh Road),boarding,3210
+543ADOWN,Anand Vihar (Isbt),destination,4947
+543ADOWN,Mahipal Pur,destination,3665
+543ADOWN,Mahipal Pur,boarding,3665
+543ADOWN,Samalka Village,boarding,3207
+543ADOWN,Rang Puri,destination,2487
+543AUP,Mahipal Pur,destination,3303
+543AUP,Mahipal Pur,boarding,3303
+543AUP,Anand Vihar Main Road,boarding,7699
+567BSTLDOWN,Nangloi Metro Station (T),destination,166
+569DOWN,Safdarjung Terminal,destination,6081
+578DOWN,S.J. Terminal,destination,6081
+578DOWN,Mahipal Pur,destination,3665
+578DOWN,Mahipal Pur,boarding,3665
+578DOWN,Munirka Village,destination,2413
+578DOWN,Health Center,boarding,3186
+578DOWN,Bhikaji Kama Place,destination,6307
+578DOWN,S.J. Hospital,destination,2425
+578DOWN,Goela Crossing,boarding,3192
+578DOWN,Bijwason School (Golak Dham),boarding,3204
+578DOWN,Bijwason Flyover Before Bridge,boarding,6345
+578UP,Bamnoli,destination,6345
+578UP,Kapashera Crossing,boarding,3210
+578UP,Dhansa Stand Najaf Garh,destination,8021
+578UP,Mahipal Pur,destination,3303
+578UP,Kapashera Village,boarding,3211
+578UP,Mahipal Pur,boarding,3303
+578UP,Hyatt Hotel,boarding,3107
+578UP,Bijwason Flyover After Bridge,destination,6345
+604DOWN,Chhatarpur Metro Station,boarding,2870
+610DOWN,Krishi Bhawan,destination,1383
+610UP,Rk Puram Sector-1,destination,2914
+623DOWN,Laxmi Nagar,destination,7889
+623DOWN,Laxmi Nagar,boarding,7889
+623DOWN,Ito-Agcr,boarding,1037
+623DOWN,Munirka Village,boarding,2413
+623DOWN,Shahjahan Road,boarding,1606
+628STLDOWN,Dhansa Bus Stand,destination,3378
+706AUP,Mahipal Pur Crossing,boarding,3303
+708DOWN,Narela A-9 Terminal,destination,7589
+711DOWN,Uttam Nagar Terminal,destination,5020
+711UP,Sagar Pur Vashishth Park,boarding,3624
+715DOWN,Mahipal Pur,boarding,7934
+715DOWN,Mahipal Pur,destination,7934
+715DOWN,Andheria More,boarding,7926
+715UP,Mahipal Pur,boarding,2490
+715UP,Mahipal Pur,destination,2490
+715UP,Andheria More,destination,2503
+717AUP,Kishan Garh & Npd / Vasant Kunj Car Market,destination,4958
+718DOWN,Uttam Nagar Terminal,destination,7976
+721DOWN,Maya Puri Depot,destination,586
+721DOWN,Isbt Kashmere Gate,destination,938
+721DOWN,Sagar Pur Vashisht Park,boarding,3624
+721DOWN,"Mahvir Enclave Part Ii,Iii",boarding,3770
+721DOWN,Rajindera Place Metro Station,destination,1876
+721DOWN,Naraina Vihar,destination,1870
+721DOWN,Toda Pur,boarding,2261
+721UP,Mangla Puri,destination,3691
+721UP,Maya Puri Depot,boarding,624
+721UP,Toda Pur,destination,2252
+721UP,"Mahvir Enclave Part Ii,Iii",destination,6572
+724DOWN,Uttam Nagar Terminal,destination,7976
+724UP,Sagar Pur - Vashishth Park,boarding,3624
+727UP,Dwarka Flyover Palam Village,destination,3689
+73DOWN,Laxmi Nagar,destination,7889
+73DOWN,Anand Vihar Isbt,destination,4947
+761DOWN,Mangla Puri,destination,3691
+761DOWN,District Centre Janak Puri,destination,3900
+761DOWN,B Block Mangol Puri Ring Road,boarding,158
+761DOWN,"Mahvir Enclave Part Ii,Iii",destination,6572
+761UP,District Centre Janak Puri,boarding,1247
+761UP,B Block Mangol Puri Ring Road,destination,7583
+772DOWN,Cargo / Express Terminal Gate,boarding,5055
+774UP,Nhai / District Court / Ig Hospital Dwarka Sec 10,destination,3860
+774UP,Prehlad Pur,boarding,2819
+774UP,Nehru Place Terminal,destination,2562
+774UP,Sarvpriya Vihar / Hauz Khas Metro Station,destination,3860
+778DOWN,Inder Lok Metro Station,destination,1122
+778DOWN,Maya Puri Depot,destination,586
+778DOWN,Sagar Pur Vashishth Park,boarding,3624
+778DOWN,Kirti Ngr Rly Reser Office,destination,5195
+778DOWN,Desu Colony Janakpuri,boarding,3778
+778DOWN,"Mahvir Enclave Part Ii,Iii",boarding,3770
+778UP,"Mahvir Enclave Part Ii,Iii",destination,6572
+778UP,Maya Puri Depot,boarding,624
+778UP,Desu Colony Janakpuri,destination,8142
+778UP,Inder Lok Metro Station,boarding,1108
+778UP,Sagar Pur Vashishth Park,destination,8111
+78DOWN,Azad Pur Metro Station,destination,97
+78DOWN,Shadi Pur Depot,boarding,1439
+78UP,Inder Puri Kirshi Kunj,destination,1430
+78UP,Azad Pur Metro Station,boarding,7586
+78UP,Shadi Pur Depot,destination,1424
+835DOWN,Dhansa Stand Najafgarh,destination,4094
+835DOWN,Tilak Nagar,destination,6746
+835UP,Dhansa Border,destination,8203
+85DOWN,West Patel Nagar,boarding,1873
+85DOWN,Anand Vihar Isbt,destination,4947
+85DOWN,Ito-Agcr,boarding,1037
+85DOWN,Government Model School,destination,2455
+85DOWN,Shadi Pur Metro Station,boarding,1872
+85UP,Shadi Pur Metro Station,destination,7851
+85UP,Statsman House,destination,1461
+85UP,Ito-Agcr,destination,2197
+85UP,Government Model School,boarding,2451
+85UP,Shivaji Stadium,destination,5100
+85UP,West Patel Nagar,destination,1901
+85UP,Telephone Exchange,boarding,1898
+85UP,Punjabi Bagh,destination,1442
+85UP,Barakhamba Road Metro Station,destination,1075
+891DOWN,Mahindera Park,destination,4338
+894DOWN,West Patel Nagar,boarding,1873
+8DOWN,Noida Sector 37,boarding,5909
+8DOWN,Badarpur,destination,2640
+8DOWN,Jaitpur Xing,destination,2673
+8DOWN,Kalindi Kunj Border,boarding,2622
+8UP,Badarpur Border,boarding,2640
+8UP,Badarpur,boarding,2640
+8UP,Kalindi Kunj Border,boarding,2639
+901DOWN,Y Block Mangol Puri,boarding,153
+901DOWN,Mangolpur Khurd,boarding,154
+901UP,Y Block Mangol Puri,destination,6879
+943DOWN,Laxmi Nagar Metro Station,destination,7889
+943DOWN,Isbt Anand Vihar Terminal,destination,8256
+972UP,Uttam Nager Terminal,destination,5020
+978DOWN,Nangloi,destination,1997
+978UP,Nangloi,boarding,162
+990DOWN,West Patel Nagar,boarding,1873
+991STLDOWN,Karampura Terminal,destination,7772
+D-006DOWN,Laxmi Nagar Metro Station,destination,7889
+D-006DOWN,Ito,boarding,1037
+D-006UP,Sunehari Pulla Depot / Jawahar Lal Nehru Stadium Terminal,destination,1596
+D-006UP,Laxmi Nagar (Vikas Marg),boarding,7888
+D-014UP,Ambedkar Nagar Sec 4 Virat Cinema,boarding,6136
+D-018DOWN,Laxmi Nagar Metro Station,destination,7889
+D-034UP,Igi Airport Terminal 2 (Air India Office),destination,3658
+D-034UP,Reddison Hotel Mahipal Pur / Rang Puri (Nh8 Circle),boarding,8172
+D-034UP,Mahipal Pur (Nh8),destination,3303
+D-034UP,Mahipal Pur (Nh8),boarding,3303
+D-1103DOWN,Mahipal Pur,destination,8027
+D-1103DOWN,Ats Tower,boarding,8109
+D-1103UP,Mahipal Pur,boarding,3303
+D-1103UP,Radisson Hotel,boarding,5977
+D-1104UP,Munirka,destination,2950
+D-2202DOWN,Samaypur Badli Metro / Railway Staion,destination,1521
+D-2202UP,Samaypur Badli Metro / Railway Staion,boarding,1541
+D-7101DOWN,Chhattar Pur Metro Station,destination,7986
+D-9101DOWN,Aerocity,boarding,3664
+D-9101DOWN,Dwarka Flyover Railway Crossing,destination,3689
+D-9101UP,Aerocity,destination,3656
+D-9905DOWN,Dwarka Sec-21 Metro Station,destination,8123
+D-9907DOWN,Dhansa Stand Metro Station,destination,8049
+GL-23UP,Isbt Anand Vihar,destination,917
+ML06UP,Koushik Enclave,boarding,1131
+ML96DOWN,Jahangirpuri Metro Station,destination,7594

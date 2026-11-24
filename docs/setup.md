@@ -6,19 +6,19 @@ This is a working setup guide for contributors; an independent clean-machine run
 
 - Python 3.9 or later. The baseline and API use the standard library. Run the unit tests with `python3 -m unittest discover -s tests -v`. Python 3.15 produced a test error in an earlier run; use a version on which the suite passes and record the version alongside your results.
 - The original October ticket CSV and original static GTFS archive. Extract the GTFS to a directory and identify the directory containing `stops.txt`, `routes.txt`, `trips.txt` and `stop_times.txt`; use that same directory throughout. Do not use the spreadsheet-edited GTFS copy: some IDs were altered.
-- For the reviewed V1 baseline, obtain the confirmed stop-review workbook separately. Without it the pipeline still runs, but matching coverage and output differ from our reported V1 results.
+- For the reviewed V1 baseline, use the included `data-reference/reviewed-stop-mappings.csv`, exported from the confirmed stop-review workbook. A confirmed workbook can also be supplied separately.
 - For mapped journeys: Java 21, [OTP 2.7.0](https://github.com/opentripplanner/OpenTripPlanner/releases/tag/v2.7.0), the [Geofabrik India PBF](https://download.geofabrik.de/asia/india.html), and `osmium==4.3.2` for map preparation. Record the download date and checksums of the GTFS, PBF and OTP jar: a `latest` map can change and therefore does not guarantee identical results.
 
 The India download used in our experiment was approximately 1.6 GB; the clipped PBF was approximately 58 MB. A full-timetable build succeeded locally with a 6 GB Java heap. Disk space, total memory and build time depend on the host; 6 GB is a tested heap setting, not a guaranteed minimum. Larger extracts previously exhausted a 5 GB heap. See [the trial note](otp-trial.md) for coverage and routing limits.
 
 ## Build the model
 
-Create an output directory, replace the example paths below, and use an output name that does not overwrite previous work. The 1–21 October window is the training period. Do not use 25–31 October to train or select a model: it has been evaluated for an earlier candidate and is not an untouched independent test for a revised one. The confirmed workbook is optional only if you accept a different baseline.
+Create an output directory, replace the example paths below, and use an output name that does not overwrite previous work. The 1–21 October window is the training period. Do not use 25–31 October to train or select a model: it has been evaluated for an earlier candidate and is not an untouched independent test for a revised one. The included reviewed CSV replaces the separate confirmed workbook for this baseline.
 
 ```sh
 mkdir -p data/setup
 python3 src/cli.py --tickets /path/to/October-Delhi.csv --gtfs /path/to/gtfs \
-  --review /path/to/confirmed-review.xlsx --confirm-review \
+  --review data-reference/reviewed-stop-mappings.csv --confirm-review \
   --start 2026-10-01 --end 2026-10-21 --output data/setup/training.json
 python3 src/index_model.py --input data/setup/training.json \
   --output data/setup/model.db --gtfs /path/to/gtfs

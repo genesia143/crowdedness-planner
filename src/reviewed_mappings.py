@@ -41,7 +41,16 @@ def inspect(review, gtfs, confirmed=False):
     names, patterns = route_patterns(gtfs)
     route_ids = {route: {stop for pattern in variants for stop in pattern} for route, variants in patterns.items()}
     audit = []
-    for row in read_xlsx(review):
+    if Path(review).suffix.lower() == '.csv':
+        with open(review, encoding='utf-8-sig', newline='') as handle:
+            source = list(csv.DictReader(handle))
+        required = {'route', 'ticket_stop_name', 'used_as', 'stop_id'}
+        if not source or not required.issubset(source[0]):
+            raise ValueError('review CSV must contain route,ticket_stop_name,used_as,stop_id')
+        source = [dict(row, correct_gtfs_stop_id=row['stop_id'], decision='correct') for row in source]
+    else:
+        source = read_xlsx(review)
+    for row in source:
         route = row.get('route', '').strip()
         name = row.get('ticket_stop_name', '').strip()
         role = row.get('used_as', '').strip().lower()
