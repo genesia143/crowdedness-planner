@@ -17,7 +17,7 @@ A journey planner for Delhi buses that shows, next to each option's travel time,
 
 ## Try it
 
-You need Python 3.9+, the October ticket CSV, the original static GTFS feed and, to match our reported results, the team's reviewed stop workbook (see [Data](#data)). No packages to install.
+You need Python 3.9+, the October ticket CSV, the original static GTFS feed and, to match our reported results, the team's reviewed stop workbook (see [Data and licences](#data-and-licences)). No packages to install.
 
 ```sh
 python3 -m unittest discover -s tests            # 108 tests
@@ -82,9 +82,12 @@ These agreement figures compare the model with **later ticket patterns**, not wi
 | `scripts/` | Evaluation, diagnostics and report generators |
 | `tests/` | Unit tests and recorded OpenTripPlanner responses (`tests/fixtures/otp`) |
 | `docs/` | Technical note, evaluations and development record; start at [docs/README.md](docs/README.md) |
+| `LICENSE` | MIT licence for the code and documentation |
 
-## Data
+## Data and licences
 
-The ticket CSV, GTFS feed, reviewed stop workbook, trained model and map graph are not in this repository. The ticket data and GTFS come from the [Delhi Transport Stack](https://delhi.transportstack.in) platform under its data licence. The reviewed workbook is the team's manual stop-name corrections, needed to reproduce the reported match rate exactly. `tests/fixtures/otp` contains recorded routing responses, including aggregate figures derived from training tickets; no raw ticket records are included.
+**Data source: [Delhi Transport Stack](https://delhi.transportstack.in)** (Delhi Transport Corporation and Department of Transport, Government of NCT of Delhi): October 2026 bus ticket records and the static GTFS feed. The data is used under the Delhi Transport Stack licence agreement, which allows derivatives and requires this attribution. It is provided "as is"; the estimates here are our own derived work, and the Delhi Transport Stack makes no representation about their accuracy.
 
-Street data © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright). Place search by [Photon](https://photon.komoot.io).
+The raw ticket CSV, GTFS feed, reviewed stop workbook, trained model and map graph are not in this repository. The reviewed workbook is the team's manual stop-name corrections, needed to reproduce the reported match rate exactly. `tests/fixtures/otp` contains recorded routing responses that include aggregate figures derived from training tickets; no raw ticket records are included.
+
+Code and documentation: [MIT licence](LICENSE). Street data © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright). Place search by [Photon](https://photon.komoot.io).
