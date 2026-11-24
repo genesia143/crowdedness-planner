@@ -9,8 +9,7 @@ A journey planner for Delhi buses that shows, next to each option's travel time,
 ## What it does
 
 - **Plan a journey** between any two stops or places, with walking, waiting and bus times and up to three departures searched.
-- **See a crowd estimate for each option** (Low / Moderate / High) and **sort by least crowded**, so the trade-off between time and comfort is visible at a glance.
-- **See where along a ride it's busier.** Under *Journey details*, each bus has a strip with one block per stretch between stops, compared with the same stretch at other hours.
+- **See a crowd estimate for each option**, colour-coded green (Low), orange (Moderate) or red (High), and **sort by least crowded**, so the trade-off between time and comfort is visible at a glance.
 - **Operator view** (`/operators`): the route stretches and routes with the most mobile-ticket passengers per scheduled bus, by day type and time of day, on a map and in tables.
 
 ![Operator view: highest-pressure stretches on a weekday evening](docs/images/operators.png)
@@ -57,7 +56,7 @@ These agreement figures compare the model with **later ticket patterns**, not wi
 ## Limitations
 
 - **The data covers mobile e-tickets only.** The organisers confirmed it is a subset of riders. Free tickets for women and passes are not in it, and its share of riders may differ by route and hour. Estimates are relative pressure, not passengers on board or seat availability.
-- **Comparing routes assumes similar app use on every route.** The Low / Moderate / High labels, the least-crowded sort and the operator view rely on this, and it has not been verified. Stretch strips compare a stretch only with itself, so they do not depend on it.
+- **Comparing routes assumes similar app use on every route.** The Low / Moderate / High labels, the least-crowded sort and the operator view rely on this, and it has not been verified.
 - **Bus service is the timetable,** not buses that actually ran. Ticket time is treated as boarding time.
 - **Thin evidence is filled from wider pools.** Many journey estimates use route-wide averages for some stretches; missing evidence is shown as *not enough data*, never as quiet.
 - **No independent ground truth yet.** A [field check protocol](docs/field-study/protocol.md) is written, but no counts have been collected. The held-out week has now been used once and is not a fresh test for a revised model.
