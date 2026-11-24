@@ -90,8 +90,9 @@ def handler_for(database, planner=None, otp_endpoint=None, gtfs=None, recorded=N
         def do_GET(self):
             parsed = urlparse(self.path)
             try:
-                if parsed.path == '/':
-                    body = (Path(__file__).resolve().parent.parent / 'web' / 'index.html').read_bytes()
+                pages = {'/': 'index.html', '/operators': 'operators.html'}
+                if parsed.path in pages:
+                    body = (Path(__file__).resolve().parent.parent / 'web' / pages[parsed.path]).read_bytes()
                     self.send_response(200)
                     self.send_header('Content-Type', 'text/html; charset=utf-8')
                     self.send_header('Content-Length', str(len(body)))
@@ -100,6 +101,16 @@ def handler_for(database, planner=None, otp_endpoint=None, gtfs=None, recorded=N
                     return
                 if parsed.path == '/health':
                     result, status = {'status': 'ok'}, 200
+                elif parsed.path == '/operators/busiest':
+                    if planner is None or not gtfs: raise ValueError('operator view needs --gtfs')
+                    params = parse_qs(parsed.query)
+                    fields = ['day_type', 'hour_from', 'hour_to', 'limit', 'min_sample']
+                    if any(len(params.get(field, [])) > 1 for field in fields): raise ValueError('provide each parameter at most once')
+                    from operator_view import busiest, route_names
+                    names = route_names(gtfs)
+                    result = busiest(database, planner.stops, planner.stop_coordinates, names,
+                                     **{field: params[field][0] for field in fields if field in params})
+                    status = 200
                 elif parsed.path == '/stops':
                     params = parse_qs(parsed.query)
                     if planner is None: raise ValueError('journey planner is not configured')
