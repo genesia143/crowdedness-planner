@@ -1,95 +1,90 @@
-# Delhi crowdedness-aware journey planner
+# Delhi crowdedness-aware bus journey planner
 
-**Getting started:** follow [SETUP.md](SETUP.md) for step-by-step local setup, including the required data and an optional full map-based router.
+**Product and Policy Lab** · Delhi Transport Stack challenge, Problem 2
 
-This project is being developed for Problem 2. It provides a local journey-planner UI and backend that estimates a **relative ticket-derived demand signal** for bus segments.
+A journey planner for Delhi buses that shows, next to each option's travel time, how crowded the bus is likely to be, estimated from October 2026 mobile e-ticket records. Commuters can pick between a faster trip and a more comfortable one. Operators get a map of where buses are under most pressure.
 
-The organisers confirmed that the October dataset covers mobile-app e-tickets. It does not cover all riders, and its counts do not establish how many people are aboard, whether a seat is available, or actual crowding. The proposed signal and its evaluation are explained in [the backend design](docs/backend-design.md).
+![Journey planner: Anand Vihar to Connaught Place at 6 pm, sorted by least crowded](docs/images/planner.png)
 
-## Current status
+## What it does
 
-A ticket-sample baseline and local API provide direct journeys and experimental mapped journeys through OpenTripPlanner, with walking and ticket signals. The UI displays journey alternatives, a configurable extra-arrival-time limit and an experimental option-level comparison under the assumptions below. Calibrated cross-route comfort, complete routing validation and an independent clean-machine setup check remain open; see [the trial note](docs/otp-trial.md).
+- **Plan a journey** between any two stops or places, with walking, waiting and bus times and up to three departures searched.
+- **See a crowd estimate for each option** (Low / Moderate / High) and **sort by least crowded**, so the trade-off between time and comfort is visible at a glance.
+- **See where along a ride it's busier.** Under *Journey details*, each bus has a strip with one block per stretch between stops, compared with the same stretch at other hours.
+- **Operator view** (`/operators`): the route stretches and routes with the most mobile-ticket passengers per scheduled bus, by day type and time of day, on a map and in tables.
 
-## Brief and working assumptions
+![Operator view: highest-pressure stretches on a weekday evening](docs/images/operators.png)
 
-The PS2 brief asks for a rerunnable ticket-to-crowding pipeline, segment-level outputs, a journey planner or demo showing crowding alongside travel time, a technical note, and checks against familiar patterns and across weeks. It emphasizes a sound crowding model over a polished planner. The brief says the final ticket schema is to be confirmed.
+## Try it
 
-Our working assumptions are that the supplied GTFS schedule approximates service, ticket creation time approximates boarding time, and the matched ticket sample can indicate relative passenger pressure. Each may be wrong or vary by route and time. Missing riders, uneven ticket-channel use and incomplete matching prevent us from inferring actual onboard counts, seat availability or calibrated occupancy from these data alone. Scheduled service is not a count of buses that actually ran. We report evidence and keep low-evidence results unavailable rather than imply an empty bus. October 25–31 is reserved for testing and must not be used for model development; it has already been evaluated for an earlier candidate and is not a fresh independent test for revised models. Agreement with ticket patterns does not establish accuracy against actual passenger counts.
-
-## Run the initial baseline
-
-Requires Python 3.9 or newer and local copies of the ticket CSV and static GTFS directory. From the project directory:
-
-```sh
-python3 -m unittest discover -s tests -v
-python3 src/cli.py --tickets /path/to/October-Delhi.csv --gtfs /path/to/gtfs --start 2026-10-01 --end 2026-10-21 --output data/training.json
-```
-
-The output contains daily sample passenger-journey counts per segment and ticket boarding hour, plus matching counts. Exact normalized stop names must match on a route and produce one unambiguous segment sequence. The output is **not** onboard load, a prediction for an individual bus, or a normalized crowding level. The prototype API, tuning diagnostics and a basic UI exist; final validation and submission hardening remain. Avoid using October 25–31 for model development; see the design note for the proposed split.
-
-### Experimental fuzzy matching
-
-Add `--fuzzy` to try route-conditioned fuzzy stop matching. The matcher requires a similarity score of at least 0.90 and a margin of at least 0.08 over the next candidate; these are provisional rules, not validated accuracy guarantees. Exact matches take priority, and ambiguous stop sequences remain excluded. The output separates exact and fuzzy matches from rejected records. Leave fuzzy matching off for the default baseline until a manually reviewed sample shows it is sufficiently accurate.
-
-## Run the prototype API
-
-After generating the training JSON above, index it and start the server:
+You need Python 3.9+, the October ticket CSV, the original static GTFS feed and, to match our reported results, the team's reviewed stop workbook (see [Data](#data)). No packages to install.
 
 ```sh
-python3 src/index_model.py --input data/training.json --output data/model.db --gtfs /path/to/gtfs
-python3 src/api.py --database data/model.db --gtfs /path/to/gtfs --port 8000
+python3 -m unittest discover -s tests            # 108 tests
+python3 src/cli.py --tickets data/input/October-Delhi.csv --gtfs data/input/gtfs \
+  --review data/input/stop-review.xlsx --confirm-review \
+  --start 2026-10-01 --end 2026-10-21 --output data/setup/training.json
+python3 src/index_model.py --input data/setup/training.json --output data/setup/model.db --gtfs data/input/gtfs
+python3 src/api.py --database data/setup/model.db --gtfs data/input/gtfs --port 8000
 ```
 
-`GET /health` checks that the server is running. `GET /segments/signal` accepts `route`, `from_stop_id`, `to_stop_id`, and `departure` (an ISO timestamp including an offset). URL-encode parameters. It reports the mean sample count **on days with a matched observation**, and the number of such days. It does not include days without observations in the denominator, and is not a per-bus load, an unconditional forecast, or a calibrated crowding level. A missing signal returns an unavailable status. Stop search and direct scheduled-bus journeys are available when the GTFS directory is supplied. The experimental mapped endpoint supports walking and transfers when a local OTP server is configured; see the trial note. Independent crowding validation and production hardening remain to be completed. The indexer currently loads the full JSON into memory.
+Open http://127.0.0.1:8000/. This quick setup uses a simplified built-in router. For full street-network walking and transfers, add OpenTripPlanner, or replay the recorded OTP responses with `--otp-recordings tests/fixtures/otp`. Step-by-step instructions are in [SETUP.md](SETUP.md).
 
-### Scheduled-service denominator
+## How it works
 
-With `--gtfs`, the indexer divides matched ticket-sample passengers by scheduled segment crossings for the same route, segment, calendar date and hour. It includes only days with at least one matched ticket and a scheduled crossing; it reports excluded observed days with no matching scheduled crossing. It honors GTFS calendar exceptions and times after 24:00. Frequency-based GTFS is not supported and is rejected. This is an experimental sample-per-scheduled-crossing proxy: schedules may not reflect actual buses, ticket channel coverage is biased, and ticket boarding hour can differ from the hour of segment crossing. It is not actual occupancy or crowding.
+1. **Match tickets to the timetable.** Each ticket's route and stop names are matched to the GTFS stop sequence for that route, using exact names plus a reviewed list of corrections. Unmatched or ambiguous tickets are left out rather than guessed.
+2. **Count passengers on each stretch.** A matched ticket adds its `passenger_count` to every stretch between its boarding and destination stops, in its boarding hour. This needs no bus number, which half the tickets lack.
+3. **Divide by scheduled buses.** Totals per route, stretch, hour and day type (weekday, Saturday, Sunday) are divided by scheduled GTFS crossings over the training days. Days with buses but no tickets count as zero.
+4. **Label stretches against their own hours.** A stretch at a given hour is *likely busier*, *typical* or *likely quieter* compared with the same stretch at other hours. Without enough evidence it says so rather than guessing. Sundays can use a wider three-hour window, marked as weaker evidence.
+5. **Estimate each journey's crowding.** Stretch pressure is pooled over the hour and its neighbours, averaged per bus leg and weighted by ride time. It is placed in fixed Low / Moderate / High bands, with route-wide fallbacks when a stretch lacks data. This step assumes mobile-ticket use is similar across routes.
 
-### Experimental segment timing and fuzzy review
+The full method, assumptions and API are in the [technical note](docs/submission-note.md) and [technical reference](docs/technical-reference.md).
 
-The `--segment-timing` flag estimates each segment's crossing time by adding the median scheduled travel time from the ticket's boarding stop across GTFS trips with the same ordered stop path. This is experimental: the ticket creation time may differ from boarding, scheduled travel times may differ from actual travel, and a median across trips can hide time-of-day variation. Records without a suitable timing estimate are reported and excluded. Keep the default boarding-hour baseline until comparisons show whether this improves it.
+## Results at a glance
 
-`scripts/sample_fuzzy.py` creates a reproducible, ticket-row-weighted CSV sample for manual review of accepted fuzzy matches, limited to the supplied dates. The same stop pair can appear more than once because frequent ticket rows receive proportionate weight. Record correctness and reasons in the review columns; do not treat unreviewed output as accuracy evidence. Fuzzy matching remains opt-in.
+| Check | Result | Source |
+|---|---|---|
+| Ticket sample behaves like commuter travel | Weekday peaks at 09:00 and 18:00; Saturday 74% and Sunday 47% of a weekday; weekday shape correlates 0.985–0.991 week to week; 9 of the 12 busiest peak routes reverse direction between morning and evening | [Known patterns](docs/known-patterns.md) |
+| Tickets matched to the timetable (training, 1–21 Oct) | 916,872 of 1,672,406 (54.8%) | [Reproducibility check](docs/reproducibility-check.md) |
+| Stretch labels on the held-out week (25–31 Oct), against labels from that week's tickets | Weekday 66.5%, Saturday 54.8%, Sunday 42.8% agreement (about 33% by chance) | [Final ticket evaluation](docs/final-ticket-evaluation.md) |
+| Hour-order stability across rotating development weeks | 82.5–84.0% of weekday hour pairs ordered the same way | [Rotating weeks](docs/rotating-week-development.md) |
+| Options with a journey crowd estimate (200 random searches) | 958 of 1,102 (86.9%). 687 of those use a route-wide fallback on at least one stretch | [Journey pressure evaluation](docs/journey-pressure-evaluation.md) |
+| Rebuild from the same inputs | Training records and model index reproduced byte for byte | [Reproducibility check](docs/reproducibility-check.md) |
 
-### Direct journey API (V1 prototype)
+These agreement figures compare the model with **later ticket patterns**, not with people counted on buses.
 
-With `--gtfs`, `GET /stops?q=...` searches stop names. `GET /journeys?from_stop_id=...&to_stop_id=...&departure=...` returns up to five direct scheduled bus trips departing in the next two hours, sorted by scheduled arrival. The ISO 8601 departure must include a timezone offset. Results include scheduled waiting and ride times and a per-segment sample-per-scheduled-crossing signal when available. URL-encode query parameters, including the `+` in timezone offsets. No transfers, walking, live positions, actual occupancy or crowding ranking are provided. GTFS frequency-based service and missing stop times are not yet supported.
+## Limitations
 
-To build V1 with a confirmed review workbook, add `--review /path/to/review.xlsx --confirm-review` to the training command. This uses the workbook's route-valid reviewed mappings, including low-similarity entries confirmed by the reviewer; invalid route/stop combinations remain excluded. The workbook and generated model are excluded from Git, so contributors require appropriate access to those inputs.
+- **The data covers mobile e-tickets only.** The organisers confirmed it is a subset of riders. Free tickets for women and passes are not in it, and its share of riders may differ by route and hour. Estimates are relative pressure, not passengers on board or seat availability.
+- **Comparing routes assumes similar app use on every route.** The Low / Moderate / High labels, the least-crowded sort and the operator view rely on this, and it has not been verified. Stretch strips compare a stretch only with itself, so they do not depend on it.
+- **Bus service is the timetable,** not buses that actually ran. Ticket time is treated as boarding time.
+- **Thin evidence is filled from wider pools.** Many journey estimates use route-wide averages for some stretches; missing evidence is shown as *not enough data*, never as quiet.
+- **No independent ground truth yet.** A [field check protocol](docs/field-study/protocol.md) is written, but no counts have been collected. The held-out week has now been used once and is not a fresh test for a revised model.
+- **Routing is bounded.** The built-in fallback handles direct buses and same-stop changes with straight-line walking. OpenTripPlanner's search is not exhaustive either.
 
-### Comparing observed days with all scheduled days
+## Brief deliverables
 
-Newly built indexes also return `all_scheduled_days_proxy`: sample passengers divided by all scheduled crossings across the matching training dates, including scheduled days with no matched tickets. This treats those missing observations as zero **in the ticket sample**, which is useful for understanding sparsity but assumes ticket ingestion was complete. It does not establish zero real riders. The original `scheduled_service_proxy` remains available and uses only days with matched tickets; it tends to be higher in sparse samples. Both use scheduled rather than observed service. Rebuild existing indexes to include the new field.
+| Brief asks for | Where |
+|---|---|
+| A rerunnable pipeline from ticket records to crowding estimates | `src/cli.py` → `src/index_model.py`; [SETUP.md](SETUP.md) |
+| Crowding outputs that can be queried or shown on a map, by route, stretch and time of day | `GET /segments/signal`, `GET /operators/busiest`, the `/operators` map |
+| A planner showing crowding next to each option and its travel time | `GET /journeys/mapped` and the screen at `/` |
+| A short technical note: method, assumptions, least reliable areas | [docs/submission-note.md](docs/submission-note.md) |
+| Checks against known patterns (peaks, busy corridors, weekday vs weekend) | [docs/known-patterns.md](docs/known-patterns.md) |
+| Checks of how estimates hold up week to week | [Rotating weeks](docs/rotating-week-development.md), [final ticket evaluation](docs/final-ticket-evaluation.md) |
 
-### Experimental one-transfer endpoint
+## Repository guide
 
-`GET /journeys/transfers?from_stop_id=...&to_stop_id=...&departure=...` returns up to five two-bus itineraries with a transfer at the **same GTFS stop ID**. It assumes a 5–60 minute transfer wait, a first departure within two hours, and arrival within four hours. It does not yet model walking between nearby stops, guaranteed connections, real-time changes, accessibility, or V1 crowding signals on transfer legs. Similar itineraries can appear more than once when buses share several transfer stops. This is an initial experiment, not a full transit router.
+| Path | Contents |
+|---|---|
+| `src/` | Pipeline (`cli.py`, `model.py`, `index_model.py`), model queries (`predict.py`), journey estimates (`journey_pressure.py`, `journey_choices.py`), routing (`otp_client.py`, `fallback_planner.py`, `journeys.py`), operator view (`operator_view.py`), API (`api.py`) |
+| `web/` | Journey planner (`index.html`) and operator view (`operators.html`) |
+| `scripts/` | Evaluation, diagnostics and report generators |
+| `tests/` | Unit tests and recorded OpenTripPlanner responses (`tests/fixtures/otp`) |
+| `docs/` | Technical note, evaluations and development record; start at [docs/README.md](docs/README.md) |
 
-## Experimental mapped journeys
+## Data
 
-With a graph built from the same GTFS version, start OpenTripPlanner 2.7 with Java 21, then start the API with `--otp-endpoint http://localhost:18080/otp/gtfs/v1` alongside the `--database` and `--gtfs` arguments above. The graph build, map input, example request, limits and coverage checks are described in [the OTP trial note](docs/otp-trial.md). The mapped endpoint provides scheduled walking, waiting and riding times, plus ticket-derived segment signals where available. The transfer-distance limit filters returned options after the routing search; it does not guarantee that every compliant alternative is found.
+The ticket CSV, GTFS feed, reviewed stop workbook, trained model and map graph are not in this repository. The ticket data and GTFS come from the [Delhi Transport Stack](https://delhi.transportstack.in) platform under its data licence. The reviewed workbook is the team's manual stop-name corrections, needed to reproduce the reported match rate exactly. `tests/fixtures/otp` contains recorded routing responses, including aggregate figures derived from training tickets; no raw ticket records are included.
 
-The screen at `http://127.0.0.1:8000/` uses the mapped journey endpoint when OTP is configured. It shows a provisional option-level comparison based on unverified cross-route uptake assumptions; it does not show validated occupancy. Broader routing and accessibility verification remain open.
-
-The “Show on map” button draws a selected journey using OTP leg geometry when available. For replayed or simplified journeys without geometry, dashed straight lines are only an approximation and are labelled as such. The map loads Leaflet and OpenStreetMap tiles over the internet; journey search can still be used when the map cannot load.
-
-### Without a running OTP
-
-`/journeys/mapped` answers in this order: the live OTP endpoint if `--otp-endpoint` is given; a recorded response if `--otp-recordings tests/fixtures/otp` is given and the request matches a recorded case; otherwise the built-in planner, when `--gtfs` is supplied. The response's `routing_source` says which answered and `fallback_reason` says why. The built-in fallback searches up to eight stops within 800 m of each end, for direct buses and changes at the same stop only; walking is a straight-line estimate with a 1.3 detour factor at 4.5 km/h, not a street route. Segment signals and the journey evidence summary are attached the same way as for OTP results. The screen shows a "Simplified routing" note when the fallback answered.
-
-```sh
-python3 src/api.py --database data/model.db --gtfs /path/to/gtfs --otp-recordings tests/fixtures/otp --port 8000
-```
-
-For a contributor-oriented walkthrough of the current setup, see [the setup guide](docs/setup.md). It has not yet been verified on an independent clean machine.
-
-The [submission note](docs/submission-note.md) describes the intended deliverable and its limitations. See the [reproducibility check](docs/reproducibility-check.md), [final ticket evaluation](docs/final-ticket-evaluation.md), and [submission checklist](docs/submission-checklist.md) for the evidence and remaining work. The input ticket data, GTFS feed, reviewed stop workbook and generated model are not distributed in this repository; access to the appropriate data is required to reproduce the demonstrated model.
-
-The experimental model now distinguishes weekdays, Saturdays and Sundays. Rebuild both training records and index after upgrading: older pooled-weekend models are rejected. Saturday and Sunday each have only three training days. Sunday was explored using rotating Sundays and later evaluated against the ticket sample, not actual passenger counts; public holidays are not separately modelled.
-
-## Time and comfort comparison
-
-The mapped API accepts `extra_minutes` (default 20) and optional `latest_arrival` with a timezone offset. The UI hides these inputs and uses the 20-minute default; it returns time-feasible options among those found by the bounded search. The experimental `journey_pressure` field uses fixed low/moderate/high bands, independent of the other options. The cutoffs 1/6 and 0.4 are the approximate 33rd and 67th percentiles of 1,019,450 positive training-period route-segment-hour sample rates, not measured physical crowding. These hourly segment thresholds are exploratory when applied to pooled journey scores. They do not predict seats or calibrated physical comfort.
-
-The comparison **assumes uniform mobile-ticket uptake across routes**, treats static GTFS scheduled crossings as service, and pools the requested hour with its immediate neighbours. One observed mobile ticket is sufficient. Days with a scheduled crossing but no matched ticket count as zero in the mobile-ticket sample. If a segment has no ticket evidence, a route-wide three-hour average is substituted when available; if that is missing, the fallback uses the same day type across all hours, then all day types and hours. Those progressively broader fallbacks make stronger assumptions that route patterns transfer across time and days. Each leg's segment scores are averaged and the leg scores are weighted by scheduled bus travel time. An option remains unavailable when any bus leg has no usable evidence. Uneven ticket uptake, missing riders and matching errors, schedule deviations, assumed ticket timing and route-wide fallback can all bias rankings. Within-leg segment durations are approximated as equal, and the labels do not measure actual occupancy. The user-selected assumptions are unverified; evaluation is against ticket patterns and heuristics, not independent passenger counts.
+Street data © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright). Place search by [Photon](https://photon.komoot.io).

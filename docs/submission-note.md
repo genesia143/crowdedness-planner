@@ -12,7 +12,7 @@ Strict hourly labels compare a segment with its own supported hours for the same
 
 ## Journey search and interface
 
-The full graph combines GTFS timetables with OpenStreetMap walking. The API tests departure at the requested time and 10 and 20 minutes later, then applies the maximum extra-arrival window and optional arrival deadline to returned candidates. The router is not exhaustive; the transfer-walk limit is applied after search and may exclude valid alternatives before they are seen. When OTP is unavailable, a limited GTFS fallback estimates walking from straight-line distance and may miss routes or transfers. Route times are scheduled, not GPS-derived. Option labels use fixed exploratory ticket-pressure bands, not physical crowding thresholds; see the README for the estimator and its unverified assumptions.
+The full graph combines GTFS timetables with OpenStreetMap walking. The API tests departure at the requested time and 10 and 20 minutes later, then applies the maximum extra-arrival window and optional arrival deadline to returned candidates. The router is not exhaustive; the transfer-walk limit is applied after search and may exclude valid alternatives before they are seen. When OTP is unavailable, a limited GTFS fallback estimates walking from straight-line distance and may miss routes or transfers. Route times are scheduled, not GPS-derived. Option labels use fixed exploratory ticket-pressure bands, not physical crowding thresholds; see the [technical reference](technical-reference.md#time-and-comfort-comparison) for the estimator and its unverified assumptions.
 
 ## Checks and limitations
 
@@ -24,4 +24,4 @@ The busy-route benchmark did not support robust cross-route comparison: differen
 
 ## Running
 
-Follow [setup](setup.md) and the root README. Do not train or tune using October 25–31. The project exposes `/health`, `/stops`, `/segments/signal` and `/journeys/mapped`. The UI can use OTP or a limited fallback; both require a compatible GTFS and model index. The optional public Photon place-search service requires internet and can be unavailable; GTFS stop lookup remains available.
+Follow [SETUP.md](../SETUP.md) and the [project README](../README.md). Do not train or tune using October 25–31. The project exposes `/health`, `/stops`, `/segments/signal` and `/journeys/mapped`. The UI can use OTP or a limited fallback; both require a compatible GTFS and model index. The optional public Photon place-search service requires internet and can be unavailable; GTFS stop lookup remains available.
